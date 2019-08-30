@@ -1,0 +1,315 @@
+// -----------------------------------------------------------------------------
+// quiz
+// -----------------------------------------------------------------------------
+
+// summary page
+#page-mod-quiz-view {
+  .box.quizinfo p {
+    font-family: 'KingsBureauGrotFiveOne';
+    text-align: left;
+    margin-bottom: unset;
+    &:first-child::before {
+      @extend .icon-before;
+      content: '\f017';
+    }
+    &:nth-child(2)::before {
+      @extend .icon-before;
+      content: '\f091';
+    }
+  } 
+  .quizattemptsummary {
+    border: 1px solid $table-border;
+    border-collapse: separate;
+    thead .header {
+      font-family: 'KingsBureauGrot';
+      background-color: #01b9e1;
+      color: $headings;
+      &.lastcol {
+        color: #01b9e1 !important;
+      }
+    }
+    tr td {
+      font-family: 'KingsBureauGrotFiveOne';
+      background-color: unset;
+      color: $body-text;
+      &.lastcol {
+        a {
+          @extend .btn, .btn-primary;
+        }
+      }
+    }
+  }
+  .generalbox#feedback {
+     margin: unset;
+     padding: unset;
+  }
+  .quizstartbuttondiv form {
+    text-align: left;
+    div {
+      margin-left: unset;
+      input[type="submit"]:first-child {
+        @extend .btn, .btn-primary;
+        margin-left: unset;
+      }
+    }
+  }
+  .continuebutton {
+    input[type="submit"]:first-child {
+      @extend .btn, .btn-primary;
+    }
+  }
+}
+
+// review page
+#page-mod-quiz-review {
+  .quizreviewsummary {
+    border: 1px solid $table-border;
+    tr th, tr td {
+      border-top: 1px solid $table-border ;
+      background-color: $white;
+    }
+    tr th{
+      font-family: 'KingsBureauGrot';
+      color: $headings;
+      text-align:left !important; 
+    }
+    tr td{
+      font-family: 'KingsBureauGrotFiveOne';
+      color: $body-text;
+    }
+    tr:nth-child(even)>th, tr:nth-child(even)>td {
+      background-color: #f8fafa !important;
+    }
+  }
+}
+
+//quiz attempt page
+#page-mod-quiz-attempt {
+  .submitbtns {
+    .mod_quiz-prev-nav.btn.btn-secondary {
+      @extend .btn, .btn-secondary;
+    }
+    .mod_quiz-next-nav.btn.btn-primary {
+      @extend .btn, .btn-primary;
+    }
+  }
+}
+// quiz navigation block
+#mod_quiz_navblock .content {
+  a.qnbutton {
+    height: 1.25rem;
+    width: 1.25rem;
+    font-size: 1rem;
+    padding: unset;
+    margin: 0 0.625rem 0.625rem 0;
+    background-color: $pearl-grey !important;
+    color: $black;
+    span.thispageholder {
+      border: unset;
+    }
+    span.trafficlight {
+      display: none;
+    }
+    &.correct {
+      background-color: rgba(65, 195, 130, 0.5) !important;
+    }
+    &.incorrect {
+      background-color: rgba(234, 100, 94, 0.5) !important;
+    }
+    &.notanswered {
+      background-color: rgba(65, 185, 225, 0.5) !important;
+      span.thispageholder {
+        border: 2px solid #f5b90d;
+        border-radius: 4px;
+      }
+    }
+  }
+  .othernav {
+    text-align: right;
+    a.endtestlink {
+      @extend .btn;
+      @extend .btn-primary;
+      display: inline;
+      margin-right: unset;
+    }
+    #quiz-timer {
+     font-family: 'KingsBureauGrotFiveOne';
+     font-size: 1.125rem;
+      #quiz-time-left {
+        font-family: 'KingsBureauGrot';
+      }
+      &::before {
+        content: '\f017';
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        margin-right: 4px;
+      }
+    }
+    .singlebutton {
+      div {
+        margin-right: unset;
+        input[type="submit"] {
+          @extend .btn, .btn-primary;
+          margin-right: unset;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+#page-mod-quiz-summary {
+  .controls .singlebutton input[type="submit"]:first-child {
+    @extend .btn, .btn-primary;
+  }
+} 
+
+.que.deferredfeedback, .que.manualgraded {
+  .info {
+    background-color: unset;
+    padding: unset;
+    border: unset;
+    .no {
+      width: 100%;
+    }.no, .qno {
+      @extend .h5;
+    }
+    div.state, div.grade {
+      line-height: normal;
+      padding: 0.375rem;
+      font-size: 1rem;
+      font-family: 'KingsBureauGrot';
+      border-radius: 0.125rem;
+      margin: unset;
+      margin-right: 0.5rem;
+    }
+    div.state {
+      background-color: #01b9e1;
+      text-transform: uppercase;
+      color: $white;
+    }
+    div.grade {
+      background-color: #e6ebed;
+      color: $headings;
+    }
+    .questionflag.editable {
+      line-height: normal;
+      font-family: 'KingsBureauGrotFiveOne';
+      .questionflagimage {
+        display: none;
+      }
+      .questionflagtext::before {
+        @extend .icon-before;
+        content: '\f024';
+        color: $yellow;
+        font-weight: 500;
+      }
+    }
+  }
+// quiz feedback box
+  .content {
+    .formulation {
+      background-color: unset;
+      margin-top: 1rem;
+      padding: unset;
+      .qtext b {
+        font-family: 'KingsBureauGrot';
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+      .ablock {
+        .prompt, .readonly, .readonly p {
+          font-family: 'KingsBureauGrotFiveOne';
+        }
+        .answer {
+          font-family: 'KingsBureauGrot';
+          .r0, .r1 {
+            margin-bottom: unset;
+            label {
+              font-size: 1rem;
+            }
+            img {
+              display: none;
+            }
+          }
+          .correct {
+            background-color: rgba(40,195,130,0.2) !important;
+          }
+          .incorrect {
+            background-color: rgba(226,35,26,0.2) !important;
+          }
+        }
+      }
+    }
+    .outcome {
+      @extend .info-box;
+      background-color: rgba(245,185,15,0.2) !important;
+      & > .feedback::before {
+        content: '\f27a';
+        color: $yellow;
+        padding: 0 4px;
+      }
+      .feedback {
+        &::before {
+          @extend .info-box-inner::before;
+        }
+        @extend .info-box-inner;
+        margin-bottom: unset;
+        .specificfeedback, .specificfeedback p {
+          @extend .info-box-title;
+          margin-bottom: 1rem;
+        }
+        .rightanswer {
+          margin-bottom: unset;
+        }
+      }
+    }
+  }
+  &.correct .outcome {
+    background-color: rgba(40,195,130,0.2) !important;
+    & > .feedback::before {
+      color: $pea-green;
+      padding: 0 4px;
+      content: '\f058';
+    }
+  }
+  &.incorrect .outcome {
+    background-color: rgba(226,35,26,0.2) !important;
+    & > .feedback::before {
+      color: $kings-red;
+      content: '\f057';
+      padding: 0 4px;
+    }
+  }
+}
+
+// confirmation modal
+.moodle-dialogue {
+  .moodle-dialogue-wrap {
+    padding: 1rem;
+    .moodle-dialogue-hd {
+      background-color: unset !important;
+      border-bottom: unset !important;
+      h1 {
+        @extend .h1;
+      }
+    }
+  }
+  .moodle-dialogue-bd {
+    padding: unset;
+    .confirmation-message {
+      font-family: 'KingsBureauGrotFiveOne';
+      font-size: 1rem;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 0.5rem 0.625rem;
+      border: unset;
+      background-color: $midnight-blue !important;
+      color: white;
+    }
+  }
+  .moodle-dialogue-ft {
+    margin: unset !important;
+  }
+}

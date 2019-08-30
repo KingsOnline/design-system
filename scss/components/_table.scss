@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// table
+// -----------------------------------------------------------------------------
+
+table, .table {
+  margin-bottom: $component-margin-bottom;
+  border-collapse: separate;
+  border-spacing: unset;
+  &.table-bordered {
+    border: 1px solid $table-border;
+    border-radius: unset;
+  }
+  &.default-width {
+    width: unset;
+  }
+  th, td {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid $table-border;
+    &:not(:first-child) { 
+      border-left: 1px solid $table-border;
+    }  
+  }
+  th {
+    background-color: $block-background;
+    font-family: 'KingsBureauGrot';
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: $headings;
+    border-radius: unset !important;
+  }
+  td {
+    line-height: 1.375;
+    color: $body-text;
+  }
+}

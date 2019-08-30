@@ -1,0 +1,74 @@
+// -----------------------------------------------------------------------------
+// carousel
+// -----------------------------------------------------------------------------
+
+.carousel {
+  margin-bottom: 3.5rem;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 50;
+  }
+  .carousel-caption {
+    @extend .caption-overlay;
+    text-align: left;
+    padding: 2.4% 11%;
+    p {
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    @media only screen and (max-width: $neo-breakpoint) {
+      position: unset;
+    }
+  }
+  &.text-only {
+    .carousel-item {
+      position: relative;
+      background-color: rgba(10, 45, 80, 0.85);
+      padding-top: 33.3333%;
+    }
+    .carousel-caption {
+      position: absolute;
+      background-color: unset;
+      top: 25%;
+      z-index: 1;
+      padding: 2.4% 12%;
+    }
+  }
+  .carousel-indicators {
+    top: unset;
+    bottom: -32px;
+    margin: 0;
+    width: 100%;
+    background-color: rgba(10, 45, 80, 1);
+    li {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      margin: 10px 11px;
+    }
+  }
+  .carousel-control-prev, .carousel-control-next {
+    opacity: 1;
+  }
+  .carousel-control {
+    background-color: rgba(10, 45, 80, 0.5);
+    padding: 0 15px !important;
+    border-radius: 4px;
+    position: unset;
+    border: none;
+    width: auto !important;
+    height: auto !important;
+    opacity: unset;
+    &:hover {
+      background-color: rgba(10, 45, 80, 1);
+    }
+    i {
+    font-size: 60px;
+    }
+  }
+}  

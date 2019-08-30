@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// typography
+// -----------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'KingsBureauGrot';
+  color: #171717 !important;
+  color: red !importnat;
+}
+body, select, option {
+  font-family: 'KingsBureauGrotFiveOne';
+}
+
+$font-kbg: (
+  family: 'KingsBureauGrot',
+  h1: ( font-size: 10.75rem, line-height: 1.2 ),
+  h2: ( font-size: 10.5rem, line-height: 1.25 ),
+  h3: ( font-size: 1.25rem, line-height: 1.25 ),
+  h4: ( font-size: 1.125rem, line-height: 1.4 ),
+  h5: ( font-size: 1rem, line-height: 1.375 ),
+  h6: ( font-size: 1rem, line-height: 1.375 )
+);
+
+$font-kgbfo: (
+  family:  'KingsBureauGrotFiveOne',
+  p: ( font-size: 1rem, line-height: 1.5 )
+);
+
+$font-default: $font-kbg;
+
+@function _fontset-feature($feature, $family:$font-default, $set: 'base'){
+  $result: map-get(map-get($family, $set), $feature);
+  @return ($result * 1rem);
+}
+
+@function fontset-family($family) {
+  $result: map-get($family, family);
+  @return unquote($result);
+}
+
+@function calc-font-size($set, $family:$font-default) {
+  @return _fontset-feature(font-size, $family, $set);
+}
+
+@function calc-line-height($set, $family:$font-default) {
+  @return _fontset-feature(line-height, $family,  $set);
+}
+
+@mixin font-scale ($font-size, $family:$font-default,
+$line-height:$font-size) {
+  font-size: calc-font-size($font-size, $family);
+  line-height: calc-line-height($line-height, $family);
+  @if $family != $font-default {
+    font-family: fontset-family($family);
+  }
+}
+
+h1, .h1 { @include font-scale(h1);}
+h2, .h2 { @include font-scale(h2);}
+h3, .h3 { @include font-scale(h3);}
+h4, .h4 { @include font-scale(h4);}
+h5, .h5 { @include font-scale(h5);}
+h6, .h6 { @include font-scale(h6);}

@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// info box
+// -----------------------------------------------------------------------------
+
+//definition box
+.definition-box {
+  @extend .info-box;
+  background-color: $block-background;
+  & > :first-child::before {
+    content: '\f518';
+    padding: 0;
+    color: $purple70;
+  }
+}
+
+//feedback box
+.feedback-box {
+  @extend .info-box;
+  &.correct-answer {
+    background-color: rgba(40,195,130,0.2) !important;
+    & > :first-child::before {
+      color: $pea-green;
+      padding: 0 4px;
+      content: '\f058';
+    }
+  }
+  &.model-answer {
+    background-color: rgba(245,185,15,0.2) !important;
+    & > :first-child::before {
+      content: '\f27a';
+      color: $yellow;
+      padding: 0 4px;
+    }
+  }
+  &.incorrect-answer {
+    background-color: rgba(226,35,26,0.2) !important;
+    & > :first-child::before {
+      color: $kings-red;
+      content: '\f057';
+      padding: 0 4px;
+    }
+  }
+}
+
+//key concept box
+.key-concept-box {
+  background-color: $block-background;
+  margin-bottom: $component-margin-bottom;
+  padding: 1.5rem;
+  p {
+    @include font-scale(key-concept, $font-os);
+    font-weight: bold;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+//learning outcome box
+.learning-outcome-box {
+  @extend .info-box;
+  background-color: #edf1f2;
+  & > :first-child::before {
+    content: '\f091';
+    color: $teal-blue;
+    padding: 0 4px;
+  }
+  ol, ul {
+    margin: 0 0 0 1.25rem;
+  }
+}

@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// card
+// -----------------------------------------------------------------------------
+
+.card {
+  display: flex;
+  @media only screen and (max-width: $neo-breakpoint) {
+    display: block;
+  }
+  flex-direction: unset;
+  border: unset;
+  margin-bottom: $component-margin-bottom;
+//  @extend .top-bar;
+  .card-img-top, .card-img-left {
+    width: 310px;
+    @extend .top-bar; 
+    border-radius: unset; 
+    @media only screen and (max-width: $neo-breakpoint) {
+      width: 100%;
+    }
+  }
+  .card-body {
+    background-color: $block-background;
+    h4 {
+      margin-top: unset;
+    }
+  }
+}
+
+// horizontal card deck
+.card-deck {
+  margin-left: unset;
+  margin-right: unset;
+  .card {
+    display: block;
+    margin-bottom: 1.5rem;
+    &:first-child {
+      margin-left: unset;
+    }
+    &:last-child {
+      margin-right: unset;
+    }
+    .card-img-top, .card-img-left {
+      width: 100%;
+    }
+  }
+}
+
+.float-box {
+  display: flex;
+  margin-bottom: $component-margin-bottom;
+  img, .img-left {
+    margin: unset;
+    margin-right: 1rem;
+  }
+  .img-right {
+    margin-left: 1rem;
+  }
+  @media only screen and (max-width: $neo-breakpoint) {
+    display: block;
+    img, .img-left, {
+      margin-right: unset;
+      margin-bottom: 1rem;
+      width: 100%;
+      height: auto;
+    }
+    .img-right {
+      margin-left: unset;
+    }
+  }
+}

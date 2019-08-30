@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// hero banner
+// -----------------------------------------------------------------------------
+
+.hero {
+  @extend .top-bar;
+  margin-bottom: $component-margin-bottom;
+  .hero-caption {
+    @extend .caption-overlay;
+    @media only screen and (max-width: $neo-breakpoint) {
+      position: unset;
+    }
+    h2 {
+      color: $white;
+      margin: unset;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// questionnaire
+// -----------------------------------------------------------------------------
+
+.path-mod-questionnaire {
+  .qn-container {
+    .qn-question {
+      background: unset;
+      b {
+        @extend .h5;
+      }
+    }
+  }
+  &#page-mod-questionnaire-complete {
+    .c1, .c0 {
+      border-bottom: unset;
+      border-right: unset;
+      border-top: 1px solid $table-border;
+      border-left: 1px solid $table-border;
+    }
+    tr:last-child td {
+      border-bottom: 1px solid $table-border;
+    }
+  }
+}

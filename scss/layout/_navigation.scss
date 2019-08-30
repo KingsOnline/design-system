@@ -1,0 +1,195 @@
+// -----------------------------------------------------------------------------
+// navigation
+// -----------------------------------------------------------------------------
+
+// hide last modified date
+.modified {
+  display: none;
+}
+
+// hide the jump to activity dropdown
+#jump-to-activity {
+  display: none;
+}
+
+// link is white by default because of course why not moodle
+#next-activity-link:visited, #prev-activity-link:visited {
+  color: #555;
+}
+
+.navcontainer {
+  min-height: 6rem;
+  position: relative;
+  margin-top: 0.825rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  @media only screen and (max-width: $lg-breakpoint) {
+    min-height: 10rem;
+  }
+  @media only screen and (max-width: $neo-breakpoint) {
+    min-height: 14.5rem;
+  }
+  .navtext {
+    position: absolute;
+    max-width: 18rem;
+    margin: 2.125rem 0;
+    font-family: 'KingsBureauGrot';
+    font-size: 1.25rem;
+    line-height: 1.2;
+    color: #0a2d50;
+    @media only screen and (max-width: $xl-breakpoint) {
+      max-width: 16rem;
+    }
+    @media only screen and (max-width: $lg-breakpoint) {
+      max-width: 8rem;
+    }
+    @media only screen and (max-width: $neo-breakpoint) {
+      width: calc(50% - 5rem);
+    }
+  }
+}
+.navbutton {
+  font-family: 'FontAwesome';
+  font-size: 1.25rem;
+  color: $white;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 0;
+//  top: calc(50% - 1rem);
+  margin: 0;
+  padding: 4px 12px;
+  background-color: $midnight-blue;
+  box-shadow: 0 2px 0 0 #05192e;
+  &:hover {
+    background-color: #526C84;
+    box-shadow: 0 2px 0 0 #43566B;
+  }
+  @media only screen and (max-width: $neo-breakpoint) {
+    padding: 5px 16.5px;
+    font-size: 1.5625rem;
+  }
+}
+
+// webinar navigation
+.row-fluid.rtl-compatible {
+  @extend .navcontainer;
+  display: flex;
+  .span4:nth-child(2) {
+    display: none;
+  }
+  a#prev-activity-link, a#next-activity-link {
+    @extend .navtext;
+    width: 50%;
+    margin-top: unset;
+  }
+  a#prev-activity-link {
+    text-align: left;
+    left: 0;
+    &:before {
+      @extend .navbutton;
+      left: -3.125rem;
+      top: 0;
+    }
+  }
+  a#next-activity-link {
+    text-align: right;
+    right: 0;
+    &:after {
+      @extend .navbutton;
+      right: -3.125rem;
+      top: 0;
+    }
+  }
+}
+
+// section navigation
+.section-navigation.mdl-bottom {
+  @extend .navcontainer;
+  .mdl-left a, .mdl-right a {
+    @extend .navtext;
+  }
+  .mdl-left a {
+    left: $lg-nav-margin;
+    @media only screen and (max-width: $neo-breakpoint) {
+      left: $sm-nav-margin;
+    }
+    &:before {
+      @extend .navbutton;
+      left: -3.125rem;
+      top: 0;
+    }
+  }
+  .mdl-right a {
+    text-align: right;
+    right: $lg-nav-margin;
+    @media only screen and (max-width: $neo-breakpoint) {
+      right: $sm-nav-margin;
+    }
+    &:after {
+      @extend .navbutton;
+      right: -3.125rem;
+      top: 0;
+    }
+  }
+}
+
+// book navigation
+#page-mod-book-view {
+  .navtext.navtop, .navtext.navbottom {
+    @extend .navcontainer;
+    a {
+      @extend .navtext;
+      &.bookprev {
+        left: $lg-nav-margin;
+        @media only screen and (max-width: $neo-breakpoint) {
+          left: $sm-nav-margin;
+        }
+        &:before {
+          @extend .navbutton;
+          left: -3.125rem;
+        }
+      }
+      &.booknext, &.bookexit {
+        text-align: right;
+        right: $lg-nav-margin;
+        @media only screen and (max-width: $neo-breakpoint) {
+          right: $sm-nav-margin;
+        }
+        &:after {
+          @extend .navbutton;
+          right: -3.125rem;
+        }
+      }
+      &.bookexit {
+        .chaptername {
+          display: none;
+        }
+        &:before {
+          font-family: 'KingsBureauGrot';
+          content: 'Exit lesson';
+        }
+        &:after {
+          font-family: 'Font Awesome 5 Pro';
+          content: '\f2f5';
+          font-weight: 900;
+          padding: 0.25rem 0.375rem;
+          @media only screen and (max-width: $neo-breakpoint) {
+            padding: 5px 8.5px;
+          }
+        }
+      }
+      .chaptername{
+        font-family: 'KingsBureauGrotFiveOne';
+        font-size: 1.25rem;
+        font-weight: normal;
+      }
+      &:hover {
+        color: #526C84;
+        text-decoration: underline;
+      }
+    }
+  }
+  .row-fluid.rtl-compatible {
+    display: none;
+  }
+}

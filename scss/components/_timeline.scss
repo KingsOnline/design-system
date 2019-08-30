@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// timeline
+// -----------------------------------------------------------------------------
+
+.timeline-container {
+  margin-left: 64px;
+  padding: 0 20px;
+  .timeline-badge-pill {
+    border-radius: 50%;
+    border: 8px solid $teal-blue !important;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: unset;
+    background-color: unset;
+    &.fill {
+      background-color: $teal-blue;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: calc(50% + 12px);
+      border-top: 1.5px solid $rules-and-outlines;
+      border-bottom: 1.5px solid $rules-and-outlines;
+      width: 38px;
+    }
+  }
+  .timeline-row {
+    .border-right {
+      border-right: 3px solid $rules-and-outlines !important;
+    }
+    .border-left {
+      border-left: 3px solid $rules-and-outlines !important;
+    }
+    .timeline-content {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-card {
+      position: relative;
+      margin-bottom: $component-margin-bottom;
+      border: none;
+      border-radius: 0 6px 6px 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      &.no-date {
+        border-radius: 6px;
+      }
+      .card-body {
+        position: relative;
+        background-color: $block-background;
+        color: $body-text;
+      }
+      .date-tab {
+        position: absolute;
+        top: -30px;
+        left: 0;
+        background-color: $teal-blue;
+        padding: 4px 8px;
+        border-radius: 6px 6px 0 0;
+        color: white;
+        font-family: 'KingsBureauGrot';
+        line-height: 1.4;
+      }
+      img {
+        width: 100%;
+      }
+      .card-image {
+        padding-right: 5px;
+      }
+      h5 {
+        line-height: 1.4;
+        color: $headings;
+        margin-top: unset;
+      }
+      .img-reference {
+        font-size: 0.8125rem;
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+      }
+    }
+    &.highlighted  {
+      .date-tab {
+        background-color: $orange;
+      }
+      .card-body {
+        background-color: #ffe0d3;
+      }
+      .timeline-badge-pill {
+        border-color: $orange !important;
+        &.fill {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+}

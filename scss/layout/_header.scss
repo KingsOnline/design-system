@@ -1,0 +1,26 @@
+// breadcrumb
+.breadcrumb-nav ul.breadcrumb {
+  font-family: 'KingsBureauGrotFiveOne';
+  a {
+    color: #0d3254;
+  }
+  &::after {
+    color: #aaa;
+  }
+}
+
+// main page heading
+.course-content ul li.section.main {
+  margin-bottom: 0 !important;
+}
+#section-0 .content>h3.sectionname {
+  @include font-scale(h1);
+  background: unset;
+  margin-bottom: 1.5rem;
+  padding-bottom: unset;
+  &:after {
+    display: none;
+  }
+}
+
+

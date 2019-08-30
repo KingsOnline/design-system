@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// home
+// -----------------------------------------------------------------------------
+
+ul.gtopics-0 {
+  margin: unset
+}
+
+#gridiconcontainer {
+// for some reason a right margin cant be overidden
+  width: 103%;
+  ul.gridicons {
+    margin-left: -0.75rem;
+    margin-right: 0.75rem;
+    li {
+    @extend .top-bar;
+      padding: 0;
+      margin: 0.75rem;
+    }
+  }
+  .gridicon_link {
+    position: relative;
+    .icon_content {
+      @extend .caption-overlay;
+      color: $white;
+      text-align: left;
+      z-index: 1;
+      padding: 1rem;
+      width: 277.5px;
+      height: 100px;
+      font-family: 'KingsBureauGrot';
+      font-size: 1.25rem;
+      line-height: 1.4;
+      white-space: unset;
+    }
+    .image_holder {
+      border: none;
+      width: 309.5px;
+      height: 310px;
+      background-color: unset;
+      border-radius: unset;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

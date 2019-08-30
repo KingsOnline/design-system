@@ -1,0 +1,87 @@
+#block-region-side-pre .block, #block-region-side-post .block {
+  &:not(.block_fake) .title h2::after {
+    content: '\f068';
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    pointer-events: all;
+  }
+  &.hidden:not(.block_fake) .title h2::after {
+    content: '\f067';
+  }
+  .header {
+    background-color: $block-header;
+    padding: 0.5rem 0.75rem !important;
+    height: auto;
+    margin: unset;
+    box-shadow: unset;
+    &.block_course_discuss_header_section {
+      border: 1px solid $table-border;
+      border-bottom: unset;
+      .headline {
+        @extend .sidebar-header;
+      }
+    }
+    .title {
+      position: relative;
+      padding: unset;
+      h2 {
+        line-height: 1.4;
+        color: $midnight-blue;
+        pointer-events: none;
+      }
+      // hide block action buttons
+      .block_action {
+        display: none;
+      }
+    }
+  }
+  .content {
+     background-color: $block-background;
+     padding: 1.125rem;
+     li {
+       font-family: 'KingsBureauGrotFiveOne';
+       margin: unset;
+       a, p, span {
+         font-family: 'KingsBureauGrotFiveOne';
+         color: $midnight-blue;
+         font-size: 1rem;
+         line-height: 1.5;
+         margin: unset;
+       }
+       strong, a:hover, p:hover {
+         color: $link-hover;
+       }
+     }
+  }
+}
+
+// discussion block
+#block_course_discuss_posts_container {
+  padding: 0.75rem;
+  #block_course_discuss_reply_container {
+    margin-top: unset;
+    padding-top: unset;
+    #block_course_discuss_form_message {
+      border: 1px solid $table-border;
+      border-top: unset;
+      padding: 0.75rem;
+      font-family: 'KingsBureauGrotFiveOne';
+      font-size: 1rem;
+      margin-bottom: unset;
+    }
+    #block_course_discuss_form_message_feedback {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: 'KingsBureauGrotFiveOne';
+      font-size: 0.833rem;
+      line-height: 1.5;
+      color: $body-text;
+    }
+    .btn.course-discuss-reply-button {
+      margin-left: unset;
+    }
+  }
+}

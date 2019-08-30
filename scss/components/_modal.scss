@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// modal
+// -----------------------------------------------------------------------------
+
+#notice.modal {
+  border: unset;
+  border-radius: unset;
+  text-align: center;
+  .modal-content {
+    padding: 1rem;
+    .modal-header {
+      padding: unset;
+      border: unset;
+      h4 {
+        @extend .h1;
+      }
+    }
+    .modal-body {
+      padding: unset;
+      p {
+        font-family: 'KingsBureauGrotFiveOne';
+        font-size: 1.25rem;
+      }
+    } 
+    .modal-footer {
+      padding: unset;
+      background-color: unset;
+      border: unset;
+      .buttons {
+        text-align: center;
+        .singlebutton > form > div > input[type="submit"]:first-child {
+          @extend .btn, .btn-primary;
+        }
+      }
+    }
+  }
+}

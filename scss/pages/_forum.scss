@@ -1,0 +1,198 @@
+// -----------------------------------------------------------------------------
+// forum
+// -----------------------------------------------------------------------------
+
+.forumaddnew {
+  div {
+    margin: unset;
+    input[type="submit"]:first-child {
+      @extend .btn, .btn-primary;
+      margin: unset;
+    }
+  }
+}
+
+.path-mod-forum {
+  #page-navbar .breadcrumb-button .forumsearch {
+    form {
+      margin-bottom: $component-margin-bottom;
+      img.icon, img.iconhelp {
+        padding: unset;
+      }
+      input#search {
+        height: 2.625rem;
+        border-radius: 5px;
+      }
+      input#searchforums {
+        @extend .btn, .btn-primary;
+        margin: unset;
+      }
+    }
+  }
+  .forumheaderlist {
+    thead .header {
+      font-family: 'KingsBureauGrot';
+      border-top: inherit;
+      border-left: unset !important;
+      background-color: unset;
+    }
+    tr {
+      font-family: 'KingsBureauGrotFiveOne';
+      border-top: 1px solid $table-border;
+      &:last-child {
+        border-bottom: 1px solid $table-border;
+      }
+      td {
+        background-color: unset !important;
+        border: inherit;
+        vertical-align: middle;
+        &.author .media:first-child {
+          display: flex;
+          align-items: center;
+          img.userpicture {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  .discussion-nav {
+    font-family: 'KingsBureauGrot';
+  }
+}
+
+#page-mod-forum-discuss, #page-mod-forum-view, #page-mod-forum-post {
+  .notifications {
+    .alert.alert-success {
+      &>:first-child::before {
+        display: none;
+      }
+      p:first-of-type {
+        @extend .h5;
+        margin: 0.5rem 0.25rem 1rem 3.125rem;
+        &::before {
+          content: '\f164';
+          font-family: 'Font Awesome 5 Pro';
+          color: #28C382;
+          padding: 0 4px;
+          font-weight: 900;
+          position: absolute;
+          top: 1.25rem;
+          left: 1.5rem;
+        }
+      }
+      p {
+        margin: 0 0.25rem 1rem 3.125rem;
+        font-family: 'KingsBureauGrotFiveOne';
+      }
+    }
+  }
+  .forummode .custom-select.forummode {
+    font-family: 'KingsBureauGrotFiveOne';
+    font-size: 1rem;
+    option {
+      font-family: inherit;
+    }
+  }
+  .forumpost {
+    margin-bottom: unset;
+    background-color: unset;
+    border: unset;
+    border-top: 1px solid $table-border;
+    .header {
+      background: unset;
+      margin-bottom: unset;
+      padding: unset;
+      .topic {
+        flex: 1;
+        .subject {
+          font-family: 'KingsBureauGrot';
+        }
+        .author {
+          font-family: 'KingsBureauGrotFiveOne';
+          margin-bottom: unset;
+          a {
+            font-family: 'KingsBureauGrot';
+          }
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+    .maincontent .content {
+      margin-left: 3rem;
+      font-family: 'KingsBureauGrotFiveOne';
+      .posting.fullpost {
+        margin-top: unset;
+      }
+      p {
+        font-family: inherit;
+      }
+    }
+    .row.side {
+      .options {
+        .commands {
+          text-align: left;
+          a {
+            font-family: 'KingsBureauGrot';
+          }
+        }
+      }
+    }
+  }
+  .indent > a:first-child {
+    display:none;
+  }
+  &.forumtype-single {
+    .forumpost {
+      .maincontent .content {
+        margin-left: 6rem;
+      }
+      &.firstpost {
+        .header {
+          .subject {
+            display: none;
+          }
+          .author {
+            @extend .h6;
+            color: $slate-grey;
+          }
+        }
+        .maincontent .content {
+          margin-left: unset;
+        }
+        .row.side {
+          .left {
+            display: none;
+          }
+          .options {
+            margin-left: unset;
+          }
+        }
+      }
+    }
+  }
+}
+#page-mod-forum-post {
+  .forumpost {
+    .header .topic {
+//      flex: 1;
+    }
+    .maincontent .content {
+      margin-left: 6rem;
+    }
+  }
+  #fgroup_id_buttonar {
+    background-color: unset;
+    .fgroup input {
+      @extend .btn, .btn-primary;
+    }
+  }
+  #notice.modal {
+    .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+    input[type="submit"]:first-child {
+      @extend .btn-secondary;
+    }
+  }
+}

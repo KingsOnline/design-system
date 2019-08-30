@@ -1,0 +1,84 @@
+// -----------------------------------------------------------------------------
+// button
+// -----------------------------------------------------------------------------
+
+// standard button
+.btn {
+  font-family: 'KingsBureauGrot';
+  @include font-scale(btn);
+  padding: 0.625rem 0.75rem;
+  margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  &.btn-primary, &.course-discuss-reply-button {
+    background-color: $midnight-blue !important;
+    color: $white;
+    &:hover {
+      background-color: #536c84 !important;
+    }
+  }
+  &.btn-secondary, &#id_cancel {
+    background-color: $white !important;
+    color: $midnight-blue;
+    padding: 0.5rem 0.625rem;
+    border: 2px solid $midnight-blue;
+    &:hover {
+      border-color: #536c84;
+      background-color: #536c84 !important;
+      color: white;
+    }
+  }
+  &.btn-lg {
+    @include font-scale(btn-lg);
+    padding: 0.5625rem 1.5rem;
+    min-width: 9.6875rem;
+    box-shadow: 0 5px 0 0 #05192e;
+    &:hover {
+      background-color: #526C84;
+      box-shadow: 0 5px 0 0 #43566B;
+    }
+  }
+  &[disabled] {
+    background-color: #cdd7dc !important;
+    color: #5a6469;
+    &:hover {
+      background-color: #cdd7dc !important;
+    }
+  }
+  i {
+    font-size: 1.25rem;
+    &:first-child {
+      margin-right: 0.375rem;
+    }
+  }
+  @media only screen and (max-width: $neo-breakpoint) {
+    padding: 0.6875rem 1rem;
+  }
+}
+
+.singlebutton > form > div {
+  margin: unset;
+  input[type="submit"]:first-child {
+    @extend .btn, .btn-primary;
+    margin-left: unset;
+  }
+}
+
+// restrict access button
+.pagelayout-admin {
+  .moodle-dialogue .moodle-dialogue-bd .col-6 {
+    max-width: unset;
+    button#availability_addrestriction_date,
+    button#availability_addrestriction_grade,
+    button#availability_addrestriction_profile,
+    button#availability_addrestriction_list_ {
+      width: auto !important;
+    }
+  }
+}
+
+
+// override white visited button text
+button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondary:visited {
+  color: $midnight-blue;
+}

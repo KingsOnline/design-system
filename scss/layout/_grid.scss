@@ -1,0 +1,54 @@
+// max-width for extra large screens
+@media only screen and (min-width: 1440px) {
+  #page-header-nav, #page-content {
+    max-width: 1312px;
+    margin: 0 auto;
+  }
+  #region-bs-main-and-pre {
+    max-width: 979px;
+    .single-section {
+      margin-top: unset;
+    }
+  }
+  #block-region-side-post {
+    max-width: 330px;
+    margin-left: 23px;
+    // align to top of hero banner
+    // padding-top: 4.125rem;
+  }
+}
+
+
+@media only screen and (max-width: 979px) {
+  #page {
+    padding: 10px 0;
+  }
+  #region-bs-main-and-pre {
+    width: 100%;
+  }
+  #block-region-side-post {
+    width: 100%;
+    margin-left: unset;
+  }
+}
+
+
+// override theme margins
+.course-content ul.gtopics li.section {
+  .content {
+    margin: unset;
+  }
+  .right {
+    display: none;
+  }
+}
+
+// all of a sudden rows are now grey. not on my watch!
+.row {
+  background-color: unset;
+}
+
+// override book content padding
+.book_content {
+  padding-top: unset;
+}

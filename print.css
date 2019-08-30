@@ -1,0 +1,104 @@
+@media print {
+  p, #page-mod-book-print, li {
+    font-family: "Open Sans" !important;
+  }
+
+  #block-region-side-post, #block-region-side-pre, #page-header, .navbar, .back-to-top, #page-footer, .navbottom {
+    display: none !important;
+  }
+
+  img {
+    max-width:50% !important;
+  }
+
+  .hero img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-caption {
+    position: unset !important;
+  }
+
+  .carousel::before {
+    display: none;
+  }
+  .carousel-item {
+    display: block;
+    margin-bottom: 20px;
+    padding: unset !important;
+
+  }
+  .carousel-item img {
+    width:15% !important;
+  }
+  .carousel-control-prev, .carousel-control-next {
+    display: none;
+  }
+  .carousel-caption {
+    padding: unset !important;
+    position: unset !important;
+  }
+  .text-only .carousel-caption {
+    width: 100%;
+    left: 0;
+    padding: unset !important;
+    position: unset !important;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .carousel-caption h5 {
+    font-size: 1.125rem !important;
+  }
+
+  .embed-responsive, iframe {
+    display: none;
+  }
+
+  .card {
+    border: unset !important;
+  }
+  .card-body {
+     border: unset;
+  }
+  .card-deck .card-body {
+    width:100%;
+  }
+  .card-img-left, .card-img-top, .float-box img {
+    width: 15% !important;
+    height: 15% !important;
+  }
+
+  .collapse {
+    height:auto !important;
+  }
+  .collapse-header button > :first-child:after {
+    display: none;
+  }
+
+  .transcript-button-group {
+    display: none;
+  }
+  .transcript-container.collapsed .transcript-card, .collapse-container .collapse-card.collapsed .collapse-body {
+    display: block !important;
+  }
+
+  .definition-box, .feedback-box, .key-concept-box, .learning-outcome-box {
+    border: 1px solid #CDD7DC;
+  }
+  .key-concept-box {
+    padding: 1rem;
+  }
+  .key-concept-box :last-child {
+    margin-bottom: unset !important;
+  }
+}
+
+.editor_atto_content .transcript-container.collapsed .transcript-card, .editor_atto_content .collapse-container .collapse-card.collapsed .collapse-body  {
+  display:block !important;
+}
+
+.editor_atto_content .carousel-item {
+  display: block;
+  margin-bottom: 1.25rem;
+}

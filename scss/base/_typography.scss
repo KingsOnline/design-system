@@ -1,0 +1,148 @@
+// -----------------------------------------------------------------------------
+// typography
+// -----------------------------------------------------------------------------
+
+html, body {
+  font-size: 16px;
+  color: $body-text;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.quote-attribution {
+  font-family: 'KingsBureauGrot';
+  color: $headings;
+  margin-bottom: 1.5rem;
+}
+body, select, option {
+//  font-family: 'KingsBureauGrotFiveOne';
+  font-family: 'Open Sans', sans-serif;
+}
+
+$font-kbg: (
+  family: 'KingsBureauGrot',
+  h1: ( font-size: 2.375rem, line-height: 1.1 ),
+  h2: ( font-size: 1.875rem, line-height: 1.25 ),
+  h3: ( font-size: 1.5rem, line-height: 1.25 ),
+  h4: ( font-size: 1.25rem, line-height: 1.4 ),
+  h5: ( font-size: 1.125rem, line-height: 1.4 ),
+  h6: ( font-size: 1rem, line-height: 1.4 ),
+  h1-sm: ( font-size: 1.75rem, line-height: 1.2),
+  h2-sm: ( font-size: 1.5rem, line-height: 1.25 ),
+  h3-sm: ( font-size: 1.25rem, line-height: 1.25 ),
+  h4-sm: ( font-size: 1.125rem, line-height: 1.4 ),
+  h56-sm: ( font-size: 1rem, line-height: 1.4 ),
+  quote-attribution: ( font-size: 1.125rem, line-height: 1.25 ),
+  quote-attribution-sm: ( font-size: 1rem, line-height: 1.25 ),
+  btn: ( font-size: 1.125rem, line-height: 1.25 ),
+  btn-lg: ( font-size: 1.25rem, line-height: 1.5 )
+);
+$font-os: (
+  family: 'Open Sans, sans-serif',
+  p: ( font-size: 1rem, line-height: 1.5 ),
+  caption: ( font-size: 0.833rem, line-height: 1.5 ),
+  key-concept: ( font-size: 1.125rem, line-height: 1.5 )
+);
+$font-kcd: (
+  family:  'KingsCaslonDisplay',
+  quote-body: ( font-size: 1.5rem, line-height: 1.25 ),
+  quote-body-sm: ( font-size: 1.25rem, line-height: 1.25 )
+);
+
+$font-default: $font-kbg;
+@function _fontset-feature($feature, $family:$font-default, $set: 'base'){
+  $result: map-get(map-get($family, $set), $feature);
+  @return ($result);
+}
+@function fontset-family($family) {
+  $result: map-get($family, family);
+  @return unquote($result);
+}
+@function calc-font-size($set, $family:$font-default) {
+  @return _fontset-feature(font-size, $family, $set);
+}
+@function calc-line-height($set, $family:$font-default) {
+  @return _fontset-feature(line-height, $family, $set);
+}
+@mixin font-scale ($font-size, $family:$font-default,
+$line-height:$font-size) {
+  font-size: calc-font-size($font-size, $family);
+  line-height: calc-line-height($line-height, $family);
+  @if $family != $font-default {
+    font-family: fontset-family($family);
+  }
+}
+
+h1, .h1 { @include font-scale(h1) ;}
+h2, .h2 { @include font-scale(h2) ;}
+h3, .h3 { @include font-scale(h3) ;}
+h4, .h4 { @include font-scale(h4) ;}
+h5, .h5 { @include font-scale(h5) ;}
+h6, .h6 { @include font-scale(h6) ;}
+p {
+  @include font-scale(p, $font-os);
+  margin-bottom: 1.5rem;
+  color: $body-text;
+}
+.caption {
+  @include font-scale(caption, $font-os);
+}
+.quote-body {
+  @include font-scale(quote-body, $font-kcd);
+  margin-bottom: 1.75rem;
+  font-style: italic;
+}
+.quote-attribution {
+  @include font-scale(quote-attribution);
+  margin-bottom: 0;
+}
+
+.sidebar-header {
+  padding: unset;
+  margin: unset;
+  color: $midnight-blue;
+  font-family: 'KingsBureauGrot' !important;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+// mobile fonts
+@media only screen and (max-width: 767px) {
+  h1, .h1 { @include font-scale(h1-sm) ;}
+  h2, .h2 { @include font-scale(h2-sm) ;}
+  h3, .h3 { @include font-scale(h3-sm) ;}
+  h4, .h4 { @include font-scale(h4-sm) ;}
+  h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
+  .quote-body { @include font-scale(quote-body-sm, $font-kcd); }
+  .quote-attribution { @include font-scale(quote-attribution-sm); }
+}
+
+// hide page title underline
+.path-mod-book .generalbox.book_content>h3 {
+  background: unset;
+  &:after {
+    display: none;
+  }
+}
+
+//override theme list font style
+li {
+  line-height: inherit;
+}
+
+//override book headings
+.path-mod-book {
+  #region-main>div>h2 {
+    @extend .h1;
+  }
+  .generalbox.book_content>h3 {
+    @extend .h2;
+  }
+}
+
+//override module week page link
+.instancename {
+  color: $midnight-blue;
+  &:hover {
+    color: #003d5c;
+  }
+}

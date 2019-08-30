@@ -1,0 +1,61 @@
+// -----------------------------------------------------------------------------
+// carousel
+// -----------------------------------------------------------------------------
+
+.collapse-container {
+  margin-bottom: $component-margin-bottom;
+  .collapse-card {
+    border-bottom: 2px solid $pearl-grey;
+    &:first-child {
+      border-top: 2px solid $pearl-grey;
+    }
+    .collapse-header {
+      padding: 1rem 1rem 1rem 0;
+      button {
+        margin: unset;
+        padding: unset;
+        width: 100%;
+        text-align: left;
+        .h4 {
+          position: relative;
+          margin: unset;
+          color: $midnight-blue;
+          width: calc(100% - 1rem);
+        }
+        .h4::after {
+          content: '\f106';
+          font-family: 'Font Awesome 5 Pro';
+          font-weight: 900;
+          position: absolute;
+          right: -1rem;
+          top: 0;
+        }
+      }
+    }
+    .collapse-body {
+      padding-right: 5rem;
+      margin-bottom: 1rem;
+      &.highlighted {
+        padding: 1rem;
+        background-color: $block-background;
+      }
+      .collapse-subheading {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 1rem;
+        &:last-child {
+          margin-bottom: unset;
+        }
+      }
+    }
+    &.collapsed {
+      .collapse-header button .h4::after {
+        content: '\f107';
+      }
+      .collapse-body {
+        display: none;
+      }
+    }
+  }
+}
