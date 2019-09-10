@@ -128,6 +128,9 @@ li {
   .instancename:hover {
     color: #003d5c; }
 
+#region-main p a {
+  text-decoration: underline; }
+
 .info-box, .alert, .definition-box, .feedback-box, .learning-outcome-box, .quote-box, .que.deferredfeedback .content .outcome, .que.manualgraded .content .outcome {
   margin-bottom: 1.5rem;
   border-radius: unset;
