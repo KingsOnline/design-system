@@ -22,6 +22,7 @@ $sky-blue: #00B9E1;
 $teal-blue: #009EA0;
 $pea-green: #28C382;
 $lime-green: #C6E128;
+$lime-green-2: #B4BD10;
 $reflex-blue: #002395;
 $midnight-blue: #0A2D50;
 
@@ -30,6 +31,7 @@ $pebble: #5F5550;
 $slate-grey: #5A6469;
 $mushroom: #CDC3B9;
 $pearl-grey: #CDD7DC;
+$powder-blue: #8D9EBC;
 
 //KC Custom
 $link-hover: #536C84;
@@ -39,7 +41,7 @@ $footer-dark: #464E52;
 $rules-and-outlines: #8B9296;
 $block-header: #DCE3E6;
 $block-background: #EDF1F2;
-$table-border: #8B9296;
+$table-border: $rules-and-outlines;
 
 // -----------------------------------------------------------------------------
 // layout
@@ -51,8 +53,17 @@ $lg-breakpoint: 979px;
 $neo-breakpoint: 767px;
 
 //spacing
-$component-margin-bottom: 1.5rem;
+$component-margin-xs: 0.5rem;
+$component-margin-sm: 1rem;
+$component-margin: 1.5rem;
+$component-margin-lg: 2.25rem;
+$component-margin-xl: 4.5rem;
+$component-margin-bottom-xs: $component-margin-xs;
+$component-margin-bottom-sm: $component-margin-sm;
+$component-margin-bottom: $component-margin;
+$component-margin-bottom-lg: $component-margin-lg;
+$component-margin-bottom-xl: $component-margin-xl;
 
 //nav button margins
-$lg-nav-margin: 7.125rem;
-$sm-nav-margin: 4rem;
+$lg-nav-margin: 3rem;
+$sm-nav-margin: 3rem;

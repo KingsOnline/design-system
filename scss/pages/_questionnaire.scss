@@ -3,6 +3,17 @@
 // -----------------------------------------------------------------------------
 
 .path-mod-questionnaire {
+  // pre questionnaire intro page
+  .mod_questionnaire_viewpage {
+    .complete a, .all-responses a {
+      @extend .btn, .btn-primary;
+    }
+  }
+/*  .mod_questionnaire_completepage .buttons {
+    input[type="submit"] {
+      @extend .btn, .btn-primary;
+    }
+  } */
   .qn-container {
     .qn-question {
       background: unset;

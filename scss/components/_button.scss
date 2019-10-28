@@ -3,29 +3,29 @@
 // -----------------------------------------------------------------------------
 
 // standard button
-.btn {
+button, .btn {
   font-family: 'KingsBureauGrot';
   @include font-scale(btn);
-  padding: 0.625rem 0.75rem;
-  margin-right: 0.75rem;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
+  padding: 0.625rem 0.75rem !important;
+  margin: 0 0.75rem 0.5rem 0;
+  border-radius: 4px !important;
   &.btn-primary, &.course-discuss-reply-button {
     background-color: $midnight-blue !important;
-    color: $white;
+    color: $white !important;
     &:hover {
       background-color: #536c84 !important;
+      text-decoration: unset;
     }
   }
-  &.btn-secondary, &#id_cancel {
+  &.btn-secondary {
     background-color: $white !important;
-    color: $midnight-blue;
-    padding: 0.5rem 0.625rem;
+    color: $midnight-blue !important;
+    padding: 0.5rem 0.625rem !important;
     border: 2px solid $midnight-blue;
     &:hover {
       border-color: #536c84;
       background-color: #536c84 !important;
-      color: white;
+      color: white !important;
     }
   }
   &.btn-lg {
@@ -40,7 +40,7 @@
   }
   &[disabled] {
     background-color: #cdd7dc !important;
-    color: #5a6469;
+    color: #5a6469 !important;
     &:hover {
       background-color: #cdd7dc !important;
     }
@@ -54,14 +54,21 @@
   @media only screen and (max-width: $neo-breakpoint) {
     padding: 0.6875rem 1rem;
   }
+  a:hover {
+    text-decoration: unset;
+    color: inherit;
+  }
+}
+
+input[type="submit"] {
+  @extend .btn, .btn-primary;
+  &.btn-secondary {
+    @extend .btn-primary;
+  }
 }
 
 .singlebutton > form > div {
   margin: unset;
-  input[type="submit"]:first-child {
-    @extend .btn, .btn-primary;
-    margin-left: unset;
-  }
 }
 
 // restrict access button
@@ -80,5 +87,9 @@
 
 // override white visited button text
 button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondary:visited {
-  color: $midnight-blue;
+  color: $midnight-blue !important;
+}
+
+.btn#id_cancel {
+ @extend .btn-secondary;
 }

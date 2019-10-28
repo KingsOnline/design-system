@@ -136,6 +136,72 @@
 // book navigation
 #page-mod-book-view {
   .navtext.navtop, .navtext.navbottom {
+    padding: 0 0 $component-margin-bottom-lg 0;
+    margin: $component-margin-lg 0;
+    text-align: center;
+    border-top: unset;
+    border-bottom: 1px solid $rules-and-outlines;
+    a {
+      margin: unset;
+      max-width: unset;
+      float: unset;
+      &.bookprev, &.booknext {
+        text-align: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        &:hover {
+          text-decoration: unset;
+        }
+        @media only screen and (max-width: $neo-breakpoint) {
+          display: inline-block;
+        }
+      }
+      &.bookprev:before, &.booknext:after, &.bookexit:after {
+        font-size: 1.5rem;
+        color: $midnight-blue;
+        background-color: unset;
+        margin: unset;
+        padding: unset;
+      }
+      &.bookprev:hover:before, &.booknext:hover:after, &.bookexit:hover:after {
+        color: #526C84;
+      }
+    }
+    ul {
+      margin: unset;
+      display: inline-block;
+      @media only screen and (max-width: $neo-breakpoint) {
+        li.chapter:not(.current):not(.prev):not(.next) {
+          display: none;
+        }
+      }
+      li.chapter {
+        list-style: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'KingsBureauGrot';
+        font-size: 1.5rem;
+        min-width: 2.25rem;
+        height: 2.25rem;
+        margin: 0 0.5rem;
+        &.current {
+          background-color: $sea-blue;
+          border-radius: 50%;
+          strong {
+            color: $white;
+          }
+        }
+        a:hover {
+          color: #526C84;
+          text-decoration: unset;
+        }
+      }
+    }
+  }
+}
+/*#page-mod-book-view {
+  .navtext.navtop, .navtext.navbottom {
     @extend .navcontainer;
     a {
       @extend .navtext;
@@ -193,3 +259,4 @@
     display: none;
   }
 }
+*/

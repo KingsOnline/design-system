@@ -11,12 +11,12 @@
   h5, .info-box-title {
     font-family: 'KingsBureauGrot' !important;
     font-size: 1.2rem;
-    color: #000 !important;
+    color: $headings !important;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: $component-margin-bottom-sm;
   }
   p {
-    color: #000 !important;
+    color: $body-text !important;
     &:last-child {
       margin-bottom: 0;
     }

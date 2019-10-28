@@ -6,6 +6,11 @@ ul.gtopics-0 {
   margin: unset
 }
 
+//override theme course name header color
+.content h3.sectionname {
+  color: $headings;
+}
+
 #gridiconcontainer {
 // for some reason a right margin cant be overidden
   width: 103%;
@@ -44,5 +49,77 @@ ul.gtopics-0 {
         height: 100%;
       }
     }
+  }
+}
+
+// activity type labels
+.course-content ul.section {
+  li.activity {
+    display: flex;
+    margin-bottom: $component-margin-bottom-sm;
+    padding: unset !important;
+    // activity labels
+    &::before {
+      font-family: 'KingsBureauGrot';
+      font-size: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      width: 5.5rem;
+      height: 1.5rem;
+      border-radius: 2px;
+      margin-right: 1rem;
+      color: white;
+    }
+    &.book::before, &.page::before, &.resource::before {
+      content: 'Study';
+      background-color: $sea-blue;
+    }
+    &.forum::before, &.lesson::before, &.questionnaire::before,
+    &.quiz::before, &.scorm::before {
+      content: 'Participate';
+      background-color: $orange;
+    }
+    &.label {
+      h2, h3 {
+        margin-bottom: unset;
+      }
+      // section titles use the same activity class as labels 
+      // but need extra margin
+      &:not(:first-of-type) h2, &:not(:first-of-type) h3 {
+        margin-top: 0.75rem;
+      }
+    }
+    // hide icon
+    & > div {
+      max-width: calc(100% - 105px);
+    }
+    .activityinstance {
+      min-height: unset;
+      &:not(:last-child) {
+        margin-bottom: unset;
+      }
+      // hide icon
+      img {
+        display: none;
+      }
+    }
+    .no-overflow {
+      padding: unset;
+    }
+    .activityinstance ~ .ishidden {
+      margin: unset;
+    }
+  }
+}
+
+// hide activity labels on module information, forums and webinars, and
+// assessment pages
+.hide-activity-labels {
+  li.activity::before {
+    display: none;
+  }
+  // show resource icon
+  .course-content ul.section li.activity.resource .activityinstance img {
+    display: inline;
   }
 }

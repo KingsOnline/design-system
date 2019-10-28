@@ -43,7 +43,16 @@
   }
 }
 
-// all of a sudden rows are now grey. not on my watch!
+// prevent horizontal scrollbar
+.container {
+  padding: unset;
+  margin: unset;
+  overflow: hidden;
+  // all of a sudden rows are now grey. not on my watch!
+  .row {
+    background-color: unset;
+  }
+}
 .row {
   background-color: unset;
 }
@@ -51,4 +60,13 @@
 // override book content padding
 .book_content {
   padding-top: unset;
+}
+
+section:not(:last-of-type) {
+  margin-bottom: $component-margin-bottom-xl;
+}
+
+// theme override to allow rows to not require scroll bar
+#region-main .no-overflow {
+// overflow: hidden;
 }

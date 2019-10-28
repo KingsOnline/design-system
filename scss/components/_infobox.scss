@@ -67,5 +67,8 @@
   }
   ol, ul {
     margin: 0 0 0 1.25rem;
+    li:last-child {
+      margin-bottom: unset;
+    }
   }
 }

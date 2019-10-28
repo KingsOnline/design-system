@@ -11,7 +11,8 @@ h1, h2, h3, h4, h5, h6,
 .quote-attribution {
   font-family: 'KingsBureauGrot';
   color: $headings;
-  margin-bottom: 1.5rem;
+  margin-top: unset;
+  margin-bottom: $component-margin-bottom;
 }
 body, select, option {
 //  font-family: 'KingsBureauGrotFiveOne';
@@ -33,8 +34,8 @@ $font-kbg: (
   h56-sm: ( font-size: 1rem, line-height: 1.4 ),
   quote-attribution: ( font-size: 1.125rem, line-height: 1.25 ),
   quote-attribution-sm: ( font-size: 1rem, line-height: 1.25 ),
-  btn: ( font-size: 1.125rem, line-height: 1.25 ),
-  btn-lg: ( font-size: 1.25rem, line-height: 1.5 )
+  btn: ( font-size: 1.125rem !important, line-height: 1.25 !important),
+  btn-lg: ( font-size: 1.25rem !important, line-height: 1.5 !important)
 );
 $font-os: (
   family: 'Open Sans, sans-serif',
@@ -80,7 +81,7 @@ h5, .h5 { @include font-scale(h5) ;}
 h6, .h6 { @include font-scale(h6) ;}
 p {
   @include font-scale(p, $font-os);
-  margin-bottom: 1.5rem;
+  margin-bottom: $component-margin-bottom;
   color: $body-text;
 }
 .caption {
@@ -127,12 +128,16 @@ p {
 //override theme list font style
 li {
   line-height: inherit;
+  p {
+    margin-bottom: unset;
+  }
 }
 
 //override book headings
 .path-mod-book {
-  #region-main>div>h2 {
+  #region-main > div:first-of-type > h2:first-of-type {
     @extend .h1;
+    margin-bottom: $component-margin-bottom-lg;
   }
   .generalbox.book_content>h3 {
     @extend .h2;
@@ -144,5 +149,21 @@ li {
   color: $midnight-blue;
   &:hover {
     color: #003d5c;
+  }
+}
+
+#region-main {
+  p a, li p a {
+    text-decoration: underline;
+    color: $reflex-blue;
+    &:hover {
+      color: $sea-blue;
+    }
+    &:visited {
+      color: $midnight-blue;
+    }
+  }
+  li:last-child {
+    margin-bottom: $component-margin-bottom;
   }
 }

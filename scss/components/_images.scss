@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// images
+// -----------------------------------------------------------------------------
+
+.full-width-img {
+  @extend .top-bar;
+  margin-bottom: $component-margin-bottom;
+  img {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: $component-margin-bottom-sm;
+    }
+  }
+  .caption {
+    margin-bottom: unset;
+  }
+}
+
+.circular-img {
+  border-radius: 50%;
+  margin-bottom: $component-margin-bottom;
+  max-width: 100%;
+}
+
+//override theme image margin
+.atto_image_button_text-bottom {
+  margin: unset;
+  max-width: 100% !important;
+}

@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// view answer
+// -----------------------------------------------------------------------------
+
+.view-answer-container {
+  margin-bottom: $component-margin-bottom;
+  a.view-hide-answer::before {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    margin-right: 0.375rem;
+    content: '\f070';
+  }
+  .view-answer-card .card-body {
+    border-left: 4px solid $pearl-grey;
+    padding: 0 0 0 1.5rem;
+    margin-top: 1.5rem;
+  }
+  &.collapsed {
+    a.view-hide-answer::before {
+        content: '\f06e';
+    }
+    .view-answer-card {
+      display: none;
+    }
+  }
+}
