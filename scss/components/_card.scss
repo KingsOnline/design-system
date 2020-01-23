@@ -7,15 +7,14 @@
   @media only screen and (max-width: $neo-breakpoint) {
     display: block;
   }
-  flex-direction: unset;
-  border: unset;
+  flex-direction: row;
+  border: none;
   margin-bottom: $component-margin-bottom;
   .card-img-top, .card-img-left, .img-top, .img-left {
     width: 310px;
     height: 100%;
     flex-shrink: 0;
-    @extend .top-bar; 
-    border-radius: unset; 
+    border-radius: 0; 
     @media only screen and (max-width: $neo-breakpoint) {
       width: 100%;
     }
@@ -23,7 +22,7 @@
   .card-body {
     background-color: $block-background;
     h4 {
-      margin-top: unset;
+      margin-top: 0;
       margin-bottom: 0.75rem;
     }
   }
@@ -31,16 +30,16 @@
 
 // horizontal card deck
 .card-deck {
-  margin-left: unset;
-  margin-right: unset;
+  margin-left: 0;
+  margin-right: 0;
   .card {
     display: block;
     margin-bottom: 1.5rem;
     &:first-child {
-      margin-left: unset;
+      margin-left: 0;
     }
     &:last-child {
-      margin-right: unset;
+      margin-right: 0;
     }
     .card-img-top, .card-img-left, .img-top, .img-left {
       width: 100%;
@@ -53,11 +52,11 @@
   display: flex;
   margin-bottom: $component-margin-bottom;
   img {
+    margin: 0;
     height: 100%;
     flex-shrink: 0;
   }
   img, .img-left {
-    margin: unset;
     margin-right: 1rem;
   }
   .img-right {
@@ -67,12 +66,12 @@
   @media only screen and (max-width: $neo-breakpoint) {
     display: block;
     img, .img-left, {
-      margin-right: unset;
+      margin-right: 0;
       margin-bottom: 1rem;
       width: 100%;
     }
     .img-right {
-      margin-left: unset;
+      margin-left: 0;
     }
   }
   .float-box-body {

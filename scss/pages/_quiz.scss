@@ -7,7 +7,6 @@
   .box.quizinfo p {
     font-family: 'KingsBureauGrotFiveOne';
     text-align: left;
-    margin-bottom: unset;
     &:first-child::before {
       @extend .icon-before;
       content: '\f017';
@@ -18,7 +17,8 @@
     }
   } 
   .quizattemptsummary {
-    border: 1px solid $table-border;
+    border-left: 1px solid $table-border;
+    border-right: 1px solid $table-border;
     border-collapse: separate;
     thead .header {
       font-family: 'KingsBureauGrot';
@@ -30,23 +30,27 @@
     }
     tr td {
       font-family: 'KingsBureauGrotFiveOne';
-      background-color: unset;
+      background-color: transparent;
       color: $body-text;
+      padding: 0.75rem 1.25rem;
       &.lastcol {
         a {
           @extend .btn, .btn-primary;
         }
       }
     }
+    tr:last-child th, tr:last-child td {
+      border-bottom: 1px solid $table-border;
+    }
   }
   .generalbox#feedback {
-     margin: unset;
-     padding: unset;
+     margin: 0;
+     padding: 0;
   }
   .quizstartbuttondiv form {
     text-align: left;
     div {
-      margin-left: unset;
+      margin-left: 0;
     }
   }
 }
@@ -54,9 +58,10 @@
 // review page
 #page-mod-quiz-review {
   .quizreviewsummary {
-    border: 1px solid $table-border;
+    border-left: 1px solid $table-border;
     tr th, tr td {
-      border-top: 1px solid $table-border ;
+      border-right: 1px solid $table-border;
+      border-top: 1px solid $table-border;
       background-color: $white;
     }
     tr th{
@@ -65,11 +70,13 @@
       text-align:left !important; 
     }
     tr td{
-      font-family: 'KingsBureauGrotFiveOne';
       color: $body-text;
     }
     tr:nth-child(even)>th, tr:nth-child(even)>td {
       background-color: #f8fafa !important;
+    }
+    tr:last-child th, tr:last-child td {
+      border-bottom: 1px solid $table-border;
     }
   }
 }
@@ -88,12 +95,12 @@
     height: 1.25rem;
     width: 1.25rem;
     font-size: 1rem !important;
-    padding: unset !important;
+    padding: 0 !important;
     margin: 0 0.625rem 0.625rem 0;
     background-color: $pearl-grey !important;
     color: $headings !important;
     span.thispageholder {
-      border: unset;
+      border: none;
     }
     span.trafficlight {
       display: none;
@@ -118,7 +125,7 @@
       @extend .btn;
       @extend .btn-primary;
       display: inline;
-      margin-right: unset;
+      margin-right: 0;
     }
     #quiz-timer {
      font-family: 'KingsBureauGrotFiveOne';
@@ -135,10 +142,10 @@
     }
     .singlebutton {
       div {
-        margin-right: unset;
+        margin-right: 0;
         input[type="submit"] {
           @extend .btn, .btn-primary;
-          margin-right: unset;
+          margin-right: 0;
           margin-top: 1rem;
         }
       }
@@ -151,9 +158,9 @@
   margin: 0 0 $component-margin-bottom-lg;
   .info {
     margin-bottom: $component-margin-bottom;
-    background-color: unset;
-    padding: unset;
-    border: unset;
+    background-color: transparent;
+    padding: 0;
+    border: none;
     .no {
       width: 100%;
     }.no, .qno {
@@ -195,9 +202,9 @@
   // quiz question and feedback box
   .content {
     .formulation {
-      background-color: unset;
-      margin: unset;
-      padding: unset;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
       .qtext {
         margin-bottom: $component-margin-bottom;
         p {
@@ -205,22 +212,22 @@
        }
       }
       .ablock {
-        margin: unset;
+        margin: 0;
         .prompt, .readonly, .readonly p {
           margin-bottom: $component-margin-bottom-sm;
         }
         .answer {
-          padding: unset !important;
+          padding: 0 !important;
           margin-bottom: $component-margin-bottom-xs !important;
           label {
-            margin-bottom: unset;
+            margin-bottom: 0;
           }
           input[type="text"] {
             margin-left: $component-margin-bottom-xs; 
           }
           .r0, .r1 {
-            padding-top: unset;
-            padding-bottom: unset;
+            padding-top: 0;
+            padding-bottom: 0;
             margin-bottom: $component-margin-bottom-xs !important;
             label {
               font-size: 1rem;
@@ -253,14 +260,14 @@
         &::before {
           @extend .info-box-inner::before;
         }
-        @extend .info-box-inner;
-        margin-bottom: unset;
+        @extend .info-box-inner;  
+        margin-bottom: 0;
         .specificfeedback, .specificfeedback p {
           @extend .info-box-title;
           margin-bottom: 1rem;
         }
         .rightanswer {
-          margin-bottom: unset;
+          margin-bottom: 0;
         }
       }
     }
@@ -286,7 +293,7 @@
 // submit button
 #page-mod-quiz-attempt, #page-mod-quiz-review {
   .submitbtns {
-    padding: unset;
+    padding: 0;
   }
   .mod_quiz-next-nav {
     margin-bottom: $component-margin-bottom-xl;
@@ -298,28 +305,66 @@
   .moodle-dialogue-wrap {
     padding: 1rem;
     .moodle-dialogue-hd {
-      background-color: unset !important;
-      border-bottom: unset !important;
+      background-color: transparent !important;
+      border-bottom: none !important;
       h1 {
         @extend .h1;
       }
     }
   }
   .moodle-dialogue-bd {
-    padding: unset;
+    padding: 0;
     .confirmation-message {
       font-family: 'KingsBureauGrotFiveOne';
       font-size: 1rem;
     }
+    .confirmation-buttons {
+    }
     .btn {
-      font-size: 1rem;
-      padding: 0.5rem 0.625rem;
-      border: unset;
-      background-color: $midnight-blue !important;
-      color: white;
+//      font-size: 1rem;
+//      padding: 0.5rem 0.625rem;
+//      border: none;
+//      background-color: $midnight-blue !important;
+//      color: white;
     }
   }
   .moodle-dialogue-ft {
-    margin: unset !important;
+    margin: 0 !important;
+  }
+}
+// summary of attempt page (on submission of answers)
+#page-mod-quiz-summary {
+  .quizsummaryofattempt {
+    border-left: 1px solid $table-border;
+    tr {
+      th, td {
+        border-right: 1px solid $table-border;
+        border-top: 1px solid $table-border;
+        padding: 1px;
+        }
+      th {
+        font-family: 'KingsBureauGrot';
+        color: $headings;
+        text-align:left !important; 
+      }
+      td.cell {
+        background-color: $white;
+        color: $body-text;
+      }
+      & > :first-child {
+        padding: 1px 0.5rem 1px 1rem;
+      }
+      & > :last-child {
+        padding: 1px 1rem 1px 0.5rem;
+      }
+      &:last-child td {
+        border-bottom: 1px solid $table-border;
+      }
+    }  
+    tbody {
+      tr:nth-child(even)>th, tr:nth-child(even)>td {
+        background-color: #f8fafa !important;
+      }
+    }
   }
 }

@@ -5,8 +5,11 @@
 .path-mod-questionnaire {
   // pre questionnaire intro page
   .mod_questionnaire_viewpage {
-    .complete a, .all-responses a {
-      @extend .btn, .btn-primary;
+    .complete, .allresponses, .yourresponse {
+      margin-bottom: $component-margin-bottom;
+      &> a {
+        @extend .btn, .btn-primary;
+      }
     }
   }
 /*  .mod_questionnaire_completepage .buttons {
@@ -16,21 +19,35 @@
   } */
   .qn-container {
     .qn-question {
-      background: unset;
+      background: none;
       b {
         @extend .h5;
       }
     }
   }
   &#page-mod-questionnaire-complete {
+    .surveyTitle {
+      padding: 0;
+      margin-bottom: $component-margin-bottom;
+    }
+    .message {
+      border: none;
+      padding: 0;
+      &> a {
+        @extend .btn, .btn-primary;
+      }
+    }
     .c1, .c0 {
-      border-bottom: unset;
-      border-right: unset;
+      border-bottom: 0;
+      border-right: 0;
       border-top: 1px solid $table-border;
       border-left: 1px solid $table-border;
     }
-    tr:last-child td {
-      border-bottom: 1px solid $table-border;
+//    tr:last-child td {
+//      border-bottom: 1px solid $table-border;
+//    }
+    .qn-answer table {
+      @extend .table, .table-bordered;
     }
   }
 }

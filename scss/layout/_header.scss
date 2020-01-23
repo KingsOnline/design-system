@@ -1,6 +1,7 @@
 // breadcrumb
 .breadcrumb-nav ul.breadcrumb {
   font-family: 'KingsBureauGrotFiveOne';
+  font-size: 1rem;
   a {
     color: #0d3254;
   }
@@ -15,9 +16,9 @@
 }
 #section-0 .content>h3.sectionname {
   @include font-scale(h1);
-  background: unset;
+  background: none;
   margin-bottom: 1.5rem;
-  padding-bottom: unset;
+  padding-bottom: 0;
   &:after {
     display: none;
   }

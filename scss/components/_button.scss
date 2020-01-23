@@ -14,7 +14,7 @@ button, .btn {
     color: $white !important;
     &:hover {
       background-color: #536c84 !important;
-      text-decoration: unset;
+      text-decoration: none;
     }
   }
   &.btn-secondary {
@@ -55,7 +55,7 @@ button, .btn {
     padding: 0.6875rem 1rem;
   }
   a:hover {
-    text-decoration: unset;
+    text-decoration: none;
     color: inherit;
   }
 }
@@ -68,13 +68,13 @@ input[type="submit"] {
 }
 
 .singlebutton > form > div {
-  margin: unset;
+  margin: 0;
 }
 
 // restrict access button
 .pagelayout-admin {
   .moodle-dialogue .moodle-dialogue-bd .col-6 {
-    max-width: unset;
+    max-width: none;
     button#availability_addrestriction_date,
     button#availability_addrestriction_grade,
     button#availability_addrestriction_profile,

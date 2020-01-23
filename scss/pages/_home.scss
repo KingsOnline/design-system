@@ -2,8 +2,10 @@
 // home
 // -----------------------------------------------------------------------------
 
-ul.gtopics-0 {
-  margin: unset
+#region-main {
+  ul.gtopics, ul.gtopics-0, ul.section {
+    margin: 0;
+  }
 }
 
 //override theme course name header color
@@ -23,7 +25,7 @@ ul.gtopics-0 {
       margin: 0.75rem;
     }
   }
-  .gridicon_link {
+  .gridicon_link, ul.gridicons > li > span:first-child {
     position: relative;
     .icon_content {
       @extend .caption-overlay;
@@ -36,57 +38,53 @@ ul.gtopics-0 {
       font-family: 'KingsBureauGrot';
       font-size: 1.25rem;
       line-height: 1.4;
-      white-space: unset;
+      white-space: normal;
     }
     .image_holder {
       border: none;
       width: 309.5px;
       height: 310px;
-      background-color: unset;
-      border-radius: unset;
+      background-color: transparent;
+      border-radius: 0;
       img {
         width: 100%;
         height: 100%;
+      }
+      &.inaccessible {
+        cursor: none;
+        img:hover {
+          transform: none;
+        }
       }
     }
   }
 }
 
+// remove padding from small icons (edit/move)
+.section .summary, .section .activity {
+  .iconsmall, img.icon {
+    padding: 0;
+  }
+}
+
+#region-main ul.section {
+  margin: 0;
+}
 // activity type labels
 .course-content ul.section {
   li.activity {
     display: flex;
-    margin-bottom: $component-margin-bottom-sm;
-    padding: unset !important;
-    // activity labels
-    &::before {
-      font-family: 'KingsBureauGrot';
-      font-size: 1rem;
-      text-align: center;
-      text-transform: uppercase;
-      width: 5.5rem;
-      height: 1.5rem;
-      border-radius: 2px;
-      margin-right: 1rem;
-      color: white;
-    }
-    &.book::before, &.page::before, &.resource::before {
-      content: 'Study';
-      background-color: $sea-blue;
-    }
-    &.forum::before, &.lesson::before, &.questionnaire::before,
-    &.quiz::before, &.scorm::before {
-      content: 'Participate';
-      background-color: $orange;
-    }
+    margin-bottom: $component-margin-bottom-sm !important;
+    padding: 0 !important;
     &.label {
-      h2, h3 {
-        margin-bottom: unset;
+      h2:last-child, h3:last-child, h4:last-child, p:last-child {
+        margin-bottom: 0;
       }
       // section titles use the same activity class as labels 
       // but need extra margin
-      &:not(:first-of-type) h2, &:not(:first-of-type) h3 {
-        margin-top: 0.75rem;
+      &:not(:first-of-type) h2, &:not(:first-of-type) h3, 
+      &:not(:first-of-type) h4 {
+        margin-top: 1.75rem;
       }
     }
     // hide icon
@@ -94,20 +92,48 @@ ul.gtopics-0 {
       max-width: calc(100% - 105px);
     }
     .activityinstance {
-      min-height: unset;
+      min-height: none;
       &:not(:last-child) {
-        margin-bottom: unset;
+        margin-bottom: 0;
       }
-      // hide icon
-      img {
-        display: none;
+      a {
+        // activity label
+ /*       &::before {
+          display: inline-block;
+          font-family: 'KingsBureauGrot';
+          font-size: 1rem;
+          text-align: center;
+          text-transform: uppercase;
+          width: 5.5rem;
+          height: 1.5rem;
+          border-radius: 2px;
+          margin-right: 1rem;
+          color: white;
+        }
+        // hide icon
+        img {
+          display: none;
+        }
+*/        
+      }  
+    }
+/*    &.book, &.page, &.resource {
+      .activityinstance a::before {
+        content: 'Study';
+        background-color: $sea-blue;
       }
     }
+    &.forum, &.lesson, &.questionnaire, &.quiz, &.scorm {
+      .activityinstance a::before {
+        content: 'Participate';
+        background-color: $orange;
+      }
+    }*/
     .no-overflow {
-      padding: unset;
+      padding: 0;
     }
     .activityinstance ~ .ishidden {
-      margin: unset;
+      margin: 0;
     }
   }
 }

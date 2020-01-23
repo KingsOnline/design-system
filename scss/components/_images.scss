@@ -2,8 +2,7 @@
 // images
 // -----------------------------------------------------------------------------
 
-.full-width-img {
-  @extend .top-bar;
+.full-width-img, .img-full-width {
   margin-bottom: $component-margin-bottom;
   img {
     width: 100%;
@@ -12,11 +11,19 @@
     }
   }
   .caption {
-    margin-bottom: unset;
+    margin-bottom: 0;
   }
 }
 
-.circular-img {
+.center-img, .img-center {
+  text-align: center;
+  margin-bottom: $component-margin-bottom;
+  img:not(:last-child) {
+    margin-bottom: $component-margin-bottom-sm;
+  }
+}
+
+.circular-img, .img-circular {
   border-radius: 50%;
   margin-bottom: $component-margin-bottom;
   max-width: 100%;
@@ -24,6 +31,17 @@
 
 //override theme image margin
 .atto_image_button_text-bottom {
-  margin: unset;
+  margin: 0;
   max-width: 100% !important;
+}
+
+figure {
+  margin: 0 0 $component-margin-bottom 0;
+  table {
+    margin-bottom: $component-margin-bottom-xs !important;
+  }
+  figcaption {
+    @include font-scale(caption, $font-os);
+    color: $body-text;
+  }
 }

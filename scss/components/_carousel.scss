@@ -12,6 +12,12 @@
     background-color: rgba(0, 0, 0, 0.25);
     z-index: 50;
   }
+  .carousel-item {
+    img {
+      width: 100% !important;
+      height: auto;
+    }
+  }
   .carousel-caption {
     @extend .caption-overlay;
     text-align: left;
@@ -20,8 +26,17 @@
       line-height: 1.5;
       margin-bottom: 0;
     }
+    a {
+      color: $white !important;
+      &:hover {
+        color: $lime-green !important;
+      }
+      &:visited {
+        color: $yellow !important;
+      }
+    }
     @media only screen and (max-width: $neo-breakpoint) {
-      position: unset;
+      position: static;
     }
   }
   &.text-only {
@@ -31,16 +46,16 @@
     }
     .carousel-caption {
       position: absolute;
-      background-color: unset;
+      background-color: transparent;
       top: 25%;
       z-index: 1;
       padding: 2.4% 12%;
     }
   }
   .carousel-indicators {
-    top: unset;
+    top: auto;
     bottom: -32px;
-    margin: 0;
+    margin: 0 !important;
     width: 100%;
     background-color: rgba(10, 45, 80, 1);
     li {
@@ -62,11 +77,11 @@
     background-color: rgba(10, 45, 80, 0.5);
     padding: 0 15px !important;
     border-radius: 4px;
-    position: unset;
+    position: static;
     border: none;
     width: auto !important;
     height: auto !important;
-    opacity: unset;
+    opacity: 1;
     &:hover {
       background-color: rgba(10, 45, 80, 1);
     }

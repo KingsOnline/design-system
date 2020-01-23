@@ -12,13 +12,13 @@
     .collapse-header {
       padding: 1rem 1rem 1rem 0;
       button {
-        margin: unset;
-        padding: unset !important;
+        margin: 0;
+        padding: 0 !important;
         width: 100%;
         text-align: left;
         .h4 {
           position: relative;
-          margin: unset;
+          margin: 0;
           color: $midnight-blue;
           width: calc(100% - 1rem);
         }
@@ -45,7 +45,7 @@
       p {
         margin-bottom: 1rem;
         &:last-child {
-          margin-bottom: unset;
+          margin-bottom: 0;
         }
       }
     }

@@ -18,38 +18,43 @@
 }
 
 .navcontainer {
-  min-height: 6rem;
-  position: relative;
+  // min-height: 6rem;
+  display: flex;
   margin-top: 0.825rem;
   margin-bottom: 1.5rem;
   padding: 0;
   @media only screen and (max-width: $lg-breakpoint) {
-    min-height: 10rem;
+    // min-height: 10rem;
   }
   @media only screen and (max-width: $neo-breakpoint) {
-    min-height: 14.5rem;
+    // min-height: 14.5rem;
+  }
+  .navtextcontainer {
+    flex: 1;
   }
   .navtext {
-    position: absolute;
-    max-width: 18rem;
+    position: relative;
+    float: none;
+//    max-width: 18rem;
     margin: 2.125rem 0;
     font-family: 'KingsBureauGrot';
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
     line-height: 1.2;
     color: #0a2d50;
     @media only screen and (max-width: $xl-breakpoint) {
-      max-width: 16rem;
+      // max-width: 16rem;
     }
     @media only screen and (max-width: $lg-breakpoint) {
-      max-width: 8rem;
+      // max-width: 8rem;
     }
     @media only screen and (max-width: $neo-breakpoint) {
-      width: calc(50% - 5rem);
+      // width: calc(50% - 5rem);
     }
   }
 }
 .navbutton {
   font-family: 'FontAwesome';
+  font-weight: 900;
   font-size: 1.25rem;
   color: $white;
   border-radius: 0.25rem;
@@ -70,87 +75,109 @@
   }
 }
 
-// webinar navigation
+// activity navigation
 .row-fluid.rtl-compatible {
   @extend .navcontainer;
-  display: flex;
-  .span4:nth-child(2) {
-    display: none;
+  .span4 {
+    @extend .navtextcontainer;
+    &:nth-child(2) {
+      display: none;
+    }
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
   a#prev-activity-link, a#next-activity-link {
     @extend .navtext;
-    width: 50%;
-    margin-top: unset;
+    margin-top: 0;
+    padding: 0.25rem !important;
+    @media only screen and (max-width: $neo-breakpoint) {
+      padding: 0.5rem !important;
+    }
   }
   a#prev-activity-link {
+    left: 3rem;
     text-align: left;
-    left: 0;
-    &:before {
+    padding-right: 3rem !important;
+    &::before {
       @extend .navbutton;
       left: -3.125rem;
       top: 0;
+      content: '\f104';
     }
   }
   a#next-activity-link {
+    right: 3rem;
     text-align: right;
-    right: 0;
-    &:after {
+    padding-left: 3rem !important;
+    &::after {
       @extend .navbutton;
       right: -3.125rem;
       top: 0;
+      content: '\f105';
     }
   }
 }
 
 // section navigation
-.section-navigation.mdl-bottom {
+.course-content .single-section .section-navigation.mdl-bottom {
   @extend .navcontainer;
-  .mdl-left a, .mdl-right a {
-    @extend .navtext;
-  }
-  .mdl-left a {
-    left: $lg-nav-margin;
-    @media only screen and (max-width: $neo-breakpoint) {
-      left: $sm-nav-margin;
-    }
-    &:before {
-      @extend .navbutton;
-      left: -3.125rem;
-      top: 0;
+  .mdl-left, .mdl-right {
+    @extend .navtextcontainer;
+    a {
+      @extend .navtext;
     }
   }
-  .mdl-right a {
-    text-align: right;
-    right: $lg-nav-margin;
-    @media only screen and (max-width: $neo-breakpoint) {
-      right: $sm-nav-margin;
+  .mdl-left {
+    margin-right: 3.5rem !important;
+    a {
+      left: $lg-nav-margin;
+      @media only screen and (max-width: $neo-breakpoint) {
+        left: $sm-nav-margin;
+      }
+      &:before {
+        @extend .navbutton;
+        left: -3.125rem;
+        top: 0;
+      }
     }
-    &:after {
-      @extend .navbutton;
-      right: -3.125rem;
-      top: 0;
+  }
+  .mdl-right {
+    margin-left: 3.5rem !important;
+    a {
+      text-align: right;
+      right: $lg-nav-margin;
+      @media only screen and (max-width: $neo-breakpoint) {
+        right: $sm-nav-margin;
+      }
+      &:after {
+        @extend .navbutton;
+        right: -3.125rem;
+        top: 0;
+      }
     }
   }
 }
 
 // book navigation
 #page-mod-book-view {
-  .navtext.navtop, .navtext.navbottom {
+  .navtop, .navbottom {
     padding: 0 0 $component-margin-bottom-lg 0;
     margin: $component-margin-lg 0;
     text-align: center;
-    border-top: unset;
+    border-top: none;
     border-bottom: 1px solid $rules-and-outlines;
     a {
-      margin: unset;
-      max-width: unset;
-      float: unset;
+      margin: 0;
+      max-width: none;
+      float: none;
       &.bookprev, &.booknext {
         text-align: center;
         width: 2.25rem;
         height: 2.25rem;
         &:hover {
-          text-decoration: unset;
+          text-decoration: none;
         }
         @media only screen and (max-width: $neo-breakpoint) {
           display: inline-block;
@@ -159,16 +186,16 @@
       &.bookprev:before, &.booknext:after, &.bookexit:after {
         font-size: 1.5rem;
         color: $midnight-blue;
-        background-color: unset;
-        margin: unset;
-        padding: unset;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
       }
       &.bookprev:hover:before, &.booknext:hover:after, &.bookexit:hover:after {
         color: #526C84;
       }
     }
     ul {
-      margin: unset;
+      margin: 0;
       display: inline-block;
       @media only screen and (max-width: $neo-breakpoint) {
         li.chapter:not(.current):not(.prev):not(.next) {
@@ -194,7 +221,7 @@
         }
         a:hover {
           color: #526C84;
-          text-decoration: unset;
+          text-decoration: none;
         }
       }
     }

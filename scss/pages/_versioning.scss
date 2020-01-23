@@ -1,0 +1,32 @@
+.release-name-number {
+  margin-bottom: 0;
+  .major {
+    color: $kings-red;
+  }
+  .minor {
+    color: $pea-green;
+  }
+  .patch {
+    color: $yellow;
+  }
+}
+.container.versioning {
+  border-right: 10px solid $pea-green;
+  border-left: 10px solid $pea-green;
+  & > .row:nth-child(2) {
+    background-color: $midnight-blue;
+  }
+  & > .row > .col {
+    height: 1rem;
+    border-left: 10px solid $pea-green;
+    &.row {
+      margin: 0;
+    }
+    &.major {
+      border-left: 10px solid $kings-red;
+    }
+    & > .col {
+      border-right: 5px solid $yellow;
+    }
+  }
+}

@@ -7,7 +7,7 @@
   #region-bs-main-and-pre {
     max-width: 979px;
     .single-section {
-      margin-top: unset;
+      margin-top: 0;
     }
   }
   #block-region-side-post {
@@ -28,7 +28,7 @@
   }
   #block-region-side-post {
     width: 100%;
-    margin-left: unset;
+    margin-left: 0;
   }
 }
 
@@ -36,7 +36,7 @@
 // override theme margins
 .course-content ul.gtopics li.section {
   .content {
-    margin: unset;
+    margin: 0;
   }
   .right {
     display: none;
@@ -45,21 +45,21 @@
 
 // prevent horizontal scrollbar
 .container {
-  padding: unset;
-  margin: unset;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   // all of a sudden rows are now grey. not on my watch!
   .row {
-    background-color: unset;
+    background-color: transparent;
   }
 }
 .row {
-  background-color: unset;
+  background-color: transparent;
 }
 
 // override book content padding
 .book_content {
-  padding-top: unset;
+  padding-top: 0;
 }
 
 section:not(:last-of-type) {
@@ -69,4 +69,9 @@ section:not(:last-of-type) {
 // theme override to allow rows to not require scroll bar
 #region-main .no-overflow {
 // overflow: hidden;
+}
+
+// prevent safari grid elements from stacking
+.row:before, .row:after {
+  display: none !important;
 }

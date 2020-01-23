@@ -11,11 +11,11 @@
   .hero-caption {
     @extend .caption-overlay;
     @media only screen and (max-width: $neo-breakpoint) {
-      position: unset;
+      position: static;
     }
     h2 {
-      color: $white;
-      margin: unset;
+      color: $white !important;
+      margin: 0 !important;
     }
   }
 }

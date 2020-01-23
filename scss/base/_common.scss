@@ -1,6 +1,6 @@
 .info-box {
   margin-bottom: $component-margin-bottom;
-  border-radius: unset;
+  border-radius: 0;
   border: none;
   padding: 0.75rem 1.25rem;
   position: relative;
@@ -48,8 +48,8 @@
   position: absolute;
   background-color: rgba(10, 45, 80, 0.85);
   bottom: 0;
-  left: unset;
-  right: unset;
+  left: auto;
+  right: auto;
   width: 100%;
   padding: 1.25rem 1.5rem;
 }

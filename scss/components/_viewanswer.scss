@@ -2,24 +2,39 @@
 // view answer
 // -----------------------------------------------------------------------------
 
-.view-answer-container {
+.view-answer-container, .view-feedback-container,
+.view-model-answer-container {
   margin-bottom: $component-margin-bottom;
-  a.view-hide-answer::before {
+  a.view-hide-answer::before, a.view-hide-feedback::before,
+  a.view-hide-model-answer::before {
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     margin-right: 0.375rem;
     content: '\f070';
   }
-  .view-answer-card .card-body {
-    border-left: 4px solid $pearl-grey;
-    padding: 0 0 0 1.5rem;
-    margin-top: 1.5rem;
+  .view-answer-card, .view-feedback-card, .view-model-answer-card {
+    .card-body {
+      border-left: 4px solid $pearl-grey;
+      padding: 0 0 0 1.5rem;
+      margin-top: 1.5rem;
+      .card-author {
+        display: flex;
+        align-items: center;
+        margin-bottom: $component-margin-bottom;
+        img {
+          border-radius: 50%;
+          height: 75px;
+          width: 75px;
+        }
+      }
+    }
   }
   &.collapsed {
-    a.view-hide-answer::before {
+    a.view-hide-answer::before, a.view-hide-feedback::before,
+    a.view-hide-model-answer::before {
         content: '\f06e';
     }
-    .view-answer-card {
+    .view-answer-card, .view-feedback-card, .view-model-answer-card {
       display: none;
     }
   }

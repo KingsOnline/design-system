@@ -4,14 +4,17 @@
 
 .timeline-container {
   margin-left: 64px;
+  @media only screen and (max-width: $neo-breakpoint) {
+    margin-left: 0;
+  }
   padding: 0.5rem 1.25rem 0 1.25rem;
   .timeline-badge-pill {
     border-radius: 50%;
     border: 8px solid $teal-blue !important;
     height: 1.5rem;
     width: 1.5rem;
-    padding: unset;
-    background-color: unset;
+    padding: 0;
+    background-color: transparent;
     &.fill {
       background-color: $teal-blue;
     }
@@ -32,6 +35,9 @@
     }
     .border-left {
       border-left: 3px solid $rules-and-outlines !important;
+    }
+    .flex-column {
+      display: flex !important;
     }
     .timeline-content {
       margin-top: 1.5rem;
@@ -71,7 +77,7 @@
       h5 {
         line-height: 1.4;
         color: $headings;
-        margin-top: unset;
+        margin-top: 0;
       }
       .img-reference {
         font-size: 0.8125rem;
