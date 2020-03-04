@@ -1,11 +1,6 @@
 // hide administration block from students or teachers without editing rights
 $("#block-region-side-post .block:has(.header .title h2:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").hide();
 
-// pull print button from admin block and position at top of book
-printButton = $('.block_settings .tree_item.hasicon.tree_item.leaf:contains("Print book") a').clone().find('img').remove().end();
-$('<div id="print-btn-container">').insertAfter('#page-mod-book-view #maincontent');
-printButton.addClass('btn btn-secondary print-book-btn').text("Print").appendTo('#print-btn-container');
-
 // toggle side bar menus
 const blockHide = "#block-region-side-pre .block .title h2, #block-region-side-post .block .title h2";
 $(document).on("click", blockHide, function(event) {
