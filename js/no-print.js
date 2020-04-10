@@ -1,5 +1,7 @@
 // hide administration block from students or teachers without editing rights
-$("#block-region-side-post .block:has(.header .title h2:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").hide();
+$("#block-region-side-pre .block:has(.header .title h2:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(.header .title h2:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
+// if there are no visible blocks in aside hide it and make main region full width
+$("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
 
 // toggle side bar menus
 const blockHide = "#block-region-side-pre .block .title h2, #block-region-side-post .block .title h2";
@@ -30,7 +32,7 @@ $(document).on("click", ".carousel-control-prev, .carousel-control-next", functi
  });
 
 // hide and show collapse card
-$(document).on("click", ".collapse-card .collapse-header button", function(event) {
+$(document).on("click", ".collapse-card .collapse-header", function(event) {
   $(this).parents(".collapse-card").toggleClass("collapsed");
 });
 
@@ -53,12 +55,6 @@ $(document).on("click", "a.view-hide-feedback", function(event) {
   $(this).text($(this).text() == 'View feedback' ? 'Hide feedback' : 'View feedback');
   $(this).parents(".view-feedback-container").toggleClass("collapsed");
 });
-
-// home page add forum class to activtiy title containing 'discussion'
-$("li.activity .instancename:contains('Discussion')").parents("li.activity").addClass("forum");
-
-// hide activity labels on certain pages
-$(".hero.hide-activity-labels").parents("#region-main").addClass("hide-activity-labels");
 
 // copy chapterlist to book nav and remove .action-list
 booknav = $(".block_fake .content > div > ul").clone().find(".action-list").remove().end();
@@ -91,9 +87,6 @@ $(".row-fluid.rtl-compatible a#prev-activity-link").text(function(i, text) {
 $(".row-fluid.rtl-compatible a#next-activity-link").text(function(i, text) {
   return text.slice(0, -2);
 });
-
-// week overview page activity label code
-$("li.activity .activityinstance a:not(.quickeditlink)").append('<div class="activity-label-container"><div class="activity-label"><i></i><span class="label-text"></span></div><div class="group-icon"><i></i></div><div class="media-icon"><i></i></div></div>');
 
 // move .accesshide from within .instancename and append to .activityinstance
 // affected the prefix title modification in original location
@@ -133,22 +126,37 @@ previous/next activity buttons
 webinar title
 course module navitation block
 logs
+forum new post confirmation
 */
-$("li.activity .instancename:contains('activity-label'), #region-main h2:first-of-type:contains('activity-label'), #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label'), .breadcrumb li a span:contains('activity-label'), .breadcrumb li a:contains('activity-label'), .row-fluid.rtl-compatible .span4 a:contains('activity-label'), .chosted-info .chosted-info-value p:contains('activity-label'), .block_course_modulenavigation .activityname:contains('activity-label'), #page-report-log-index td a:contains('activity-label'), #page-report-outline-index td a:contains('activity-label')").text(function(i, currentText) {
+$("li.activity .instancename:contains('activity-label'), #region-main h2:first-of-type:contains('activity-label'), #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label'), .breadcrumb li a span:contains('activity-label'), .breadcrumb li a:contains('activity-label'), .row-fluid.rtl-compatible .span4 a:contains('activity-label'), .chosted-info .chosted-info-value p:contains('activity-label'), .alert p:contains('activity-label'), .block_course_modulenavigation .activityname:contains('activity-label'), #page-report-log-index td a:contains('actted-info .chosted-info-value p:contains('activity-label'), .alert p:contains('activity-label'), .block_course_modulenavigation .activityname:contains('activity-label'), #page-report-log-index td a:contains('activity-label'), #page-report-outline-index td a:contains('activity-label')").text(function(i, currentText) {
   return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 })
+// completion progress activity title
+$(".course-content ul.section li.activity .actions button img.icon, .course-content ul.section li.activity .actions .autocompletion img.icon").attr("title", function(i, currentText) {
+  return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+});
+
 if (window.matchMedia('print').matches) {
   $("#page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label')").text(function(i, currentText) {
     return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
   })
 }
-
 // and document title
 var documentTitle = document.title;
 if (documentTitle.includes('activity-label')) {
   documentTitle = documentTitle.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
   $(document).attr('title', documentTitle);
 }
+
+// create activity title span to control spacing between activity number and title text
+$("li.activity span.instancename").each(function() {
+  if ($(this).text().match(/[1-9]{1}.[0-9]+\s{1}/g)) $(this).html(function(i, currentText) {
+    return currentText.replace(/ |&nbsp;/, "</span><span class='activity-title'>");
+  });
+});
+
+// week overview page activity label code
+$("li.activity .activityinstance a:not(.quickeditlink) .instancename").prepend('<div class="activity-label-container"><div class="activity-label"><i></i><span class="label-text"></span></div><div class="group-icon"><i></i></div><div class="media-icon"><i></i></div></div>');
 
 // add indent class and remove keyword span
 $("li.activity.label span:contains('-indent')").hide().parents("li.activity").addClass("indent");
@@ -161,3 +169,9 @@ $("li.activity.type-activity .activityinstance a .activity-label-container .acti
 $("li.activity.i-group .activityinstance a .activity-label-container .group-icon i").addClass("fas fa-user-friends");
 // add media icon
 $("li.activity.i-media .activityinstance a .activity-label-container .media-icon i").addClass("fas fa-play-circle");
+
+// completion progress class added to section with tracked activities
+$(".section.main:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)").addClass("completion-progress-section");
+$(".activity:has(.actions .autocompletion, .actions .togglecompletion)").addClass("completion-progress-activity");
+// clone completion progress tooltip to each section with completion progress activities
+$(".course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section").prepend($("#completionprogressid").clone());

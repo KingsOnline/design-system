@@ -1277,23 +1277,21 @@ figure {
     top: 2.25rem; }
 
 .table-scroll {
-  overflow: auto; }
+  overflow: auto;
+  margin-bottom: 1.5rem; }
+  .table-scroll table {
+    margin-bottom: 0;
+    display: inline; }
 
 table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table {
   margin-bottom: 1.5rem;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0; }
   table.table-bordered, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table, .table.table-bordered, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table {
-    border: none;
-    border-right: 1px solid #8B9296;
-    border-bottom: 1px solid #8B9296;
     border-radius: 0; }
     table.table-bordered th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, table.table-bordered td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td, .table.table-bordered th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, .table.table-bordered td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td {
-      border-top: 1px solid #8B9296 !important;
-      border-left: 1px solid #8B9296;
-      border-right: none;
-      border-bottom: none; }
+      border: 1px solid #8B9296 !important; }
   table.default-width, .table.default-width, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.default-width {
     width: auto; }
   table th, table td, .table th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, .table td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td {
@@ -1377,7 +1375,8 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
       font-family: 'KingsBureauGrot';
       line-height: 1.4; }
     .timeline-container .timeline-row .timeline-card img {
-      width: 100%; }
+      width: 100%;
+      height: auto; }
     .timeline-container .timeline-row .timeline-card .card-image {
       padding-right: 5px; }
     .timeline-container .timeline-row .timeline-card h5 {
@@ -1585,7 +1584,7 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
 #page-mod-forum-post #fgroup_id_buttonar {
   background-color: transparent; }
 
-#region-main ul.gtopics, #region-main ul.gtopics-0, #region-main ul.section {
+#region-main ul.gtopics, #region-main ul.gtopics-0, #region-main ul-ctopics, #region-main ul.section {
   margin: 0; }
 
 .content h3.sectionname {
@@ -1622,9 +1621,172 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
         width: 100%;
         height: 100%; }
       #gridiconcontainer .gridicon_link .image_holder.inaccessible, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible {
-        cursor: none; }
-        #gridiconcontainer .gridicon_link .image_holder.inaccessible img:hover, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img:hover {
-          transform: none; }
+        cursor: none;
+        filter: none;
+        opacity: initial; }
+        #gridiconcontainer .gridicon_link .image_holder.inaccessible:before, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible:before {
+          content: 'Available soon';
+          position: absolute;
+          background-color: #F5B90F;
+          color: #333333;
+          z-index: 1;
+          top: 148px;
+          left: 0;
+          padding: 0 1rem;
+          width: 100%;
+          font-size: 1rem;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          font-family: 'KingsBureauGrot'; }
+        #gridiconcontainer .gridicon_link .image_holder.inaccessible .icon_content, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible .icon_content {
+          background-color: rgba(90, 100, 105, 0.85) !important; }
+        #gridiconcontainer .gridicon_link .image_holder.inaccessible img, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img {
+          filter: grayscale(1); }
+          #gridiconcontainer .gridicon_link .image_holder.inaccessible img:hover, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img:hover {
+            transform: none; }
+
+.editing .course-content ul.ctopics {
+  margin-left: 8.75rem !important;
+  width: calc(100% - 8.75rem); }
+.course-content .single-section .section-navigation.navigationtitle {
+  padding:0; }
+  .course-content .single-section .section-navigation.navigationtitle .sectionname {
+    text-align: left;
+    font-size: 2.375rem;
+    line-height: 1.1;
+    margin-bottom: 2.25rem; }
+    .course-content .single-section .section-navigation.navigationtitle .sectionname:after {
+      display: none; }
+.course-content ul.ctopics {
+  margin: 0 !important; }
+  .course-content ul.ctopics > .section {
+    margin: 0 !important;
+    position: relative; }
+    @media only screen and (min-width: 768px) {
+      .course-content ul.ctopics > .section:not(#section-0) {
+        width: calc(100% - 28px); } }
+    .course-content ul.ctopics > .section .side.left {
+      position: absolute;
+      top: 1rem;
+      left: -2.25rem; }
+      .course-content ul.ctopics > .section .side.left img.icon.spacer {
+        display: none; }
+    .course-content ul.ctopics > .section .side.right {
+      width: auto !important;
+      position: absolute;
+      right: -28px;
+      top: 0.75rem; }
+      .course-content ul.ctopics > .section .side.right a.tceditsection, .course-content ul.ctopics > .section .side.right .cps_centre {
+        line-height: normal;
+        height: max-content;
+        width: max-content;
+        margin: 0 !important;
+        font-size: 1.25rem; }
+        .course-content ul.ctopics > .section .side.right a.tceditsection:before, .course-content ul.ctopics > .section .side.right .cps_centre:before {
+          content: '\f35d';
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          color: #0A2D50; }
+        .course-content ul.ctopics > .section .side.right a.tceditsection img, .course-content ul.ctopics > .section .side.right .cps_centre img {
+          display: none; }
+      .course-content ul.ctopics > .section .side.right .section_action_menu {
+        position: absolute;
+        right: 2.25rem;
+        top: 0; }
+        .course-content ul.ctopics > .section .side.right .section_action_menu .menubar {
+          margin: 0 !important;
+          background-color: white;
+          opacity: 0.8;
+          border-radius: 4px;
+          padding: 0.25rem 0; }
+    .course-content ul.ctopics > .section .content {
+      margin: 0 !important;
+      padding: 0 !important; }
+      .course-content ul.ctopics > .section .content .sectionhead {
+        margin-bottom: 0 !important; }
+        .course-content ul.ctopics > .section .content .sectionhead .toggle_open, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed {
+          background-image: none !important;
+          background-color: #EDF1F2 !important;
+          padding: 1rem !important;
+          border: none !important;
+          color: #171717 !important; }
+          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname {
+            font-size: 1.25rem;
+            line-height: 1;
+            margin: 0 !important;
+            margin-left: 2.25rem !important; }
+            .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname::before {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              content: '\f105';
+              position: absolute;
+              left: 1.25rem; }
+            .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink {
+              position: relative; }
+              .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink .quickediticon, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink .quickediticon {
+                position: absolute;
+                top: -2px;
+                margin-left: 8px; }
+          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed  .section_availability .availabilityinfo {
+             margin: 0.5rem 0 0 0;
+             padding-left: 2.25rem;
+             font-weight: normal; }
+             .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo .label,
+             .course-content ul.ctopics > .section .content .sectionhead .toggle_closed  .section_availability .availabilityinfo .label {
+               color: white; }
+        .course-content ul.ctopics > .section .content .sectionhead .toggle_open {
+          background-color: #0A2D50 !important;
+          color: #FFFFFF !important; }
+          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before {
+            content: '\f107'; }
+          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname span {
+            color: #FFFFFF; }
+        .course-content ul.ctopics > .section .content .sectionhead .toggle_closed:hover {
+          background-color: #DCE3E6 !important; }
+      .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
+        background-color: rgba(237, 241, 242, 0.3);
+        padding: 1.5rem 0.5rem; }
+        @media only screen and (min-width: 768px) {
+          .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
+            padding: 2.25rem 1.5rem; } }
+        .course-content ul.ctopics > .section .content .sectionbody.sectionopen li.activity:last-child {
+          margin-bottom: 0 !important; }
+    .course-content ul.ctopics > .section:not(:last-of-type) .content .sectionhead {
+      margin-bottom: 0.5rem !important; }
+    .course-content ul.ctopics > .section#section-0 .side {
+      display: none; }
+    .course-content ul.ctopics > .section#section-0 .section-title {
+      margin-bottom: 2.25rem; }
+  .course-content ul.ctopics .tcsection {
+    margin: 0 !important; }
+    .course-content ul.ctopics .tcsection .content {
+      margin: 0 !important; }
+      .course-content ul.ctopics .tcsection .content h4 {
+        padding: 0 !important;
+        margin-bottom: 0.5rem !important; }
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed,
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover {
+          background: none;
+          padding: 0 0 0 1rem !important;
+          margin-right: 2.25rem !important;
+          position: relative;
+          font-size: 1rem;
+          line-height: 1; }
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened::before,
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before,
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before,
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover::before {
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          content: '\f105';
+          position: absolute;
+          left: 0;
+          top: 1px;
+          font-size: 1.125rem; }
+        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before {
+          content: '\f107';
+          left: -2px; }
 
 .section .summary .iconsmall, .section .summary img.icon, .section .activity .iconsmall, .section .activity img.icon {
   padding: 0; }
@@ -1638,9 +1800,6 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
   padding: 0 !important; }
   .course-content ul.section li.activity > div {
     width: 100%; }
-    @media only screen and (min-width: 768px) {
-      .course-content ul.section li.activity > div {
-        max-width: calc(100% - 105px); } }
     .course-content ul.section li.activity > div .mod-indent-outer {
       display: block; }
   .course-content ul.section li.activity .no-overflow {
@@ -1654,43 +1813,50 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
   .course-content ul.section li.activity.label h4:last-child,
   .course-content ul.section li.activity.label p:last-child {
     margin-bottom: 0; }
-  .course-content ul.section li.activity.modtype_lti .instancename {
-    margin-bottom: 1rem !important; }
   .course-content ul.section li.activity.type-study .activityinstance .activity-label-container .activity-label {
-    display: none; }
+    display: none !important; }
   .course-content ul.section li.activity.type-activity .activityinstance .activity-label-container .activity-label {
     display: inline-block !important;
     color: #FF5F05; }
   .course-content ul.section li.activity.type-assessed .activityinstance a .activity-label-container .activity-label {
     display: inline-block;
-    background-color: #60bbba;
+    background-color: #60bbba !important;
     color: white;
-    width: 5.5rem; }
+    width: 5.5rem !important; }
+  .course-content ul.section li.activity .editing_move {
+    top: 2px !important; }
+  .course-content ul.section li.activity .mod-indent-outer > div:last-child {
+    display: flex;
+    flex-wrap: wrap; }
   .course-content ul.section li.activity .activityinstance {
-    min-height: initial !important;
     width: 100%;
-    padding: 0; }
+    min-height: initial !important;
+    padding: 0;
+    order: 2; }
     .course-content ul.section li.activity .activityinstance ~ .ishidden {
       margin: 0; }
     .course-content ul.section li.activity .activityinstance:not(:last-child) {
       margin-bottom: 0; }
     .course-content ul.section li.activity .activityinstance img.activityicon {
       display: none; }
-    .course-content ul.section li.activity .activityinstance a {
-      display: flex;
+    .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) {
       width: 100%; }
-      @media only screen and (max-width: 767px) {
-        .course-content ul.section li.activity .activityinstance a {
-          justify-content: space-between; } }
-      .course-content ul.section li.activity .activityinstance a .instancename {
-        margin-right: 0.5rem; }
-      .course-content ul.section li.activity .activityinstance a:hover {
+      @media only screen and (min-width: 768px) {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) {
+          display: flex; } }
+      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
+        margin-left: 0.375rem; }
+        @media only screen and (min-width: 768px) {
+          .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
+            margin-left: 0.75rem; } }
+      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink):hover {
         text-decoration: none; }
-        .course-content ul.section li.activity .activityinstance a:hover .instancename {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink):hover .instancename .activity-title {
           text-decoration: underline; }
-      .course-content ul.section li.activity .activityinstance a .activity-label-container {
+      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container {
+        float: right;
         display: flex; }
-        .course-content ul.section li.activity .activityinstance a .activity-label-container .activity-label {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .activity-label {
           display: inline-block;
           font-family: 'KingsBureauGrot';
           font-size: 1rem;
@@ -1703,36 +1869,165 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
           border-radius: 15px;
           margin-left: 1rem;
           background-color: #EDF1F2; }
-        .course-content ul.section li.activity .activityinstance a .activity-label-container .group-icon {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon {
           color: #FF5F05;
           font-size: 1.25rem; }
-        .course-content ul.section li.activity .activityinstance a .activity-label-container .group-icon .fas.fa-user-friends,
-        .course-content ul.section li.activity .activityinstance a .activity-label-container .media-icon .fas.fa-play-circle {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends,
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle {
           margin-left: 0.5rem; }
           @media only screen and (min-width: 768px) {
-            .course-content ul.section li.activity .activityinstance a .activity-label-container .group-icon .fas.fa-user-friends,
-            .course-content ul.section li.activity .activityinstance a .activity-label-container .media-icon .fas.fa-play-circle {
+            .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends,
+            .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle {
               margin-left: 1rem; } }
-        .course-content ul.section li.activity .activityinstance a .activity-label-container .media-icon {
+        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon {
           color: #005AD2;
           font-size: 1.25rem; }
+    .course-content ul.section li.activity .activityinstance a.quickeditlink .quickediticon img {
+      opacity: 0.8; }
+  .course-content ul.section li.activity .availabilityinfo {
+    order: 3;
+    flex: 0 0 100%;
+    margin: 0.5rem 0 0 0; }
   .course-content ul.section li.activity.indent, .course-content ul.section li.activity .contentafterlink {
     border-left: 3px solid #CDD7DC;
     border-radius: 0;
     padding-left: 0.625rem !important;
-    margin-left: 1.875rem;
+    order: 3;
+    margin-left: 34px;
     margin-top: 0; }
+    @media only screen and (min-width: 768px) {
+      .course-content ul.section li.activity.indent, .course-content ul.section li.activity .contentafterlink {
+        margin-left: 44px; } }
     .course-content ul.section li.activity.indent p, .course-content ul.section li.activity .contentafterlink p {
       margin: 0 0 1rem 0; }
       .course-content ul.section li.activity.indent p:last-child, .course-content ul.section li.activity .contentafterlink p:last-child {
         margin-bottom: 0; }
+  .course-content ul.section li.activity .contentafterlink {
+    margin-top: 1rem; }
   .course-content ul.section li.activity .contentwithoutlink {
-    min-height: 1.5rem; }
+    min-height: 1.5rem;
+    width: 100%;
+    order: 2; }
 
-.section_action_menu,
-.section .activity .commands {
+.editing .course-content .section.main .activity .actions .menubar {
+  margin: 0 !important; }
+
+.editing .course-content .section.main .activity .actions .menu {
+  margin: 0 !important;
+  left: auto !important; }
+
+.editing .course-content .section.main.completion-progress-section .activity:not(.completion-progress-activity) {
+  margin-left: 0 !important; }
+  .editing .course-content .section.main.completion-progress-section .activity:not(.completion-progress-activity) .actions .commands {
+    position: absolute;
+    left: -110px; }
+    @media only screen and (min-width: 768px) {
+      .editing .course-content .section.main.completion-progress-section .activity:not(.completion-progress-activity) .actions .commands {
+        left: -126px; } }
+
+.editing .course-content .section.main:not(.completion-progress-section) .activity .actions .commands {
   position: absolute;
-  left: -4.5rem; }
+  left: -110px; }
+  @media only screen and (min-width: 768px) {
+    .editing .course-content .section.main:not(.completion-progress-section) .activity .actions .commands {
+      left: -126px; } }
+
+.course-content > #completionprogressid {
+  display: none !important; }
+
+.course-content .section.main .content > #completionprogressid {
+  display: none !important; }
+
+.course-content .section.main.completion-progress-section .completionprogress {
+  margin: 0 0 1.5rem 0 !important;
+  display: flex !important;
+  justify-content: flex-start;
+  float: none !important;
+  text-align: left !important;
+  line-height: 1.5;
+  height: auto !important;
+  z-index: auto; }
+  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a img {
+    display: none; }
+  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a:hover {
+    text-decoration: none; }
+  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a:after {
+    font-family: 'Font Awesome 5 Free';
+    font-size: 1.25rem;
+    content: '\f059';
+    color: #0A2D50;
+    margin-left: 36px;
+    position: absolute;
+    top: -3px; }
+  .course-content .section.main.completion-progress-section .completionprogress .helptooltip:before {
+    content: '';
+    background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 2px;
+    margin-left: 8px; }
+
+.course-content .section.main.completion-progress-section .activity.completion-progress-activity .activityinstance {
+  max-width: calc(100% - 30px); }
+  @media only screen and (min-width: 768px) {
+    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .activityinstance {
+      max-width: calc(100% - 38px); } }
+
+.course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions {
+  position: static;
+  max-width: max-content;
+  background: none;
+  left: 0; }
+  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands {
+    position: absolute;
+    left: -78px; }
+    @media only screen and (min-width: 768px) {
+      .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands {
+        left: -94px; } }
+    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands .menubar {
+      margin: 0 !important; }
+    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands .menu {
+      left: unset !important; }
+  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
+    padding: 0 !important;
+    margin: 0 0.5rem 0 0 !important; }
+    @media only screen and (min-width: 768px) {
+      .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
+        margin: 0 1rem 0 0 !important; } }
+    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button img.icon, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion img.icon {
+      height: 1.25rem;
+      width: 1.25rem;
+      padding: 0;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.8); }
+  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .filler {
+    display: none; }
+
+.course-content .section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) {
+  margin-left: 30px; }
+  @media only screen and (min-width: 768px) {
+    .course-content .section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) {
+      margin-left: 38px; } }
+
+table li.activity.page {
+  margin-bottom: unset !important; }
+  table li.activity.page .activityinstance {
+    min-height: unset; }
+
+@media not all and (min-resolution: 0.001dpcm) {
+  li.activity .activityinstance .activity-label-container .activity-label {
+    line-height: 1.7; } }
+
+li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .group-icon, li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .media-icon {
+  display: none !important; }
+
+li.section.main.section-hide-activity-labels li.activity:not(.type-assessed) .activity-label-container {
+  display: none !important; }
+
+li.section.main.section-hide-activity-labels li.activity.resource .activityinstance img {
+  display: inline; }
 
 table li.activity.page {
   margin-bottom: unset !important; }
@@ -2249,7 +2544,7 @@ img.cb-palette {
   .do-dont p:last-child {
     margin-bottom: 0; }
 
-.course-content .single-section .section-navigation.navigationtitle {
+.format-grid .course-content .single-section .section-navigation.navigationtitle {
   display: none; }
 
 .path-mod-questionnaire {

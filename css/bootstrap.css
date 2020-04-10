@@ -235,6 +235,10 @@ html {
   -ms-overflow-style: scrollbar;
 }
 
+input {
+  box-sizing: content-box;
+}
+
 *,
 *::before,
 *::after {
