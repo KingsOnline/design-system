@@ -119,7 +119,10 @@ html {
   .caption {
     font-size: 0.875rem;
   }
- .quote-box {
+  .alert {
+    color: #333333;
+  }
+  .quote-box {
     page-break-inside: avoid;
     border: 2px solid #464e52;
     margin-bottom: 1.25rem;
@@ -165,6 +168,9 @@ html {
   }
   .col-md-3 {
     flex: 0 0 25%;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
   }
   .col-md-9 {
     flex: 0 0 75%;
@@ -676,9 +682,14 @@ html {
   .view-feedback-container .card-body .card-author img,
   .view-model-answer-container .card-body .card-author img {
     border-radius: 50%;
-    width: 535px !important;
+    width: 150px !important;
     height: auto !important;
     margin: 0 0 0.625rem 0;
+  }
+  .view-answer-container .card-body .card-author .card-title,
+  .view-feedback-container .card-body .card-author .card-title,
+  .view-model-answer-container .card-body .card-author .card-title {
+    width: 150px !important;
   }
   .view-answer-container .card-body .card-text,
   .view-feedback-container .card-body .card-text,

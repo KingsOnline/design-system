@@ -18,6 +18,8 @@
 @import 'layout/forms';
 
 //@import 'components/buttons';
+@import 'components/academicnote';
+@import 'components/activitylabel';
 @import 'components/alert';
 @import 'components/button';
 @import 'components/card';
@@ -33,10 +35,11 @@
 @import 'components/timeline';
 @import 'components/viewanswer';
 
+@import 'pages/book';
 @import 'pages/forum';
 @import 'pages/home';
 @import 'pages/kitchensink';
-@import 'pages/modinfo';
+@import 'pages/lesson';
 @import 'pages/questionnaire';
 @import 'pages/quiz';
 @import 'pages/versioning';

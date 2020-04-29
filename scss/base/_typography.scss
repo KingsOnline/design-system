@@ -24,7 +24,7 @@ $font-os: (
   family: 'Open Sans, sans-serif',
   p: ( font-size: 1rem, line-height: 1.5 ),
   caption: ( font-size: 0.833rem, line-height: 1.5 ),
-  key-concept: ( font-size: 1.125rem, line-height: 1.5 )
+  key-concept: ( font-size: 1rem, line-height: 1.5 )
 );
 $font-kcd: (
   family:  'KingsCaslonDisplay',
@@ -70,106 +70,123 @@ html, body {
   color: $body-text;
 }
 
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6,
-  .quote-attribution {
-    font-family: 'KingsBureauGrot';
-    color: $headings;
-    margin-top: 0;
-    margin-bottom: $component-margin-bottom;
-  }
-  h1, .h1 { @include font-scale(h1) ;}
-  h2, .h2 { @include font-scale(h2) ;}
-  h3, .h3 { @include font-scale(h3) ;}
-  h4, .h4 { @include font-scale(h4) ;}
-  h5, .h5 { @include font-scale(h5) ;}
-  h6, .h6 { @include font-scale(h6) ;}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.quote-attribution {
+  font-family: 'KingsBureauGrot';
+  color: $headings;
+  margin-top: 0;
+  margin-bottom: $component-margin-bottom-sm;
+}
+h1, .h1 { @include font-scale(h1) ;}
+h2, .h2 { @include font-scale(h2) ;}
+h3, .h3 { @include font-scale(h3) ;}
+h4, .h4 { @include font-scale(h4) ;}
+h5, .h5 { @include font-scale(h5) ;}
+h6, .h6 { @include font-scale(h6) ;}
 
-  p {
-    @include font-scale(p, $font-os);
-    margin-bottom: $component-margin-bottom;
-    color: $body-text;
+p {
+  @include font-scale(p, $font-os);
+  margin-bottom: $component-margin-bottom;
+  color: $body-text;
+}
+.caption {
+  @include font-scale(caption, $font-os);
+}
+.quote-body {
+  @include font-scale(quote-body, $font-kcd);
+  margin-bottom: 1.75rem;
+  font-style: italic;
+}
+.quote-attribution {
+  @include font-scale(quote-attribution);
+  margin-bottom: 0 !important;
+}
+select, option, {
+  font-family: 'Open Sans', sans-serif;
+}
+
+// mobile fonts
+@media only screen and (max-width: 767px) {
+  h1, .h1 { @include font-scale(h1-sm) ;}
+  h2, .h2 { @include font-scale(h2-sm) ;}
+  h3, .h3 { @include font-scale(h3-sm) ;}
+  h4, .h4 { @include font-scale(h4-sm) ;}
+  h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
+  .quote-body { @include font-scale(quote-body-sm, $font-kcd); }
+  .quote-attribution { @include font-scale(quote-attribution-sm); }
+}
+
+// hide page title underline
+.path-mod-book .generalbox.book_content>h3 {
+  background: none;
+  &:after {
+    display: none;
   }
-  .caption {
-    @include font-scale(caption, $font-os);
-  }
-  .quote-body {
-    @include font-scale(quote-body, $font-kcd);
-    margin-bottom: 1.75rem;
-    font-style: italic;
-  }
-  .quote-attribution {
-    @include font-scale(quote-attribution);
+}
+
+//override theme list font style
+li {
+  line-height: inherit;
+  & > p {
     margin-bottom: 0;
   }
-  select, option, {
-    font-family: 'Open Sans', sans-serif;
+}
+hr {
+  margin: $component-margin 0;
+  border: 1px solid $rules-and-outlines;
+  border-width: 0 0 1px 0;
+}
+
+//override module week page link
+.instancename {
+  color: $midnight-blue;
+  &:hover {
+    color: #003d5c;
   }
+}
 
-  // mobile fonts
-  @media only screen and (max-width: 767px) {
-    h1, .h1 { @include font-scale(h1-sm) ;}
-    h2, .h2 { @include font-scale(h2-sm) ;}
-    h3, .h3 { @include font-scale(h3-sm) ;}
-    h4, .h4 { @include font-scale(h4-sm) ;}
-    h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
-    .quote-body { @include font-scale(quote-body-sm, $font-kcd); }
-    .quote-attribution { @include font-scale(quote-attribution-sm); }
-  }
-
-  // hide page title underline
-  .path-mod-book .generalbox.book_content>h3 {
-    background: none;
-    &:after {
-      display: none;
-    }
-  }
-
-  //override theme list font style
-  li {
-    line-height: inherit;
-    & > p {
-      margin-bottom: 0;
-    }
-  }
-
-
-  //override module week page link
-  .instancename {
-    color: $midnight-blue;
+#region-main {
+  // link hover styles
+  p a, li p a {
+    text-decoration: underline;
+    color: $reflex-blue;
     &:hover {
-      color: #003d5c;
+      color: $sea-blue;
+    }
+    &:visited {
+      color: $midnight-blue;
     }
   }
+  // list margin bottom
+  ol, ul {
+    margin: 0 0 $component-margin-bottom $component-margin-lg;
+    &> li {
+      margin-bottom: $component-margin-bottom-sm;
+      // remove margin bottom from nested lists
+      ul, ol, li {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
 
-  #region-main {
-    // link hover styles
-    p a, li p a {
-      text-decoration: underline;
-      color: $reflex-blue;
-      &:hover {
-        color: $sea-blue;
-      }
-      &:visited {
-        color: $midnight-blue;
-      }
-    }
-    // list margin bottom
-    ol, ul {
-      margin: 0 0 $component-margin-bottom 26px;
-      &> li {
-        margin-bottom: $component-margin-bottom-sm;
-        // remove margin bottom from nested lists
-        ul, ol, li {
-          margin-bottom: 0;
-        }
-      }
-    }
+pre {
+  margin-bottom: $component-margin-bottom;
+  background-color: transparent;
+  border: 1px solid $block-header;
+  border-radius: 0;
+  padding: $component-margin-sm;
+  code {
+    border: none;
   }
-
-  pre {
-    margin-bottom: $component-margin-bottom;
-  }
+}
+code {
+  border: 1px solid $block-header;
+  background-color: rgba(237, 241, 242, 0.2);
+  color: $kings-red;
+  border-radius: 4px;
+}
 
  //override book headings
 .path-mod-book {
@@ -219,6 +236,7 @@ footer#page-footer {
 }
 .back-to-top {
   bottom: 28px;
+  right: 48px;
   .fa-3x {
     font-size: 42px;
   }

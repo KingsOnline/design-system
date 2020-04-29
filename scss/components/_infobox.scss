@@ -7,8 +7,8 @@
   @extend .info-box;
   background-color: $block-background;
   & > :first-child::before {
-    content: '\f518';
-    padding: 0;
+    content: '\f02e';
+    padding: 0 5px;
     color: $purple70;
   }
 }
@@ -47,12 +47,17 @@
   background-color: $block-background;
   margin-bottom: $component-margin-bottom;
   padding: 1.5rem;
-  p {
+  div > :last-child {
+    margin-bottom: 0 !important;
+  }
+  p, li {
     @include font-scale(key-concept, $font-os);
     font-weight: bold;
   }
-  p:last-child {
-    margin-bottom: 0;
+  ul, ol {
+    li:last-child {
+      margin-bottom: 0 !important;
+    }
   }
 }
 
@@ -63,12 +68,23 @@
   & > :first-child::before {
     content: '\f091';
     color: $teal-blue;
-    padding: 4px;
+    padding: 0 4px;
   }
   ol, ul {
     margin: 0 0 0 1.25rem;
     li:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+// reading box
+.reading-box {
+  @extend .info-box;
+  background-color: $block-background;
+  & > :first-child::before {
+    content: '\f5da';
+    padding: 0 2px 0 3px;
+    color: $midnight-blue;
   }
 }

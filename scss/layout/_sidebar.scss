@@ -1,7 +1,7 @@
 #block-region-side-pre .block, #block-region-side-post .block {
   &:not(.block_fake) .title h2::after {
     content: '\f068';
-    font-family: 'Font Awesome 5 Pro';
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     position: absolute;
     right: 0;
@@ -34,6 +34,7 @@
 //        line-height: 1.4;
 //        color: $midnight-blue;
         pointer-events: none;
+        max-width: calc(100% - 1.5rem);
       }
       // hide block action buttons
       .block_action {
@@ -119,6 +120,14 @@
   li {
     span {
       display: block;
+      &.name {
+        font-family: 'KingsBureauGrot';
+        color: $body-text;
+      }
+      &.role {
+        font-family: 'KingsBureauGrotFiveOne';
+        color: $body-text;
+      }
     }
     &:not(:last-child) {
       margin-bottom: $component-margin-bottom-sm;

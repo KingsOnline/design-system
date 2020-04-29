@@ -53,7 +53,7 @@
   }
 }
 .navbutton {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 1.25rem;
   color: $white;
@@ -218,6 +218,11 @@
           strong {
             color: $white;
           }
+          @media not all and (min-resolution:.001dpcm) {
+            strong {
+              height: 36px;
+            }
+          }
         }
         a:hover {
           color: #526C84;
@@ -227,63 +232,3 @@
     }
   }
 }
-/*#page-mod-book-view {
-  .navtext.navtop, .navtext.navbottom {
-    @extend .navcontainer;
-    a {
-      @extend .navtext;
-      &.bookprev {
-        left: $lg-nav-margin;
-        @media only screen and (max-width: $neo-breakpoint) {
-          left: $sm-nav-margin;
-        }
-        &:before {
-          @extend .navbutton;
-          left: -3.125rem;
-        }
-      }
-      &.booknext, &.bookexit {
-        text-align: right;
-        right: $lg-nav-margin;
-        @media only screen and (max-width: $neo-breakpoint) {
-          right: $sm-nav-margin;
-        }
-        &:after {
-          @extend .navbutton;
-          right: -3.125rem;
-        }
-      }
-      &.bookexit {
-        .chaptername {
-          display: none;
-        }
-        &:before {
-          font-family: 'KingsBureauGrot';
-          content: 'Exit lesson';
-        }
-        &:after {
-          font-family: 'Font Awesome 5 Pro';
-          content: '\f2f5';
-          font-weight: 900;
-          padding: 0.25rem 0.375rem;
-          @media only screen and (max-width: $neo-breakpoint) {
-            padding: 5px 8.5px;
-          }
-        }
-      }
-      .chaptername{
-        font-family: 'KingsBureauGrotFiveOne';
-        font-size: 1.25rem;
-        font-weight: normal;
-      }
-      &:hover {
-        color: #526C84;
-        text-decoration: underline;
-      }
-    }
-  }
-  .row-fluid.rtl-compatible {
-    display: none;
-  }
-}
-*/

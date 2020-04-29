@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// activity label
+// -----------------------------------------------------------------------------
+
+.activity-label-container-default {
+  display: inline;
+  .activity-label {
+    display: inline-block;
+    font-family: 'KingsBureauGrot';
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $orange;
+    width: 5rem;
+    height: 1.5rem;
+    border-radius: 15px;
+    margin-left: 1rem;
+    background-color: $block-background;
+  }
+  .group-icon {
+    color: $orange;
+    font-size: 1.25rem;
+  }
+  .group-icon .fas.fa-user-friends,
+  .media-icon .fas.fa-play-circle {
+    margin-left: $component-margin-xs;
+    @media only screen and (min-width: 768px) {
+      margin-left: $component-margin-sm;
+    }
+  }
+  .media-icon {
+    color: $sea-blue;
+    font-size: 1.25rem;
+  }
+}

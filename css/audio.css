@@ -1,0 +1,80 @@
+body {
+  background-color: transparent;
+}
+.mwEmbedPlayerBlackBkg {
+  background-color: white !important;
+}
+.playerPoster, .largePlayBtn,
+.closedCaptions, .playbackRateSelector, .sourceSelector, .fullScreenBtn, .expandToggleBtn {
+  display: none !important  ;
+}
+.volumeControl {
+  padding-right: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  height: 17px !important;
+}
+.volumeControl button::before {
+  font-size: 0.75rem;
+}
+.currentTimeLabel, .durationLabel {
+  position: absolute !important;
+  top: -4px !important;
+}
+.currentTimeLabel {
+  margin-left: -2.25rem;
+}
+.durationLabel {
+  left: 2.75rem;
+}
+.controlBarContainer {
+  background-color: black;
+  border-radius: 8px;
+  margin-left: 3.25rem;
+  margin-bottom: 0.75rem;
+  width: calc(100% - 3.25rem - 1px) !important;
+  max-height: 18px;
+}
+.scrubber {
+  border-top: 5px solid black !important;
+  border-bottom: 5px solid black !important;
+  margin: 0 8rem 0 6rem;
+}
+.scrubber .playHead {
+  width: 14px !important;
+  height: 14px !important;
+}
+.sliderPreview {
+  display: none !important;
+}
+.playPauseBtn:focus {
+  outline: none !important;
+}
+.playPauseBtn:before {
+  position: absolute;
+  top: -10px;
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
+  left: -52px;
+  background-color: #0a2d50;
+  font-size: 20px;
+  border-radius: 50%;
+  color: white;
+  text-shadow: none;
+  padding: 10px 11.25px;
+}
+.icon-play:before {
+  content: "\f04b" !important;
+}
+.icon-pause:before {
+  content: "\f04c" !important;
+}
+.icon-replay:before {
+  content: "\f01e" !important;
+  padding: 10px;
+} 
+.controlsContainer {
+  height: 0px !important;
+  border: none !important;
+}

@@ -10,7 +10,7 @@
   flex-direction: row;
   border: none;
   margin-bottom: $component-margin-bottom;
-  .card-img-top, .card-img-left, .img-top, .img-left {
+  img, .card-img-top, .card-img-left, .img-top, .img-left {
     width: 310px;
     height: 100%;
     flex-shrink: 0;
@@ -18,12 +18,18 @@
     @media only screen and (max-width: $neo-breakpoint) {
       width: 100%;
     }
+    &.img-right, .card-img-right {
+      order: 2;
+    }
   }
   .card-body {
     background-color: $block-background;
     h4 {
       margin-top: 0;
       margin-bottom: 0.75rem;
+    }
+    & > :last-child {
+      margin-bottom: 0;
     }
   }
 }

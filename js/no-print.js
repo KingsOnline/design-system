@@ -42,7 +42,11 @@ $(document).on("click", ".transcript-button-group a.view-close-transcript", func
   $(this).parents(".transcript-container").toggleClass("collapsed");
 });
 
-// toggle view answer, model answer, and feedback button text and card
+// toggle view generic, view answer, model answer, and feedback button text and card
+$(document).on("click", "a.view-hide-generic", function(event) {
+  $(this).text($(this).text() == 'View' ? 'Hide' : 'View');
+  $(this).parents(".view-generic-container").toggleClass("collapsed");
+});
 $(document).on("click", "a.view-hide-answer", function(event) {
   $(this).text($(this).text() == 'View answer' ? 'Hide answer' : 'View answer');
   $(this).parents(".view-answer-container").toggleClass("collapsed");
@@ -79,6 +83,12 @@ if ($(".navbottom a.bookprev").length == 0) {
 }
 // remove text from previous and next buttons
 $(".navbottom.clearfix > a").empty();
+
+// hide toc for single chapter book
+$(".block_book_toc .content ul > li:only-child strong:only-child").parents(".block_book_toc").hide();
+
+// add single-chapter-book class to screen and print to hide toc and title
+$(".block_book_toc .content ul > li:only-child, #page-mod-book-print .book_toc_numbered ul li:only-child").parents("#page-content").addClass("single-chapter-book");
 
 // remove stupid arrows from prev and next activity links
 $(".row-fluid.rtl-compatible a#prev-activity-link").text(function(i, text) {
@@ -169,6 +179,9 @@ $("li.activity.type-activity .activityinstance a .activity-label-container .acti
 $("li.activity.i-group .activityinstance a .activity-label-container .group-icon i").addClass("fas fa-user-friends");
 // add media icon
 $("li.activity.i-media .activityinstance a .activity-label-container .media-icon i").addClass("fas fa-play-circle");
+
+// hide activity labels within a specific course section
+$(".summary span.section-hide-activity-labels").parents("li.section.main").addClass("section-hide-activity-labels");
 
 // completion progress class added to section with tracked activities
 $(".section.main:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)").addClass("completion-progress-section");

@@ -1,0 +1,6 @@
+/* embed styles */
+/* brightcove caption positioning */
+.track > .caption {
+  top: unset !important;
+  bottom: 9vh !important;
+}

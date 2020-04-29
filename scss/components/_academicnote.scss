@@ -1,8 +1,7 @@
 // -----------------------------------------------------------------------------
-// view answer
+// academic note
 // -----------------------------------------------------------------------------
 
-.view-generic-container, .view-answer-container, .view-feedback-container,
-.view-model-answer-container {
+.academic-note-container {
   @extend .note-container;
 }

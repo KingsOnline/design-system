@@ -22,15 +22,18 @@ $sky-blue: #00B9E1;
 $teal-blue: #009EA0;
 $pea-green: #28C382;
 $lime-green: #C6E128;
-$lime-green-2: #B4BD10;
+//$lime-green-2: #B4BD10;
+$lime-green-2: #999900;
 $reflex-blue: #002395;
 $midnight-blue: #0A2D50;
 
 //Neutrals
 $pebble: #5F5550;
+$stone: #575756;
 $slate-grey: #5A6469;
 $mushroom: #CDC3B9;
 $pearl-grey: #CDD7DC;
+$warm-grey: #BCAFA8;
 $powder-blue: #8D9EBC;
 
 //KC Custom
@@ -50,7 +53,7 @@ $cb-colors: (
     sea-blue: #005ad2,
     teal-blue: #009ea0,
     pea-green: #28c382,
-    lime-green-2: #b4bd10,
+    lime-green-2: #999900,
     yellow: #f5b90f,
     orange: #ff5f05,
     kings-red: #e2231a,
@@ -61,10 +64,12 @@ $cb-colors: (
     soft-pink: #fc5e72,
     midnight-blue: #0a2d50,
     slate-grey: #5a6469,
+    stone: #575756,
     pebble: #5f5550,
     powder-blue: #8d9ebc,
     pearl-grey: #cdd7dc,
     mushroom: #cdc3b9,
+    warm-grey: #bcafa8,
     black: #000000,
     white: #ffffff
   ),
@@ -74,7 +79,7 @@ $cb-colors: (
     sea-blue: #4d4d4d,
     teal-blue: #6f6f6f,
     pea-green: #8d8d8d,
-    lime-green-2: #a7a7a7,
+    lime-green-2: #888888,
     yellow: #b8b8b8,
     orange: #858585,
     kings-red: #5b5b5b,
@@ -85,10 +90,12 @@ $cb-colors: (
     soft-pink: #909090,
     midnight-blue: #272727,
     slate-grey: #626262,
+    stone: #575756,
     pebble: #575757,
     powder-blue: #9c9c9c,
     pearl-grey: #d5d5d5,
     mushroom: #c5c5c5,
+    warm-grey: #b2b2b2,
     black: #000000,
     white: #ffffff
   ),
@@ -98,7 +105,7 @@ $cb-colors: (
     sea-blue: #3e5068,
     teal-blue: #597879,
     pea-green: #79988b,
-    lime-green-2: #aaab89,
+    lime-green-2: #8b8b6d,
     yellow: #c4b896,
     orange: #9d7d6b,
     kings-red: #76504e,
@@ -109,10 +116,12 @@ $cb-colors: (
     soft-pink: #a6868a,
     midnight-blue: #21282f,
     slate-grey: #606263,
+    stone: #575757,
     pebble: #595756,
     powder-blue: #999ca2,
     pearl-grey: #d3d5d6,
     mushroom: #c7c5c3,
+    warm-grey: #b4b1b0,
     black: #000000,
     white: #ffffff
   ),
@@ -122,7 +131,7 @@ $cb-colors: (
     sea-blue: #0066c7,
     teal-blue: #93929b,
     pea-green: #bdaf7f,
-    lime-green-2: #cfb919,
+    lime-green-2: #ac9900,
     yellow: #ddc51e,
     orange: #ab9921,
     kings-red: #887b36,
@@ -133,10 +142,12 @@ $cb-colors: (
     soft-pink: #9f998f,
     midnight-blue: #273557,
     slate-grey: #6a696f,
+    stone: #615f5e,
     pebble: #625f59,
     powder-blue: #9ba0be,
     pearl-grey: #d9d6dc,
     mushroom: #cdc6bc,
+    warm-grey: #bab4ad,
     black: #000000,
     white: #fffffe
   ),
@@ -146,7 +157,7 @@ $cb-colors: (
     sea-blue: #006bae,
     teal-blue: #9590ab,
     pea-green: #caa992,
-    lime-green-2: #e6af2c,
+    lime-green-2: #bf921c,
     yellow: #f7bb1c,
     orange: #bf9200,
     kings-red: #9a7500,
@@ -157,10 +168,12 @@ $cb-colors: (
     soft-pink: #b6946f,
     midnight-blue: #1a3759,
     slate-grey: #706772,
+    stone: #685c5f,
     pebble: #6a5c59,
     powder-blue: #a19ec0,
     pearl-grey: #e7d1e0,
     mushroom: #ddc1be,
+    warm-grey: #c9afad,
     black: #000000,
     white: #fefffe
   ),
@@ -170,7 +183,7 @@ $cb-colors: (
     sea-blue: #007379,
     teal-blue: #22a1ad,
     pea-green: #5abdcb,
-    lime-green-2: #c6b3c0,
+    lime-green-2: #a9939e,
     yellow: #feb0bc,
     orange: #ff6267,
     kings-red: #e32d2c,
@@ -181,10 +194,12 @@ $cb-colors: (
     soft-pink: #fb686e,
     midnight-blue: #003c40,
     slate-grey: #636b73,
+    stone: #605e65,
     pebble: #685c62,
     powder-blue: #8fa5b1,
     pearl-grey: #d1d7e7,
     mushroom: #d2c2d0,
+    warm-grey: #c2b0bd,
     black: #000000,
     white: #feffff
   ),
@@ -194,7 +209,7 @@ $cb-colors: (
     sea-blue: #0061cb,
     teal-blue: #5e969d,
     pea-green: #87b680,
-    lime-green-2: #c5ba16,
+    lime-green-2: #a59900,
     yellow: #e6c119,
     orange: #c98416,
     kings-red: #a95b2c,
@@ -205,10 +220,12 @@ $cb-colors: (
     soft-pink: #c18384,
     midnight-blue: #1d3254,
     slate-grey: #64676d,
+    stone: #5d5c5b,
     pebble: #615b56,
     powder-blue: #969fbd,
     pearl-grey: #d4d6dc,
     mushroom: #cdc5bb,
+    warm-grey: #bbb2ab,
     black: #000000,
     white: #fffffe
   ),
@@ -218,7 +235,7 @@ $cb-colors: (
     sea-blue: #0065bb,
     teal-blue: #5e95a7,
     pea-green: #8fb28c,
-    lime-green-2: #d4b421,
+    lime-green-2: #b19412,
     yellow: #f6ba17,
     orange: #d67f01,
     kings-red: #b45709,
@@ -229,10 +246,12 @@ $cb-colors: (
     soft-pink: #cf8070,
     midnight-blue: #143355,
     slate-grey: #68666e,
+    stone: #625a5c,
     pebble: #665956,
     powder-blue: #999ebf,
     pearl-grey: #ddd3de,
     mushroom: #d7c1bc,
+    warm-grey: #c4afab,
     black: #000000,
     white: #fefffe
   ),
@@ -242,7 +261,7 @@ $cb-colors: (
     sea-blue: #006a99,
     teal-blue: #15a0a8,
     pea-green: #48bfb0,
-    lime-green-2: #bfb780,
+    lime-green-2: #a39564,
     yellow: #fbb37d,
     orange: #ff6143,
     kings-red: #e32925,
@@ -253,10 +272,12 @@ $cb-colors: (
     soft-pink: #fb646f,
     midnight-blue: #033646,
     slate-grey: #5f686f,
+    stone: #5d5b5f,
     pebble: #65595c,
     powder-blue: #8ea2b5,
     pearl-grey: #cfd7e3,
     mushroom: #d0c2c8,
+    warm-grey: #bfb0b5,
     black: #000000,
     white: #feffff
   )

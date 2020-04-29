@@ -3,20 +3,22 @@
 // -----------------------------------------------------------------------------
 .table-scroll {
   overflow: auto;
+  margin-bottom: $component-margin-bottom;
+  table {
+    margin-bottom: 0;
+    display: inline;
+  }
 }
 table, .table {
   margin-bottom: $component-margin-bottom;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
   &.table-bordered {
     border: none;
-    border-right: 1px solid $table-border;
-    border-bottom: 1px solid $table-border;
     border-radius: 0;
     th, td {
-      border-top: 1px solid $table-border !important;
-      border-left: 1px solid $table-border;
+      border: 1px solid $table-border !important;
     }
   }
   &.default-width {
@@ -29,7 +31,10 @@ table, .table {
       border-left: 0 !important;
     }
   }
-  thead th, th {
+  thead {
+    border: none !important;
+  }
+  th {
     background-color: $block-background;
     font-family: 'KingsBureauGrot';
     font-size: 1.125rem;
@@ -52,5 +57,10 @@ table, .table {
     th, td {
       vertical-align: middle;
     }
+  }
+  &.table-narrow-cell {
+     th, td {
+       padding: 0.75rem 0.5rem;
+     }
   }
 }

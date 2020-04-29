@@ -6,11 +6,11 @@
   margin-bottom: $component-margin-bottom;
   .collapse-card {
     border-bottom: 2px solid $pearl-grey;
+    padding: $component-margin-sm;
     &:first-child {
       border-top: 2px solid $pearl-grey;
     }
     .collapse-header {
-      padding: 1rem 1rem 1rem 0;
       button {
         margin: 0;
         padding: 0 !important;
@@ -18,23 +18,26 @@
         text-align: left;
         .h4 {
           position: relative;
-          margin: 0;
+          margin-bottom: 0;
+          margin-left: 1.75rem;
+          line-height: 1;
           color: $midnight-blue;
-          width: calc(100% - 1rem);
+          width: calc(100% - 1.75rem);
         }
-        .h4::after {
-          content: '\f106';
-          font-family: 'Font Awesome 5 Pro';
+        .h4::before {
+          content: '\f107';
+          font-family: 'Font Awesome 5 Free';
           font-weight: 900;
+          font-size: 1.5rem;
           position: absolute;
-          right: -1rem;
-          top: 0;
+          left: -1.75rem;
+          top: -2px;
         }
       }
     }
     .collapse-body {
-      padding-right: 5rem;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
+      margin-left: 1.75rem;
       &.highlighted {
         padding: 1rem;
         background-color: $block-background;
@@ -50,8 +53,8 @@
       }
     }
     &.collapsed {
-      .collapse-header button .h4::after {
-        content: '\f107';
+      .collapse-header button .h4::before {
+        content: '\f105';
       }
       .collapse-body {
         display: none;

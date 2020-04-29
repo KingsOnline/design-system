@@ -31,15 +31,80 @@
 .embed-responsive-304by231 {
   padding-top: calc(231%/3.04);
 }
+// 16:9 aspect ratio
+.embed-responsive-youtube {
+  padding-top: calc(900%/16);
+}
+
+// audio 
+// for audio embed prior to v1.3
 .embed-responsive-audio {
   padding-top: calc(350%/9.76);
+}
+// for audio v1.3
+.audio-container {
+  margin: $component-margin 0;
+  padding: 1.25rem;
+  border: 1px solid $rules-and-outlines;
+  border-radius: 4px;
+  position: relative;
+  background: $white;
+  &:before {
+    content: 'audio';
+    text-transform: uppercase;
+    font-family: 'KingsBureauGrot';
+    font-size: 1.125rem;
+    position: absolute;
+    right: 0.5rem;
+    top: -24px;
+    background-color: $midnight-blue;
+    color: white;
+    border-radius: 4px 4px 0 0;
+    line-height: 1;
+    width: 54px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+  }
+  .audio-top {
+    display: flex;
+    margin-bottom: 1.25rem;
+    .audio-image {
+      width: 80px;
+      height: 80px;
+      margin-right: 1.25rem;
+      border-radius: 6px;
+      border: 1px solid $rules-and-outlines;
+    }
+    .audio-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .audio-speaker, .audio-title {
+        font-size: 1.125rem;
+        line-height: normal;
+      }
+      .audio-speaker {
+        margin-bottom: 0.75rem;
+      }
+      .audio-title {
+        font-family: 'KingsBureauGrot';
+        margin-bottom: 0;
+      }
+    }
+  }
+  .embed-responsive-audio, .audio-player {
+    padding-top: 40px;
+    margin-bottom: 0;
+  }
 }
 
 .transcript-container {
   margin-bottom: $component-margin-bottom;
   .transcript-button-group {
     a::before {
-        font-family: "Font Awesome 5 Pro";
+        font-family: "Font Awesome 5 Free";
         font-weight: 900;
         margin-right: 0.375rem
     }

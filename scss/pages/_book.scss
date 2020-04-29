@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// view answer
+// book
 // -----------------------------------------------------------------------------
 
-.view-generic-container, .view-answer-container, .view-feedback-container,
-.view-model-answer-container {
-  @extend .note-container;
+// single chapter book hide first chapter title
+.single-chapter-book .book_content > h3:first-of-type {
+  display: none;
 }
