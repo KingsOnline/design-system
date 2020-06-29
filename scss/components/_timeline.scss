@@ -38,6 +38,8 @@
     }
     .flex-column {
       display: flex !important;
+      // prevent sub-pixel errors at 90% zoom
+      min-width: 75px;
     }
     .timeline-content {
       margin-top: 1.5rem;

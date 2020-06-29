@@ -32,17 +32,6 @@
   }
 }
 
-
-// override theme margins
-.course-content ul.gtopics li.section {
-  .content {
-    margin: 0;
-  }
-  .right {
-    display: none;
-  }
-}
-
 // prevent horizontal scrollbar
 .container {
   padding: 0;
@@ -63,7 +52,10 @@
 }
 
 section:not(:last-of-type) {
-  margin-bottom: $component-margin-bottom-xl;
+  margin-bottom: 3rem;
+  @media only screen and (min-width: $neo-breakpoint) {
+    margin-bottom: 4rem;
+  }
 }
 
 // theme override to allow rows to not require scroll bar

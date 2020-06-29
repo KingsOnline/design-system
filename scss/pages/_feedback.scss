@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// feedback
+// -----------------------------------------------------------------------------
+
+.path-mod-feedback {
+  #region-main {
+    .feedback_form {
+      .fitem {
+        margin: 0;
+        .fitemtitle {
+          margin: 0 !important;
+          padding: 0 !important;
+          // section heading
+          .feedback-section {
+            @extend .h3;
+            margin-bottom: $component-margin-bottom !important;
+          }
+          label {
+            @extend .h5;
+            margin: 0 !important;
+            margin-bottom: $component-margin-bottom-sm !important;
+            & > *:last-child {
+              margin: 0 !important;
+            }
+            span.start, span.stop {
+              text-transform: uppercase;
+            }
+          }
+        }
+        // input fields
+        .felement > * {
+          margin-bottom: $component-margin-bottom-sm !important;
+        }
+        // feedback mode
+        &.feedback_mode {
+          .fitemtitle {
+            display: none !important;
+          }
+          .felement {
+            margin: 0 !important;
+            margin-bottom: $component-margin-bottom !important;
+            padding: 0 !important;
+          }
+        }
+        // add section spacing above section heading
+        &:not(:nth-child(2)) .fitemtitle .feedback-section {
+          margin-top: 2rem !important;
+          @media only screen and (min-width: $neo-breakpoint) {
+            margin-top: 3rem !important;
+          }
+        }
+      }
+      // submit and cancel buttons
+      .fitem_actionbuttons {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin-top: 1.25rem;
+        .fgroup {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

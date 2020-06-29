@@ -2,637 +2,906 @@
 // home
 // -----------------------------------------------------------------------------
 
-#region-main {
-  ul.gtopics, ul.gtopics-0, ul-ctopics, ul.section {
-    margin: 0;
-  }
-}
-
-//override theme course name header color
-.content h3.sectionname {
-  color: $headings;
-}
-
-// grid format
-#gridiconcontainer {
-// for some reason a right margin cant be overidden
-  width: 103%;
-  ul.gridicons {
-    margin-left: -0.75rem;
-    margin-right: 0.75rem;
-    li {
-    @extend .top-bar;
-      padding: 0;
-      margin: 0.75rem;
-    }
-  }
-  .gridicon_link, ul.gridicons > li > span:first-child {
-    position: relative;
-    .icon_content {
-      @extend .caption-overlay;
-      color: $white;
-      text-align: left;
-      z-index: 1;
-      padding: 1rem;
-      width: 277.5px;
-      height: 100px;
-      font-family: 'KingsBureauGrot';
-      font-size: 1.25rem;
-      line-height: 1.4;
-      white-space: normal;
-    }
-    .image_holder {
-      border: none;
-      width: 309.5px;
-      height: 310px;
-      background-color: transparent;
-      border-radius: 0;
-      img {
-        width: 100%;
-        height: 100%;
+body {
+  #region-main {
+    .course-content {
+      // completion progress id
+      & > #completionprogressid {
+        display: none !important;
       }
-      &.inaccessible {
-        cursor: none;
-        filter: none;
-        opacity: initial;
-        &:before {
-          content: 'Available soon';
-          position: absolute;
-          background-color: $yellow;
-          color: $body-text;
-          z-index: 1;
-          top: 148px;
-          left: 0;
-          padding: 0 $component-margin-sm;
-          width: 100%;
-          font-size: 1rem;
-          height: 30px;
-          display: flex;
-          align-items: center;
-          font-family: 'KingsBureauGrot';
-        }
-        .icon_content {
-          background-color: rgba(90,100,105,0.85) !important;
-        }
-        img {
-          filter: grayscale(1);
-          &:hover {
-            transform: none;
-          }
-        }
+      & > .single-section {
+        margin: 0;
       }
-    }
-  }
-}
-// hide title on single section page where a hero banner displays the title
-.format-grid .course-content .single-section .section-navigation.navigationtitle {
-  display: none;
-}
-
-// collapsed topics
-.editing {
-  .course-content {
-    & > ul.ctopics {
-      #section-0 {
-        .content .summary > a:last-child {
-          // edit cog
-          position: absolute;
-          top: 0;
-          left: -$component-margin;
-        }
-      }
-      .main:not(#section-0) {
-        margin-left: 8.75rem !important;
-        width: calc(100% - 8.75rem - 28px);
-      }
-    }
-    .single-section {
-      & > ul.ctopics {
-        .section.main {
-          
-          .side.right {
-            display: none;
+      ul {
+        margin: 0;
+        & > li.section.main {
+          margin: 0 !important;
+          // hide activity labels on module information, forums and webinars, and
+          // assessment pages
+          &.section-hide-activity-labels {
+            li.activity {
+              &.type-assessed .activity-label-container {
+                .group-icon, .media-icon {
+                  display: none !important;
+                }
+              }
+              &:not(.type-assessed) .activity-label-container {
+                display: none !important;
+              }
+            }
           }
           .content {
-            .summary > a {
-              position: absolute;
-              top: -4.25rem;
-              left: -$component-margin;
+            margin: 0 !important;
+            padding: 0 !important;
+             //override theme course name header color
+             h3.sectionname {
+              color: $headings;
             }
-            ul.section {
-              margin-left: 8.75rem !important;
+            .summary {
+              .no-overflow {
+                width: 100%;
+              }
+            }
+            & > #completionprogressid {
+              display: none !important;
+            }
+          }
+          ul.section {
+            margin: 0;
+            // remove padding from small icons (edit/move)
+            .summary,
+            li.activity {
+              .iconsmall, img.icon {
+                padding: 0;
+              }
+            }
+            // activity type labels
+            li.activity {
+              display: flex;
+              margin-bottom: $component-margin-bottom-sm !important;
+              padding: 0 !important;
+              & > div {
+                width: 100%;
+                .mod-indent-outer {
+                  display: block;
+                }
+              }
+              .no-overflow {
+                padding: 0;
+              }
+              &.label:not(:first-of-type) h2,
+              &.label:not(:first-of-type) h3,
+              &.label:not(:first-of-type) h4 {
+                margin-top: 0.75rem !important;
+              }
+              &.label h2:last-child,
+              &.label h3:last-child,
+              &.label h4:last-child,
+              &.label p:last-child {
+                margin-bottom: 0;
+              }
+              &.type-study .activityinstance .activity-label-container .activity-label {
+                display: none !important;
+              }
+              &.type-activity .activityinstance .activity-label-container
+              .activity-label {
+              }
+              &.type-assessed .activityinstance a {
+                .activity-label-container .activity-label {
+                  background-color: #60bbba !important;
+                  color: white;
+                  width: 5.5rem !important;
+                }
+              }
+              .mod-indent-outer > div:last-child {
+                display: flex;
+                flex-wrap: wrap;
+              }
+              .activityinstance {
+                width: 100%;
+                min-height: initial !important;
+                padding: 0;
+                order: 2;
+                & ~ .ishidden {
+                  margin: 0;
+                }
+                &:not(:last-child) {
+                  margin-bottom: 0;
+                }
+                a:not(.quickeditlink) {
+                  display: flex;
+                  max-width: 100%;
+                  img.activityicon {
+                    display: none;
+                  }
+                  .instancename {
+                    max-width: 100vw;
+                    .activity-title {
+                      margin-left: 0.375rem;
+                      @media only screen and (min-width: $neo-breakpoint) {
+                        margin-left: 0.75rem;
+                      }
+                    }
+                  }
+                  &:hover {
+                    text-decoration: none;
+                    .instancename:not(.is-numbered), .instancename.is-numbered .activity-title {
+                      text-decoration: underline;
+                    }
+                  }
+                  .activity-label-container {
+                    @extend .activity-label-container-default;
+                    display: inline-flex;
+                    // safari renders the kings font slightly out of whack with all other
+                    // browsers
+                    @media not all and (min-resolution:.001dpcm) {
+                      .activity-label {
+                        line-height: 1.7;
+                      }
+                    }
+                  }
+                }
+                a.quickeditlink {
+                  margin-left: 0.5rem;
+                  .quickediticon img {
+                    opacity: 0.8;
+                  }
+                }
+                .resourcelinkdetails {
+                  color: $slate-grey;
+                  font-size: 14px;
+                }  
+              }
+              .availabilityinfo {
+                order: 3;
+                flex: 0 0 100%;
+                margin: $component-margin-xs 0 0 0;
+                label {
+                  color: $white;
+                }
+              }
+              &.indent .contentwithoutlink, .contentafterlink {
+                border-left: 3px solid $pearl-grey;
+                border-radius: 0;
+                padding-left: 0.625rem !important;
+                order: 3;
+                // adding 1rem from activity label number spacing
+                margin-left: 34px;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 42px;
+                }
+                margin-top: 0;
+                p {
+                  margin: 0 0 1rem 0;
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+                }
+              }
+              .actions {
+                position: static;
+                max-width: max-content;
+                background: none;
+                left: 0;
+                // completion checkbox
+                button, .autocompletion {
+                  padding: 0 !important;
+                  margin: 0 $component-margin-xs 0 0;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin: 0 $component-margin-sm 0 0;
+                  }
+                  img.icon {
+                    height: 1.25rem;
+                    width: 1.25rem;
+                    padding: 0;
+                    border-radius: 4px;
+                    background: rgba(255, 255, 255, 0.8);
+                  }
+                }
+                .filler {
+                  display: none;
+                }
+              }
+              .contentafterlink {
+                margin-top: $component-margin-sm;
+              }
+              .contentwithoutlink {
+                min-height: 1.5rem;
+                // for some reason dont occupy same width
+                width: 100%;
+                order: 2;
+                padding: 0;
+              }
+            }  
+          }
+          &.completion-progress-section {
+            .completionprogress {
+              margin: 0 0 $component-margin-bottom 0 !important;
+              display: flex !important;
+              justify-content: flex-start;
+              float: none !important;
+              text-align: left !important;
+              line-height: 1.5;
+              height: auto !important;
+              z-index: auto;
+              .helptooltip {
+                a {
+                  img {
+                    display: none;
+                  }
+                  &:hover {
+                    text-decoration: none;
+                   }
+                  &:after {
+                    font-family: 'Font Awesome 5 Free';
+                    font-size: 1.25rem;
+                    content: '\f059';
+                    color: $midnight-blue;
+                    margin-left: $component-margin-lg;
+                    position: absolute;
+                    top: -3px;
+                  }
+                }
+                &:before {
+                  content: '';
+                  background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+                  background-size: 20px 20px;
+                  width: 20px;
+                  height: 20px;
+                  position: absolute;
+                  top: 2px;
+                  margin-left: $component-margin-xs;
+                }
+              }
+            }
+            .activity {
+              .availabilityinfo {
+                margin-left: 30px !important;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 38px !important;
+                }
+              }
+              .actions {
+                // completion progress tooltip
+                .completionprogress {
+                  margin: 0 0 $component-margin-bottom 0 !important;
+                  display: flex !important;
+                  justify-content: flex-start;
+                  float: none !important;
+                  text-align: left !important;
+                  line-height: 1.5;
+                  height: auto !important;
+                  z-index: auto;
+                  .helptooltip {
+                    a {
+                      img {
+                        display: none;
+                      }
+                      &:hover {
+                        text-decoration: none;
+                      }
+                      // question mark icon
+                      &:after {
+                        font-family: 'Font Awesome 5 Free';
+                        font-size: 1.25rem;
+                        content: '\f059';
+                        color: $midnight-blue;
+                        margin-left: 36px;
+                        position: absolute;
+                        top: -3px;
+                      }
+                    }
+                    // checkbox image
+                    &:before {
+                      content: '';
+                      background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+                      background-size: 20px 20px;
+                      width: 20px;
+                      height: 20px;
+                      position: absolute;
+                      top: 2px;
+                      margin-left: 8px;
+                    }
+                  }
+                }
+              }
+              &:not(.label).completion-progress-activity {
+                .activityinstance {
+                  max-width: calc(100% - 30px);
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    max-width: calc(100% - 38px);
+                  }
+                }
+              }
+              // non completion progress activity with completion progress section
+              &:not(.label):not(.completion-progress-activity), .availabilityinfo {
+                .activityinstance {
+                  margin-left: 30px;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin-left: 38px;
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   }
-}
-.course-content {
-  .single-section {
-    .section-navigation.navigationtitle {
-      padding: 0;
-      .sectionname {
-        text-align: left;
-        @extend .h2;
-        margin-bottom: 2.25rem;
-        &:after {
-          // hide line underneath
+  // grid format only
+  &.format-grid {
+    .course-content {
+      // grid format
+      #gridiconcontainer {
+        // for some reason a right margin cant be overidden
+        width: 103%;
+        ul.gridicons {
+          margin-left: -0.75rem;
+          margin-right: 0.75rem;
+          li {
+          @extend .top-bar;
+            padding: 0;
+            margin: 0.75rem;
+          }
+        }
+        .gridicon_link, ul.gridicons > li > span:first-child {
+          position: relative;
+          .icon_content {
+            @extend .caption-overlay;
+            color: $white;
+            text-align: left;
+            z-index: 1;
+            padding: 1rem;
+            width: 277.5px;
+            height: 100px;
+            font-family: 'KingsBureauGrot';
+            font-size: 1.25rem;
+            line-height: 1.4;
+            white-space: normal;
+            opacity: 1;
+          }
+          .image_holder {
+            border: none;
+            width: 309.5px;
+            height: 310px;
+            background-color: transparent;
+            border-radius: 0;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+            &.inaccessible {
+              cursor: default;
+              filter: none;
+              opacity: initial;
+              &:before {
+                content: 'Available soon';
+                position: absolute;
+                background-color: $yellow;
+                color: $body-text;
+                z-index: 1;
+                top: 148px;
+                left: 0;
+                padding: 0 $component-margin-sm;
+                width: 100%;
+                font-size: 1rem;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                font-family: 'KingsBureauGrot';
+              }
+              .icon_content {
+                background-color: rgba(90,100,105,0.85) !important;
+              }
+              img {
+                filter: grayscale(1);
+                &:hover {
+                  transform: none;
+                }
+              }
+            }
+          }
+        }
+      }
+      // single section page
+      // hide title on single section page where a hero banner displays the title
+      .single-section {
+        .section-navigation.navigationtitle {
+          display: none;
+        }
+        .gtopics .section.main .right {
           display: none;
         }
       }
     }
   }
-  ul.ctopics {
-    margin: 0 !important;
-    & > .section {
-      margin: 0 !important;
-      position: relative;
-      // view only topic
-      .side.left {
-        position: absolute;
-        top: 1rem;
-        left: -2.25rem;
-        img.icon.spacer {
-          display: none;
-        }
-      }
-      .content {
+  // collapsed topics only
+  &.format-topcoll {
+    .course-content {
+      ul.ctopics {
         margin: 0 !important;
-        padding: 0 !important;
-        .sectionhead {
-          margin-bottom: 0 !important;
-          .toggle_open, .toggle_closed {
-            background-image: none !important;
-            background-color: $block-background !important;
-            padding: $component-margin-sm !important;
-            border: none !important;
-            color: $headings !important;
-            .sectionname {
-              font-size: 1.25rem;
-              line-height: 1;
-              margin: 0 !important;
-              margin-left: $component-margin-lg !important;
-              &::before {
+        & > .section {
+          margin: 0 !important;
+          position: relative;
+          // view only topic
+          .side.left {
+            position: absolute;
+            top: 1rem;
+            left: -2.25rem;
+            img.icon.spacer {
+              display: none;
+            }
+          }
+          .content {
+            margin: 0 !important;
+            padding: 0 !important;
+            .sectionhead {
+              margin-bottom: 0 !important;
+              .toggle_open, .toggle_closed {
+                background-image: none !important;
+                background-color: $block-background !important;
+                padding: $component-margin-sm !important;
+                border: none !important;
+                color: $headings !important;
+                .sectionname {
+                  font-size: 1.25rem;
+                  line-height: 1;
+                  margin: 0 !important;
+                  margin-left: $component-margin-lg !important;
+                  &::before {
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    content: '\f105';
+                    position: absolute;
+                    left: 1.25rem;
+                  }
+                  a.quickeditlink {
+                    position: relative;
+                    .quickediticon {
+                      position: absolute;
+                      top: -2px;
+                      margin-left: 8px
+                    }
+                  }
+                }
+                .section_availability {
+                  .availabilityinfo {
+                    margin: $component-margin-xs 0 0 0;
+                    padding-left: $component-margin-lg;
+                    font-weight: normal;
+                    .label {
+                      color: $white;
+                    }
+                  }
+                }
+              }
+              .toggle_open {
+                background-color: $midnight-blue !important;
+                .sectionname {
+                  color: $white !important;
+                  &::before {
+                    content: '\f107';
+                  }
+                  span {
+                    color: $white;
+                  } 
+                }
+              }
+              .toggle_closed {
+                margin-bottom: $component-margin-bottom-xs;
+                &:hover {
+                  background-color: $block-header !important;
+                }
+              }
+            }
+            .sectionbody.sectionopen {
+              // block-background at 30 opacity
+              background-color: rgba(237, 241, 242, 0.3);
+              padding: $component-margin $component-margin-xs;
+              margin-bottom: $component-margin-bottom-xs;
+              @media only screen and (min-width: $neo-breakpoint) {
+                padding: $component-margin-lg $component-margin;
+              }
+              li.activity:last-child {
+                margin-bottom: 0 !important;
+              }
+            }
+          }
+          /*
+          &:not(:last-of-type) {
+            .content {
+              .sectionhead {
+                margin-bottom: $component-margin-xs !important;
+              }
+            }
+          }
+          */
+          &#section-0 {
+            .side{
+              display: none;
+            }
+            .section-title {
+              margin-bottom: $component-margin-lg;
+            }
+          }
+        }
+        .tcsection {
+          margin: 0 !important;
+          .content {
+            margin: 0 !important;
+            h4 {
+              padding: 0 !important;
+              margin-bottom: $component-margin-bottom-xs !important;
+              // open all and close all
+              #toggles-all-opened, #toggles-all-closed,
+              #toggles-all-opened:hover, #toggles-all-closed:hover {
+                background: none;
+                padding: 0 0 0 $component-margin-sm !important;
+                margin-right: 2.25rem !important;
+                position: relative;
+                font-size: 1rem;
+                line-height: 1;
+              }
+              #toggles-all-opened::before,
+              #toggles-all-opened:hover::before,
+              #toggles-all-closed::before,
+              #toggles-all-closed:hover::before{
                 font-family: 'Font Awesome 5 Free';
                 font-weight: 900;
                 content: '\f105';
                 position: absolute;
-                left: 1.25rem;
+                left: 0;
+                top: 1px;
+                font-size: 1.125rem;
               }
-              a.quickeditlink {
-                position: relative;
-                .quickediticon {
-                  position: absolute;
-                  top: -2px;
-                  margin-left: 8px
-                }
-              }
-            }
-            .section_availability {
-              .availabilityinfo {
-                margin: $component-margin-xs 0 0 0;
-                padding-left: $component-margin-lg;
-                font-weight: normal;
-                .label {
-                  color: $white;
-                }
-              }
-            }
-          }
-          .toggle_open {
-            background-color: $midnight-blue !important;
-            color: $white !important;
-            .sectionname {
-              &::before {
+              #toggles-all-opened:hover::before, #toggles-all-closed::before {
                 content: '\f107';
+                left: -2px;
               }
-              span {
-                color: $white;
-              } 
             }
           }
-          .toggle_closed:hover {
-            background-color: $block-header !important;
-          }
-        }
-        .sectionbody.sectionopen {
-          // block-background at 30 opacity
-          background-color: rgba(237, 241, 242, 0.3);
-          padding: $component-margin $component-margin-xs;
-          @media only screen and (min-width: 768px) {
-            padding: $component-margin-lg $component-margin;
-          }
-          li.activity:last-child {
-            margin-bottom: 0 !important;
-          }
         }
       }
-      &:not(:last-of-type) {
-        .content {
-          .sectionhead {
-            margin-bottom: $component-margin-xs !important;
+      & > ul.ctopics {
+        & > .section {
+          &:not(#section-0) {
+            @media only screen and (min-width: $neo-breakpoint) {
+              width: calc(100% - 28px);
+            }
           }
-        }
-      }
-      &#section-0 {
-        .side{
-          display: none;
-        }
-        .section-title {
-          margin-bottom: $component-margin-lg;
-        }
-      }
-    }
-    .tcsection {
-      margin: 0 !important;
-      .content {
-        margin: 0 !important;
-        h4 {
-          padding: 0 !important;
-          margin-bottom: $component-margin-bottom-xs !important;
-          // open all and close all
-          #toggles-all-opened, #toggles-all-closed,
-          #toggles-all-opened:hover, #toggles-all-closed:hover {
-            background: none;
-            padding: 0 0 0 $component-margin-sm !important;
-            margin-right: 2.25rem !important;
-            position: relative;
-            font-size: 1rem;
-            line-height: 1;
-          }
-          #toggles-all-opened::before,
-          #toggles-all-opened:hover::before,
-          #toggles-all-closed::before,
-          #toggles-all-closed:hover::before{
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            content: '\f105';
+          .side.right {
+            width: auto !important;
             position: absolute;
-            left: 0;
-            top: 1px;
-            font-size: 1.125rem;
-          }
-          #toggles-all-opened:hover::before, #toggles-all-closed::before {
-            content: '\f107';
-            left: -2px;
+            right: -28px;
+            top: 0.75rem;
+            a.tceditsection, .cps_centre {
+              line-height: normal;
+              height: max-content;
+              width: max-content;
+              margin: 0 !important;
+              font-size: 1.25rem;
+              &:before {
+                content: '\f35d';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                color: $midnight-blue;
+              }
+              img {
+                display: none;
+              }
+            }
+            .section_action_menu {
+              position: absolute;
+              right: 2.25rem;
+              top: 0;
+              .menubar {
+                margin: 0 !important;
+                background-color: white;
+                opacity: 0.8;
+                border-radius: 4px;
+                padding: 0.25rem 0;
+              }
+            }
           }
         }
       }
     }
-  }
-  & > ul.ctopics {
-    & > .section {
-      &:not(#section-0) {
-        @media only screen and (min-width: 768px) {
-          width: calc(100% - 28px);
-        }
-      }
-      .side.right {
-        width: auto !important;
-        position: absolute;
-        right: -28px;
-        top: 0.75rem;
-        a.tceditsection, .cps_centre {
-          line-height: normal;
-          height: max-content;
-          width: max-content;
-          margin: 0 !important;
-          font-size: 1.25rem;
-          &:before {
-            content: '\f35d';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: $midnight-blue;
-          }
-          img {
+    .single-section {
+      .section-navigation.navigationtitle {
+        padding: 0;
+        .sectionname {
+          text-align: left;
+          @extend .h2;
+          margin-bottom: 2.25rem;
+          &:after {
+            // hide line underneath
             display: none;
           }
         }
-        .section_action_menu {
-          position: absolute;
-          right: 2.25rem;
-          top: 0;
-          .menubar {
-            margin: 0 !important;
-            background-color: white;
-            opacity: 0.8;
-            border-radius: 4px;
-            padding: 0.25rem 0;
-          }
-        }
       }
     }
   }
-}
-
-
-// remove padding from small icons (edit/move)
-.section .summary, .section .activity {
-  .iconsmall, img.icon {
-    padding: 0;
-  }
-}
-
-#region-main ul.section {
-  margin: 0;
-}
-// activity type labels
-.course-content ul.section li.activity {
-  display: flex;
-  margin-bottom: $component-margin-bottom-sm !important;
-  padding: 0 !important;
-  & > div {
-    width: 100%;
-    .mod-indent-outer {
-      display: block;
-    }
-  }
-  .no-overflow {
-    padding: 0;
-  }
-  &.label:not(:first-of-type) h2,
-  &.label:not(:first-of-type) h3,
-  &.label:not(:first-of-type) h4 {
-    margin-top: 0.75rem !important;
-  }
-  &.label h2:last-child,
-  &.label h3:last-child,
-  &.label h4:last-child,
-  &.label p:last-child {
-    margin-bottom: 0;
-  }
-  &.type-study .activityinstance .activity-label-container .activity-label {
-    display: none !important;
-  }
-  &.type-activity .activityinstance .activity-label-container
-  .activity-label {
-  }
-  &.type-assessed .activityinstance a {
-    .activity-label-container .activity-label {
-      background-color: #60bbba !important;
-      color: white;
-      width: 5.5rem !important;
-    }
-  }
-  .editing_move {
-    top: 2px !important;
-  }
-  .mod-indent-outer > div:last-child {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .activityinstance {
-    width: 100%;
-    min-height: initial !important;
-    padding: 0;
-    order: 2;
-    & ~ .ishidden {
-      margin: 0;
-    }
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
-    img.activityicon {
-      display: none;
-    }
-    a:not(.quickeditlink) {
-      @media only screen and (min-width: 768px) {
-        display: flex;
-      }
-      width: 100%;
-      .instancename {
-        //width: 100%;
-        .activity-title {
-          margin-left: 0.375rem;
-          @media only screen and (min-width: 768px) {
-            margin-left: 0.75rem;
-          }
-        }
-      }
-      &:hover {
-        text-decoration: none;
-        .instancename .activity-title {
-          text-decoration: underline;
-        }
-      }
-      .activity-label-container {
-        @extend .activity-label-container-default;
-        float: right;
-        display: flex;
-      }
-    }
-    a.quickeditlink {
-      .quickediticon img {
-        opacity: 0.8;
-      }
-    }
-  }
-  .availabilityinfo {
-    order: 3;
-    flex: 0 0 100%;
-    margin: $component-margin-xs 0 0 0;
-    label {
-      color: $white;
-    }
-  }
-  &.indent, .contentafterlink {
-    border-left: 3px solid $pearl-grey;
-    border-radius: 0;
-    padding-left: 0.625rem !important;
-    order: 3;
-    // adding 1rem from activity label number spacing
-    margin-left: 34px;
-    @media only screen and (min-width: 768px) {
-      margin-left: 44px;
-    }
-    margin-top: 0;
-    p {
-      margin: 0 0 1rem 0;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-  .contentafterlink {
-    margin-top: $component-margin-sm;
-  }
-  .contentwithoutlink {
-    min-height: 1.5rem;
-    // for some reason dont occupy same width
-    width: 100%;
-    order: 2;
-  }
-}
-
-// completion progress
-.editing {
-  .course-content {
-    ul {
-      &:not(.ctopics) {
-        .section.main {
-          .activity {
-            &.label  {
-              .contentwithoutlink .no-overflow .no-overflow {
-                width: calc(100% - 58px);
+  // editing mode on for both grid and collapsed topics format
+  &.editing {
+    #region-main {
+      .course-content {
+        ul {
+          & > .section.main {
+            .right {
+              .section_action_menu {
+              // edit section menu button
+                .menubar {
+                  a.textmenu {
+                    background-color: $white !important;
+                    opacity: 0.8;
+                    border-radius: 4px;
+                    &:after {
+                      content: ' section';
+                      margin-right: 0.75rem;
+                    }
+                    b.caret {
+                      border-top-color: $midnight-blue !important;
+                      position: absolute;
+                      right: 0;
+                      margin-right: 0.25rem;
+                    }
+                  }
+                }
               }
             }
-            .instancename {
-              width: calc(100% - 158px);
-            }
-          }  
-        }
-      }
-      .section.main {
-        .activity {
-          .actions {
-            .menubar {
-              margin: 0 !important;
-            }
-            .menu {
-              margin: 0 !important;
-              left: auto !important;  
-            }
-          }
-        }
-        &.completion-progress-section {
-          .activity:not(.completion-progress-activity) {
-            margin-left: 0 !important;
-            .actions .commands {
-              position: absolute;
-              left: -110px;
-              @media only screen and (min-width: 768px) {
-                left: -126px;
+            .content {
+              .summary {
+                .no-overflow {
+                  width: 100%;
+                }
+              }
+              .activity {
+                // drag and drop move icon
+                .editing_move {
+                  top: 2px !important;
+                  left: 72px;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    left: 80px;
+                  }
+                }
+                .inplaceeditable {
+                  display: flex;
+                }
+                .actions {
+                  // edit menu
+                  .commands {
+                    position: absolute;
+                    left: 0;
+                    // edit dropdown button
+                    .menubar {
+                      margin: 0 !important;
+                    }
+                    // edit dropdown menu for editing activity
+                    .menu {
+                      left: 0 !important;
+                      width: min-content;
+                    }
+                  }
+                }
+                &.label  {
+                  .contentwithoutlink {
+                    margin-left: 64px !important;
+                    @media only screen and (min-width: $neo-breakpoint) {
+                      margin-left: 80px !important;
+                    }
+                    .no-overflow .no-overflow {
+                      @media only screen and (min-width: $neo-breakpoint) {
+                      }
+                    }
+                  }
+                }
+                &:last-child {
+                  margin-bottom: 0 !important;
+                }
               }
             }
-            &.indent {
-              .actions .commands {
-                position: absolute;
-                left: -122px;
-                @media only screen and (min-width: 768px) {
-                  left: -140px;
+            &.completion-progress-section {
+              .activity  {
+                .activityinstance {
+                  width: calc(100% - 100px) !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    width: calc(100% - 116px) !important;
+                  }
+                }
+                .availabilityinfo {
+                  margin-left: 100px !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin-left: 116px !important;
+                  }
+                }
+                &.label  {
+                  .contentwithoutlink {
+                    margin-left: 102px !important;
+                    @media only screen and (min-width: $neo-breakpoint) {
+                      margin-left: 118px !important;
+                    }
+                  }
+                }
+                &.completion-progress-activity {
+                  .actions .autocompletion {
+                    margin: 0 1rem 0 64px !important;
+                    @media only screen and (min-width: $neo-breakpoint) {
+                      margin: 0 1rem 0 80px !important;
+                    }
+                  }
+                }               
+                &:not(.completion-progress-activity) {
+                  .activityinstance {
+                    margin-left: 100px !important;
+                    @media only screen and (min-width: $neo-breakpoint) {
+                      margin-left: 116px !important;
+                    }
+                  }
+                }
+              }
+              // indent and activity description labels
+              &.indent .contentwithoutlink, .contentafterlink {
+                margin-left: 102px !important;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 80px !important;
+                }
+              }
+            }
+            &:not(.completion-progress-section) {
+              .activity {
+                .activityinstance, .availabilityinfo {
+                  margin-left: 64px !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin-left: 80px !important;
+                  }
                 }
               }
             }
           }
         }
-        &:not(.completion-progress-section) {
-          .activity .actions .commands {
+        // grid format
+        .gtopics-0 {
+          .summary .edit {
             position: absolute;
-            left: -110px;
-            @media only screen and (min-width: 768px) {
-              left: -126px;
+            left: -2.25rem;
+            top: 1.5rem;
+          }
+        }
+        // grid format homepage only (not single section page)
+        #gridshadebox {
+          #gridshadebox_content {
+            border: none;
+            .content {
+              // apply background to each section
+              background: rgba(237, 241, 242, 0.3);
+              margin: 0 0 1rem 0 !important;
+              padding: 0 0.5rem 0.5rem 0.5rem !important;
+              .sectionname {
+                background-color: $midnight-blue !important;
+                color: #fff1f1 !important;
+                margin-right: -0.5rem;
+                margin-left: -0.5rem;
+                padding: 1rem 116px 1rem 1rem !important;
+                a:not(.quickeditlink) {
+                  color: $white !important;
+                  padding: 1rem 0 !important;
+                }
+              }
             }
           }
         }
-      }
-    }
-  }
-}
-
-.course-content {
-  & > #completionprogressid {
-    display: none !important;
-  }
-  .section.main {
-    .content {
-      & > #completionprogressid {
-        display: none !important;
-      }
-    }
-    &.completion-progress-section {
-      // completion progress tooltip
-      .completionprogress {
-        margin: 0 0 $component-margin-bottom 0 !important;
-        display: flex !important;
-        justify-content: flex-start;
-        float: none !important;
-        text-align: left !important;
-        line-height: 1.5;
-        height: auto !important;
-        z-index: auto;
-        .helptooltip {
-          a {
-            img {
+        .gtopics {
+          .section.main {
+            position: relative;
+            // move section icon
+            .left {
+              position: absolute;
+              left: -2.25rem;
+              top: 0.75rem;
+            }
+            .right {
+              display: block;
+              .section_action_menu {
+                position: absolute;
+                right: 0.5rem;
+                top: 1rem;
+                .moodle-actionmenu {
+                  :hover {
+                    background-color: initial;
+                  }
+                  // edit section menu
+                  .menu {
+                    background-color: $white;
+                  }
+                }
+              }
+            }    
+            .content {
+              .sectionname {
+                a.quickeditlink {
+                  img {
+                    opacity: 1;
+                  }
+                }
+              }
+              .summary {
+                // hide edit summary cog
+                .edit {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+        // collapsed topics
+        .ctopics {
+          #section-0 {
+            .content .summary > a:last-child {
+              // edit cog for section-0
+              position: absolute;
+              top: 0;
+              left: -$component-margin;
+            }
+          }
+          .main:not(#section-0) {
+            // view only section button is not available so take up entire
+            // width
+            width: 100% !important;
+            // hide view only section icon
+            .right >.tceditsection::before {
               display: none;
             }
-            &:hover {
-              text-decoration: none;
+            .content {
+              // hide edit summary cog
+              .sectionbody.sectionopen > a > img {
+                display: none;
+              }
             }
-            // question mark icon
-            &:after {
-              font-family: 'Font Awesome 5 Free';
-              font-size: 1.25rem;
-              content: '\f059';
-              color: $midnight-blue;
-              margin-left: 36px;
-              position: absolute;
-              top: -3px;
-            }
-          }
-          // checkbox image
-          &:before {
-            content: '';
-            background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
-            background-size: 20px 20px;
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            top: 2px;
-            margin-left: 8px;
           }
         }
-      }
-      .activity.completion-progress-activity {
-        .activityinstance {
-         max-width: calc(100% - 30px);
-          @media only screen and (min-width: 768px) {
-           max-width: calc(100% - 38px);
-          }
-        }
-        // completion checkbox
-        .actions {
-          position: static;
-          max-width: max-content;
-          background: none;
-          left: 0;
-          // edit menu
-          .commands {
-            position: absolute;
-            left: -78px;
-            @media only screen and (min-width: 768px) {
-              left: -94px;
-            }
-            .menubar {
-              margin: 0 !important;
-            }
-            .menu {
-              left: unset !important;
+        // single section page
+        .single-section {
+          // collapsed topics
+          & > ul.ctopics {
+            .section.main {
+              // hide edit cog
+              .right {
+                // hide edit section summary cog
+                .tceditsection > img, .content .summary > a {
+                  display: none;
+                }
+                // edit section button
+                .section_action_menu {
+                  position: absolute;
+                  right: 0;
+                  top: -4rem;
+                }
+              }
+              .content {
+                // hide edit section summary cog
+                .summary > a > img {
+                  display: none;
+                }
+              }
             }
           }
-          button, .autocompletion {
-            padding: 0 !important;
-            margin: 0 $component-margin-xs 0 0 !important;
-            @media only screen and (min-width: 768px) {
-              margin: 0 $component-margin-sm 0 0 !important;
-            }
-            img.icon {
-              height: 1.25rem;
-              width: 1.25rem;
-              padding: 0;
-              border-radius: 4px;
-              background: rgba(255, 255, 255, 0.8);
+          // grid format
+          & > ul.gtopics {
+            .section.main {
+              .right {
+                height: 2.25rem;
+                .section_action_menu {
+                  top: $component-margin-xs;
+                }
+              }
+              .content {
+                padding: $component-margin-xs !important;
+                .section_availability {
+                  margin-bottom: $component-margin-bottom-xs;
+                }
+              }
             }
           }
-          .filler {
-            display: none;
-          }
-        }
-      }
-      .activity:not(.label):not(.completion-progress-activity) {
-        margin-left: 30px;
-        @media only screen and (min-width: 768px) {
-          margin-left: 38px;
         }
       }
     }
@@ -643,33 +912,6 @@ table li.activity.page {
   margin-bottom: unset !important;
   .activityinstance {
     min-height: unset;
-  }
-}
-
-// safari renders the kings font slightly out of whack with all other
-// browsers
-@media not all and (min-resolution:.001dpcm) {
-  li.activity .activityinstance .activity-label-container .activity-label {
-    line-height: 1.7;
-  }
-}
-
-// hide activity labels on module information, forums and webinars, and
-// assessment pages
-li.section.main.section-hide-activity-labels {
-  li.activity {
-    &.type-assessed .activity-label-container {
-      .group-icon, .media-icon {
-        display: none !important;
-      }
-    }
-    &:not(.type-assessed) .activity-label-container {
-      display: none !important;
-    }
-    // show resource icon
-    &.resource .activityinstance img {
-      display: inline;
-    }
   }
 }
 

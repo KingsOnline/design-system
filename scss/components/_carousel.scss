@@ -13,6 +13,8 @@
     z-index: 50;
   }
   .carousel-item {
+    // remove transition animation from bootstrap js
+    transition: none;
     img {
       width: 100% !important;
       height: auto;

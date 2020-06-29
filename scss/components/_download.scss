@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// download
+// -----------------------------------------------------------------------------
+
+// link download
+a.link-download {
+  // yellow 0.2 opacity
+  background-color: rgba(245, 184, 15, 0.2);
+  padding: 2px 4px;
+}
+
+// download button container
+.download-container .btn-download::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.375rem;
+  content: '\f019';
+}
+.download-container .download-info {
+  font-size: 0.833rem;
+  color: $slate-grey;
+}

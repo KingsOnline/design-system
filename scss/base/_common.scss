@@ -21,7 +21,7 @@
       margin-bottom: 0;
     }
   }
-  & > :first-child::before, .info-box-inner::before {
+  &::before, .info-box-inner::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 1.25rem;
@@ -70,7 +70,7 @@
     content: '\f070';
   }
   & > div {
-    .card-body {
+    & > .card-body {
       border-left: 4px solid $pearl-grey;
       padding: 0 0 0 1.5rem;
       margin-top: 1.5rem;

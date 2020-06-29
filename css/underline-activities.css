@@ -1,0 +1,12 @@
+/* optional file to permanently underline activities titles */
+
+.course-content ul.section li.activity .activityinstance a:not(.quickeditlink)
+.instancename:not(.is-numbered),
+.course-content ul.section li.activity .activityinstance a:not(.quickeditlink)
+.instancename.is-numbered .activity-title,
+.course-content ul.section li.activity .activityinstance
+a:not(.quickeditlink):hover .instancename:not(.is-numbered),
+.course-content ul.section li.activity .activityinstance
+a:not(.quickeditlink):hover .instancename.is-numbered .activity-title {
+  text-decoration: underline;
+}

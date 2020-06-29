@@ -6,12 +6,17 @@
 img.icon {
   box-sizing: content-box;
 }
+// remove padding from theme so icons can use defined dimensions
+img.iconsmall {
+  padding: 0;
+}
 
 // full width images
 .full-width-img, .img-full-width {
   margin-bottom: $component-margin-bottom;
   img {
     width: 100%;
+    height: auto;
     &:not(:last-child) {
       margin-bottom: $component-margin-bottom-sm;
     }

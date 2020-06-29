@@ -78,12 +78,16 @@ h1, h2, h3, h4, h5, h6,
   margin-top: 0;
   margin-bottom: $component-margin-bottom-sm;
 }
-h1, .h1 { @include font-scale(h1) ;}
-h2, .h2 { @include font-scale(h2) ;}
-h3, .h3 { @include font-scale(h3) ;}
-h4, .h4 { @include font-scale(h4) ;}
-h5, .h5 { @include font-scale(h5) ;}
-h6, .h6 { @include font-scale(h6) ;}
+h1, .h1 { @include font-scale(h1-sm) ;}
+h2, .h2 { @include font-scale(h2-sm) ;}
+h3, .h3 { @include font-scale(h3-sm) ;}
+h4, .h4 { @include font-scale(h4-sm) ;}
+h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
+
+// allow margin above headers in main region to increase to 36px
+#region-main h3:not(:first-child), #region-main h4:not(:first-child), #region-main h5:not(:first-child), #region-main h6:not(:first-child){
+  margin-top: 12px;
+}
 
 p {
   @include font-scale(p, $font-os);
@@ -94,12 +98,12 @@ p {
   @include font-scale(caption, $font-os);
 }
 .quote-body {
-  @include font-scale(quote-body, $font-kcd);
+  @include font-scale(quote-body-sm, $font-kcd);
   margin-bottom: 1.75rem;
   font-style: italic;
 }
 .quote-attribution {
-  @include font-scale(quote-attribution);
+  @include font-scale(quote-attribution-sm);
   margin-bottom: 0 !important;
 }
 select, option, {
@@ -107,14 +111,15 @@ select, option, {
 }
 
 // mobile fonts
-@media only screen and (max-width: 767px) {
-  h1, .h1 { @include font-scale(h1-sm) ;}
-  h2, .h2 { @include font-scale(h2-sm) ;}
-  h3, .h3 { @include font-scale(h3-sm) ;}
-  h4, .h4 { @include font-scale(h4-sm) ;}
-  h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
-  .quote-body { @include font-scale(quote-body-sm, $font-kcd); }
-  .quote-attribution { @include font-scale(quote-attribution-sm); }
+@media only screen and (min-width: $neo-breakpoint) {
+  h1, .h1 { @include font-scale(h1) ;}
+  h2, .h2 { @include font-scale(h2) ;}
+  h3, .h3 { @include font-scale(h3) ;}
+  h4, .h4 { @include font-scale(h4) ;}
+  h5, .h5 { @include font-scale(h5) ;}
+  h6, .h6 { @include font-scale(h6) ;}
+  .quote-body { @include font-scale(quote-body, $font-kcd); }
+  .quote-attribution { @include font-scale(quote-attribution); }
 }
 
 // hide page title underline
@@ -161,7 +166,7 @@ hr {
   // list margin bottom
   ol, ul {
     margin: 0 0 $component-margin-bottom $component-margin-lg;
-    &> li {
+    &> li:not(:last-child) {
       margin-bottom: $component-margin-bottom-sm;
       // remove margin bottom from nested lists
       ul, ol, li {

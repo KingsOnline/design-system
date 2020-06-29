@@ -25,8 +25,8 @@ html, body {
 h1, h2, h3, h4, h5, h6,
 .h1,
 .path-mod-book #region-main > div:first-of-type > h2:first-of-type,
-#notice.modal .modal-content .modal-header h4,
-.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1, .h2, .path-mod-book .generalbox.book_content > h3, .course-content .single-section .section-navigation.navigationtitle .sectionname, .h3, .h4, .h5, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author,
+.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
+#notice.modal .modal-content .modal-header h4, .h2, .path-mod-book .generalbox.book_content > h3, body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname, .h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section, .h4, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author,
 .quote-attribution {
   font-family: 'KingsBureauGrot';
   color: #171717;
@@ -36,30 +36,29 @@ h1, h2, h3, h4, h5, h6,
 h1,
 .h1,
 .path-mod-book #region-main > div:first-of-type > h2:first-of-type,
-#notice.modal .modal-content .modal-header h4,
-.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
-  font-size: 2.375rem;
-  line-height: 1.1; }
+.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
+#notice.modal .modal-content .modal-header h4 {
+  font-size: 1.75rem;
+  line-height: 1.2; }
 
-h2, .h2, .path-mod-book .generalbox.book_content > h3, .course-content .single-section .section-navigation.navigationtitle .sectionname {
-  font-size: 1.875rem;
-  line-height: 1.25; }
-
-h3, .h3 {
+h2, .h2, .path-mod-book .generalbox.book_content > h3, body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname {
   font-size: 1.5rem;
   line-height: 1.25; }
 
-h4, .h4 {
+h3, .h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section {
   font-size: 1.25rem;
-  line-height: 1.4; }
+  line-height: 1.25; }
 
-h5, .h5, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno {
+h4, .h4 {
   font-size: 1.125rem;
   line-height: 1.4; }
 
-h6, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author {
+h5, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, h6, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author {
   font-size: 1rem;
   line-height: 1.4; }
+
+#region-main h3:not(:first-child), #region-main h4:not(:first-child), #region-main h5:not(:first-child), #region-main h6:not(:first-child) {
+  margin-top: 12px; }
 
 p {
   font-size: 1rem;
@@ -74,46 +73,49 @@ p {
   font-family: Open Sans, sans-serif; }
 
 .quote-body {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.25;
   font-family: KingsCaslonDisplay;
   margin-bottom: 1.75rem;
   font-style: italic; }
 
 .quote-attribution {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.25;
   margin-bottom: 0 !important; }
 
 select, option {
   font-family: 'Open Sans', sans-serif; }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 768px) {
   h1,
   .h1,
   .path-mod-book #region-main > div:first-of-type > h2:first-of-type,
-  #notice.modal .modal-content .modal-header h4,
-  .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
-    font-size: 1.75rem;
-    line-height: 1.2; }
-  h2, .h2, .path-mod-book .generalbox.book_content > h3, .course-content .single-section .section-navigation.navigationtitle .sectionname {
+  .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
+  #notice.modal .modal-content .modal-header h4 {
+    font-size: 2.375rem;
+    line-height: 1.1; }
+  h2, .h2, .path-mod-book .generalbox.book_content > h3, body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname {
+    font-size: 1.875rem;
+    line-height: 1.25; }
+  h3, .h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section {
     font-size: 1.5rem;
     line-height: 1.25; }
-  h3, .h3 {
-    font-size: 1.25rem;
-    line-height: 1.25; }
   h4, .h4 {
+    font-size: 1.25rem;
+    line-height: 1.4; }
+  h5, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno {
     font-size: 1.125rem;
     line-height: 1.4; }
-  h5, .h5, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, h6, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author {
+  h6, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author {
     font-size: 1rem;
     line-height: 1.4; }
   .quote-body {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.25;
     font-family: KingsCaslonDisplay; }
   .quote-attribution {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.25; } }
 
 .path-mod-book .generalbox.book_content > h3 {
@@ -146,9 +148,9 @@ hr {
 
 #region-main ol, #region-main ul {
   margin: 0 0 1.5rem 2.25rem; }
-  #region-main ol > li, #region-main ul > li {
+  #region-main ol > li:not(:last-child), #region-main ul > li:not(:last-child) {
     margin-bottom: 1rem; }
-    #region-main ol > li ul, #region-main ol > li ol, #region-main ol > li li, #region-main ul > li ul, #region-main ul > li ol, #region-main ul > li li {
+    #region-main ol > li:not(:last-child) ul, #region-main ol > li:not(:last-child) ol, #region-main ol > li:not(:last-child) li, #region-main ul > li:not(:last-child) ul, #region-main ul > li:not(:last-child) ol, #region-main ul > li:not(:last-child) li {
       margin-bottom: 0; }
 
 pre {
@@ -218,7 +220,7 @@ footer#page-footer {
     color: #333333 !important; }
     .info-box p:last-child, .alert p:last-child, .definition-box p:last-child, .feedback-box p:last-child, #region-main .learning-outcome-box p:last-child, .reading-box p:last-child, .quote-box p:last-child, .que .content .outcome p:last-child {
       margin-bottom: 0; }
-  .info-box > :first-child::before, .alert > :first-child::before, .definition-box > :first-child::before, .feedback-box > :first-child::before, #region-main .learning-outcome-box > :first-child::before, .reading-box > :first-child::before, .quote-box > :first-child::before, .que .content .outcome > :first-child::before, .info-box .info-box-inner::before, .alert .info-box-inner::before, .definition-box .info-box-inner::before, .feedback-box .info-box-inner::before, #region-main .learning-outcome-box .info-box-inner::before, .reading-box .info-box-inner::before, .quote-box .info-box-inner::before, .que .content .outcome .info-box-inner::before, #region-main .learning-outcome-box .que .content .outcome .feedback::before, .que .content .outcome #region-main .learning-outcome-box .feedback::before, .que .content .outcome .feedback::before {
+  .info-box::before, .alert::before, .definition-box::before, .feedback-box::before, #region-main .learning-outcome-box::before, .reading-box::before, .quote-box::before, .que .content .outcome::before, .info-box .info-box-inner::before, .alert .info-box-inner::before, .definition-box .info-box-inner::before, .feedback-box .info-box-inner::before, #region-main .learning-outcome-box .info-box-inner::before, .reading-box .info-box-inner::before, .quote-box .info-box-inner::before, .que .content .outcome .info-box-inner::before, #region-main .learning-outcome-box .que .content .outcome .feedback::before, .que .content .outcome #region-main .learning-outcome-box .feedback::before, .que .content .outcome .feedback::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 1.25rem;
@@ -226,9 +228,9 @@ footer#page-footer {
     top: 1.25rem;
     left: 1.5rem; }
 
-.top-bar, .hero, #gridiconcontainer ul.gridicons li {
+.top-bar, .hero, body.format-grid .course-content #gridiconcontainer ul.gridicons li {
   position: relative; }
-  .top-bar::before, .hero::before, #gridiconcontainer ul.gridicons li::before {
+  .top-bar::before, .hero::before, body.format-grid .course-content #gridiconcontainer ul.gridicons li::before {
     content: "";
     position: absolute;
     top: 0;
@@ -238,7 +240,7 @@ footer#page-footer {
     background-color: rgba(0, 0, 0, 0.25);
     z-index: 1; }
 
-.caption-overlay, .carousel .carousel-caption, .hero .hero-caption, #gridiconcontainer .gridicon_link .icon_content, #gridiconcontainer ul.gridicons > li > span:first-child .icon_content {
+.caption-overlay, .carousel .carousel-caption, .hero .hero-caption, body.format-grid .course-content #gridiconcontainer .gridicon_link .icon_content, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .icon_content {
   position: absolute;
   background-color: rgba(10, 45, 80, 0.85);
   bottom: 0;
@@ -253,29 +255,29 @@ footer#page-footer {
   margin-right: 0.375rem; }
 
 .note-container, .academic-note-container, .view-generic-container, .view-answer-container, .view-feedback-container,
-.view-model-answer-container {
+.view-model-answer-container, .view-description-container {
   margin-bottom: 1.5rem; }
-  .note-container > a::before, .academic-note-container > a::before, .view-generic-container > a::before, .view-answer-container > a::before, .view-feedback-container > a::before, .view-model-answer-container > a::before {
+  .note-container > a::before, .academic-note-container > a::before, .view-generic-container > a::before, .view-answer-container > a::before, .view-feedback-container > a::before, .view-model-answer-container > a::before, .view-description-container > a::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 0.375rem;
     content: '\f070'; }
-  .note-container > div .card-body, .academic-note-container > div .card-body, .view-generic-container > div .card-body, .view-answer-container > div .card-body, .view-feedback-container > div .card-body, .view-model-answer-container > div .card-body {
+  .note-container > div > .card-body, .academic-note-container > div > .card-body, .view-generic-container > div > .card-body, .view-answer-container > div > .card-body, .view-feedback-container > div > .card-body, .view-model-answer-container > div > .card-body, .view-description-container > div > .card-body {
     border-left: 4px solid #CDD7DC;
     padding: 0 0 0 1.5rem;
     margin-top: 1.5rem; }
-    .note-container > div .card-body .card-author, .academic-note-container > div .card-body .card-author, .view-generic-container > div .card-body .card-author, .view-answer-container > div .card-body .card-author, .view-feedback-container > div .card-body .card-author, .view-model-answer-container > div .card-body .card-author {
+    .note-container > div > .card-body .card-author, .academic-note-container > div > .card-body .card-author, .view-generic-container > div > .card-body .card-author, .view-answer-container > div > .card-body .card-author, .view-feedback-container > div > .card-body .card-author, .view-model-answer-container > div > .card-body .card-author, .view-description-container > div > .card-body .card-author {
       display: flex;
       align-items: center;
       margin-bottom: 1.5rem; }
-      .note-container > div .card-body .card-author img, .academic-note-container > div .card-body .card-author img, .view-generic-container > div .card-body .card-author img, .view-answer-container > div .card-body .card-author img, .view-feedback-container > div .card-body .card-author img, .view-model-answer-container > div .card-body .card-author img {
+      .note-container > div > .card-body .card-author img, .academic-note-container > div > .card-body .card-author img, .view-generic-container > div > .card-body .card-author img, .view-answer-container > div > .card-body .card-author img, .view-feedback-container > div > .card-body .card-author img, .view-model-answer-container > div > .card-body .card-author img, .view-description-container > div > .card-body .card-author img {
         border-radius: 50%;
         height: 75px;
         width: 75px;
         margin-right: 1rem; }
-  .note-container.collapsed > a::before, .collapsed.academic-note-container > a::before, .collapsed.view-generic-container > a::before, .collapsed.view-answer-container > a::before, .collapsed.view-feedback-container > a::before, .collapsed.view-model-answer-container > a::before {
+  .note-container.collapsed > a::before, .collapsed.academic-note-container > a::before, .collapsed.view-generic-container > a::before, .collapsed.view-answer-container > a::before, .collapsed.view-feedback-container > a::before, .collapsed.view-model-answer-container > a::before, .collapsed.view-description-container > a::before {
     content: '\f06e'; }
-  .note-container.collapsed > div, .collapsed.academic-note-container > div, .collapsed.view-generic-container > div, .collapsed.view-answer-container > div, .collapsed.view-feedback-container > div, .collapsed.view-model-answer-container > div {
+  .note-container.collapsed > div, .collapsed.academic-note-container > div, .collapsed.view-generic-container > div, .collapsed.view-answer-container > div, .collapsed.view-feedback-container > div, .collapsed.view-model-answer-container > div, .collapsed.view-description-container > div {
     display: none; }
 
 .modified {
@@ -318,7 +320,7 @@ footer#page-footer {
   .navbutton:hover, .row-fluid.rtl-compatible a#prev-activity-link:hover::before, .row-fluid.rtl-compatible a#next-activity-link:hover::after, .course-content .single-section .section-navigation.mdl-bottom .mdl-left a:hover:before, .course-content .single-section .section-navigation.mdl-bottom .mdl-right a:hover:after {
     background-color: #526C84;
     box-shadow: 0 2px 0 0 #43566B; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .navbutton, .row-fluid.rtl-compatible a#prev-activity-link::before, .row-fluid.rtl-compatible a#next-activity-link::after, .course-content .single-section .section-navigation.mdl-bottom .mdl-left a:before, .course-content .single-section .section-navigation.mdl-bottom .mdl-right a:after {
       padding: 5px 16.5px;
       font-size: 1.5625rem; } }
@@ -333,7 +335,7 @@ footer#page-footer {
 .row-fluid.rtl-compatible a#prev-activity-link, .row-fluid.rtl-compatible a#next-activity-link {
   margin-top: 0;
   padding: 0.25rem !important; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .row-fluid.rtl-compatible a#prev-activity-link, .row-fluid.rtl-compatible a#next-activity-link {
       padding: 0.5rem !important; } }
 
@@ -359,7 +361,7 @@ footer#page-footer {
   margin-right: 3.5rem !important; }
   .course-content .single-section .section-navigation.mdl-bottom .mdl-left a {
     left: 3rem; }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
       .course-content .single-section .section-navigation.mdl-bottom .mdl-left a {
         left: 3rem; } }
     .course-content .single-section .section-navigation.mdl-bottom .mdl-left a:before {
@@ -371,7 +373,7 @@ footer#page-footer {
   .course-content .single-section .section-navigation.mdl-bottom .mdl-right a {
     text-align: right;
     right: 3rem; }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
       .course-content .single-section .section-navigation.mdl-bottom .mdl-right a {
         right: 3rem; } }
     .course-content .single-section .section-navigation.mdl-bottom .mdl-right a:after {
@@ -394,7 +396,7 @@ footer#page-footer {
       height: 2.25rem; }
       #page-mod-book-view .navtop a.bookprev:hover, #page-mod-book-view .navtop a.booknext:hover, #page-mod-book-view .navbottom a.bookprev:hover, #page-mod-book-view .navbottom a.booknext:hover {
         text-decoration: none; }
-      @media only screen and (max-width: 767px) {
+      @media only screen and (max-width: 768px) {
         #page-mod-book-view .navtop a.bookprev, #page-mod-book-view .navtop a.booknext, #page-mod-book-view .navbottom a.bookprev, #page-mod-book-view .navbottom a.booknext {
           display: inline-block; } }
     #page-mod-book-view .navtop a.bookprev:before, #page-mod-book-view .navtop a.booknext:after, #page-mod-book-view .navtop a.bookexit:after, #page-mod-book-view .navbottom a.bookprev:before, #page-mod-book-view .navbottom a.booknext:after, #page-mod-book-view .navbottom a.bookexit:after {
@@ -408,7 +410,7 @@ footer#page-footer {
   #page-mod-book-view .navtop ul, #page-mod-book-view .navbottom ul {
     margin: 0;
     display: inline-block; }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
       #page-mod-book-view .navtop ul li.chapter:not(.current):not(.prev):not(.next), #page-mod-book-view .navbottom ul li.chapter:not(.current):not(.prev):not(.next) {
         display: none; } }
     #page-mod-book-view .navtop ul li.chapter, #page-mod-book-view .navbottom ul li.chapter {
@@ -454,12 +456,6 @@ footer#page-footer {
     width: 100%;
     margin-left: 0; } }
 
-.course-content ul.gtopics li.section .content {
-  margin: 0; }
-
-.course-content ul.gtopics li.section .right {
-  display: none; }
-
 .container {
   padding: 0;
   margin: 0;
@@ -474,7 +470,10 @@ footer#page-footer {
   padding-top: 0; }
 
 section:not(:last-of-type) {
-  margin-bottom: 4.5rem; }
+  margin-bottom: 3rem; }
+  @media only screen and (min-width: 768px) {
+    section:not(:last-of-type) {
+      margin-bottom: 4rem; } }
 
 .row:before, .row:after {
   display: none !important; }
@@ -605,6 +604,11 @@ input.course-discuss-reply-button.mod_quiz-prev-nav.btn[type="submit"]:first-chi
 #block-region-side-post .block_html .content ul.module-academic-team {
   margin: 0;
   list-style: none; }
+  #block-region-side-post .block_html .content ul.module-academic-team li img {
+    width: 3rem;
+    height: auto;
+    margin-bottom: 0.25rem;
+    border-radius: 50%; }
   #block-region-side-post .block_html .content ul.module-academic-team li span {
     display: block; }
     #block-region-side-post .block_html .content ul.module-academic-team li span.name {
@@ -623,9 +627,9 @@ input.course-discuss-reply-button.mod_quiz-prev-nav.btn[type="submit"]:first-chi
   font-family: 'KingsBureauGrotFiveOne';
   font-size: 1rem; }
 
-.activity-label-container-default, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container, a.activity-link .activity-label-container {
+.activity-label-container-default, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container, a.activity-link .activity-label-container {
   display: inline; }
-  .activity-label-container-default .activity-label, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .activity-label, a.activity-link .activity-label-container .activity-label {
+  .activity-label-container-default .activity-label, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .activity-label, a.activity-link .activity-label-container .activity-label {
     display: inline-block;
     font-family: 'KingsBureauGrot';
     font-size: 1rem;
@@ -639,44 +643,64 @@ input.course-discuss-reply-button.mod_quiz-prev-nav.btn[type="submit"]:first-chi
     border-radius: 15px;
     margin-left: 1rem;
     background-color: #EDF1F2; }
-  .activity-label-container-default .group-icon, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon, a.activity-link .activity-label-container .group-icon {
+  .activity-label-container-default .group-icon, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon, a.activity-link .activity-label-container .group-icon {
     color: #FF5F05;
     font-size: 1.25rem; }
-  .activity-label-container-default .group-icon .fas.fa-user-friends, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends, a.activity-link .activity-label-container .group-icon .fas.fa-user-friends,
+  .activity-label-container-default .group-icon .fas.fa-user-friends, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends, a.activity-link .activity-label-container .group-icon .fas.fa-user-friends,
   .activity-label-container-default .media-icon .fas.fa-play-circle,
-  .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle,
+  body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle,
   a.activity-link .activity-label-container .media-icon .fas.fa-play-circle {
     margin-left: 0.5rem; }
     @media only screen and (min-width: 768px) {
-      .activity-label-container-default .group-icon .fas.fa-user-friends, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends, a.activity-link .activity-label-container .group-icon .fas.fa-user-friends,
+      .activity-label-container-default .group-icon .fas.fa-user-friends, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .group-icon .fas.fa-user-friends, a.activity-link .activity-label-container .group-icon .fas.fa-user-friends,
       .activity-label-container-default .media-icon .fas.fa-play-circle,
-      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle,
+      body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon .fas.fa-play-circle,
       a.activity-link .activity-label-container .media-icon .fas.fa-play-circle {
         margin-left: 1rem; } }
-  .activity-label-container-default .media-icon, .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon, a.activity-link .activity-label-container .media-icon {
+  .activity-label-container-default .media-icon, body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .media-icon, a.activity-link .activity-label-container .media-icon {
     color: #005AD2;
     font-size: 1.25rem; }
 
 .alert.alert-success {
   background-color: rgba(40, 195, 130, 0.2) !important; }
-  .alert.alert-success > :first-child::before {
+  .alert.alert-success::before {
     content: '\f164';
     color: #28C382;
     padding: 0 4px; }
 
 .alert.alert-instructional {
   background-color: rgba(245, 185, 15, 0.2) !important; }
-  .alert.alert-instructional > :first-child::before {
+  .alert.alert-instructional::before {
     content: '\f086';
     color: #8262ae;
     padding: 0 3px; }
 
 .alert.alert-danger {
   background-color: rgba(226, 35, 26, 0.2) !important; }
-  .alert.alert-danger > :first-child::before {
+  .alert.alert-danger::before {
     color: #e2231a;
     content: '\f071';
     padding: 0 3px; }
+
+.alert.alert-block {
+  padding: 1.25rem;
+  padding-left: 4.25rem; }
+  .alert.alert-block button.close {
+    position: absolute;
+    height: 1.25rem;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 1px !important;
+    right: 1.25rem;
+    top: 1.25rem;
+    width: 1.25rem; }
+    .alert.alert-block button.close::before {
+      content: "\f00d";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: 20px; }
+    .alert.alert-block button.close:hover {
+      background-color: transparent; }
 
 button, .btn, input[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, .forumaddnew div input[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
@@ -687,7 +711,7 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #mod_quiz_navblock .cont
   padding: 0.625rem 0.75rem !important;
   margin: 0 0.75rem 0.5rem 0;
   border-radius: 4px !important; }
-  button.btn-primary, button.course-discuss-reply-button, .btn.btn-primary, input[type="submit"], input.btn-secondary[type="submit"], input.btn#id_cancel[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+  button.btn-primary, button.btn-default, button.course-discuss-reply-button, .btn.btn-primary, input[type="submit"], input.btn-secondary[type="submit"], input.btn#id_cancel[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn-secondary[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn#id_cancel[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton > form > div > input.mod_quiz-prev-nav.btn.btn-secondary[type="submit"]:first-child, .forumaddnew div input.btn-secondary[type="submit"]:first-child, .forumaddnew div input.btn#id_cancel[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons .forumaddnew .singlebutton:nth-child(2) > form > div >
 input[type="submit"]:first-child, .forumaddnew div #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns .forumaddnew div input.mod_quiz-prev-nav.btn.btn-secondary[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.btn-secondary#searchforums[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch .singlebutton:nth-child(2) > form > div >
 input#searchforums[type="submit"]:first-child, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn-secondary[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn#id_cancel[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons #fgroup_id_buttonar .fgroup .singlebutton:nth-child(2) > form > div >
@@ -722,12 +746,14 @@ input.mod_quiz-prev-nav[type="submit"]:first-child, #page-mod-quiz-attempt .subm
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child, .que .content .formulation #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn#id_cancel, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn.btn-secondary, #mod_quiz_navblock .content .othernav a.endtestlink, #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"], .que .content .formulation input.btn[type="submit"], .que .content .formulation input[type="submit"], .que .content .formulation #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .que .content .formulation .singlebutton > form > div > input[type="submit"]:first-child, .que .content .formulation .forumaddnew div input[type="submit"]:first-child, .forumaddnew div .que .content .formulation input[type="submit"]:first-child, .que .content .formulation .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums[type="submit"], .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .que .content .formulation input#searchforums[type="submit"], .que .content .formulation #page-mod-forum-post #fgroup_id_buttonar .fgroup input[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup .que .content .formulation input[type="submit"], .que #mod_quiz_navblock .content .formulation .othernav .singlebutton div input[type="submit"], #mod_quiz_navblock .que .content .formulation .othernav .singlebutton div input[type="submit"], .que #mod_quiz_navblock .content .othernav .singlebutton div .formulation input[type="submit"], #mod_quiz_navblock .que .content .othernav .singlebutton div .formulation input[type="submit"], .que .content .formulation #page-mod-connecthosted-view .chosted-button-row input[type="submit"], #page-mod-connecthosted-view .chosted-button-row .que .content .formulation input[type="submit"], #page-mod-connecthosted-view .chosted-button-row input, .btn.course-discuss-reply-button, input.course-discuss-reply-button[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.course-discuss-reply-button[type="submit"]:first-child, .forumaddnew div input.course-discuss-reply-button[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.course-discuss-reply-button#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.course-discuss-reply-button, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.course-discuss-reply-button, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn.btn-secondary, #mod_quiz_navblock .content .othernav a.endtestlink, #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"], .que .content .formulation input.btn[type="submit"], .que .content .formulation input[type="submit"], .que .content .formulation #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .que .content .formulation .singlebutton > form > div > input[type="submit"]:first-child, .que .content .formulation .forumaddnew div input[type="submit"]:first-child, .forumaddnew div .que .content .formulation input[type="submit"]:first-child, .que .content .formulation .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums[type="submit"], .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .que .content .formulation input#searchforums[type="submit"], .que .content .formulation #page-mod-forum-post #fgroup_id_buttonar .fgroup input[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup .que .content .formulation input[type="submit"], .que #mod_quiz_navblock .content .formulation .othernav .singlebutton div input[type="submit"], #mod_quiz_navblock .que .content .formulation .othernav .singlebutton div input[type="submit"], .que #mod_quiz_navblock .content .othernav .singlebutton div .formulation input[type="submit"], #mod_quiz_navblock .que .content .othernav .singlebutton div .formulation input[type="submit"], .que .content .formulation #page-mod-connecthosted-view .chosted-button-row input[type="submit"], #page-mod-connecthosted-view .chosted-button-row .que .content .formulation input[type="submit"], #page-mod-connecthosted-view .chosted-button-row input, .btn.btn-default, input.btn-default[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn-default[type="submit"]:first-child, .forumaddnew div input.btn-default[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.btn-default#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn-default, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.btn-default, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.btn-default, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.btn-default, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.btn-default, #page-mod-quiz-attempt .submitbtns .btn-default.mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .btn-default.mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.btn-default.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
+input.btn-default.mod_quiz-prev-nav.btn[type="submit"]:first-child, #mod_quiz_navblock .content .othernav a.btn-default.endtestlink, #mod_quiz_navblock .content .othernav .singlebutton div input.btn-default[type="submit"], #page-mod-connecthosted-view .chosted-button-row input.btn-default, .btn.course-discuss-reply-button, input.course-discuss-reply-button[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.course-discuss-reply-button[type="submit"]:first-child, .forumaddnew div input.course-discuss-reply-button[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.course-discuss-reply-button#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.course-discuss-reply-button, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.course-discuss-reply-button, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.course-discuss-reply-button, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.course-discuss-reply-button.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.course-discuss-reply-button.mod_quiz-prev-nav.btn[type="submit"]:first-child, #mod_quiz_navblock .content .othernav a.course-discuss-reply-button.endtestlink, #mod_quiz_navblock .content .othernav .singlebutton div input.course-discuss-reply-button[type="submit"], #page-mod-connecthosted-view .chosted-button-row input.course-discuss-reply-button {
     background-color: #0A2D50 !important;
     color: #FFFFFF !important; }
-    button.btn-primary:hover, button.course-discuss-reply-button:hover, .btn.btn-primary:hover, input:hover[type="submit"], input.btn-secondary:hover[type="submit"], input.btn#id_cancel:hover[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+    button.btn-primary:hover, button.btn-default:hover, button.course-discuss-reply-button:hover, .btn.btn-primary:hover, input:hover[type="submit"], input.btn-secondary:hover[type="submit"], input.btn#id_cancel:hover[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input:hover[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn-secondary:hover[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn#id_cancel:hover[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton > form > div > input.mod_quiz-prev-nav.btn.btn-secondary:hover[type="submit"]:first-child, .forumaddnew div input.btn-secondary:hover[type="submit"]:first-child, .forumaddnew div input.btn#id_cancel:hover[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons .forumaddnew .singlebutton:nth-child(2) > form > div >
 input:hover[type="submit"]:first-child, .forumaddnew div #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary:hover[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns .forumaddnew div input.mod_quiz-prev-nav.btn.btn-secondary:hover[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.btn-secondary#searchforums:hover[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch .singlebutton:nth-child(2) > form > div >
 input#searchforums:hover[type="submit"]:first-child, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn-secondary:hover[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn#id_cancel:hover[type="submit"], #page-mod-forum-post #notice.modal .modal-footer .buttons #fgroup_id_buttonar .fgroup .singlebutton:nth-child(2) > form > div >
@@ -762,7 +788,9 @@ input.mod_quiz-prev-nav:hover[type="submit"]:first-child, #page-mod-quiz-attempt
 input.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, .que .content .formulation #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn#id_cancel:hover, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn#id_cancel:hover, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav:hover[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav:hover[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary:hover, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn.btn-secondary:hover, #mod_quiz_navblock .content .othernav a.endtestlink:hover, #mod_quiz_navblock .content .othernav .singlebutton div input:hover[type="submit"], .que .content .formulation input:hover[type="submit"], .que .content .formulation #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:hover[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .que .content .formulation .singlebutton > form > div > input:hover[type="submit"]:first-child, .que .content .formulation .forumaddnew div input:hover[type="submit"]:first-child, .forumaddnew div .que .content .formulation input:hover[type="submit"]:first-child, .que .content .formulation .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums:hover[type="submit"], .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .que .content .formulation input#searchforums:hover[type="submit"], .que .content .formulation #page-mod-forum-post #fgroup_id_buttonar .fgroup input:hover[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup .que .content .formulation input:hover[type="submit"], .que #mod_quiz_navblock .content .formulation .othernav .singlebutton div input:hover[type="submit"], #mod_quiz_navblock .que .content .formulation .othernav .singlebutton div input:hover[type="submit"], .que #mod_quiz_navblock .content .othernav .singlebutton div .formulation input:hover[type="submit"], #mod_quiz_navblock .que .content .othernav .singlebutton div .formulation input:hover[type="submit"], .que .content .formulation #page-mod-connecthosted-view .chosted-button-row input:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row .que .content .formulation input:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row input:hover, .btn.course-discuss-reply-button:hover, input.course-discuss-reply-button:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.course-discuss-reply-button:hover[type="submit"]:first-child, .forumaddnew div input.course-discuss-reply-button:hover[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.course-discuss-reply-button#searchforums:hover, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.course-discuss-reply-button:hover, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.course-discuss-reply-button:hover, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn.btn-secondary:hover, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn#id_cancel:hover, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav:hover[type="submit"]:first-child, #page-mod-connecthosted-view .chosted-button-row #page-mod-quiz-attempt .submitbtns input.mod_quiz-prev-nav.btn.btn-secondary:hover, #page-mod-quiz-attempt .submitbtns #page-mod-connecthosted-view .chosted-button-row input.mod_quiz-prev-nav.btn.btn-secondary:hover, #mod_quiz_navblock .content .othernav a.endtestlink:hover, #mod_quiz_navblock .content .othernav .singlebutton div input:hover[type="submit"], .que .content .formulation input:hover[type="submit"], .que .content .formulation #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:hover[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .que .content .formulation .singlebutton > form > div > input:hover[type="submit"]:first-child, .que .content .formulation .forumaddnew div input:hover[type="submit"]:first-child, .forumaddnew div .que .content .formulation input:hover[type="submit"]:first-child, .que .content .formulation .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums:hover[type="submit"], .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .que .content .formulation input#searchforums:hover[type="submit"], .que .content .formulation #page-mod-forum-post #fgroup_id_buttonar .fgroup input:hover[type="submit"], #page-mod-forum-post #fgroup_id_buttonar .fgroup .que .content .formulation input:hover[type="submit"], .que #mod_quiz_navblock .content .formulation .othernav .singlebutton div input:hover[type="submit"], #mod_quiz_navblock .que .content .formulation .othernav .singlebutton div input:hover[type="submit"], .que #mod_quiz_navblock .content .othernav .singlebutton div .formulation input:hover[type="submit"], #mod_quiz_navblock .que .content .othernav .singlebutton div .formulation input:hover[type="submit"], .que .content .formulation #page-mod-connecthosted-view .chosted-button-row input:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row .que .content .formulation input:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row input:hover, .btn.btn-default:hover, input.btn-default:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.btn-default:hover[type="submit"]:first-child, .forumaddnew div input.btn-default:hover[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.btn-default#searchforums:hover, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.btn-default:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.btn-default:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.btn-default:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.btn-default:hover, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.btn-default:hover, #page-mod-quiz-attempt .submitbtns .btn-default.mod_quiz-prev-nav.btn.btn-secondary:hover, #page-mod-quiz-attempt .submitbtns .btn-default.mod_quiz-prev-nav.btn#id_cancel:hover, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.btn-default.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
+input.btn-default.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, #mod_quiz_navblock .content .othernav a.btn-default.endtestlink:hover, #mod_quiz_navblock .content .othernav .singlebutton div input.btn-default:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row input.btn-default:hover, .btn.course-discuss-reply-button:hover, input.course-discuss-reply-button:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input.course-discuss-reply-button:hover[type="submit"]:first-child, .forumaddnew div input.course-discuss-reply-button:hover[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input.course-discuss-reply-button#searchforums:hover, #page-mod-forum-post #fgroup_id_buttonar .fgroup input.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a.course-discuss-reply-button:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a.course-discuss-reply-button:hover, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a.course-discuss-reply-button:hover, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn.btn-secondary:hover, #page-mod-quiz-attempt .submitbtns .course-discuss-reply-button.mod_quiz-prev-nav.btn#id_cancel:hover, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.course-discuss-reply-button.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.course-discuss-reply-button.mod_quiz-prev-nav.btn:hover[type="submit"]:first-child, #mod_quiz_navblock .content .othernav a.course-discuss-reply-button.endtestlink:hover, #mod_quiz_navblock .content .othernav .singlebutton div input.course-discuss-reply-button:hover[type="submit"], #page-mod-connecthosted-view .chosted-button-row input.course-discuss-reply-button:hover {
       background-color: #536c84 !important;
@@ -832,7 +860,7 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child i, #mod_quiz_navblock .co
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child i:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child i:first-child, #mod_quiz_navblock .content .othernav a.endtestlink i:first-child, #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"] i:first-child, #page-mod-connecthosted-view .chosted-button-row input i:first-child {
       margin-right: 0.375rem; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     button, .btn, input[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, .forumaddnew div input[type="submit"]:first-child, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a, .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a, .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
 input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #mod_quiz_navblock .content .othernav a.endtestlink, #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"], #page-mod-connecthosted-view .chosted-button-row input {
@@ -925,26 +953,27 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
   flex-direction: row;
   border: none;
   margin-bottom: 1.5rem; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .card {
       display: block; } }
-  .card img, .card .card-img-top, .card .card-img-left, .card .img-top, .card .img-left {
+  .card > img, .card .card-img-top, .card .card-img-left, .card .img-top, .card .img-left {
     width: 310px;
     height: 100%;
     flex-shrink: 0;
     border-radius: 0; }
-    @media only screen and (max-width: 767px) {
-      .card img, .card .card-img-top, .card .card-img-left, .card .img-top, .card .img-left {
+    @media only screen and (max-width: 768px) {
+      .card > img, .card .card-img-top, .card .card-img-left, .card .img-top, .card .img-left {
         width: 100%; } }
-    .card img.img-right, .card img .card-img-right, .card .card-img-top.img-right, .card .card-img-top .card-img-right, .card .card-img-left.img-right, .card .card-img-left .card-img-right, .card .img-top.img-right, .card .img-top .card-img-right, .card .img-left.img-right, .card .img-left .card-img-right {
+    .card > img.img-right, .card > img .card-img-right, .card .card-img-top.img-right, .card .card-img-top .card-img-right, .card .card-img-left.img-right, .card .card-img-left .card-img-right, .card .img-top.img-right, .card .img-top .card-img-right, .card .img-left.img-right, .card .img-left .card-img-right {
       order: 2; }
   .card .card-body {
-    background-color: #EDF1F2; }
+    background-color: #EDF1F2;
+    width: 100%; }
     .card .card-body h4 {
       margin-top: 0;
       margin-bottom: 0.75rem; }
     .card .card-body > :last-child {
-      margin-bottom: 0; }
+      margin-bottom: 0 !important; }
 
 .card-deck {
   margin-left: 0;
@@ -959,6 +988,8 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
     .card-deck .card .card-img-top, .card-deck .card .card-img-left, .card-deck .card .img-top, .card-deck .card .img-left {
       width: 100%;
       height: auto; }
+    .card-deck .card .card-body:only-child {
+      height: 100%; }
 
 .float-box {
   display: flex;
@@ -972,7 +1003,7 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
   .float-box .img-right {
     margin-left: 1rem;
     order: 2; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .float-box {
       display: block; }
       .float-box img, .float-box .img-left {
@@ -993,9 +1024,11 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
     z-index: 50; }
-  .carousel .carousel-item img {
-    width: 100% !important;
-    height: auto; }
+  .carousel .carousel-item {
+    transition: none; }
+    .carousel .carousel-item img {
+      width: 100% !important;
+      height: auto; }
   .carousel .carousel-caption {
     text-align: left;
     padding: 2.4% 11%; }
@@ -1008,7 +1041,7 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
         color: #C6E128 !important; }
       .carousel .carousel-caption a:visited {
         color: #F5B90F !important; }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
       .carousel .carousel-caption {
         position: static; } }
   .carousel.text-only .carousel-item {
@@ -1093,6 +1126,20 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
       content: '\f105'; }
     .collapse-container .collapse-card.collapsed .collapse-body {
       display: none; }
+
+a.link-download {
+  background-color: rgba(245, 184, 15, 0.2);
+  padding: 2px 4px; }
+
+.download-container .btn-download::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.375rem;
+  content: '\f019'; }
+
+.download-container .download-info {
+  font-size: 0.833rem;
+  color: #5A6469; }
 
 .embed-responsive {
   margin-bottom: 1.5rem;
@@ -1199,7 +1246,7 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
   margin-bottom: 2.25rem; }
   .hero img {
     width: 100%; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .hero .hero-caption {
       position: static; } }
   .hero .hero-caption h2 {
@@ -1209,10 +1256,14 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
 img.icon {
   box-sizing: content-box; }
 
+img.iconsmall {
+  padding: 0; }
+
 .full-width-img, .img-full-width {
   margin-bottom: 1.5rem; }
   .full-width-img img, .img-full-width img {
-    width: 100%; }
+    width: 100%;
+    height: auto; }
     .full-width-img img:not(:last-child), .img-full-width img:not(:last-child) {
       margin-bottom: 1rem; }
   .full-width-img .caption, .img-full-width .caption {
@@ -1245,28 +1296,28 @@ figure {
 
 .definition-box {
   background-color: #EDF1F2; }
-  .definition-box > :first-child::before {
+  .definition-box::before {
     content: '\f02e';
     padding: 0 5px;
     color: #8262ae; }
 
 .feedback-box.correct-answer {
   background-color: rgba(40, 195, 130, 0.2) !important; }
-  .feedback-box.correct-answer > :first-child::before {
+  .feedback-box.correct-answer::before {
     color: #28C382;
     padding: 0 4px;
     content: '\f058'; }
 
 .feedback-box.model-answer {
   background-color: rgba(245, 185, 15, 0.2) !important; }
-  .feedback-box.model-answer > :first-child::before {
+  .feedback-box.model-answer::before {
     content: '\f27a';
     color: #F5B90F;
     padding: 0 4px; }
 
 .feedback-box.incorrect-answer {
   background-color: rgba(226, 35, 26, 0.2) !important; }
-  .feedback-box.incorrect-answer > :first-child::before {
+  .feedback-box.incorrect-answer::before {
     color: #E2231A;
     content: '\f057';
     padding: 0 4px; }
@@ -1287,7 +1338,7 @@ figure {
 
 #region-main .learning-outcome-box {
   background-color: #edf1f2; }
-  #region-main .learning-outcome-box > :first-child::before {
+  #region-main .learning-outcome-box::before {
     content: '\f091';
     color: #009EA0;
     padding: 0 4px; }
@@ -1298,10 +1349,56 @@ figure {
 
 .reading-box {
   background-color: #EDF1F2; }
-  .reading-box > :first-child::before {
+  .reading-box::before {
     content: '\f5da';
     padding: 0 2px 0 3px;
     color: #0A2D50; }
+
+.moodle-dialogue .moodle-dialogue-wrap {
+  padding: 1.5rem 2.25rem 2.25rem 2.25rem;
+  height: auto; }
+  .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd {
+    background-color: transparent !important;
+    line-height: normal;
+    margin-bottom: 1.5rem !important;
+    border-bottom: none !important;
+    color: #171717 !important;
+    font-family: 'KingsBureauGrot';
+    font-size: 38px !important;
+    padding: 0 3rem !important; }
+    .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span {
+      padding: 0 !important; }
+      .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton {
+        padding: 0 !important;
+        margin: 0 !important;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        height: 32px;
+        width: 32px;
+        box-shadow: none;
+        background-image: none;
+        background: none; }
+        .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton::before {
+          content: '\f410';
+          color: #0A2D50;
+          font-family: 'Font Awesome 5 Free';
+          font-size: 32px;
+          font-weight: 900; }
+        .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton:focus {
+          outline: none; }
+
+.moodle-dialogue .moodle-dialogue-bd {
+  padding: 0 !important; }
+  .moodle-dialogue .moodle-dialogue-bd .confirmation-message {
+    font-family: 'KingsBureauGrotFiveOne';
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0; }
+  .moodle-dialogue .moodle-dialogue-bd .tooltiptext > p:last-child {
+    margin-bottom: 0; }
+
+.moodle-dialogue .moodle-dialogue-ft {
+  margin: 0 !important; }
 
 #notice.modal {
   border: none;
@@ -1324,6 +1421,9 @@ figure {
       #notice.modal .modal-content .modal-footer .buttons {
         text-align: center; }
 
+.file-picker .fp-list .fp-repo-icon {
+  padding: 0; }
+
 .quote-box {
   background-color: #EDF1F2; }
   .quote-box > :first-child::before {
@@ -1332,7 +1432,38 @@ figure {
     color: #FF5F05;
     font-family: 'KingsCaslonDisplay';
     font-size: 4.5rem;
-    top: 2.25rem; }
+    position: absolute;
+    left: 18px;
+    top: 40px; }
+
+.screenshot {
+  border: 1px solid #8B9296;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  height: auto; }
+
+#region-main ::-webkit-scrollbar {
+  width: 16px !important;
+  height: 16px !important; }
+
+#region-main ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #CDD7DC !important;
+  border-top: 8px solid #FFFFFF !important; }
+
+#region-main ::-webkit-scrollbar-thumb {
+  border-top: 8px solid #FFFFFF !important;
+  background: #0A2D50 !important;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important; }
+
+#region-main ::-webkit-scrollbar-thumb:window-inactive {
+  background: #8B9296 !important; }
+
+#region-main .table-scroll {
+  -ms-scrollbar-base-color: #0A2D50;
+  -ms-scrollbar-track-color: #CDD7DC;
+  -ms-scrollbar-arrow-color: #0A2D50;
+  scrollbar-color: #0A2D50 #CDD7DC;
+  scrollbar-width: thin; }
 
 .table-scroll {
   overflow: auto;
@@ -1383,7 +1514,7 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
 .timeline-container {
   margin-left: 64px;
   padding: 0.5rem 1.25rem 0 1.25rem; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 768px) {
     .timeline-container {
       margin-left: 0; } }
   .timeline-container .timeline-badge-pill {
@@ -1409,7 +1540,8 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
   .timeline-container .timeline-row .border-left {
     border-left: 3px solid #8B9296 !important; }
   .timeline-container .timeline-row .flex-column {
-    display: flex !important; }
+    display: flex !important;
+    min-width: 75px; }
   .timeline-container .timeline-row .timeline-content {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem; }
@@ -1460,6 +1592,43 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
 
 .single-chapter-book .book_content > h3:first-of-type {
   display: none; }
+
+.path-mod-feedback #region-main .feedback_form .fitem {
+  margin: 0; }
+  .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle {
+    margin: 0 !important;
+    padding: 0 !important; }
+    .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section {
+      margin-bottom: 1.5rem !important; }
+    .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label {
+      margin: 0 !important;
+      margin-bottom: 1rem !important; }
+      .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label > *:last-child {
+        margin: 0 !important; }
+      .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label span.start, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label span.stop {
+        text-transform: uppercase; }
+  .path-mod-feedback #region-main .feedback_form .fitem .felement > * {
+    margin-bottom: 1rem !important; }
+  .path-mod-feedback #region-main .feedback_form .fitem.feedback_mode .fitemtitle {
+    display: none !important; }
+  .path-mod-feedback #region-main .feedback_form .fitem.feedback_mode .felement {
+    margin: 0 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important; }
+  .path-mod-feedback #region-main .feedback_form .fitem:not(:nth-child(2)) .fitemtitle .feedback-section {
+    margin-top: 2rem !important; }
+    @media only screen and (min-width: 768px) {
+      .path-mod-feedback #region-main .feedback_form .fitem:not(:nth-child(2)) .fitemtitle .feedback-section {
+        margin-top: 3rem !important; } }
+
+.path-mod-feedback #region-main .feedback_form .fitem_actionbuttons {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 1.25rem; }
+  .path-mod-feedback #region-main .feedback_form .fitem_actionbuttons .fgroup {
+    display: flex;
+    justify-content: center; }
 
 .forumaddnew div {
   margin: 0; }
@@ -1601,23 +1770,233 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
 #page-mod-forum-post #fgroup_id_buttonar {
   background-color: transparent; }
 
-#region-main ul.gtopics, #region-main ul.gtopics-0, #region-main ul-ctopics, #region-main ul.section {
+body #region-main .course-content > #completionprogressid {
+  display: none !important; }
+
+body #region-main .course-content > .single-section {
   margin: 0; }
 
-.content h3.sectionname {
-  color: #171717; }
+body #region-main .course-content ul {
+  margin: 0; }
+  body #region-main .course-content ul > li.section.main {
+    margin: 0 !important; }
+    body #region-main .course-content ul > li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .group-icon, body #region-main .course-content ul > li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .media-icon {
+      display: none !important; }
+    body #region-main .course-content ul > li.section.main.section-hide-activity-labels li.activity:not(.type-assessed) .activity-label-container {
+      display: none !important; }
+    body #region-main .course-content ul > li.section.main .content {
+      margin: 0 !important;
+      padding: 0 !important; }
+      body #region-main .course-content ul > li.section.main .content h3.sectionname {
+        color: #171717; }
+      body #region-main .course-content ul > li.section.main .content .summary .no-overflow {
+        width: 100%; }
+      body #region-main .course-content ul > li.section.main .content > #completionprogressid {
+        display: none !important; }
+    body #region-main .course-content ul > li.section.main ul.section {
+      margin: 0; }
+      body #region-main .course-content ul > li.section.main ul.section .summary .iconsmall, body #region-main .course-content ul > li.section.main ul.section .summary img.icon,
+      body #region-main .course-content ul > li.section.main ul.section li.activity .iconsmall,
+      body #region-main .course-content ul > li.section.main ul.section li.activity img.icon {
+        padding: 0; }
+      body #region-main .course-content ul > li.section.main ul.section li.activity {
+        display: flex;
+        margin-bottom: 1rem !important;
+        padding: 0 !important; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity > div {
+          width: 100%; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity > div .mod-indent-outer {
+            display: block; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .no-overflow {
+          padding: 0; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label:not(:first-of-type) h2,
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label:not(:first-of-type) h3,
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label:not(:first-of-type) h4 {
+          margin-top: 0.75rem !important; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label h2:last-child,
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label h3:last-child,
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label h4:last-child,
+        body #region-main .course-content ul > li.section.main ul.section li.activity.label p:last-child {
+          margin-bottom: 0; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity.type-study .activityinstance .activity-label-container .activity-label {
+          display: none !important; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity.type-assessed .activityinstance a .activity-label-container .activity-label {
+          background-color: #60bbba !important;
+          color: white;
+          width: 5.5rem !important; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .mod-indent-outer > div:last-child {
+          display: flex;
+          flex-wrap: wrap; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance {
+          width: 100%;
+          min-height: initial !important;
+          padding: 0;
+          order: 2; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance ~ .ishidden {
+            margin: 0; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance:not(:last-child) {
+            margin-bottom: 0; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) {
+            display: flex;
+            max-width: 100%; }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) img.activityicon {
+              display: none; }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename {
+              max-width: 100vw; }
+              body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
+                margin-left: 0.375rem; }
+                @media only screen and (min-width: 768px) {
+                  body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
+                    margin-left: 0.75rem; } }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink):hover {
+              text-decoration: none; }
+              body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink):hover .instancename:not(.is-numbered), body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink):hover .instancename.is-numbered .activity-title {
+                text-decoration: underline; }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container {
+              display: inline-flex; }
+              @media not all and (min-resolution: 0.001dpcm) {
+                body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container .activity-label {
+                  line-height: 1.7; } }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a.quickeditlink {
+            margin-left: 0.5rem; }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance a.quickeditlink .quickediticon img {
+              opacity: 0.8; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .activityinstance .resourcelinkdetails {
+            color: #5A6469;
+            font-size: 14px; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .availabilityinfo {
+          order: 3;
+          flex: 0 0 100%;
+          margin: 0.5rem 0 0 0; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .availabilityinfo label {
+            color: #FFFFFF; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity.indent .contentwithoutlink, body #region-main .course-content ul > li.section.main ul.section li.activity .contentafterlink {
+          border-left: 3px solid #CDD7DC;
+          border-radius: 0;
+          padding-left: 0.625rem !important;
+          order: 3;
+          margin-left: 34px;
+          margin-top: 0; }
+          @media only screen and (min-width: 768px) {
+            body #region-main .course-content ul > li.section.main ul.section li.activity.indent .contentwithoutlink, body #region-main .course-content ul > li.section.main ul.section li.activity .contentafterlink {
+              margin-left: 42px; } }
+          body #region-main .course-content ul > li.section.main ul.section li.activity.indent .contentwithoutlink p, body #region-main .course-content ul > li.section.main ul.section li.activity .contentafterlink p {
+            margin: 0 0 1rem 0; }
+            body #region-main .course-content ul > li.section.main ul.section li.activity.indent .contentwithoutlink p:last-child, body #region-main .course-content ul > li.section.main ul.section li.activity .contentafterlink p:last-child {
+              margin-bottom: 0; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .actions {
+          position: static;
+          max-width: max-content;
+          background: none;
+          left: 0; }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .actions button, body #region-main .course-content ul > li.section.main ul.section li.activity .actions .autocompletion {
+            padding: 0 !important;
+            margin: 0 0.5rem 0 0; }
+            @media only screen and (min-width: 768px) {
+              body #region-main .course-content ul > li.section.main ul.section li.activity .actions button, body #region-main .course-content ul > li.section.main ul.section li.activity .actions .autocompletion {
+                margin: 0 1rem 0 0; } }
+            body #region-main .course-content ul > li.section.main ul.section li.activity .actions button img.icon, body #region-main .course-content ul > li.section.main ul.section li.activity .actions .autocompletion img.icon {
+              height: 1.25rem;
+              width: 1.25rem;
+              padding: 0;
+              border-radius: 4px;
+              background: rgba(255, 255, 255, 0.8); }
+          body #region-main .course-content ul > li.section.main ul.section li.activity .actions .filler {
+            display: none; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .contentafterlink {
+          margin-top: 1rem; }
+        body #region-main .course-content ul > li.section.main ul.section li.activity .contentwithoutlink {
+          min-height: 1.5rem;
+          width: 100%;
+          order: 2;
+          padding: 0; }
+    body #region-main .course-content ul > li.section.main.completion-progress-section .completionprogress {
+      margin: 0 0 1.5rem 0 !important;
+      display: flex !important;
+      justify-content: flex-start;
+      float: none !important;
+      text-align: left !important;
+      line-height: 1.5;
+      height: auto !important;
+      z-index: auto; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .completionprogress .helptooltip a img {
+        display: none; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .completionprogress .helptooltip a:hover {
+        text-decoration: none; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .completionprogress .helptooltip a:after {
+        font-family: 'Font Awesome 5 Free';
+        font-size: 1.25rem;
+        content: '\f059';
+        color: #0A2D50;
+        margin-left: 2.25rem;
+        position: absolute;
+        top: -3px; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .completionprogress .helptooltip:before {
+        content: '';
+        background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 2px;
+        margin-left: 0.5rem; }
+    body #region-main .course-content ul > li.section.main.completion-progress-section .activity .availabilityinfo {
+      margin-left: 30px !important; }
+      @media only screen and (min-width: 768px) {
+        body #region-main .course-content ul > li.section.main.completion-progress-section .activity .availabilityinfo {
+          margin-left: 38px !important; } }
+    body #region-main .course-content ul > li.section.main.completion-progress-section .activity .actions .completionprogress {
+      margin: 0 0 1.5rem 0 !important;
+      display: flex !important;
+      justify-content: flex-start;
+      float: none !important;
+      text-align: left !important;
+      line-height: 1.5;
+      height: auto !important;
+      z-index: auto; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .activity .actions .completionprogress .helptooltip a img {
+        display: none; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .activity .actions .completionprogress .helptooltip a:hover {
+        text-decoration: none; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .activity .actions .completionprogress .helptooltip a:after {
+        font-family: 'Font Awesome 5 Free';
+        font-size: 1.25rem;
+        content: '\f059';
+        color: #0A2D50;
+        margin-left: 36px;
+        position: absolute;
+        top: -3px; }
+      body #region-main .course-content ul > li.section.main.completion-progress-section .activity .actions .completionprogress .helptooltip:before {
+        content: '';
+        background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 2px;
+        margin-left: 8px; }
+    body #region-main .course-content ul > li.section.main.completion-progress-section .activity:not(.label).completion-progress-activity .activityinstance {
+      max-width: calc(100% - 30px); }
+      @media only screen and (min-width: 768px) {
+        body #region-main .course-content ul > li.section.main.completion-progress-section .activity:not(.label).completion-progress-activity .activityinstance {
+          max-width: calc(100% - 38px); } }
+    body #region-main .course-content ul > li.section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) .activityinstance, body #region-main .course-content ul > li.section.main.completion-progress-section .activity .availabilityinfo .activityinstance {
+      margin-left: 30px; }
+      @media only screen and (min-width: 768px) {
+        body #region-main .course-content ul > li.section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) .activityinstance, body #region-main .course-content ul > li.section.main.completion-progress-section .activity .availabilityinfo .activityinstance {
+          margin-left: 38px; } }
 
-#gridiconcontainer {
+body.format-grid .course-content #gridiconcontainer {
   width: 103%; }
-  #gridiconcontainer ul.gridicons {
+  body.format-grid .course-content #gridiconcontainer ul.gridicons {
     margin-left: -0.75rem;
     margin-right: 0.75rem; }
-    #gridiconcontainer ul.gridicons li {
+    body.format-grid .course-content #gridiconcontainer ul.gridicons li {
       padding: 0;
       margin: 0.75rem; }
-  #gridiconcontainer .gridicon_link, #gridiconcontainer ul.gridicons > li > span:first-child {
+  body.format-grid .course-content #gridiconcontainer .gridicon_link, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child {
     position: relative; }
-    #gridiconcontainer .gridicon_link .icon_content, #gridiconcontainer ul.gridicons > li > span:first-child .icon_content {
+    body.format-grid .course-content #gridiconcontainer .gridicon_link .icon_content, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .icon_content {
       color: #FFFFFF;
       text-align: left;
       z-index: 1;
@@ -1627,21 +2006,22 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
       font-family: 'KingsBureauGrot';
       font-size: 1.25rem;
       line-height: 1.4;
-      white-space: normal; }
-    #gridiconcontainer .gridicon_link .image_holder, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder {
+      white-space: normal;
+      opacity: 1; }
+    body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder {
       border: none;
       width: 309.5px;
       height: 310px;
       background-color: transparent;
       border-radius: 0; }
-      #gridiconcontainer .gridicon_link .image_holder img, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder img {
+      body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder img, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder img {
         width: 100%;
         height: 100%; }
-      #gridiconcontainer .gridicon_link .image_holder.inaccessible, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible {
+      body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder.inaccessible, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible {
         cursor: default;
         filter: none;
         opacity: initial; }
-        #gridiconcontainer .gridicon_link .image_holder.inaccessible:before, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible:before {
+        body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder.inaccessible:before, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible:before {
           content: 'Available soon';
           position: absolute;
           background-color: #F5B90F;
@@ -1656,131 +2036,117 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
           display: flex;
           align-items: center;
           font-family: 'KingsBureauGrot'; }
-        #gridiconcontainer .gridicon_link .image_holder.inaccessible .icon_content, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible .icon_content {
+        body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder.inaccessible .icon_content, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible .icon_content {
           background-color: rgba(90, 100, 105, 0.85) !important; }
-        #gridiconcontainer .gridicon_link .image_holder.inaccessible img, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img {
+        body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder.inaccessible img, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img {
           filter: grayscale(1); }
-          #gridiconcontainer .gridicon_link .image_holder.inaccessible img:hover, #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img:hover {
+          body.format-grid .course-content #gridiconcontainer .gridicon_link .image_holder.inaccessible img:hover, body.format-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child .image_holder.inaccessible img:hover {
             transform: none; }
 
-.format-grid .course-content .single-section .section-navigation.navigationtitle {
+body.format-grid .course-content .single-section .section-navigation.navigationtitle {
   display: none; }
 
-.editing .course-content > ul.ctopics #section-0 .content .summary > a:last-child {
-  position: absolute;
-  top: 0;
-  left: -1.5rem; }
-
-.editing .course-content > ul.ctopics .main:not(#section-0) {
-  margin-left: 8.75rem !important;
-  width: calc(100% - 8.75rem - 28px); }
-
-.editing .course-content .single-section > ul.ctopics .section.main .side.right {
+body.format-grid .course-content .single-section .gtopics .section.main .right {
   display: none; }
 
-.editing .course-content .single-section > ul.ctopics .section.main .content .summary > a {
-  position: absolute;
-  top: -4.25rem;
-  left: -1.5rem; }
-
-.editing .course-content .single-section > ul.ctopics .section.main .content ul.section {
-  margin-left: 8.75rem !important; }
-
-.course-content .single-section .section-navigation.navigationtitle {
-  padding: 0; }
-  .course-content .single-section .section-navigation.navigationtitle .sectionname {
-    text-align: left;
-    margin-bottom: 2.25rem; }
-    .course-content .single-section .section-navigation.navigationtitle .sectionname:after {
-      display: none; }
-
-.course-content ul.ctopics {
+body.format-topcoll .course-content ul.ctopics {
   margin: 0 !important; }
-  .course-content ul.ctopics > .section {
+  body.format-topcoll .course-content ul.ctopics > .section {
     margin: 0 !important;
-    position: relative; }
-    .course-content ul.ctopics > .section .side.left {
+    position: relative;
+    /*
+          &:not(:last-of-type) {
+            .content {
+              .sectionhead {
+                margin-bottom: $component-margin-xs !important;
+              }
+            }
+          }
+          */ }
+    body.format-topcoll .course-content ul.ctopics > .section .side.left {
       position: absolute;
       top: 1rem;
       left: -2.25rem; }
-      .course-content ul.ctopics > .section .side.left img.icon.spacer {
+      body.format-topcoll .course-content ul.ctopics > .section .side.left img.icon.spacer {
         display: none; }
-    .course-content ul.ctopics > .section .content {
+    body.format-topcoll .course-content ul.ctopics > .section .content {
       margin: 0 !important;
       padding: 0 !important; }
-      .course-content ul.ctopics > .section .content .sectionhead {
+      body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead {
         margin-bottom: 0 !important; }
-        .course-content ul.ctopics > .section .content .sectionhead .toggle_open, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed {
+        body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed {
           background-image: none !important;
           background-color: #EDF1F2 !important;
           padding: 1rem !important;
           border: none !important;
           color: #171717 !important; }
-          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname {
+          body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname {
             font-size: 1.25rem;
             line-height: 1;
             margin: 0 !important;
             margin-left: 2.25rem !important; }
-            .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname::before {
+            body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname::before {
               font-family: 'Font Awesome 5 Free';
               font-weight: 900;
               content: '\f105';
               position: absolute;
               left: 1.25rem; }
-            .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink {
+            body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink {
               position: relative; }
-              .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink .quickediticon, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink .quickediticon {
+              body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname a.quickeditlink .quickediticon, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .sectionname a.quickeditlink .quickediticon {
                 position: absolute;
                 top: -2px;
                 margin-left: 8px; }
-          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .section_availability .availabilityinfo {
+          body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .section_availability .availabilityinfo {
             margin: 0.5rem 0 0 0;
             padding-left: 2.25rem;
             font-weight: normal; }
-            .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo .label, .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .section_availability .availabilityinfo .label {
+            body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .section_availability .availabilityinfo .label, body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed .section_availability .availabilityinfo .label {
               color: #FFFFFF; }
-        .course-content ul.ctopics > .section .content .sectionhead .toggle_open {
-          background-color: #0A2D50 !important;
-          color: #FFFFFF !important; }
-          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before {
-            content: '\f107'; }
-          .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname span {
-            color: #FFFFFF; }
-        .course-content ul.ctopics > .section .content .sectionhead .toggle_closed:hover {
-          background-color: #DCE3E6 !important; }
-      .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
+        body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open {
+          background-color: #0A2D50 !important; }
+          body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname {
+            color: #FFFFFF !important; }
+            body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before {
+              content: '\f107'; }
+            body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname span {
+              color: #FFFFFF; }
+        body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed {
+          margin-bottom: 0.5rem; }
+          body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed:hover {
+            background-color: #DCE3E6 !important; }
+      body.format-topcoll .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
         background-color: rgba(237, 241, 242, 0.3);
-        padding: 1.5rem 0.5rem; }
+        padding: 1.5rem 0.5rem;
+        margin-bottom: 0.5rem; }
         @media only screen and (min-width: 768px) {
-          .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
+          body.format-topcoll .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
             padding: 2.25rem 1.5rem; } }
-        .course-content ul.ctopics > .section .content .sectionbody.sectionopen li.activity:last-child {
+        body.format-topcoll .course-content ul.ctopics > .section .content .sectionbody.sectionopen li.activity:last-child {
           margin-bottom: 0 !important; }
-    .course-content ul.ctopics > .section:not(:last-of-type) .content .sectionhead {
-      margin-bottom: 0.5rem !important; }
-    .course-content ul.ctopics > .section#section-0 .side {
+    body.format-topcoll .course-content ul.ctopics > .section#section-0 .side {
       display: none; }
-    .course-content ul.ctopics > .section#section-0 .section-title {
+    body.format-topcoll .course-content ul.ctopics > .section#section-0 .section-title {
       margin-bottom: 2.25rem; }
-  .course-content ul.ctopics .tcsection {
+  body.format-topcoll .course-content ul.ctopics .tcsection {
     margin: 0 !important; }
-    .course-content ul.ctopics .tcsection .content {
+    body.format-topcoll .course-content ul.ctopics .tcsection .content {
       margin: 0 !important; }
-      .course-content ul.ctopics .tcsection .content h4 {
+      body.format-topcoll .course-content ul.ctopics .tcsection .content h4 {
         padding: 0 !important;
         margin-bottom: 0.5rem !important; }
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed,
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover {
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened, body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed,
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover, body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover {
           background: none;
           padding: 0 0 0 1rem !important;
           margin-right: 2.25rem !important;
           position: relative;
           font-size: 1rem;
           line-height: 1; }
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened::before,
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before,
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before,
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover::before {
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened::before,
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before,
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before,
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed:hover::before {
           font-family: 'Font Awesome 5 Free';
           font-weight: 900;
           content: '\f105';
@@ -1788,267 +2154,216 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
           left: 0;
           top: 1px;
           font-size: 1.125rem; }
-        .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before, .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before {
+        body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-opened:hover::before, body.format-topcoll .course-content ul.ctopics .tcsection .content h4 #toggles-all-closed::before {
           content: '\f107';
           left: -2px; }
 
 @media only screen and (min-width: 768px) {
-  .course-content > ul.ctopics > .section:not(#section-0) {
+  body.format-topcoll .course-content > ul.ctopics > .section:not(#section-0) {
     width: calc(100% - 28px); } }
 
-.course-content > ul.ctopics > .section .side.right {
+body.format-topcoll .course-content > ul.ctopics > .section .side.right {
   width: auto !important;
   position: absolute;
   right: -28px;
   top: 0.75rem; }
-  .course-content > ul.ctopics > .section .side.right a.tceditsection, .course-content > ul.ctopics > .section .side.right .cps_centre {
+  body.format-topcoll .course-content > ul.ctopics > .section .side.right a.tceditsection, body.format-topcoll .course-content > ul.ctopics > .section .side.right .cps_centre {
     line-height: normal;
     height: max-content;
     width: max-content;
     margin: 0 !important;
     font-size: 1.25rem; }
-    .course-content > ul.ctopics > .section .side.right a.tceditsection:before, .course-content > ul.ctopics > .section .side.right .cps_centre:before {
+    body.format-topcoll .course-content > ul.ctopics > .section .side.right a.tceditsection:before, body.format-topcoll .course-content > ul.ctopics > .section .side.right .cps_centre:before {
       content: '\f35d';
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
       color: #0A2D50; }
-    .course-content > ul.ctopics > .section .side.right a.tceditsection img, .course-content > ul.ctopics > .section .side.right .cps_centre img {
+    body.format-topcoll .course-content > ul.ctopics > .section .side.right a.tceditsection img, body.format-topcoll .course-content > ul.ctopics > .section .side.right .cps_centre img {
       display: none; }
-  .course-content > ul.ctopics > .section .side.right .section_action_menu {
+  body.format-topcoll .course-content > ul.ctopics > .section .side.right .section_action_menu {
     position: absolute;
     right: 2.25rem;
     top: 0; }
-    .course-content > ul.ctopics > .section .side.right .section_action_menu .menubar {
+    body.format-topcoll .course-content > ul.ctopics > .section .side.right .section_action_menu .menubar {
       margin: 0 !important;
       background-color: white;
       opacity: 0.8;
       border-radius: 4px;
       padding: 0.25rem 0; }
 
-.section .summary .iconsmall, .section .summary img.icon, .section .activity .iconsmall, .section .activity img.icon {
+body.format-topcoll .single-section .section-navigation.navigationtitle {
   padding: 0; }
-
-#region-main ul.section {
-  margin: 0; }
-
-.course-content ul.section li.activity {
-  display: flex;
-  margin-bottom: 1rem !important;
-  padding: 0 !important; }
-  .course-content ul.section li.activity > div {
-    width: 100%; }
-    .course-content ul.section li.activity > div .mod-indent-outer {
-      display: block; }
-  .course-content ul.section li.activity .no-overflow {
-    padding: 0; }
-  .course-content ul.section li.activity.label:not(:first-of-type) h2,
-  .course-content ul.section li.activity.label:not(:first-of-type) h3,
-  .course-content ul.section li.activity.label:not(:first-of-type) h4 {
-    margin-top: 0.75rem !important; }
-  .course-content ul.section li.activity.label h2:last-child,
-  .course-content ul.section li.activity.label h3:last-child,
-  .course-content ul.section li.activity.label h4:last-child,
-  .course-content ul.section li.activity.label p:last-child {
-    margin-bottom: 0; }
-  .course-content ul.section li.activity.type-study .activityinstance .activity-label-container .activity-label {
-    display: none !important; }
-  .course-content ul.section li.activity.type-assessed .activityinstance a .activity-label-container .activity-label {
-    background-color: #60bbba !important;
-    color: white;
-    width: 5.5rem !important; }
-  .course-content ul.section li.activity .editing_move {
-    top: 2px !important; }
-  .course-content ul.section li.activity .mod-indent-outer > div:last-child {
-    display: flex;
-    flex-wrap: wrap; }
-  .course-content ul.section li.activity .activityinstance {
-    width: 100%;
-    min-height: initial !important;
-    padding: 0;
-    order: 2; }
-    .course-content ul.section li.activity .activityinstance ~ .ishidden {
-      margin: 0; }
-    .course-content ul.section li.activity .activityinstance:not(:last-child) {
-      margin-bottom: 0; }
-    .course-content ul.section li.activity .activityinstance img.activityicon {
+  body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname {
+    text-align: left;
+    margin-bottom: 2.25rem; }
+    body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname:after {
       display: none; }
-    .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) {
-      width: 100%; }
-      @media only screen and (min-width: 768px) {
-        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) {
-          display: flex; } }
-      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
-        margin-left: 0.375rem; }
-        @media only screen and (min-width: 768px) {
-          .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .instancename .activity-title {
-            margin-left: 0.75rem; } }
-      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink):hover {
-        text-decoration: none; }
-        .course-content ul.section li.activity .activityinstance a:not(.quickeditlink):hover .instancename .activity-title {
-          text-decoration: underline; }
-      .course-content ul.section li.activity .activityinstance a:not(.quickeditlink) .activity-label-container {
-        float: right;
-        display: flex; }
-    .course-content ul.section li.activity .activityinstance a.quickeditlink .quickediticon img {
-      opacity: 0.8; }
-  .course-content ul.section li.activity .availabilityinfo {
-    order: 3;
-    flex: 0 0 100%;
-    margin: 0.5rem 0 0 0; }
-    .course-content ul.section li.activity .availabilityinfo label {
-      color: #FFFFFF; }
-  .course-content ul.section li.activity.indent, .course-content ul.section li.activity .contentafterlink {
-    border-left: 3px solid #CDD7DC;
-    border-radius: 0;
-    padding-left: 0.625rem !important;
-    order: 3;
-    margin-left: 34px;
-    margin-top: 0; }
-    @media only screen and (min-width: 768px) {
-      .course-content ul.section li.activity.indent, .course-content ul.section li.activity .contentafterlink {
-        margin-left: 44px; } }
-    .course-content ul.section li.activity.indent p, .course-content ul.section li.activity .contentafterlink p {
-      margin: 0 0 1rem 0; }
-      .course-content ul.section li.activity.indent p:last-child, .course-content ul.section li.activity .contentafterlink p:last-child {
-        margin-bottom: 0; }
-  .course-content ul.section li.activity .contentafterlink {
-    margin-top: 1rem; }
-  .course-content ul.section li.activity .contentwithoutlink {
-    min-height: 1.5rem;
-    width: 100%;
-    order: 2; }
 
-.editing .course-content ul:not(.ctopics) .section.main .activity.label .contentwithoutlink .no-overflow .no-overflow {
-  width: calc(100% - 58px); }
-
-.editing .course-content ul:not(.ctopics) .section.main .activity .instancename {
-  width: calc(100% - 158px); }
-
-.editing .course-content ul .section.main .activity .actions .menubar {
-  margin: 0 !important; }
-
-.editing .course-content ul .section.main .activity .actions .menu {
-  margin: 0 !important;
-  left: auto !important; }
-
-.editing .course-content ul .section.main.completion-progress-section .activity:not(.completion-progress-activity) {
-  margin-left: 0 !important; }
-  .editing .course-content ul .section.main.completion-progress-section .activity:not(.completion-progress-activity) .actions .commands {
+body.editing #region-main .course-content ul > .section.main .right .section_action_menu .menubar a.textmenu {
+  background-color: #FFFFFF !important;
+  opacity: 0.8;
+  border-radius: 4px; }
+  body.editing #region-main .course-content ul > .section.main .right .section_action_menu .menubar a.textmenu:after {
+    content: ' section';
+    margin-right: 0.75rem; }
+  body.editing #region-main .course-content ul > .section.main .right .section_action_menu .menubar a.textmenu b.caret {
+    border-top-color: #0A2D50 !important;
     position: absolute;
-    left: -110px; }
-    @media only screen and (min-width: 768px) {
-      .editing .course-content ul .section.main.completion-progress-section .activity:not(.completion-progress-activity) .actions .commands {
-        left: -126px; } }
-  .editing .course-content ul .section.main.completion-progress-section .activity:not(.completion-progress-activity).indent .actions .commands {
-    position: absolute;
-    left: -122px; }
-    @media only screen and (min-width: 768px) {
-      .editing .course-content ul .section.main.completion-progress-section .activity:not(.completion-progress-activity).indent .actions .commands {
-        left: -140px; } }
+    right: 0;
+    margin-right: 0.25rem; }
 
-.editing .course-content ul .section.main:not(.completion-progress-section) .activity .actions .commands {
+body.editing #region-main .course-content ul > .section.main .content .summary .no-overflow {
+  width: 100%; }
+
+body.editing #region-main .course-content ul > .section.main .content .activity .editing_move {
+  top: 2px !important;
+  left: 72px; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main .content .activity .editing_move {
+      left: 80px; } }
+
+body.editing #region-main .course-content ul > .section.main .content .activity .inplaceeditable {
+  display: flex; }
+
+body.editing #region-main .course-content ul > .section.main .content .activity .actions .commands {
   position: absolute;
-  left: -110px; }
-  @media only screen and (min-width: 768px) {
-    .editing .course-content ul .section.main:not(.completion-progress-section) .activity .actions .commands {
-      left: -126px; } }
-
-.course-content > #completionprogressid {
-  display: none !important; }
-
-.course-content .section.main .content > #completionprogressid {
-  display: none !important; }
-
-.course-content .section.main.completion-progress-section .completionprogress {
-  margin: 0 0 1.5rem 0 !important;
-  display: flex !important;
-  justify-content: flex-start;
-  float: none !important;
-  text-align: left !important;
-  line-height: 1.5;
-  height: auto !important;
-  z-index: auto; }
-  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a img {
-    display: none; }
-  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a:hover {
-    text-decoration: none; }
-  .course-content .section.main.completion-progress-section .completionprogress .helptooltip a:after {
-    font-family: 'Font Awesome 5 Free';
-    font-size: 1.25rem;
-    content: '\f059';
-    color: #0A2D50;
-    margin-left: 36px;
-    position: absolute;
-    top: -3px; }
-  .course-content .section.main.completion-progress-section .completionprogress .helptooltip:before {
-    content: '';
-    background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
-    background-size: 20px 20px;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 2px;
-    margin-left: 8px; }
-
-.course-content .section.main.completion-progress-section .activity.completion-progress-activity .activityinstance {
-  max-width: calc(100% - 30px); }
-  @media only screen and (min-width: 768px) {
-    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .activityinstance {
-      max-width: calc(100% - 38px); } }
-
-.course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions {
-  position: static;
-  max-width: max-content;
-  background: none;
   left: 0; }
-  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands {
+  body.editing #region-main .course-content ul > .section.main .content .activity .actions .commands .menubar {
+    margin: 0 !important; }
+  body.editing #region-main .course-content ul > .section.main .content .activity .actions .commands .menu {
+    left: 0 !important;
+    width: min-content; }
+
+body.editing #region-main .course-content ul > .section.main .content .activity.label .contentwithoutlink {
+  margin-left: 64px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main .content .activity.label .contentwithoutlink {
+      margin-left: 80px !important; } }
+
+body.editing #region-main .course-content ul > .section.main .content .activity:last-child {
+  margin-bottom: 0 !important; }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity .activityinstance {
+  width: calc(100% - 100px) !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity .activityinstance {
+      width: calc(100% - 116px) !important; } }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity .availabilityinfo {
+  margin-left: 100px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity .availabilityinfo {
+      margin-left: 116px !important; } }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity.label .contentwithoutlink {
+  margin-left: 102px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity.label .contentwithoutlink {
+      margin-left: 118px !important; } }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
+  margin: 0 1rem 0 64px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
+      margin: 0 1rem 0 80px !important; } }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity:not(.completion-progress-activity) .activityinstance {
+  margin-left: 100px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section .activity:not(.completion-progress-activity) .activityinstance {
+      margin-left: 116px !important; } }
+
+body.editing #region-main .course-content ul > .section.main.completion-progress-section.indent .contentwithoutlink, body.editing #region-main .course-content ul > .section.main.completion-progress-section .contentafterlink {
+  margin-left: 102px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main.completion-progress-section.indent .contentwithoutlink, body.editing #region-main .course-content ul > .section.main.completion-progress-section .contentafterlink {
+      margin-left: 80px !important; } }
+
+body.editing #region-main .course-content ul > .section.main:not(.completion-progress-section) .activity .activityinstance, body.editing #region-main .course-content ul > .section.main:not(.completion-progress-section) .activity .availabilityinfo {
+  margin-left: 64px !important; }
+  @media only screen and (min-width: 768px) {
+    body.editing #region-main .course-content ul > .section.main:not(.completion-progress-section) .activity .activityinstance, body.editing #region-main .course-content ul > .section.main:not(.completion-progress-section) .activity .availabilityinfo {
+      margin-left: 80px !important; } }
+
+body.editing #region-main .course-content .gtopics-0 .summary .edit {
+  position: absolute;
+  left: -2.25rem;
+  top: 1.5rem; }
+
+body.editing #region-main .course-content #gridshadebox #gridshadebox_content {
+  border: none; }
+  body.editing #region-main .course-content #gridshadebox #gridshadebox_content .content {
+    background: rgba(237, 241, 242, 0.3);
+    margin: 0 0 1rem 0 !important;
+    padding: 0 0.5rem 0.5rem 0.5rem !important; }
+    body.editing #region-main .course-content #gridshadebox #gridshadebox_content .content .sectionname {
+      background-color: #0A2D50 !important;
+      color: #fff1f1 !important;
+      margin-right: -0.5rem;
+      margin-left: -0.5rem;
+      padding: 1rem 116px 1rem 1rem !important; }
+      body.editing #region-main .course-content #gridshadebox #gridshadebox_content .content .sectionname a:not(.quickeditlink) {
+        color: #FFFFFF !important;
+        padding: 1rem 0 !important; }
+
+body.editing #region-main .course-content .gtopics .section.main {
+  position: relative; }
+  body.editing #region-main .course-content .gtopics .section.main .left {
     position: absolute;
-    left: -78px; }
-    @media only screen and (min-width: 768px) {
-      .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands {
-        left: -94px; } }
-    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands .menubar {
-      margin: 0 !important; }
-    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .commands .menu {
-      left: unset !important; }
-  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
-    padding: 0 !important;
-    margin: 0 0.5rem 0 0 !important; }
-    @media only screen and (min-width: 768px) {
-      .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion {
-        margin: 0 1rem 0 0 !important; } }
-    .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions button img.icon, .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .autocompletion img.icon {
-      height: 1.25rem;
-      width: 1.25rem;
-      padding: 0;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.8); }
-  .course-content .section.main.completion-progress-section .activity.completion-progress-activity .actions .filler {
+    left: -2.25rem;
+    top: 0.75rem; }
+  body.editing #region-main .course-content .gtopics .section.main .right {
+    display: block; }
+    body.editing #region-main .course-content .gtopics .section.main .right .section_action_menu {
+      position: absolute;
+      right: 0.5rem;
+      top: 1rem; }
+      body.editing #region-main .course-content .gtopics .section.main .right .section_action_menu .moodle-actionmenu :hover {
+        background-color: initial; }
+      body.editing #region-main .course-content .gtopics .section.main .right .section_action_menu .moodle-actionmenu .menu {
+        background-color: #FFFFFF; }
+  body.editing #region-main .course-content .gtopics .section.main .content .sectionname a.quickeditlink img {
+    opacity: 1; }
+  body.editing #region-main .course-content .gtopics .section.main .content .summary .edit {
     display: none; }
 
-.course-content .section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) {
-  margin-left: 30px; }
-  @media only screen and (min-width: 768px) {
-    .course-content .section.main.completion-progress-section .activity:not(.label):not(.completion-progress-activity) {
-      margin-left: 38px; } }
+body.editing #region-main .course-content .ctopics #section-0 .content .summary > a:last-child {
+  position: absolute;
+  top: 0;
+  left: -1.5rem; }
+
+body.editing #region-main .course-content .ctopics .main:not(#section-0) {
+  width: 100% !important; }
+  body.editing #region-main .course-content .ctopics .main:not(#section-0) .right > .tceditsection::before {
+    display: none; }
+  body.editing #region-main .course-content .ctopics .main:not(#section-0) .content .sectionbody.sectionopen > a > img {
+    display: none; }
+
+body.editing #region-main .course-content .single-section > ul.ctopics .section.main .right .tceditsection > img, body.editing #region-main .course-content .single-section > ul.ctopics .section.main .right .content .summary > a {
+  display: none; }
+
+body.editing #region-main .course-content .single-section > ul.ctopics .section.main .right .section_action_menu {
+  position: absolute;
+  right: 0;
+  top: -4rem; }
+
+body.editing #region-main .course-content .single-section > ul.ctopics .section.main .content .summary > a > img {
+  display: none; }
+
+body.editing #region-main .course-content .single-section > ul.gtopics .section.main .right {
+  height: 2.25rem; }
+  body.editing #region-main .course-content .single-section > ul.gtopics .section.main .right .section_action_menu {
+    top: 0.5rem; }
+
+body.editing #region-main .course-content .single-section > ul.gtopics .section.main .content {
+  padding: 0.5rem !important; }
+  body.editing #region-main .course-content .single-section > ul.gtopics .section.main .content .section_availability {
+    margin-bottom: 0.5rem; }
 
 table li.activity.page {
   margin-bottom: unset !important; }
   table li.activity.page .activityinstance {
     min-height: unset; }
-
-@media not all and (min-resolution: 0.001dpcm) {
-  li.activity .activityinstance .activity-label-container .activity-label {
-    line-height: 1.7; } }
-
-li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .group-icon, li.section.main.section-hide-activity-labels li.activity.type-assessed .activity-label-container .media-icon {
-  display: none !important; }
-
-li.section.main.section-hide-activity-labels li.activity:not(.type-assessed) .activity-label-container {
-  display: none !important; }
-
-li.section.main.section-hide-activity-labels li.activity.resource .activityinstance img {
-  display: inline; }
 
 a.activity-link {
   text-decoration: none !important; }
@@ -2107,7 +2422,7 @@ a.activity-link {
   .cb .cb-row.default .colour.pea-green {
     background-color: #28c382; }
   .cb .cb-row.default .colour.lime-green-2 {
-    background-color: #b4bd10; }
+    background-color: #999900; }
   .cb .cb-row.default .colour.yellow {
     background-color: #f5b90f; }
   .cb .cb-row.default .colour.orange {
@@ -2128,6 +2443,8 @@ a.activity-link {
     background-color: #0a2d50; }
   .cb .cb-row.default .colour.slate-grey {
     background-color: #5a6469; }
+  .cb .cb-row.default .colour.stone {
+    background-color: #575756; }
   .cb .cb-row.default .colour.pebble {
     background-color: #5f5550; }
   .cb .cb-row.default .colour.powder-blue {
@@ -2136,6 +2453,8 @@ a.activity-link {
     background-color: #cdd7dc; }
   .cb .cb-row.default .colour.mushroom {
     background-color: #cdc3b9; }
+  .cb .cb-row.default .colour.warm-grey {
+    background-color: #bcafa8; }
   .cb .cb-row.default .colour.black {
     background-color: #000000; }
   .cb .cb-row.default .colour.white {
@@ -2151,7 +2470,7 @@ a.activity-link {
   .cb .cb-row.a .colour.pea-green {
     background-color: #8d8d8d; }
   .cb .cb-row.a .colour.lime-green-2 {
-    background-color: #a7a7a7; }
+    background-color: #888888; }
   .cb .cb-row.a .colour.yellow {
     background-color: #b8b8b8; }
   .cb .cb-row.a .colour.orange {
@@ -2172,6 +2491,8 @@ a.activity-link {
     background-color: #272727; }
   .cb .cb-row.a .colour.slate-grey {
     background-color: #626262; }
+  .cb .cb-row.a .colour.stone {
+    background-color: #575756; }
   .cb .cb-row.a .colour.pebble {
     background-color: #575757; }
   .cb .cb-row.a .colour.powder-blue {
@@ -2180,6 +2501,8 @@ a.activity-link {
     background-color: #d5d5d5; }
   .cb .cb-row.a .colour.mushroom {
     background-color: #c5c5c5; }
+  .cb .cb-row.a .colour.warm-grey {
+    background-color: #b2b2b2; }
   .cb .cb-row.a .colour.black {
     background-color: #000000; }
   .cb .cb-row.a .colour.white {
@@ -2195,7 +2518,7 @@ a.activity-link {
   .cb .cb-row.b .colour.pea-green {
     background-color: #79988b; }
   .cb .cb-row.b .colour.lime-green-2 {
-    background-color: #aaab89; }
+    background-color: #8b8b6d; }
   .cb .cb-row.b .colour.yellow {
     background-color: #c4b896; }
   .cb .cb-row.b .colour.orange {
@@ -2216,6 +2539,8 @@ a.activity-link {
     background-color: #21282f; }
   .cb .cb-row.b .colour.slate-grey {
     background-color: #606263; }
+  .cb .cb-row.b .colour.stone {
+    background-color: #575757; }
   .cb .cb-row.b .colour.pebble {
     background-color: #595756; }
   .cb .cb-row.b .colour.powder-blue {
@@ -2224,6 +2549,8 @@ a.activity-link {
     background-color: #d3d5d6; }
   .cb .cb-row.b .colour.mushroom {
     background-color: #c7c5c3; }
+  .cb .cb-row.b .colour.warm-grey {
+    background-color: #b4b1b0; }
   .cb .cb-row.b .colour.black {
     background-color: #000000; }
   .cb .cb-row.b .colour.white {
@@ -2239,7 +2566,7 @@ a.activity-link {
   .cb .cb-row.c .colour.pea-green {
     background-color: #bdaf7f; }
   .cb .cb-row.c .colour.lime-green-2 {
-    background-color: #cfb919; }
+    background-color: #ac9900; }
   .cb .cb-row.c .colour.yellow {
     background-color: #ddc51e; }
   .cb .cb-row.c .colour.orange {
@@ -2260,6 +2587,8 @@ a.activity-link {
     background-color: #273557; }
   .cb .cb-row.c .colour.slate-grey {
     background-color: #6a696f; }
+  .cb .cb-row.c .colour.stone {
+    background-color: #615f5e; }
   .cb .cb-row.c .colour.pebble {
     background-color: #625f59; }
   .cb .cb-row.c .colour.powder-blue {
@@ -2268,6 +2597,8 @@ a.activity-link {
     background-color: #d9d6dc; }
   .cb .cb-row.c .colour.mushroom {
     background-color: #cdc6bc; }
+  .cb .cb-row.c .colour.warm-grey {
+    background-color: #bab4ad; }
   .cb .cb-row.c .colour.black {
     background-color: #000000; }
   .cb .cb-row.c .colour.white {
@@ -2283,7 +2614,7 @@ a.activity-link {
   .cb .cb-row.d .colour.pea-green {
     background-color: #caa992; }
   .cb .cb-row.d .colour.lime-green-2 {
-    background-color: #e6af2c; }
+    background-color: #bf921c; }
   .cb .cb-row.d .colour.yellow {
     background-color: #f7bb1c; }
   .cb .cb-row.d .colour.orange {
@@ -2304,6 +2635,8 @@ a.activity-link {
     background-color: #1a3759; }
   .cb .cb-row.d .colour.slate-grey {
     background-color: #706772; }
+  .cb .cb-row.d .colour.stone {
+    background-color: #685c5f; }
   .cb .cb-row.d .colour.pebble {
     background-color: #6a5c59; }
   .cb .cb-row.d .colour.powder-blue {
@@ -2312,6 +2645,8 @@ a.activity-link {
     background-color: #e7d1e0; }
   .cb .cb-row.d .colour.mushroom {
     background-color: #ddc1be; }
+  .cb .cb-row.d .colour.warm-grey {
+    background-color: #c9afad; }
   .cb .cb-row.d .colour.black {
     background-color: #000000; }
   .cb .cb-row.d .colour.white {
@@ -2327,7 +2662,7 @@ a.activity-link {
   .cb .cb-row.e .colour.pea-green {
     background-color: #5abdcb; }
   .cb .cb-row.e .colour.lime-green-2 {
-    background-color: #c6b3c0; }
+    background-color: #a9939e; }
   .cb .cb-row.e .colour.yellow {
     background-color: #feb0bc; }
   .cb .cb-row.e .colour.orange {
@@ -2348,6 +2683,8 @@ a.activity-link {
     background-color: #003c40; }
   .cb .cb-row.e .colour.slate-grey {
     background-color: #636b73; }
+  .cb .cb-row.e .colour.stone {
+    background-color: #605e65; }
   .cb .cb-row.e .colour.pebble {
     background-color: #685c62; }
   .cb .cb-row.e .colour.powder-blue {
@@ -2356,6 +2693,8 @@ a.activity-link {
     background-color: #d1d7e7; }
   .cb .cb-row.e .colour.mushroom {
     background-color: #d2c2d0; }
+  .cb .cb-row.e .colour.warm-grey {
+    background-color: #c2b0bd; }
   .cb .cb-row.e .colour.black {
     background-color: #000000; }
   .cb .cb-row.e .colour.white {
@@ -2371,7 +2710,7 @@ a.activity-link {
   .cb .cb-row.f .colour.pea-green {
     background-color: #87b680; }
   .cb .cb-row.f .colour.lime-green-2 {
-    background-color: #c5ba16; }
+    background-color: #a59900; }
   .cb .cb-row.f .colour.yellow {
     background-color: #e6c119; }
   .cb .cb-row.f .colour.orange {
@@ -2392,6 +2731,8 @@ a.activity-link {
     background-color: #1d3254; }
   .cb .cb-row.f .colour.slate-grey {
     background-color: #64676d; }
+  .cb .cb-row.f .colour.stone {
+    background-color: #5d5c5b; }
   .cb .cb-row.f .colour.pebble {
     background-color: #615b56; }
   .cb .cb-row.f .colour.powder-blue {
@@ -2400,6 +2741,8 @@ a.activity-link {
     background-color: #d4d6dc; }
   .cb .cb-row.f .colour.mushroom {
     background-color: #cdc5bb; }
+  .cb .cb-row.f .colour.warm-grey {
+    background-color: #bbb2ab; }
   .cb .cb-row.f .colour.black {
     background-color: #000000; }
   .cb .cb-row.f .colour.white {
@@ -2415,7 +2758,7 @@ a.activity-link {
   .cb .cb-row.g .colour.pea-green {
     background-color: #8fb28c; }
   .cb .cb-row.g .colour.lime-green-2 {
-    background-color: #d4b421; }
+    background-color: #b19412; }
   .cb .cb-row.g .colour.yellow {
     background-color: #f6ba17; }
   .cb .cb-row.g .colour.orange {
@@ -2436,6 +2779,8 @@ a.activity-link {
     background-color: #143355; }
   .cb .cb-row.g .colour.slate-grey {
     background-color: #68666e; }
+  .cb .cb-row.g .colour.stone {
+    background-color: #625a5c; }
   .cb .cb-row.g .colour.pebble {
     background-color: #665956; }
   .cb .cb-row.g .colour.powder-blue {
@@ -2444,6 +2789,8 @@ a.activity-link {
     background-color: #ddd3de; }
   .cb .cb-row.g .colour.mushroom {
     background-color: #d7c1bc; }
+  .cb .cb-row.g .colour.warm-grey {
+    background-color: #c4afab; }
   .cb .cb-row.g .colour.black {
     background-color: #000000; }
   .cb .cb-row.g .colour.white {
@@ -2459,7 +2806,7 @@ a.activity-link {
   .cb .cb-row.h .colour.pea-green {
     background-color: #48bfb0; }
   .cb .cb-row.h .colour.lime-green-2 {
-    background-color: #bfb780; }
+    background-color: #a39564; }
   .cb .cb-row.h .colour.yellow {
     background-color: #fbb37d; }
   .cb .cb-row.h .colour.orange {
@@ -2480,6 +2827,8 @@ a.activity-link {
     background-color: #033646; }
   .cb .cb-row.h .colour.slate-grey {
     background-color: #5f686f; }
+  .cb .cb-row.h .colour.stone {
+    background-color: #5d5b5f; }
   .cb .cb-row.h .colour.pebble {
     background-color: #65595c; }
   .cb .cb-row.h .colour.powder-blue {
@@ -2488,6 +2837,8 @@ a.activity-link {
     background-color: #cfd7e3; }
   .cb .cb-row.h .colour.mushroom {
     background-color: #d0c2c8; }
+  .cb .cb-row.h .colour.warm-grey {
+    background-color: #bfb0b5; }
   .cb .cb-row.h .colour.black {
     background-color: #000000; }
   .cb .cb-row.h .colour.white {
@@ -2710,6 +3061,8 @@ img.cb-palette {
 
 .que {
   margin: 0 0 2.25rem; }
+  .que.description .state, .que.description .questionflag {
+    display: none; }
   .que .info {
     display: flex;
     flex-wrap: wrap;
@@ -2790,7 +3143,7 @@ img.cb-palette {
           background-color: transparent;
           border-color: #8B9296;
           color: #171717; }
-        .que .content .formulation .ablock .answer .icon {
+        .que .content .formulation .ablock .answer > .icon {
           display: none; }
         .que .content .formulation .ablock .answer .r0, .que .content .formulation .ablock .answer .r1 {
           padding-top: 0;
@@ -2837,63 +3190,28 @@ img.cb-palette {
 #page-mod-quiz-attempt .mod_quiz-next-nav, #page-mod-quiz-review .mod_quiz-next-nav {
   margin-bottom: 4.5rem; }
 
-.moodle-dialogue {
-  width: 450px !important; }
-  .moodle-dialogue .moodle-dialogue-wrap {
-    padding: 1.5rem 2.25rem 2.25rem 2.25rem; }
-    .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd {
-      background-color: transparent !important;
-      line-height: normal;
-      margin-bottom: 1.5rem !important;
-      border-bottom: none !important;
-      color: #171717 !important;
-      font-family: 'KingsBureauGrot';
-      font-size: 38px !important;
-      padding: 0 3rem !important; }
-      .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span {
-        padding: 0 !important; }
-        .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton {
-          padding: 0 !important;
-          margin: 0 !important;
-          position: absolute;
-          top: 2px;
-          right: 8px;
-          box-shadow: none;
-          background-image: none;
-          background: none; }
-          .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton::before {
-            content: '\f410';
-            color: #0A2D50;
-            font-family: 'Font Awesome 5 Free';
-            font-size: 32px;
-            font-weight: 900; }
-          .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton:focus {
-            outline: none; }
-  .moodle-dialogue .moodle-dialogue-bd {
-    padding: 0 !important; }
-    .moodle-dialogue .moodle-dialogue-bd .confirmation-message {
-      font-family: 'KingsBureauGrotFiveOne';
-      font-size: 1rem;
-      margin: 0 0 1.5rem 0; }
-    .moodle-dialogue .moodle-dialogue-bd .tooltiptext > p:last-child {
-      margin-bottom: 0; }
-    .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .btn, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input[type="submit"], .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton > form > div > input[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input#searchforums, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #fgroup_id_buttonar .fgroup input, #page-mod-forum-post #fgroup_id_buttonar .fgroup .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a, .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .complete > a, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a, .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .allresponses > a, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a, .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .yourresponse > a, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire#page-mod-questionnaire-complete .message > a, .path-mod-questionnaire#page-mod-questionnaire-complete .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .message > a, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn.btn-secondary, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn#id_cancel, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav a.endtestlink, #mod_quiz_navblock .content .othernav .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons a.endtestlink, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"], #mod_quiz_navblock .content .othernav .singlebutton div .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input[type="submit"], .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-connecthosted-view .chosted-button-row input, #page-mod-connecthosted-view .chosted-button-row .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input {
-      margin: 0; }
-      .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .btn:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type)[type="submit"], .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:not(:first-of-type)[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton > form > div > input:not(:first-of-type)[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums:not(:first-of-type), .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input#searchforums:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #fgroup_id_buttonar .fgroup input:not(:first-of-type), #page-mod-forum-post #fgroup_id_buttonar .fgroup .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .complete > a:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .allresponses > a:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .yourresponse > a:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire#page-mod-questionnaire-complete .message > a:not(:first-of-type), .path-mod-questionnaire#page-mod-questionnaire-complete .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .message > a:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary:not(:first-of-type), #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn.btn-secondary:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel:not(:first-of-type), #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn#id_cancel:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
-input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav a.endtestlink:not(:first-of-type), #mod_quiz_navblock .content .othernav .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons a.endtestlink:not(:first-of-type), .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav .singlebutton div input:not(:first-of-type)[type="submit"], #mod_quiz_navblock .content .othernav .singlebutton div .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type)[type="submit"], .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-connecthosted-view .chosted-button-row input:not(:first-of-type), #page-mod-connecthosted-view .chosted-button-row .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type) {
-        margin-left: 1rem; }
-  .moodle-dialogue .moodle-dialogue-ft {
-    margin: 0 !important; }
+@media only screen and (min-width: 768px) {
+  .path-mod-quiz .moodle-dialogue {
+    width: 450px !important; } }
+
+.path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .btn, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input[type="submit"], .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton > form > div > input[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums, .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input#searchforums, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #fgroup_id_buttonar .fgroup input, #page-mod-forum-post #fgroup_id_buttonar .fgroup .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a, .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .complete > a, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a, .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .allresponses > a, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a, .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .yourresponse > a, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire#page-mod-questionnaire-complete .message > a, .path-mod-questionnaire#page-mod-questionnaire-complete .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .message > a, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary, #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn.btn-secondary, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel, #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn#id_cancel, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav a.endtestlink, #mod_quiz_navblock .content .othernav .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons a.endtestlink, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav .singlebutton div input[type="submit"], #mod_quiz_navblock .content .othernav .singlebutton div .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input[type="submit"], .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-connecthosted-view .chosted-button-row input, #page-mod-connecthosted-view .chosted-button-row .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input {
+  margin: 0; }
+  .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .btn:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type)[type="submit"], .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:not(:first-of-type)[type="submit"]:first-child, #notice.modal .modal-content .modal-footer .buttons .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton > form > div > input:not(:first-of-type)[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form input#searchforums:not(:first-of-type), .path-mod-forum #page-navbar .breadcrumb-button .forumsearch form .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input#searchforums:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #fgroup_id_buttonar .fgroup input:not(:first-of-type), #page-mod-forum-post #fgroup_id_buttonar .fgroup .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .complete > a:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .allresponses > a:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a:not(:first-of-type), .path-mod-questionnaire .mod_questionnaire_viewpage .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .yourresponse > a:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .path-mod-questionnaire#page-mod-questionnaire-complete .message > a:not(:first-of-type), .path-mod-questionnaire#page-mod-questionnaire-complete .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .message > a:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn.btn-secondary:not(:first-of-type), #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn.btn-secondary:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav.btn#id_cancel:not(:first-of-type), #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .mod_quiz-prev-nav.btn#id_cancel:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, #page-mod-quiz-attempt .submitbtns #page-mod-forum-post #notice.modal .modal-footer .buttons .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, #page-mod-forum-post #notice.modal .modal-footer .buttons #page-mod-quiz-attempt .submitbtns .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .singlebutton:nth-child(2) > form > div >
+input.mod_quiz-prev-nav.btn:not(:first-of-type)[type="submit"]:first-child, .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav a.endtestlink:not(:first-of-type), #mod_quiz_navblock .content .othernav .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons a.endtestlink:not(:first-of-type), .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #mod_quiz_navblock .content .othernav .singlebutton div input:not(:first-of-type)[type="submit"], #mod_quiz_navblock .content .othernav .singlebutton div .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type)[type="submit"], .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons #page-mod-connecthosted-view .chosted-button-row input:not(:first-of-type), #page-mod-connecthosted-view .chosted-button-row .path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons input:not(:first-of-type) {
+    margin-left: 1rem; }
 
 #page-mod-quiz-summary .quizsummaryofattempt img.questionflag.icon-post {
   display: none; }
+
+.mod_introbox {
+  padding: 0; }
 
 .release-name-number {
   margin-bottom: 0; }

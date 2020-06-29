@@ -10,7 +10,7 @@
   flex-direction: row;
   border: none;
   margin-bottom: $component-margin-bottom;
-  img, .card-img-top, .card-img-left, .img-top, .img-left {
+  & > img, .card-img-top, .card-img-left, .img-top, .img-left {
     width: 310px;
     height: 100%;
     flex-shrink: 0;
@@ -29,7 +29,7 @@
       margin-bottom: 0.75rem;
     }
     & > :last-child {
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
   }
 }
@@ -50,6 +50,9 @@
     .card-img-top, .card-img-left, .img-top, .img-left {
       width: 100%;
       height: auto;
+    }
+    .card-body:only-child {
+      height: 100%;
     }
   }
 }

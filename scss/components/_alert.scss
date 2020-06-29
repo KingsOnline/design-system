@@ -6,7 +6,7 @@
   @extend .info-box;
   &.alert-success {
     background-color: rgba(40,195,130,0.2) !important;
-    & > :first-child::before {
+    &::before {
       content: '\f164';
       color: $pea-green;
       padding: 0 4px;
@@ -14,7 +14,7 @@
   }
   &.alert-instructional {
     background-color: rgba(245,185,15,0.2) !important;
-    & > :first-child::before {
+    &::before {
       content: '\f086';
       color: #8262ae;
       padding: 0 3px;
@@ -22,10 +22,35 @@
   }
   &.alert-danger {
     background-color: rgba(226,35,26,0.2) !important;
-    & > :first-child::before {
+    &::before {
       color: #e2231a;
       content: '\f071';
       padding: 0 3px;
     }
   }
+  // alert after submitting feedback
+  &.alert-block {
+    padding: 1.25rem;
+    padding-left: 4.25rem;
+    button.close {
+      position: absolute;
+      height: 1.25rem;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 1px !important;
+      right: 1.25rem;
+      top: 1.25rem;
+      width: 1.25rem;
+      &::before {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 20px;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
 }
+

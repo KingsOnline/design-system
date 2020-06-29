@@ -5,28 +5,28 @@ body {
   background-color: white !important;
 }
 .playerPoster, .largePlayBtn,
-.closedCaptions, .playbackRateSelector, .sourceSelector, .fullScreenBtn, .expandToggleBtn {
-  display: none !important  ;
-}
+.closedCaptions, .playbackRateSelector, .sourceSelector, .fullScreenBtn, .expandToggleBtn,
 .volumeControl {
-  padding-right: 0.5rem;
-  position: absolute;
-  right: 0;
-  top: 0px;
-  height: 17px !important;
-}
-.volumeControl button::before {
-  font-size: 0.75rem;
+  display: none !important;
 }
 .currentTimeLabel, .durationLabel {
   position: absolute !important;
   top: -4px !important;
+  padding-left: 1rem !important;
 }
 .currentTimeLabel {
-  margin-left: -2.25rem;
+  margin-left: -2.75rem;
 }
 .durationLabel {
-  left: 2.75rem;
+  left: 2.25rem;
+}
+@media only screen and (min-width: 600px) {
+  .currentTimeLabel {
+    margin-left: -2.25rem;
+  }
+  .durationLabel {
+    left: 2.75rem;
+  }
 }
 .controlBarContainer {
   background-color: black;
@@ -39,7 +39,7 @@ body {
 .scrubber {
   border-top: 5px solid black !important;
   border-bottom: 5px solid black !important;
-  margin: 0 8rem 0 6rem;
+  margin: 0 1rem 0 6rem;
 }
 .scrubber .playHead {
   width: 14px !important;
@@ -77,4 +77,20 @@ body {
 .controlsContainer {
   height: 0px !important;
   border: none !important;
+}
+@media only screen and (min-width: 600px) {
+  .scrubber {
+    margin: 0 6rem 0 8rem;
+  }
+  .volumeControl {
+    display: block !important;
+    padding-right: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    height: 17px !important;
+  }
+  .volumeControl button::before {
+    font-size: 0.75rem;
+  }
 }

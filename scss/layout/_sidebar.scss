@@ -118,6 +118,12 @@
   margin: 0;
   list-style: none;
   li {
+    img {
+      width: 3rem;
+      height: auto;
+      margin-bottom: 0.25rem;
+      border-radius: 50%;
+    }
     span {
       display: block;
       &.name {

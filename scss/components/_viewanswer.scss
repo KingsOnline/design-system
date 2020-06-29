@@ -3,6 +3,6 @@
 // -----------------------------------------------------------------------------
 
 .view-generic-container, .view-answer-container, .view-feedback-container,
-.view-model-answer-container {
+.view-model-answer-container, .view-description-container {
   @extend .note-container;
 }

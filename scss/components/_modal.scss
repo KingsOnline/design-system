@@ -2,6 +2,65 @@
 // modal
 // -----------------------------------------------------------------------------
 
+.moodle-dialogue {
+  .moodle-dialogue-wrap {
+    padding: $component-margin $component-margin-lg $component-margin-lg $component-margin-lg;
+    height: auto;
+    .moodle-dialogue-hd {
+      background-color: transparent !important;
+      line-height: normal;
+      margin-bottom: $component-margin-bottom !important;
+      border-bottom: none !important;
+      color: $headings !important;
+      font-family: 'KingsBureauGrot';
+      font-size: 38px !important;
+      padding: 0 3rem !important;
+      h1 {
+        @extend .h1;
+      }
+      span {
+        padding: 0 !important;
+        .closebutton {
+          padding: 0 !important ;
+          margin: 0 !important;
+          position: absolute;
+          top: 2px;
+          right: 8px;
+          height: 32px;
+          width: 32px;
+          box-shadow: none;
+          background-image: none;
+          background: none;
+          &::before {
+            content: '\f410';
+            color: $midnight-blue;
+            font-family: 'Font Awesome 5 Free';
+            font-size: 32px;
+            font-weight: 900;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .moodle-dialogue-bd {
+    padding: 0 !important;
+    .confirmation-message {
+      font-family: 'KingsBureauGrotFiveOne';
+      font-size: 1rem;
+      margin: 0 0 $component-margin-bottom 0;
+    }
+    .tooltiptext > p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .moodle-dialogue-ft {
+    margin: 0 !important;
+  }
+}
+
 #notice.modal {
   border: none;
   border-radius: 0;
@@ -34,4 +93,9 @@
       }
     }
   }
+}
+
+// override theme icon padding
+.file-picker .fp-list .fp-repo-icon {
+  padding: 0;
 }

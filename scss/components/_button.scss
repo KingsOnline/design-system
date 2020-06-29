@@ -9,7 +9,7 @@ button, .btn {
   padding: 0.625rem 0.75rem !important;
   margin: 0 0.75rem 0.5rem 0;
   border-radius: 4px !important;
-  &.btn-primary, &.course-discuss-reply-button {
+  &.btn-primary, &.btn-default, &.course-discuss-reply-button {
     background-color: $midnight-blue !important;
     color: $white !important;
     &:hover {
