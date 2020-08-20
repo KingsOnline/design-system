@@ -151,17 +151,15 @@ hr {
   }
 }
 
+// override theme permanent underline
+section#region-main a:link {
+  text-decoration: none;
+}
+
 #region-main {
   // link hover styles
   p a, li p a {
-    text-decoration: underline;
-    color: $reflex-blue;
-    &:hover {
-      color: $sea-blue;
-    }
-    &:visited {
-      color: $midnight-blue;
-    }
+    @extend .ds-link;
   }
   // list margin bottom
   ol, ul {
@@ -182,6 +180,7 @@ pre {
   border: 1px solid $block-header;
   border-radius: 0;
   padding: $component-margin-sm;
+  white-space: pre-wrap;
   code {
     border: none;
   }
@@ -193,6 +192,7 @@ code {
   border-radius: 4px;
 }
 
+/*
  //override book headings
 .path-mod-book {
   #region-main > div:first-of-type > h2:first-of-type {
@@ -203,7 +203,7 @@ code {
     @extend .h2;
   }
 }
-
+*/
 // and page headings
 .path-mod-page #region-main>div>h2 {
   background: none;
@@ -240,6 +240,7 @@ footer#page-footer {
   }
 }
 .back-to-top {
+  z-index: 100;
   bottom: 28px;
   right: 48px;
   .fa-3x {

@@ -1,5 +1,5 @@
 // breadcrumb
-.breadcrumb-nav ul.breadcrumb {
+.breadcrumb-nav ul.breadcrumb li {
   font-family: 'KingsBureauGrotFiveOne';
   font-size: 1rem;
   a {
@@ -7,6 +7,16 @@
   }
   &::after {
     color: #aaa;
+  }
+}
+
+// usermenu
+.usermenu {
+  .userbutton .usertext {
+    display: none;
+    @media only screen and (min-width: $neo-breakpoint) {
+      display: inline-block;
+    }
   }
 }
 
@@ -18,16 +28,21 @@
   @include font-scale(h1);
   background: none;
   margin-bottom: 1.5rem;
-  padding-bottom: 0;
+  padding: 0;
+  margin-right: 2.25rem;
   &:after {
     display: none;
   }
 }
+// allow room for edit cog
+.editing #section-0 .content>h3.sectionname {
+  margin-right: $component-margin-lg;
+}
 
 // book print button
 // prevent the title from overlapping with the print button
-#page-mod-book-view #region-main h2:first-of-type {
-  margin-right: calc(88px + 1rem)
+#page-mod-book-view #region-main > div > h2:first-of-type {
+  margin-right: calc(88px + 1rem);
 }
 #region-main {
   position: relative;
@@ -44,5 +59,12 @@
       font-weight: 900;
       margin-right: 0.5rem;
     }
+  }
+}
+
+// message drawer
+.message-app {
+  .input-prepend .add-on {
+    height: auto;
   }
 }

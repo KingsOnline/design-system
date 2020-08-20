@@ -1,3 +1,15 @@
+// screen reader
+.ds-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 .info-box {
   margin-bottom: $component-margin-bottom;
   border-radius: 0;
@@ -31,6 +43,17 @@
   }
 }
 
+.ds-link {
+  text-decoration: underline;
+  color: $reflex-blue;
+  &:hover {
+    color: $sea-blue;
+  }
+  &:visited {
+    color: $midnight-blue;
+  }
+}
+
 .top-bar {
   position: relative;
    &::before {
@@ -41,7 +64,7 @@
     height: 4px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.25);
-    z-index: 1;
+    z-index: 0;
   }
 }
 

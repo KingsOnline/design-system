@@ -7,14 +7,16 @@ button, .btn {
   font-family: 'KingsBureauGrot';
   @include font-scale(btn);
   padding: 0.625rem 0.75rem !important;
-  margin: 0 0.75rem 0.5rem 0;
+  margin: 0 0.75rem 0.5rem 0 !important;
   border-radius: 4px !important;
+  box-shadow: none;
+  text-decoration: none !important;
   &.btn-primary, &.btn-default, &.course-discuss-reply-button {
     background-color: $midnight-blue !important;
     color: $white !important;
     &:hover {
       background-color: #536c84 !important;
-      text-decoration: none;
+      text-decoration: none !important;
     }
   }
   &.btn-secondary {
@@ -41,9 +43,13 @@ button, .btn {
   &[disabled] {
     background-color: #cdd7dc !important;
     color: #5a6469 !important;
+    opacity: 1;
     &:hover {
       background-color: #cdd7dc !important;
     }
+  }
+  &:last-child {
+    margin: 0 0 0.5rem 0 !important;
   }
   i {
     font-size: 1.25rem;
@@ -57,6 +63,9 @@ button, .btn {
   a:hover {
     text-decoration: none;
     color: inherit;
+  }
+  &.btn-link:hover, &.btn-link:focus {
+    text-decoration: none;
   }
 }
 
@@ -92,4 +101,9 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
 
 .btn#id_cancel {
  @extend .btn-secondary;
+}
+
+// 3.9 button groups are all in separate spans
+#fgroup_id_buttonar .fitem:not(:last-of-type) {
+  margin-right: 0.75rem;
 }

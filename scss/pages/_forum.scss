@@ -2,6 +2,68 @@
 // forum
 // -----------------------------------------------------------------------------
 
+.path-mod-forum {
+  // add new discussion topic
+  #collapseAddForm,
+  // editing forum
+  &#page-mod-forum-mod {
+    // buttons in separate spans
+    .form-group.fitem:not(:last-child) {
+      margin-right: 0.75rem !important;
+    }
+  }
+  // discussion dropdown menus
+  &#page-mod-forum-discuss {
+    .d-flex.flex-wrap.mb-1 {
+      align-items: center;
+      margin-bottom: $component-margin-bottom !important;
+      .ml-2 {
+        margin: 0 !important;
+        .custom-select {
+          margin: 0 $component-margin-xs;
+        }
+        .btn {
+          margin-bottom: 0 !important;
+        }
+      }
+    }  
+  }
+  // discussion list table
+  .table.discussion-list {
+    tbody {
+      th {
+        vertical-align: middle !important;
+      }
+      td {
+        padding: 0.75rem !important;
+        &.icon-no-margin {
+          border: none;
+          padding: 0 !important;
+        }
+        &.icon-no-margin a {
+          margin: 0 !important;
+          height: 100%;
+          padding: 0.75rem !important;
+        }
+        // author images
+        img {
+          margin-right: 0.5rem
+        }
+      }
+      .discussion .p-0.text-center.align-middle.fit-content.px-2 {
+      padding-top: 0.75rem !important;
+      }
+      .icon-no-margin a {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .text-truncate {
+        white-space: normal;
+      }
+    }
+  }
+}
+
 //add new forum button
 .forumaddnew {
   div {
@@ -15,44 +77,69 @@
 
 // forum summary page
 .path-mod-forum {
+  #page-header-nav {
+    .breadcrumb-button {
+      .forumsearch {
+        .input-group-prepend a {
+          padding-right: 0.25rem !important;
+        }
+        /*
+        // reduce search forums button font size for smaller screens
+        #searchforums {
+          font-size: 1rem !important;
+          line-height: 22.5px !important;
+          @media only screen and (min-width: $neo-breakpoint) {
+            font-size: 1.125rem !important;
+          }
+        }
+        */
+      }
+    }
+  }
   #page-navbar .breadcrumb-button .forumsearch {
     form {
-      margin-bottom: $component-margin-bottom;
       img.icon, img.iconhelp {
         padding: 0;
       }
       input#search {
-        height: 2.625rem;
+        height: 2rem;
         border-radius: 5px;
       }
-      input#searchforums {
+      button#searchforums {
         @extend .btn, .btn-primary;
         margin: 0;
+        height: auto;
       }
     }
   }
-  .forumheaderlist {
-    thead .header {
-      font-family: 'KingsBureauGrot';
-      border-top: inherit;
-      border-left: 0 !important;
-      background-color: transprent;
-    }
-    tr {
-      font-family: 'KingsBureauGrotFiveOne';
-      border-top: 1px solid $table-border;
-      &:last-child {
-        border-bottom: 1px solid $table-border;
+  .discussion-list {
+    thead {
+      th {
+        font-family: 'KingsBureauGrot';
+        color: $headings;
+        border-top: 1px solid $table-border !important;
       }
-      td {
-        background-color: transpraent !important;
-        border: inherit;
-        vertical-align: middle;
-        &.author .media:first-child {
-          display: flex;
-          align-items: center;
-          img.userpicture {
-            border-radius: 50%;
+    }
+    tbody {
+      tr {
+        font-family: 'KingsBureauGrotFiveOne';
+        border-top: 1px solid $table-border;
+        &:last-child {
+          border-bottom: 1px solid $table-border;
+        }
+        th, td {
+          font-family: 'KingsBureauGrotFiveOne';
+          font-size: 1rem;
+          font-weight: 400;
+          background-color: transparent !important;
+          border: inherit;
+          vertical-align: middle;
+          &.author .media:first-child {
+            display: flex;
+            align-items: center;
+            img.userpicture {
+              border-radius: 50%;
+            }
           }
         }
       }
@@ -222,3 +309,8 @@
     }
   }
 }
+
+#id_advancedadddiscussion {
+  @extend .btn-secondary;
+}
+

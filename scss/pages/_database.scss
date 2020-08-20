@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// database
+// -----------------------------------------------------------------------------
+
+#page-mod-data-edit {
+  .mod-data-input {
+    // hide redundant dropdown (only gives HTML option)
+    & > :not(.editor_atto_wrap) {
+      display: none;
+    }
+  }
+}

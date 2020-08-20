@@ -18,7 +18,7 @@ img.iconsmall {
     width: 100%;
     height: auto;
     &:not(:last-child) {
-      margin-bottom: $component-margin-bottom-sm;
+      margin-bottom: $component-margin-bottom-xs;
     }
   }
   .caption {
@@ -31,7 +31,7 @@ img.iconsmall {
   text-align: center;
   margin-bottom: $component-margin-bottom;
   img:not(:last-child) {
-    margin-bottom: $component-margin-bottom-sm;
+    margin-bottom: $component-margin-bottom-xs;
   }
 }
 
@@ -58,4 +58,10 @@ figure {
     @include font-scale(caption, $font-os);
     color: $body-text;
   }
+}
+
+// screenshots
+.screenshot {
+  border: 1px solid $rules-and-outlines;
+  margin-bottom: $component-margin-bottom;
 }

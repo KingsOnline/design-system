@@ -5,7 +5,7 @@
     margin: 0 auto;
   }
   #region-bs-main-and-pre {
-    max-width: 979px;
+    // max-width: 979px;
     .single-section {
       margin-top: 0;
     }
@@ -32,6 +32,12 @@
   }
 }
 
+// override theme margin
+#page .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
 // prevent horizontal scrollbar
 .container {
   padding: 0;
@@ -44,11 +50,6 @@
 }
 .row {
   background-color: transparent;
-}
-
-// override book content padding
-.book_content {
-  padding-top: 0;
 }
 
 section:not(:last-of-type) {

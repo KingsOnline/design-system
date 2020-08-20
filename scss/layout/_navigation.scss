@@ -31,16 +31,19 @@
   }
   .navtextcontainer {
     flex: 1;
+    top: 0;
+    transform: none;
+    max-width: 50%;
+    position: initial;
   }
   .navtext {
     position: relative;
     float: none;
-//    max-width: 18rem;
     margin: 2.125rem 0;
     font-family: 'KingsBureauGrot';
     font-size: 1.25rem !important;
     line-height: 1.2;
-    color: #0a2d50;
+    color: $midnight-blue !important;
     @media only screen and (max-width: $xl-breakpoint) {
       // max-width: 16rem;
     }
@@ -76,46 +79,56 @@
 }
 
 // activity navigation
-.row-fluid.rtl-compatible {
+
+.activity-navigation {
   @extend .navcontainer;
-  .span4 {
-    @extend .navtextcontainer;
-    &:nth-child(2) {
-      display: none;
-    }
-    &:last-child {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
-  a#prev-activity-link, a#next-activity-link {
-    @extend .navtext;
-    margin-top: 0;
-    padding: 0.25rem !important;
-    @media only screen and (max-width: $neo-breakpoint) {
-      padding: 0.5rem !important;
-    }
-  }
-  a#prev-activity-link {
-    left: 3rem;
-    text-align: left;
-    padding-right: 3rem !important;
-    &::before {
-      @extend .navbutton;
-      left: -3.125rem;
-      top: 0;
-      content: '\f104';
-    }
-  }
-  a#next-activity-link {
-    right: 3rem;
-    text-align: right;
-    padding-left: 3rem !important;
-    &::after {
-      @extend .navbutton;
-      right: -3.125rem;
-      top: 0;
-      content: '\f105';
+  .row {
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 !important;
+    .col-md-4 {
+      padding: 0;
+      @extend .navtextcontainer;
+      // hide empty middle col
+      &:nth-child(2) {
+        display: none;
+      }
+      // right align next activity link
+      &:last-child {
+        display: flex;
+        justify-content: flex-end;
+        a#next-activity-link {
+          right: 3rem;
+          text-align: right;
+          padding-left: 3rem !important;
+          &::after {
+            @extend .navbutton;
+            right: -3.125rem;
+            top: 0;
+            content: '\f105';
+          }
+        }
+      }
+      a#prev-activity-link, a#next-activity-link {
+        @extend .navtext;
+        margin-top: 0;
+        padding: 0.25rem !important;
+        @media only screen and (max-width: $neo-breakpoint) {
+          padding: 0.5rem !important;
+        }
+      }
+      a#prev-activity-link {
+        left: 3rem;
+        text-align: left;
+        padding-right: 3rem !important;
+        &::before {
+          @extend .navbutton;
+          left: -3.125rem;
+          top: 0;
+          content: '\f104';
+        }
+      }
     }
   }
 }
@@ -218,7 +231,14 @@
           strong {
             color: $white;
           }
+          // spacing slightly out for safari
           @media not all and (min-resolution:.001dpcm) {
+            strong {
+              height: 36px;
+            }
+          }
+          // also for firefox on mac only
+          @supports (-moz-osx-font-smoothing: auto) {
             strong {
               height: 36px;
             }

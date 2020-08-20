@@ -1,3 +1,70 @@
+.editing {
+  aside {
+    .block {
+      .card-body {
+        .card-title {
+          padding: 0.5rem 1.5rem !important;
+        }
+      }
+    }
+  }
+}
+
+aside {
+  section.block {
+    padding: 0 12px 12px 12px;
+    margin-bottom: 12px !important;
+    &.hide {
+      display: none;
+    }
+    .card-body {
+      padding: 0 !important;
+      position: relative;
+      .card-title {
+        background-color: $block-header !important;
+        padding: 0.5rem 0.75rem !important;
+        margin: 0 !important;
+        color: $midnight-blue;
+        font-size: 1.125rem;
+        line-height: 1.4 !important;
+      }
+      .block-controls {
+        margin: 0 0.25rem;
+        padding: 0.5rem !important;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        background-color: transparent !important;
+        .moodle-actionmenu {
+          & :hover {
+            background-color: transparent;
+          }
+          .menubar {
+            justify-content: space-between;
+            .menu {
+              left: unset !important;
+              transform: none !important;
+              top: 100% !important;
+            }
+            img {
+              padding: 0.25rem 0 !important;
+            }
+          }
+        }
+      }
+      .card-text {
+        margin: 0 !important;
+        padding: 1.5rem;
+        .settingsnav {
+          padding: 0 !important;
+        }
+        .book_toc ul {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
 #block-region-side-pre .block, #block-region-side-post .block {
   &:not(.block_fake) .title h2::after {
     content: '\f068';
@@ -13,10 +80,14 @@
   }
   .header {
     background-color: $block-header;
-    padding: 0.5rem 0.75rem !important;
+    padding: 0.5rem 0.75rem;
     height: auto;
     margin: 0;
     box-shadow: none;
+    .block-control-actions {
+      float: none;
+      padding: 0;
+    }
     &.block_course_discuss_header_section {
       border: 1px solid $table-border;
       border-bottom: 0;
@@ -31,8 +102,6 @@
       box-shadow: none;
       h2 {
         @extend .sidebar-header;
-//        line-height: 1.4;
-//        color: $midnight-blue;
         pointer-events: none;
         max-width: calc(100% - 1.5rem);
       }
@@ -45,6 +114,10 @@
   .content {
      background-color: $block-background;
      padding: $component-margin;
+     margin: 0 !important;
+     .no-overflow > :last-child {
+       margin-bottom: 0;
+     }
      ul {
        &.fa-ul {
          margin: 0 0 0 2rem;
@@ -114,35 +187,49 @@
 }
 
 // module academic team html block
-#block-region-side-post .block_html .content ul.module-academic-team {
-  margin: 0;
-  list-style: none;
-  li {
-    img {
-      width: 3rem;
-      height: auto;
-      margin-bottom: 0.25rem;
-      border-radius: 50%;
-    }
-    span {
-      display: block;
-      &.name {
-        font-family: 'KingsBureauGrot';
-        color: $body-text;
+#block-region-side-pre, #block-region-side-post {
+  .block_html .content ul.module-academic-team {
+    margin: 0;
+    list-style: none;
+    li {
+      img {
+        width: 3rem;
+        height: auto;
+        margin-bottom: 0.25rem;
+        border-radius: 50%;
       }
-      &.role {
-        font-family: 'KingsBureauGrotFiveOne';
-        color: $body-text;
+      span {
+        display: block;
+        &.name {
+          font-family: 'KingsBureauGrot';
+          color: $body-text;
+        }
+        &.role {
+          font-family: 'KingsBureauGrotFiveOne';
+          color: $body-text;
+        }
       }
-    }
-    &:not(:last-child) {
-      margin-bottom: $component-margin-bottom-sm;
-    }
-  }    
+      &:not(:last-child) {
+        margin-bottom: $component-margin-bottom-sm;
+      }
+    }    
+  }
 }
 
 //quick access block
-#block-region-side-post .block_html .content ul.fa-ul {
-  color: $midnight-blue;
+#block-region-side-pre, #block-region-side-post {
+  .block_html .content ul.fa-ul {
+    color: $midnight-blue;
+  }
 }
 
+// calendar
+.calendarwrapper {
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+  .minicalendar {
+    th, td {
+      padding: 0 !important;
+    }
+  }
+}

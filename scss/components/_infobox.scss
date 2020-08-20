@@ -13,6 +13,27 @@
   }
 }
 
+//editing help box
+body {
+  &:not(.editing) {
+    .editing-help-box {
+      display: none;
+    }
+  }
+  .editing-help-box {
+    @extend .info-box;
+    // lime green 0.2 opacity
+    background-color: rgba(198, 226, 40, 0.2);
+    border-radius: 1.5rem;
+    &::before {
+      font-size: 1.5rem;
+      content: '\f059';
+      padding: 0 2.5px;
+      color: $teal-blue;
+    }
+  }
+}
+
 //feedback box
 .feedback-box {
   @extend .info-box;

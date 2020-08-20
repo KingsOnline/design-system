@@ -5,6 +5,9 @@
 .hero {
   @extend .top-bar;
   margin-bottom: $component-margin-bottom-lg;
+  &::before {
+    z-index: 0 !important;
+  }
   img {
     width: 100%;
   }

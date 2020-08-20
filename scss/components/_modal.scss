@@ -2,6 +2,31 @@
 // modal
 // -----------------------------------------------------------------------------
 
+.close-button {
+  padding: 0 !important ;
+  margin: 0 !important;
+  box-shadow: none;
+  background-image: none;
+  background: none;
+  opacity: 1;
+  &::before {
+    content: '\f410';
+    color: $midnight-blue;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 32px;
+    font-weight: 900;
+    background: none;
+    height: auto;
+    width: auto;
+  }
+  &:hover {
+    background-color: transparent !important;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 .moodle-dialogue {
   .moodle-dialogue-wrap {
     padding: $component-margin $component-margin-lg $component-margin-lg $component-margin-lg;
@@ -21,26 +46,7 @@
       span {
         padding: 0 !important;
         .closebutton {
-          padding: 0 !important ;
-          margin: 0 !important;
-          position: absolute;
-          top: 2px;
-          right: 8px;
-          height: 32px;
-          width: 32px;
-          box-shadow: none;
-          background-image: none;
-          background: none;
-          &::before {
-            content: '\f410';
-            color: $midnight-blue;
-            font-family: 'Font Awesome 5 Free';
-            font-size: 32px;
-            font-weight: 900;
-          }
-          &:focus {
-            outline: none;
-          }
+          @extend .close-button;
         }
       }
     }
@@ -51,6 +57,9 @@
       font-family: 'KingsBureauGrotFiveOne';
       font-size: 1rem;
       margin: 0 0 $component-margin-bottom 0;
+    }
+    .confirmation-buttons {
+      justify-content: center !important;
     }
     .tooltiptext > p:last-child {
       margin-bottom: 0;
@@ -95,7 +104,157 @@
   }
 }
 
-// override theme icon padding
-.file-picker .fp-list .fp-repo-icon {
-  padding: 0;
+.modal {
+  .modal-dialog {
+    &:focus {
+      outline: none;
+    }
+    .modal-content {
+      padding: 0.5rem;
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 1rem;
+        border: none;
+        .modal-title {
+          margin-bottom: 0;
+        }
+        .close {
+          @extend .close-button;
+          width: 32px;
+          height: 32px;
+          top: 8px;
+          right: 8px;
+          line-height: 1 !important;
+          align-self: flex-start;
+          span {
+            display: none;
+          }
+        }
+      }
+      .modal-body {
+        padding: 0;
+      }
+      .modal-footer {
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 1rem;
+        .btn {
+          margin-right: 0.75rem;
+          margin-left: 0;
+          margin-bottom: 0 !important;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  // add an activity or resource
+  .modchooser {
+    outline: none !important;
+    .carousel {
+      padding: 0;
+      &:before {
+        display: none;
+      }
+      img {
+        width: auto !important;
+        margin-top: 0;
+      }
+      .searchcontainer {
+        .input-group-append {
+          .input-group-text {
+            padding: 0 0.5rem !important;
+          }
+        }
+      }
+      .modchoosercontainer {
+        .optionscontainer {
+          padding: 0.25rem !important;
+          .option {
+            flex-basis: calc(20% - 0.5rem) !important;
+            .optioninfo {
+              padding: 0.25rem !important;
+              .optionicon {
+                display: none;
+              }
+              .optionname {
+                overflow-wrap: anywhere;
+              }
+              .optionactions {
+                .btn.btn-icon {
+                  padding: 0 !important;
+                  margin: 0.25rem !important;
+                  height: auto !important;
+                  width: auto !important;
+                }
+              }
+            }
+          }
+        }
+      }
+      .optionsummary {
+        .heading {
+          outline: none !important;
+          border-radius: 4px;
+          img {
+            display: none;
+          }
+        }
+        .helpdoclink a {
+          display: flex;
+        }
+        .btn {
+          margin-bottom: 0.5rem !important;
+          margin-left: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.file-picker {
+  margin: 0 !important;
+  & > div {
+    margin: 0 !important;
+    padding: 0 !important;
+    .fp-repo-items  {
+      width: 100% !important;
+      margin: 0 !important;
+      .fp-navbar {
+        .fp-toolbar, .fp-viewbar {
+          a {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 1px solid $rules-and-outlines;
+          }
+        .fp-viewbar a {
+          border-radius: 0 !important;
+          &:first-child {
+            border-top-left-radius: 4px !important;
+            border-bottom-left-radius: 4px !important;
+          }
+          &:last-child {
+            border-top-right-radius: 4px !important;
+            border-bottom-right-radius: 4px !important;
+          }
+        }
+      }
+      .fp-content {
+        margin: 0 !important;}
+      }
+    }
+  }
+}
+
+// image properties modal
+.atto_image_urlentry {
+  margin-bottom: $component-margin-bottom !important;
+}
+.openimagebrowser {
+  height: auto !important;
 }

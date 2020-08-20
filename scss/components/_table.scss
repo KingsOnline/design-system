@@ -24,6 +24,12 @@ table, .table {
   &.default-width {
     width: auto;
   }
+  caption {
+    @extend .caption;
+    font-weight: normal;
+    caption-side: bottom !important;
+    margin-top: $component-margin-xs;
+  }
   th, td {
     padding: 0.75rem 1.25rem;
     border-radius: 0 !important;
@@ -41,7 +47,7 @@ table, .table {
     line-height: 1.4;
     color: $headings;
     border-radius: 0 !important;
-    vertical-align: top;
+    vertical-align: top !important;
   }
   td {
     line-height: 1.375;
@@ -62,5 +68,61 @@ table, .table {
      th, td {
        padding: 0.75rem 0.5rem;
      }
+  }
+  &.table-diagonal-split {
+    .split-cell {
+      background: linear-gradient(to top right, $block-background 49.5%,
+      $rules-and-outlines 49.5%, $rules-and-outlines 50.5%,
+      $block-background 50.5%);
+      line-height: 1;
+      .top {
+        margin-left: 120px;
+        text-align: right;
+      }
+      .bottom {
+        margin-right: 120px;
+        text-align: left;
+      }
+    }
+    th {
+      vertical-align: top;
+      line-height: 1;
+    }  
+  }
+  &.table-highlight {
+    margin: 2px;
+    .highlight-cell {
+      &.border {
+        border: 4px solid $reflex-blue !important;
+      }
+      &.border-t, &.border-tr, &.border-trb, &.border-trl, &.border-tb, &.border-tbl, &.border-tl {
+        border-top: 4px solid $reflex-blue !important;
+      }
+      &.border-b, &.border-tb, &.border-trb, &.border-tbl, &.border-rb, &.border-rbl, &.border-bl {
+        border-bottom: 4px solid $reflex-blue !important;
+      }
+      &.border-r, &.border-tr, &.border-trb, &.border-trl, &.border-rb, &.border-rbl, &.border-rl {
+        border-right: 4px solid $reflex-blue !important;
+      }
+      &.border-l, &.border-tl, &.border-trl, &.border-tbl, &.border-rl, &.border-rbl, &.border-bl {
+        border-left: 4px solid $reflex-blue !important;
+      }
+      &.background, &.background-1 {
+        // yellow 30%
+        background-color: #FCEAB7 !important;
+      }
+      &.background-2 {
+        // sky-blue 37%
+        background-color: #A2E6F4 !important;
+      }
+      &.background-3 {
+        // red 33%
+        background-color: #F5B6B3 !important;
+      }
+      &.background-4 {
+        // orange 58%
+        background-color: #FFA375 !important;
+      }
+    }
   }
 }

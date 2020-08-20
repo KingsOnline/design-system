@@ -1,0 +1,10 @@
+// -----------------------------------------------------------------------------
+// form
+// -----------------------------------------------------------------------------
+
+// override margins
+@media (max-width: 1199px) {
+  body #region-main .mform:not(.unresponsive) .fitem .felement {
+    padding: 0 15px !important;
+  }
+}

@@ -2,6 +2,11 @@
 // questionnaire
 // -----------------------------------------------------------------------------
 
+#page-mod-questionnaire-preview fieldset,
+#page-mod-questionnaire-complete fieldset {
+  min-inline-size: auto;
+}
+
 .path-mod-questionnaire {
   // pre questionnaire intro page
   .mod_questionnaire_viewpage {
@@ -24,6 +29,14 @@
         @extend .h5;
       }
     }
+  }
+  .qn-content {
+    /*
+    max-width: calc(100% - 255px);
+    @media only screen and (min-width: $neo-breakpoint) {
+      max-width: calc(100% - 110px);
+    }
+    */
   }
   &#page-mod-questionnaire-complete {
     .surveyTitle {

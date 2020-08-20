@@ -2,7 +2,64 @@
 // book
 // -----------------------------------------------------------------------------
 
+/*
+// screen reader
+.path-mod-book.editing {
+  #region-main {
+    .sr-only, .ds-sr-only, #id_content_editoreditable .sr-only {
+      width: auto;
+      height: auto;
+      // teal-blue
+      background-color: rgba(0, 155, 158, 0.2);
+      position: initial;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  }
+  #region-main .book_content [aria-hidden="true"],
+  #id_content_editoreditable [aria-hidden="true"] {
+    //orange
+    background-color: rgba(255, 97, 5, 0.2);
+    padding: 0.5rem;
+  }
+}
+*/
+
+//override book headings
+.path-mod-book {
+  #region-main {
+    & > div:first-of-type {
+      &> h2:first-of-type {
+        @extend .h2;
+        margin-bottom: $component-margin-bottom-lg;
+      }
+    }
+    .generalbox.book_content {
+      // override book content padding
+      padding-top: 0 !important;
+      & > h3 {
+        @extend .h3;
+      }
+    }
+  }
+}
+
 // single chapter book hide first chapter title
 .single-chapter-book .book_content > h3:first-of-type {
   display: none;
+}
+
+// moodle 3.9 prevent book TOC from truncating title
+.block_book_toc {
+  .book_toc {
+    .d-flex:not(.action-list) {
+      display: block !important;
+      .text-truncate {
+        white-space: initial;
+      }
+      .action-list {
+        justify-content: flex-end;
+      }
+    }
+  }
 }

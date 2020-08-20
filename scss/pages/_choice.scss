@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// choice
+// -----------------------------------------------------------------------------
+
+.path-mod-choice {
+  #region-main {
+    .reportlink {
+      text-align: left;
+      a {
+        @extend .ds-link;
+      }
+    }
+    // hide chart image and display data table
+    .chart-area {
+      .chart-image {
+        display: none;
+      }
+      .chart-table {
+        .chart-table-expand {
+          display: none;
+        }
+        .chart-table-data {
+          display: block;
+          table {
+            @extend .table.table-bordered;
+          }
+        }
+      }
+    }
+  }
+}

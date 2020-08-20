@@ -3,6 +3,13 @@
 // -----------------------------------------------------------------------------
 
 .path-mod-feedback {
+  // question and submission settings
+  #id_feedbackhdr {
+    .col-md-3 {
+      flex: 1;
+      max-width: 100%;      
+    }
+  }
   #region-main {
     .feedback_form {
       .fitem {

@@ -70,12 +70,15 @@
         font-family: 'KingsBureauGrot';
         line-height: 1.4;
       }
-      img {
+      img:not(.icon) {
         width: 100%;
         height: auto;
       }
       .card-image {
-        padding-right: 5px;
+        margin-bottom: 15px;
+        @media only screen and (min-width: $neo-breakpoint) {
+          padding-right: 5px;
+        }
       }
       h5 {
         line-height: 1.4;
@@ -84,9 +87,12 @@
       }
       .img-reference {
         font-size: 0.8125rem;
-        margin-top: 1.25rem;
         margin-bottom: 0;
-        text-align: right;
+        margin-top: 15px;
+        @media only screen and (min-width: $neo-breakpoint) {
+          text-align: right;
+          margin-top: 0;
+        }
       }
     }
     &.highlighted  {

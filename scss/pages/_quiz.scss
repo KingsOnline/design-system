@@ -51,7 +51,7 @@
   .quizattemptsummary {
     @extend .quiz-table;
     th.lastcol, td.lastcol {
-      display: none;
+      // display: none;
     }
   }
   .generalbox#feedback {
@@ -137,11 +137,12 @@
   }
   .othernav {
     text-align: right;
+    margin: 0 !important;
     a.endtestlink {
       @extend .btn;
       @extend .btn-primary;
       display: inline;
-      margin-right: 0;
+      margin-right: 0 !important;
     }
     #quiz-timer {
      font-family: 'KingsBureauGrotFiveOne';
@@ -157,13 +158,8 @@
       }
     }
     .singlebutton {
-      div {
-        margin-right: 0;
-        input[type="submit"] {
-          @extend .btn, .btn-primary;
-          margin-right: 0;
-          margin-top: 1rem;
-        }
+      button {
+        margin: 1rem 0 0 0 !important;
       }
     }
   }
@@ -172,6 +168,11 @@
 // quiz question
 .que {
   margin: 0 0 $component-margin-bottom-lg;
+  &.description {
+    .state, .questionflag {
+      display: none;
+    }
+  }
   .info {
     display: flex;
     flex-wrap: wrap;
@@ -215,7 +216,9 @@
       content: '';
       background: #e6ebed url("https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg ") right top no-repeat;
       background-size: 8px;
-      margin-left: auto;
+      @media only screen and (min-width: $neo-breakpoint) {
+        margin-left: auto;
+      }
       margin-right: 0;
       box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
       .questionflagimage {
@@ -357,7 +360,9 @@
     padding: 0;
   }
   .mod_quiz-next-nav {
-    margin-bottom: $component-margin-bottom-xl;
+    // margin-bottom: $component-margin-bottom-xl;
+    display: inline;
+    @extend .btn, .btn-primary;
   }
 }
 

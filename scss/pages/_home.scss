@@ -13,7 +13,6 @@ body {
         margin: 0;
       }
       ul {
-        margin: 0;
         & > li.section.main {
           margin: 0 !important;
           // hide activity labels on module information, forums and webinars, and
@@ -186,9 +185,9 @@ body {
                 // completion checkbox
                 button, .autocompletion {
                   padding: 0 !important;
-                  margin: 0 $component-margin-xs 0 0;
+                  margin: 0 $component-margin-xs 0 0 !important;
                   @media only screen and (min-width: $neo-breakpoint) {
-                    margin: 0 $component-margin-sm 0 0;
+                    margin: 0 $component-margin-sm 0 0 !important;
                   }
                   img.icon {
                     height: 1.25rem;
@@ -331,6 +330,9 @@ body {
   // grid format only
   &.format-grid {
     .course-content {
+      .gtopics-0 {
+        margin: 0 !important;
+      }
       // grid format
       #gridiconcontainer {
         // for some reason a right margin cant be overidden
@@ -409,8 +411,11 @@ body {
         .section-navigation.navigationtitle {
           display: none;
         }
-        .gtopics .section.main .right {
-          display: none;
+        .gtopics {
+          margin: 0 !important;
+          .section.main .right {
+            display: none;
+          }
         }
       }
     }
@@ -423,6 +428,7 @@ body {
         & > .section {
           margin: 0 !important;
           position: relative;
+          min-height: 0;
           // view only topic
           .side.left {
             position: absolute;
@@ -441,9 +447,11 @@ body {
                 background-image: none !important;
                 background-color: $block-background !important;
                 padding: $component-margin-sm !important;
+                margin: 0;
                 border: none !important;
                 color: $headings !important;
                 .sectionname {
+                  text-align: left;
                   font-size: 1.25rem;
                   line-height: 1;
                   margin: 0 !important;
@@ -486,6 +494,11 @@ body {
                     color: $white;
                   } 
                 }
+                .section_availability {
+                  .availabilityinfo {
+                    color: $white;
+                  }
+                }
               }
               .toggle_closed {
                 margin-bottom: $component-margin-bottom-xs;
@@ -505,6 +518,10 @@ body {
               li.activity:last-child {
                 margin-bottom: 0 !important;
               }
+            }
+            // hidden section for students
+            &.sectionhidden {
+              display: none;
             }
           }
           /*
@@ -527,6 +544,9 @@ body {
         }
         .tcsection {
           margin: 0 !important;
+          &#topcoll-display-instructions {
+            display: none;
+          }
           .content {
             margin: 0 !important;
             h4 {
@@ -569,11 +589,19 @@ body {
               width: calc(100% - 28px);
             }
           }
+          &.hidden {
+            .cps_centre:before {
+              display: none;
+            }
+          }
           .side.right {
             width: auto !important;
+            height: calc(100% - 0.5rem);
             position: absolute;
+            display: flex;
+            // align-items: center;
             right: -28px;
-            top: 0.75rem;
+            // top: 0.75rem;
             a.tceditsection, .cps_centre {
               line-height: normal;
               height: max-content;
@@ -597,9 +625,8 @@ body {
               .menubar {
                 margin: 0 !important;
                 background-color: white;
-                opacity: 0.8;
                 border-radius: 4px;
-                padding: 0.25rem 0;
+                padding: 0.25rem;
               }
             }
           }
@@ -627,23 +654,35 @@ body {
       .course-content {
         ul {
           & > .section.main {
+            .left {
+              .section-handle img.icon {
+                padding-top: 0;
+              }
+            }
             .right {
               .section_action_menu {
-              // edit section menu button
+                // edit section menu button
+                top: -4px;
                 .menubar {
-                  a.textmenu {
-                    background-color: $white !important;
-                    opacity: 0.8;
-                    border-radius: 4px;
-                    &:after {
-                      content: ' section';
-                      margin-right: 0.75rem;
-                    }
-                    b.caret {
-                      border-top-color: $midnight-blue !important;
-                      position: absolute;
-                      right: 0;
-                      margin-right: 0.25rem;
+                  .dropdown {
+                    line-height: 0.8;
+                    a {
+                      background: none;
+                      background-color: $white !important;
+                      border-radius: 4px;
+                      padding: 0.25rem;
+                      height: auto;
+                      &.dropdown-toggle:after {
+                        content: ' section';
+                        margin-right: 0.75rem;
+                      }
+                      b.caret {
+                        border-top-color: $midnight-blue !important;
+                        position: absolute;
+                        right: 4px;
+                        top: 10px;
+                        margin: 0;
+                      }
                     }
                   }
                 }
@@ -763,8 +802,8 @@ body {
         .gtopics-0 {
           .summary .edit {
             position: absolute;
-            left: -2.25rem;
-            top: 1.5rem;
+            right: 0;
+            top: $component-margin-sm;
           }
         }
         // grid format homepage only (not single section page)
@@ -812,6 +851,11 @@ body {
                   // edit section menu
                   .menu {
                     background-color: $white;
+                    a {
+                      span {
+                        text-decoration: underline;
+                      }
+                    }
                   }
                 }
               }

@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// editor
+// -----------------------------------------------------------------------------
+
+.editor_atto_toolbar {
+  button, button:last-child {
+    margin: 0 !important;
+  }
+}
+
+.filemanager {
+  .fp-navbar {
+    margin: 0 !important;
+    padding-bottom: 9px;
+    .fp-toolbar, .fp-viewbar {
+      margin: 9px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      & > div a, & a {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        img {
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+      }
+    }
+    .fp-toolbar > div {
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+  }
+}
