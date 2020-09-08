@@ -64,3 +64,74 @@
     }
   }
 }
+
+.path-mod-questionnaire {
+  .surveyTitle {
+    margin-bottom: 0 !important;
+  }
+  .floatprinticon {
+    width: 100%;
+    margin: 0;
+    float: none;
+    text-align: right !important;
+    display: block;
+  }
+  .qn-container {
+    &:first-of-type:before {
+      content: 'Indicates required field';
+      font-family: "Open Sans";
+      font-size: 1rem;
+      font-weight: normal;
+      display: block;
+      margin-left: 0.825rem;
+      text-align: left;
+      margin-bottom: $component-margin-bottom;
+      cursor: text;
+    }
+    &:first-of-type:after {
+      content: '\f069';
+      font-family: "Font Awesome 5 Free";
+      font-size: 0.5rem;
+      font-weight: bold;
+      position: absolute;
+      top: 3.125rem;
+      color: red;
+      left: 0;
+    }
+    .qn-legend {
+      margin-right: 0.5rem;
+      .qn-info {
+        padding: 0;
+        background: none;
+        .qn-number {
+          font-family: "Open Sans";
+          font-size: 1rem;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+      }
+      .req {
+        vertical-align: top !important;
+      }
+    }
+    .qn-content {
+      margin-left: 0;
+      .qn-question {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+        p, label {
+          margin: 0;
+          font-weight: bold;
+          cursor: text;
+        }
+      }
+      .qn-answer, .editor_atto_wrap {
+        margin-bottom: 2.25rem;
+      }
+      .qn-answer table {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

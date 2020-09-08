@@ -14,11 +14,33 @@ table, .table {
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
-  &.table-bordered {
+  &.table-bordered, .bordered {
     border: none;
     border-radius: 0;
     th, td {
       border: 1px solid $table-border !important;
+    }
+  }
+  
+  &.outer-borders-only {
+    thead {
+      border: 1px solid $table-border !important;
+    }
+    tbody {
+      border: 1px solid $table-border;
+      td {
+        border: none !important;
+      }
+    }
+  }
+  &.no-borders {
+    td {
+      border: none !important;
+    }  
+  }
+  &.text-align-right {
+    td {
+      text-align: right;
     }
   }
   &.default-width {

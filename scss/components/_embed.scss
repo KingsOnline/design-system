@@ -31,6 +31,14 @@
 .embed-responsive-304by231 {
   padding-top: calc(231%/3.04);
 }
+// kaltura playlist
+.embed-responsive-kaltura-playlist {
+  // padding-top: calc(330%/7.4);
+  padding-top: 0;
+  & > * {
+    width: 100% !important;
+  }
+}
 // 16:9 aspect ratio
 .embed-responsive-youtube {
   padding-top: calc(900%/16);

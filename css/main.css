@@ -24,8 +24,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6,
 .h1,
-.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
-#notice.modal .modal-content .modal-header h4, .h2, .path-mod-book #region-main > div:first-of-type > h2:first-of-type, body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname, .h3, .path-mod-book #region-main .generalbox.book_content > h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author,
+#notice.modal .modal-content .modal-header h4, .h2, .path-mod-book #region-main > div:first-of-type > h2:first-of-type, body.format-topcoll .single-section .section-navigation.navigationtitle .sectionname, .h3, .path-mod-book #region-main .generalbox.book_content > h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno, .h6, #page-mod-forum-discuss.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-view.forumtype-single .forumpost.firstpost .header .author, #page-mod-forum-post.forumtype-single .forumpost.firstpost .header .author,
 .quote-attribution {
   font-family: 'KingsBureauGrot';
   color: #171717;
@@ -34,7 +33,6 @@ h1, h2, h3, h4, h5, h6,
 
 h1,
 .h1,
-.moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
 #notice.modal .modal-content .modal-header h4 {
   font-size: 1.75rem;
   line-height: 1.2; }
@@ -47,7 +45,7 @@ h3, .h3, .path-mod-book #region-main .generalbox.book_content > h3, .path-mod-fe
   font-size: 1.25rem;
   line-height: 1.25; }
 
-h4, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5 {
+h4, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
   font-size: 1.125rem;
   line-height: 1.4; }
 
@@ -88,7 +86,6 @@ select, option {
 @media only screen and (min-width: 768px) {
   h1,
   .h1,
-  .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1,
   #notice.modal .modal-content .modal-header h4 {
     font-size: 2.375rem;
     line-height: 1.1; }
@@ -98,7 +95,7 @@ select, option {
   h3, .h3, .path-mod-book #region-main .generalbox.book_content > h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section {
     font-size: 1.5rem;
     line-height: 1.25; }
-  h4, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5 {
+  h4, .h4, .float-box .float-box-body h3, .float-box .float-box-body h4, .float-box .float-box-body h5, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
     font-size: 1.25rem;
     line-height: 1.4; }
   h5, .h5, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle label, #page-mod-forum-discuss .notifications .alert.alert-success p:first-of-type, #page-mod-forum-view .notifications .alert.alert-success p:first-of-type, #page-mod-forum-post .notifications .alert.alert-success p:first-of-type, .path-mod-questionnaire .qn-container .qn-question b, .que .info .no, .que .info .qno {
@@ -1250,14 +1247,14 @@ input.mod_quiz-prev-nav.btn[type="submit"]:first-child a.mod_quiz-prev-nav.btn-s
       padding: 0 !important;
       width: 100%;
       text-align: left; }
-      .collapse-container .collapse-card .collapse-header button .h4, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h3, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h3, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h4, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h4, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h5, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h5 {
+      .collapse-container .collapse-card .collapse-header button .h4, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h3, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h3, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h4, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h4, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h5, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h5, .collapse-container .collapse-card .collapse-header button .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd .collapse-container .collapse-card .collapse-header button h1 {
         position: relative;
         margin-bottom: 0;
         margin-left: 1.75rem;
         line-height: 1;
         color: #0A2D50;
         width: calc(100% - 1.75rem); }
-      .collapse-container .collapse-card .collapse-header button .h4::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h3::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h3::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h4::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h4::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h5::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h5::before {
+      .collapse-container .collapse-card .collapse-header button .h4::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h3::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h3::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h4::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h4::before, .collapse-container .collapse-card .collapse-header button .float-box .float-box-body h5::before, .float-box .float-box-body .collapse-container .collapse-card .collapse-header button h5::before, .collapse-container .collapse-card .collapse-header button .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1::before, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd .collapse-container .collapse-card .collapse-header button h1::before {
         content: '\f107';
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
@@ -1285,7 +1282,7 @@ input.mod_quiz-prev-nav.btn:focus[type="submit"]:first-child, .collapse-containe
         margin-bottom: 1rem; }
         .collapse-container .collapse-card .collapse-body p:last-child {
           margin-bottom: 0; }
-    .collapse-container .collapse-card.collapsed .collapse-header button .h4::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h3::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h3::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h4::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h4::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h5::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h5::before {
+    .collapse-container .collapse-card.collapsed .collapse-header button .h4::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h3::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h3::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h4::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h4::before, .collapse-container .collapse-card.collapsed .collapse-header button .float-box .float-box-body h5::before, .float-box .float-box-body .collapse-container .collapse-card.collapsed .collapse-header button h5::before, .collapse-container .collapse-card.collapsed .collapse-header button .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd h1::before, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd .collapse-container .collapse-card.collapsed .collapse-header button h1::before {
       content: '\f105'; }
     .collapse-container .collapse-card.collapsed .collapse-body {
       display: none; }
@@ -1330,6 +1327,11 @@ a.link-download {
 
 .embed-responsive-304by231 {
   padding-top: calc(231%/3.04); }
+
+.embed-responsive-kaltura-playlist {
+  padding-top: 0; }
+  .embed-responsive-kaltura-playlist > * {
+    width: 100% !important; }
 
 .embed-responsive-youtube {
   padding-top: calc(900%/16); }
@@ -1467,6 +1469,9 @@ figure {
   border: 1px solid #8B9296;
   margin-bottom: 1.5rem; }
 
+.image-scroll {
+  overflow-x: scroll; }
+
 .definition-box {
   background-color: #EDF1F2; }
   .definition-box::before {
@@ -1554,7 +1559,10 @@ body .editing-help-box {
     font-weight: 900;
     background: none;
     height: auto;
-    width: auto; }
+    width: auto;
+    position: absolute;
+    top: -6px;
+    right: 0; }
   .close-button:hover, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton:hover, .modal .modal-dialog .modal-content .modal-header .close:hover {
     background-color: transparent !important; }
   .close-button:focus, .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton:focus, .modal .modal-dialog .modal-content .modal-header .close:focus {
@@ -1570,8 +1578,9 @@ body .editing-help-box {
     border-bottom: none !important;
     color: #171717 !important;
     font-family: 'KingsBureauGrot';
-    font-size: 38px !important;
-    padding: 0 3rem !important; }
+    font-size: 1.25rem !important;
+    padding: 0 3rem !important;
+    position: relative; }
     .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span {
       padding: 0 !important; }
 
@@ -1772,11 +1781,21 @@ table, .table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answe
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0; }
-  table.table-bordered, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table, .table.table-bordered, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table {
+  table.table-bordered, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table, table .bordered, .table.table-bordered, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table, .table .bordered, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table .bordered {
     border: none;
     border-radius: 0; }
-    table.table-bordered th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, table.table-bordered td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td, .table.table-bordered th, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, .table.table-bordered td, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td {
+    table.table-bordered th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, table.table-bordered td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td, table .bordered th, table .bordered td, .table.table-bordered th, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table th, .table.table-bordered td, .path-mod-choice #region-main .chart-area .chart-table .chart-table-data table td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table td, .table .bordered th, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table .bordered th, .table .bordered td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table .bordered td {
       border: 1px solid #8B9296 !important; }
+  table.outer-borders-only thead, .table.outer-borders-only thead, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.outer-borders-only thead {
+    border: 1px solid #8B9296 !important; }
+  table.outer-borders-only tbody, .table.outer-borders-only tbody, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.outer-borders-only tbody {
+    border: 1px solid #8B9296; }
+    table.outer-borders-only tbody td, .table.outer-borders-only tbody td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.outer-borders-only tbody td {
+      border: none !important; }
+  table.no-borders td, .table.no-borders td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.no-borders td {
+    border: none !important; }
+  table.text-align-right td, .table.text-align-right td, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.text-align-right td {
+    text-align: right; }
   table.default-width, .table.default-width, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table.default-width {
     width: auto; }
   table caption, .table caption, .path-mod-questionnaire#page-mod-questionnaire-complete .qn-answer table caption {
@@ -2598,10 +2617,15 @@ body.format-topcoll .course-content ul.ctopics {
           margin-bottom: 0.5rem; }
           body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_closed:hover {
             background-color: #DCE3E6 !important; }
+        body.format-topcoll .course-content ul.ctopics > .section .content .sectionhead:focus {
+          outline: 2px solid #0A2D50;
+          outline-offset: -2px; }
       body.format-topcoll .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
         background-color: rgba(237, 241, 242, 0.3);
         padding: 1.5rem 0.5rem;
-        margin-bottom: 0.5rem; }
+        margin-bottom: 0.5rem;
+        border: 1px solid #CDD7DC;
+        border-top: none; }
         @media only screen and (min-width: 768px) {
           body.format-topcoll .course-content ul.ctopics > .section .content .sectionbody.sectionopen {
             padding: 2.25rem 1.5rem; } }
@@ -3475,6 +3499,65 @@ img.cb-palette {
     border-right: 0;
     border-top: 1px solid #8B9296;
     border-left: 1px solid #8B9296; }
+
+.path-mod-questionnaire .surveyTitle {
+  margin-bottom: 0 !important; }
+
+.path-mod-questionnaire .floatprinticon {
+  width: 100%;
+  margin: 0;
+  float: none;
+  text-align: right !important;
+  display: block; }
+
+.path-mod-questionnaire .qn-container:first-of-type:before {
+  content: 'Indicates required field';
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-weight: normal;
+  display: block;
+  margin-left: 0.825rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  cursor: text; }
+
+.path-mod-questionnaire .qn-container:first-of-type:after {
+  content: '\f069';
+  font-family: "Font Awesome 5 Free";
+  font-size: 0.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 3.125rem;
+  color: red;
+  left: 0; }
+
+.path-mod-questionnaire .qn-container .qn-legend {
+  margin-right: 0.5rem; }
+  .path-mod-questionnaire .qn-container .qn-legend .qn-info {
+    padding: 0;
+    background: none; }
+    .path-mod-questionnaire .qn-container .qn-legend .qn-info .qn-number {
+      font-family: "Open Sans";
+      font-size: 1rem;
+      font-weight: bold;
+      line-height: 1.5; }
+  .path-mod-questionnaire .qn-container .qn-legend .req {
+    vertical-align: top !important; }
+
+.path-mod-questionnaire .qn-container .qn-content {
+  margin-left: 0; }
+  .path-mod-questionnaire .qn-container .qn-content .qn-question {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem; }
+    .path-mod-questionnaire .qn-container .qn-content .qn-question p, .path-mod-questionnaire .qn-container .qn-content .qn-question label {
+      margin: 0;
+      font-weight: bold;
+      cursor: text; }
+  .path-mod-questionnaire .qn-container .qn-content .qn-answer, .path-mod-questionnaire .qn-container .qn-content .editor_atto_wrap {
+    margin-bottom: 2.25rem; }
+  .path-mod-questionnaire .qn-container .qn-content .qn-answer table {
+    margin-bottom: 0 !important; }
 
 .quiz-table, #page-mod-quiz-view .quizattemptsummary, #page-mod-quiz-review .quizreviewsummary, #page-mod-quiz-summary .quizsummaryofattempt {
   border: none;

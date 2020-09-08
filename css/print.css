@@ -518,6 +518,9 @@ html {
   .learning-outcome-box ol, .learning-outcome-box ul {
      margin-bottom: 0 0 0 1.25rem;
   }
+  .editing-help-box {
+    display: none;
+  }
 
   /* table */
   .table-bordered {

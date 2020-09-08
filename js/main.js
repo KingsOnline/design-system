@@ -1,8 +1,11 @@
 /* blocks */
 // hide administration block from students or teachers without editing rights
 $("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
+// move add a block block to the left
+$("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
 // if there are no visible blocks in aside hide it and make main region full width
 $("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
+$("#block-region-side-post:not(:has(.block:not(.hide)))").addClass("hide").parents("body").addClass("empty-region-side-post used-region-side-pre");
 
 // remove this for no-print.js
 // pull print button from admin block and position at top of book
