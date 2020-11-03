@@ -311,45 +311,6 @@ html {
     position: static;
     max-width: 100% !important;
   }
-    /* new carousel  */
-  .new-carousel .nc-gallery{
-    /* list-style: decimal inside; */
-    counter-reset: my-awesome-counter;
-  }
-  .new-carousel .nc-gallery li{
-    /* list-style: decimal inside; */
-    counter-increment: my-awesome-counter;
-    border:1px solid black;
-    padding:16px;
-    margin-left:0;
-    display:inline-block;
-    width:100%;
-  }
-  .new-carousel .nc-gallery li:before{
-    content: counter(my-awesome-counter);
-    color: black;
-    font-weight: bold;
-    vertical-align: top;
-  }
-  .landscape-carousel .nc-gallery li, .portrait-carousel .nc-gallery li{
-    width:40%;
-  }
-  .text-carousel .nc-gallery li table tr td .nc-label{
-    margin-bottom: 32px;
-    font-family: 'KingsBureauGrot';
-    padding-top:16px;
-    font-size: larger;
-  }
-  .new-carousel figure{
-    margin:0;
-  }
-  .new-carousel img{
-    max-width: 100%;
-    margin-bottom:16px;
-  }
-  .new-carousel ul.nc-buttons{
-    display:none;
-  }
 
   /* collapse */
   .collapse-container {
