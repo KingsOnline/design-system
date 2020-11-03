@@ -10,6 +10,11 @@
     // buttons in separate spans
     .form-group.fitem:not(:last-child) {
       margin-right: 0.75rem !important;
+      // margin-left:0px;
+    }
+    //margins on form set so not cut off
+    form.mform {
+      margin: 0 15px;
     }
   }
   // discussion dropdown menus

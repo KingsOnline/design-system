@@ -86,7 +86,7 @@
 
 .note-container {
   margin-bottom: $component-margin-bottom;
-  & > a::before {
+  & > a::before, & > button::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     margin-right: 0.375rem;
@@ -101,7 +101,8 @@
         display: flex;
         align-items: center;
         margin-bottom: $component-margin-bottom;
-        img {
+        & > img,
+        & > .filter-ally-wrapper > img {
           border-radius: 50%;
           height: 75px;
           width: 75px;
@@ -111,7 +112,7 @@
     }
   }
   &.collapsed {
-    & > a::before {
+    & > a::before, & > button::before {
         content: '\f06e';
     }
     & > div {

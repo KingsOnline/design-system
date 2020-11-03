@@ -20,6 +20,14 @@
       padding: 0 3px;
     }
   }
+  &.alert-caution {
+    background-color: rgba(245, 184, 15, 0.2) !important;
+    &::before {
+      color: #e2231a;
+      content: '\f071';
+      padding: 0 3px;
+    }
+  }
   &.alert-danger {
     background-color: rgba(226,35,26,0.2) !important;
     &::before {

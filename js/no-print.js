@@ -7,6 +7,22 @@ $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add 
 $("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
 $("#block-region-side-post:not(:has(.block:not(.hide)))").addClass("hide").parents("body").addClass("empty-region-side-post used-region-side-pre");
 
+// if the foundation css is loaded, remove it
+var foundationCSS = $('link[href="https://www.kcl.ac.uk/study/learningteaching/ctel/Documents/hosting/css/templates/foundation-template.css"]');
+if (foundationCSS.length) {
+  //foundationCSS.prop('disabled', true);
+  foundationCSS.remove();
+}
+
+// module nav block fails to open/collapse in IE
+if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+  const modNavBlock = ".block.block_course_modulenavigation .section .allsectionnames > a";
+  $(document).on("click", modNavBlock, function(event) {
+    event.preventDefault();
+    $(this).parents(".section").children(".section-collapse").toggleClass('in');
+  });
+};
+
 /*
 // remove this for no-print.js
 // pull print button from admin block and position at top of book
@@ -22,8 +38,9 @@ $(document).on("click", blockHide, function(event) {
 });
 
 /* card deck */
-// call function when document ready if card deck is present
-$( document ).ready(function() {
+// call function on window load (instead of doc ready)
+$(window).on('load', function() {
+  // if card deck is present
   if ($(".card-deck .card-body:not(:only-child)").length > 0) {
     cardDeckEqualise();
   }
@@ -31,16 +48,18 @@ $( document ).ready(function() {
 // and again on window resize
 $(window).resize(function() {
   if ($(".card-deck .card-body:not(:only-child)").length > 0) {
-    location.reload(true);
     cardDeckEqualise();
   }
 });
 function cardDeckEqualise() {
   // if window is larger than neo-breakpoint
   if ($(window).width() > 767) {
-    // get heights of all cards within a single deck
-    $(".card-deck").each(function(i) {
-      var heights = $(this).find(".card-body:not(:only-child)").map(function() {
+    // reset the heights first
+    $(".card-body:not(:only-child)").height('auto');
+    // then get heights of all cards within a single deck
+    $(".card-deck:has(.card-body:not(:only-child))").each(function(i) {
+      var cardHeight = $(this).find(".card-body:not(:only-child)")
+      var heights = cardHeight.map(function() {
         return $(this).height();
       }).get();
       // find the largest
@@ -77,37 +96,167 @@ $(document).on("click", ".carousel-control-prev, .carousel-control-next, .carous
   carouselContainer.find(".carousel-indicators li:nth-child(2)").css("background-color", newSlide === 2 ? "white" : "rgba(255, 255, 255, 0.5)");
 });
 
+// new carousel
+// on window load
+$(window).on('load', function() {
+  resetCarWidth();
+});
+// also on re-size
+$(window).resize(function() {
+//  location.reload(true);
+  resetCarWidth();
+});
+function resetCarWidth() {
+  // resize to make integer width so scroll will work
+  $(".new-carousel").removeAttr("style");
+  var loadWidth= $(".new-carousel").width();
+  var carWidth = Math.floor(loadWidth);
+  $(".new-carousel").each(function() {
+    $(this).width(carWidth);
+  });
+};
+
+$(".new-carousel").on("click", ".nc-next", function(event) {
+  // get component width
+  var slideWidth = $(".nc-gallery").width();
+  // update value upon window resize
+  // TODO: probably want to write something to reset to slide 1 too
+  $(window).resize(function() {
+  slideWidth = $(".nc-gallery").width();
+});
+  var newCarousel = $(this).parents()[2];
+  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
+  var ncButtons = $(this).parents()[1];
+  var ncPreviousButton = $(ncButtons).find(".nc-previous")[0];
+  var ncNextButton = $(ncButtons).find(".nc-next")[0];
+  var indicDots = $(newCarousel).find(".indic-dots")[0];
+  var noOfIndic = $(indicDots).find("li").length
+  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '+=' + slideWidth }, 2).animate({opacity:"1"},300);
+  resetIndicators(indicDots);
+  setTimeout( function() {
+    if ($(ncGallery).scrollLeft() > 0) {
+       $(ncPreviousButton).removeAttr('disabled').removeClass("disabled");
+    };
+    var activeDot = $(indicDots).find("li:nth-child(" + (activeIndicIndex + 2) + ")")[0];
+    $(activeDot).addClass("active");
+    DisableNext(noOfIndic, indicDots, ncNextButton);
+  }, 400);
+});
+
+$(".new-carousel").on("click", ".nc-previous", function(event) {
+  // get component width
+  var slideWidth = $(".nc-gallery").width();
+  // update value upon window resize
+  // TODO: probably want to write something to reset to slide 1 too
+  $(window).resize(function() {
+  slideWidth = $(".nc-gallery").width();
+});
+  var newCarousel = $(this).parents()[2];
+  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
+  var ncButtons = $(this).parents()[1];
+  var ncPreviousButton = $(ncButtons).find(".nc-previous")[0];
+  var ncNextButton = $(ncButtons).find(".nc-next")[0];
+  var indicDots = $(newCarousel).find(".indic-dots")[0];
+  var noOfIndic = $(indicDots).find("li").length
+  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '-=' + slideWidth }, 2).animate({opacity:"1"},300);
+  resetIndicators(indicDots);
+  setTimeout( function() {
+    if ($(ncGallery).scrollLeft() === 0) {
+      $(ncPreviousButton).attr('disabled','disabled').addClass("disabled");
+    };
+    var activeDot = $(indicDots).find("li:nth-child(" + (activeIndicIndex) + ")")[0]
+    $(activeDot).addClass("active");
+    enableNext(noOfIndic, indicDots, ncNextButton);
+  }, 400);
+});
+
+function resetIndicators(dots) {
+  activeIndic = $(dots).find("li.active")[0];
+  var indicDots = $(dots).find("li");
+  activeIndicIndex = $(indicDots).index(activeIndic);
+  $(activeIndic).removeClass("active");
+}
+function DisableNext(noOfIndic, dots, button) {
+  var indicDots = $(dots).find("li");
+  activeIndicIndex = $(indicDots).index(activeIndic);
+  if (activeIndicIndex + 2 === noOfIndic) {
+    $(button).attr('disabled','disabled')
+  }
+};
+function enableNext(noOfIndic, dots, button) {
+  var indicDots = $(dots).find("li");
+  activeIndicIndex = $(indicDots).index(activeIndic);
+  if (activeIndicIndex + 1 === noOfIndic) {
+    $("button.nc-next").removeAttr('disabled');
+  }
+};
+
 /* collapse */
 // hide and show collapse card
 $(document).on("click", ".collapse-card .collapse-header", function(event) {
   $(this).parents(".collapse-card").toggleClass("collapsed");
 });
 
+/* transcript */
 // toggle transcript button text and transcript card
-$(document).on("click", ".transcript-button-group a.view-close-transcript", function(event) {
+$(document).on("click", ".transcript-button-group .view-close-transcript", function(event) {
   $(this).text($(this).text() == 'View transcript' ? 'Hide transcript' : 'View transcript');
   $(this).parents(".transcript-container").toggleClass("collapsed");
 });
+/*
+// generate printable transcript from text
+// unable to add stylesheet on safari
+$(".download-transcript").click(function() {
+  var printContent = $(this).parents(".transcript-container").children(".transcript-card").html();
+  var printWindow = window.open('', 'PRINT', 'height=600, width=800');
+
+  var is_safari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
+  var is_chrome = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') != -1;
+
+  printWindow.document.write(
+    '<html><head><title>'
+    + document.title
+    + '</title>');
+  // insert stylesheet if not safari
+  if (!is_safari) {
+    printWindow.document.write('<link type="text/css" rel="stylesheet" href="https://iddkingsonline.com/designsystem/ephie/css/transcript.css">');
+  }
+  printWindow.document.write(
+    '</head><body><div id="page-mod-book-print"><h1>'
+    + document.title
+    + '</h1>');
+  printWindow.document.write(printContent);
+  printWindow.document.write('</div></body></html>');
+
+  printWindow.document.close(); // necessary for IE >= 10
+  printWindow.focus(); // necessary for IE >= 10
+
+  printWindow.print();
+  printWindow.close();
+
+  return true;
+});
+*/
 
 /* view answer */
 // toggle view generic, view answer, model answer, and feedback button text and card
-$(document).on("click", "a.view-hide-generic", function(event) {
+$(document).on("click", ".view-hide-generic", function(event) {
   $(this).text($(this).text() == 'View' ? 'Hide' : 'View');
   $(this).parents(".view-generic-container").toggleClass("collapsed");
 });
-$(document).on("click", "a.view-hide-answer", function(event) {
+$(document).on("click", ".view-hide-answer", function(event) {
   $(this).text($(this).text() == 'View answer' ? 'Hide answer' : 'View answer');
   $(this).parents(".view-answer-container").toggleClass("collapsed");
 });
-$(document).on("click", "a.view-hide-description", function(event) {
+$(document).on("click", ".view-hide-description", function(event) {
   $(this).text($(this).text() == 'View description' ? 'Hide description' : 'View description');
   $(this).parents(".view-description-container").toggleClass("collapsed");
 });
-$(document).on("click", "a.view-hide-feedback", function(event) {
+$(document).on("click", ".view-hide-feedback", function(event) {
   $(this).text($(this).text() == 'View feedback' ? 'Hide feedback' : 'View feedback');
   $(this).parents(".view-feedback-container").toggleClass("collapsed");
 });
-$(document).on("click", "a.view-hide-model-answer", function(event) {
+$(document).on("click", ".view-hide-model-answer", function(event) {
   $(this).text($(this).text() == 'View model answer' ? 'Hide model answer' : 'View model answer');
   $(this).parents(".view-model-answer-container").toggleClass("collapsed");
 });
@@ -142,6 +291,9 @@ $(".block_book_toc .content ul > li:only-child strong:only-child").parents(".blo
 
 // add single-chapter-book class to screen and print to hide toc and title
 $(".block_book_toc .content ul > li:only-child, #page-mod-book-print .book_toc_numbered ul li:only-child").parents("#page-content").addClass("single-chapter-book");
+
+// remove subchapter option when editing book
+$("#page-mod-book-edit #id_subchapter").parents(".fitem").addClass("subchapter");
 
 // remove stupid arrows from prev and next activity links
 $(".activity-navigation a#prev-activity-link").text(function(i, text) {
@@ -182,16 +334,16 @@ $("li.activity").each(function() {
     if (!$(this).hasClass("label")) $(this).addClass("type-study");
   }
   // remove label
-  $(this).find(".instancename:contains('-stu')").parents("li.activity").removeClass("type-activity type-assessed").addClass("type-study");
+  $(this).find(".instancename:contains('activity-label-stu-')").parents("li.activity").removeClass("type-activity type-assessed").addClass("type-study");
   // override activity type
-  $(this).find(".instancename:contains('-act')").parents("li.activity").removeClass("type-study type-assessed").addClass("type-activity");
+  $(this).find(".instancename:contains('activity-label-act-')").parents("li.activity").removeClass("type-study type-assessed").addClass("type-activity");
   // add assessed label
-  $(this).find(".instancename:contains('-ass')").parents("li.activity").removeClass("type-study type-activity").addClass("type-assessed");
+  $(this).find(".instancename:contains('activity-label-ass-')").parents("li.activity").removeClass("type-study type-activity").addClass("type-assessed");
   // add icon
-  $(this).find(".instancename:contains('-gro')").parents("li.activity").addClass("i-group");
-  $(this).find(".instancename:contains('-med')").parents("li.activity").addClass("i-media");
-  $(this).find(".instancename:contains('-ngr')").parents("li.activity").removeClass("i-group");
-  $(this).find(".instancename:contains('-nme')").parents("li.activity").removeClass("i-media");
+  $(this).find(".instancename:contains('-gro-')").parents("li.activity").addClass("i-group");
+  $(this).find(".instancename:contains('-med ')").parents("li.activity").addClass("i-media");
+  $(this).find(".instancename:contains('-ngr-')").parents("li.activity").removeClass("i-group");
+  $(this).find(".instancename:contains('-nme ')").parents("li.activity").removeClass("i-media");
   // strip keywords from activity title
   $(this).find(".instancename:contains('activity-label')").text(function(i, currentText) {
     return currentText.substring(27);

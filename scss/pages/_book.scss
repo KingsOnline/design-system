@@ -63,3 +63,8 @@
     }
   }
 }
+
+// remove subchapter option when editing book
+#page-mod-book-edit .form-group.row.fitem.subchapter {
+  display: none;
+}

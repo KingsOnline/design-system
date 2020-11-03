@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// link, file and url resources
+// -----------------------------------------------------------------------------
+
+section#region-main {
+  .resourceworkaround, .urlworkaround{
+    margin-bottom:$component-margin-lg;
+    a:link{
+      font-weight: bold;
+      text-decoration: underline!important;
+    }
+  }
+}
+
+// external tool eg reading list
+.path-mod-lti{ 
+    a:link{
+      font-weight: bold;
+      text-decoration: underline!important;
+      margin-bottom:$component-margin-lg;
+    }
+}

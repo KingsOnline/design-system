@@ -146,6 +146,8 @@ aside {
   &.block_book_toc {
     .content {
       li {
+        // list item height not flexing in IE
+        -ms-flex: 0 1 auto;
         &:not(:last-child) {
           margin-bottom: 0.75rem;
         }
@@ -192,7 +194,9 @@ aside {
     margin: 0;
     list-style: none;
     li {
-      img {
+      & img,
+      & > span > img,
+      .profile-img {
         width: 3rem;
         height: auto;
         margin-bottom: 0.25rem;
@@ -220,6 +224,22 @@ aside {
 #block-region-side-pre, #block-region-side-post {
   .block_html .content ul.fa-ul {
     color: $midnight-blue;
+  }
+}
+
+// module nav block
+// use flex instead of theme's absolute positioning
+.block.block_course_modulenavigation {
+  ul.activities li > a {
+    display: flex;
+    .completionbox {
+      display: flex;
+      align-items: center;
+      .completioncheck {
+        position: static;
+        margin: 0;
+      }
+    }
   }
 }
 

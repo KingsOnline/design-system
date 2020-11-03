@@ -1,9 +1,12 @@
 body {
   background-color: transparent;
 }
-.mwEmbedPlayerBlackBkg {
+.mwEmbedPlayerBlackBkg,
+.mwEmbedPlayer {
   background-color: white !important;
 }
+
+.video-holder,
 .playerPoster, .largePlayBtn,
 .closedCaptions, .playbackRateSelector, .sourceSelector, .fullScreenBtn, .expandToggleBtn,
 .volumeControl {

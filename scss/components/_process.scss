@@ -1,0 +1,77 @@
+// -----------------------------------------------------------------------------
+// process
+// -----------------------------------------------------------------------------
+
+
+.process-container {
+  margin-bottom: 1.5rem;
+  .process-card {
+    margin-bottom: 0;
+    background-color: $block-background;
+    padding: $component-margin;
+    &:last-child {
+      margin-bottom:$component-margin-bottom;
+    }
+    @media only screen and (max-width: $neo-breakpoint) {
+      padding: $component-margin-sm;
+    }
+    .card-body {
+      padding: 0;
+    }
+    & > img,
+    & > .filter-ally-wrapper > img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      @media only screen and (max-width: $neo-breakpoint) {
+        width:100%;
+        height: auto;
+      }
+    }
+    & > img,
+    & > .filter-ally-wrapper {
+      display: block;
+      margin-right: $component-margin;
+      @media only screen and (max-width: $neo-breakpoint) {
+        margin-right: 0;
+        margin-bottom: $component-margin-sm;
+      }
+    }
+  }
+  .connector-container {
+    margin: $component-margin-xs 0;
+    width: 100%;
+    text-align: center;
+    .icon.arrow-down::before,
+    .icon.arrow-up::after {
+      content: '\f063';
+      font-family: 'Font Awesome 5 Free';
+      color: $midnight-blue;
+      font-weight: 900;
+      font-size: 40px;
+      margin: $component-margin-xs;
+      @media only screen and (max-width: $neo-breakpoint) {
+        font-size:32px;
+      }
+    }
+    .icon {
+      margin-top: $component-margin-sm;
+      &.arrow-up::after {
+        content: '\f062';
+      }
+      &.relate{
+        border-right:5px solid $midnight-blue;
+        margin: $component-margin-xs;
+        height:40px;
+        width: 50%;
+      }
+    }
+    .process-label {
+      align-self: center;
+      font-weight: bold;
+      &:nth-child(3) {
+        margin-top: $component-margin-xs;
+      }
+    }
+  }
+}

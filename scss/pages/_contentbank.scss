@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// content bank
+// -----------------------------------------------------------------------------
+
+#page-contentbank {
+  .content-bank-container {
+    & > .d-flex {
+      display: block !important;
+      @media only screen and (min-width: $neo-breakpoint) {
+        display: flex !important;
+      }
+      .cb-search-container {
+        .search-icon button {
+          margin: 0 !important;
+        }
+      }
+      .cb-toolbar-container.mb-2.d-flex {
+        a, button {
+          height: auto;
+          width: auto;
+          img {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

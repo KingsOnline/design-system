@@ -1,0 +1,65 @@
+// -----------------------------------------------------------------------------
+// tab display
+// -----------------------------------------------------------------------------
+
+#page-mod-tab-view {
+  #tabintro {
+    margin-bottom: $component-margin-bottom;
+    padding: 0 !important;
+    & > div > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  #tab-menu-wrapper {
+    width: 20% !important;
+  }
+  #tab-menu-wrapper, #tabcontent {
+    margin-bottom: $component-margin-bottom !important;
+    ul {
+      margin: 0px !important;
+      li {
+        padding: 0.25rem 0.5rem;
+        &.row {
+          margin-left: 0px !important;
+          margin-right: 0px !important;
+          background-color: $block-background;
+        }
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+        &.menutitle, {
+          background-color: $midnight-blue;
+        }
+      }
+    }
+  }
+  #tab-menu-wrapper {
+    margin-right: $component-margin-sm;
+    .TabbedPanels {
+      .TabbedPanelsTabSelected {
+        background-color: $midnight-blue;
+        color: $white;
+      }
+    }
+  }
+  #tabcontent {
+    margin: 0;
+    padding: 0;
+    .TabbedPanels {
+      padding: 0;
+      .TabbedPanelsTab {
+        background-color: $block-background;
+        color: $midnight-blue;
+        font: unset;
+      }
+      .TabbedPanelsTabSelected {
+        background-color: $midnight-blue;
+        color: $white;
+        border-bottom: 1px solid #999;
+      }
+    }
+    .TabbedPanelsContent {
+      padding: 0.25rem 0.5rem;
+    }
+  }
+}

@@ -168,6 +168,7 @@ html {
   font-family: 'KingsCaslonDisplay';
 }
 #page-mod-book-print pre {
+  white-space: pre-line;
   margin-bottom: 1.5rem;
   background-color: transparent;
   border: 1px solid #dce3e6;
@@ -196,9 +197,8 @@ html {
   width: auto;
 }
 #page-mod-book-print .col,
-#page-mod-book-print .col-md,
-#page-mod-book-print .col-auto,
 #page-mod-book-print .col-md-3,
+#page-mod-book-print .col-md-4,
 #page-mod-book-print .col-md-6,
 #page-mod-book-print .col-md-9 {
   margin-left: 15px;
@@ -207,6 +207,10 @@ html {
 #page-mod-book-print .col-md-3 {
   flex: 0 0 25%;
   max-width: calc(25% - 30px);
+}
+#page-mod-book-print .col-md-4 {
+  flex: 0 0 33.3333%;
+  max-width: calc(33.3333% - 30px);
 }
 #page-mod-book-print .col-md-6 {
   flex: 0 0 50%;
@@ -351,6 +355,7 @@ html {
 #page-mod-book-print .card {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   border: 2px solid #5a6469;
   border-radius: 0;
   margin-bottom: 1.25rem;
@@ -359,6 +364,7 @@ html {
 #page-mod-book-print .card .card-body {
   background-color: transparent;
   padding: 0;
+  flex: 1;
 }
 #page-mod-book-print .card .card-body p:last-child {
   margin-bottom: 0;
@@ -368,17 +374,23 @@ html {
 #page-mod-book-print .float-box h4 {
   margin-bottom: 0.625rem;
 }
-#page-mod-book-print .card img,
-#page-mod-book-print .float-box img {
+#page-mod-book-print .card img {
   margin: 0 1.25rem 0 0;
   width: 330px;
-  height: 100%;
+  height: auto;
   flex-shrink: 0;
 }
-#page-mod-book-print .card img.img-right,
-#page-mod-book-print .float-box img.img-right {
+#page-mod-book-print .card.img-right > .filter-ally-wrapper,
+#page-mod-book-print .float-box.img-right > .filter-ally-wrapper,
+#page-mod-book-print .card.img-right > img,
+#page-mod-book-print .float-box.img-right > img {
   order: 2;
   margin: 0 0 0 1.25rem;
+}
+#page-mod-book-print .card.img-right > .filter-ally-wrapper > img,
+#page-mod-book-print .float-box.img-right > .filter-ally-wrapper > img {
+  margin: 0;
+  height: auto;
 }
 #page-mod-book-print .card img.img-top {
   width: 100%;
@@ -405,6 +417,18 @@ html {
 #page-mod-book-print .float-box {
   display: flex;
   margin-bottom: 1.25rem;
+}
+#page-mod-book-print .float-box > .filter-ally-wrapper,
+#page-mod-book-print .float-box > img {
+  margin: 0 1.25rem 0 0;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+#page-mod-book-print .float-box > .filter-ally-wrapper > img {
+  margin: 0;
+}
+#page-mod-book-print .float-box.small-image img {
+  width: 100px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -558,12 +582,15 @@ button .h4::before {
 #page-mod-book-print .center-img,
 #page-mod-book-print .img-center,
 #page-mod-book-print .circular-img,
-#page-mod-book-print .img-circular {
+#page-mod-book-print .img-circular,
+#page-mod-book-print .image-scroll {
   margin-bottom: 1.25rem;
 }
 #page-mod-book-print .full-width-img img,
-#page-mod-book-print .img-full-width img {
+#page-mod-book-print .img-full-width img,
+#page-mod-book-print .image-scroll img {
   width: 100%;
+  height: auto;
 }
 #page-mod-book-print .full-width-img img:not(:last-child),
 #page-mod-book-print .img-full-width img:not(:last-child),
@@ -584,12 +611,33 @@ button .h4::before {
   border-radius: 50%;
   max-width: 100%;
 }
+#page-mod-book-print .image-scroll {
+  margin-top: 54px;
+  position: relative;
+}
+#page-mod-book-print .image-scroll::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f03e';
+  color: #333333;
+  position: absolute;
+  top: -36px;
+  left: 0;
+  font-size: 28px;
+}
+#page-mod-book-print .image-scroll::after {
+  content: 'This is a wide image, please return to the webpage to check more details.';
+  position: absolute;
+  top: -36px;
+  left: 36px;
+}
 
 /* info box */
 #page-mod-book-print .editing-help-box {
   display: none;
 }
 #page-mod-book-print .definition-box > :first-child::before,
+#page-mod-book-print .alert-caution > :first-child::before,
 #page-mod-book-print .alert-instructional > :first-child::before,
 #page-mod-book-print .feedback-box > :first-child::before,
 #page-mod-book-print .learning-outcome-box > :first-child::before,
@@ -606,6 +654,11 @@ button .h4::before {
   content: '\f02e';
   padding: 0 7px;
   top: 1.2rem;
+}
+#page-mod-book-print .alert-caution > :first-child::before {
+  content: '\f071';
+  padding: 0 2px;
+  top: 1.1rem;
 }
 #page-mod-book-print .alert-instructional > :first-child::before {
   content: '\f086';
@@ -626,6 +679,7 @@ button .h4::before {
   padding: 0 4px;
 }
 #page-mod-book-print .definition-box,
+#page-mod-book-print .alert-caution,
 #page-mod-book-print .alert-instructional,
 #page-mod-book-print .feedback-box,
 #page-mod-book-print .key-concept-box,
@@ -637,6 +691,7 @@ button .h4::before {
   margin-bottom: 1.25rem;
   position: relative;
 }
+#page-mod-book-print .alert-caution h5,
 #page-mod-book-print .definition-box h5,
 #page-mod-book-print .feedback-box h5,
 #page-mod-book-print .learning-outcome-box h5,
@@ -644,6 +699,7 @@ button .h4::before {
   font-size: 1.2rem;
 }
 #page-mod-book-print .definition-box p:last-child,
+#page-mod-book-print .alert-caution p:last-child,
 #page-mod-book-print .alert-instructional p:last-child,
 #page-mod-book-print .feedback-box p:last-child,
 #page-mod-book-print .key-concept-box p:last-child,
@@ -651,6 +707,7 @@ button .h4::before {
 #page-mod-book-print .reading-box p:last-child {
   margin-bottom: 0;
 }
+#page-mod-book-print .alert-caution,
 #page-mod-book-print .alert-instructional {
   background-color: #dce3e6;
 }
@@ -666,21 +723,978 @@ button .h4::before {
 }
 
 /* table */
-#page-mod-book-print .table-bordered {
+#page-mod-book-print table.table-bordered caption {
+  font-size: 0.875rem;
+  line-height: normal;
+}
+#page-mod-book-print table.table-bordered,
+#page-mod-book-print table.outer-borders-only {
   border: 2px solid #5a6469;
   border-radius: 0;
   border-collapse: collapse;
 }
-#page-mod-book-print .table-bordered th,
-#page-mod-book-print .table-bordered td {
+#page-mod-book-print table.table-bordered th,
+#page-mod-book-print table.table-bordered td,
+#page-mod-book-print table.outer-borders-only thead {
   border: 2px solid #5a6469;
 }
-#page-mod-book-print .table-bordered th {
+#page-mod-book-print table.table-bordered th {
   background-color: #dce3e6;
   color: #171717;
 }
-#page-mod-book-print .table-bordered td {
+#page-mod-book-print table.table-bordered td {
   color: #333333;
+}
+#page-mod-book-print table.no-borders tr td,
+#page-mod-book-print table.outer-borders-only tr td {
+  border: none;
+}
+#page-mod-book-print table.outer-borders-only th {
+  border: none !important;
+}
+#page-mod-book-print table.row-1-divider tr:nth-child(1) td,
+#page-mod-book-print table.row-2-divider tr:nth-child(2) td,
+#page-mod-book-print table.row-3-divider tr:nth-child(3) td,
+#page-mod-book-print table.row-4-divider tr:nth-child(4) td,
+#page-mod-book-print table.row-5-divider tr:nth-child(5) td,
+#page-mod-book-print table.row-6-divider tr:nth-child(6) td,
+#page-mod-book-print table.row-7-divider tr:nth-child(7) td,
+#page-mod-book-print table.row-8-divider tr:nth-child(8) td,
+#page-mod-book-print table.row-9-divider tr:nth-child(9) td,
+#page-mod-book-print table.row-10-divider tr:nth-child(10) td,
+#page-mod-book-print table.row-11-divider tr:nth-child(11) td,
+#page-mod-book-print table.row-12-divider tr:nth-child(12) td,
+#page-mod-book-print table.row-13-divider tr:nth-child(13) td,
+#page-mod-book-print table.row-14-divider tr:nth-child(14) td,
+#page-mod-book-print table.row-15-divider tr:nth-child(15) td,
+#page-mod-book-print table.row-16-divider tr:nth-child(16) td,
+#page-mod-book-print table.row-17-divider tr:nth-child(17) td,
+#page-mod-book-print table.row-18-divider tr:nth-child(18) td,
+#page-mod-book-print table.row-19-divider tr:nth-child(19) td,
+#page-mod-book-print table.row-20-divider tr:nth-child(20) td {
+   border-bottom: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.col-1-divider tr td:nth-child(1),
+#page-mod-book-print table.col-2-divider tr td:nth-child(2),
+#page-mod-book-print table.col-3-divider tr td:nth-child(3),
+#page-mod-book-print table.col-4-divider tr td:nth-child(4),
+#page-mod-book-print table.col-5-divider tr td:nth-child(5),
+#page-mod-book-print table.col-6-divider tr td:nth-child(6),
+#page-mod-book-print table.col-7-divider tr td:nth-child(7),
+#page-mod-book-print table.col-8-divider tr td:nth-child(8),
+#page-mod-book-print table.col-9-divider tr td:nth-child(9),
+#page-mod-book-print table.col-10-divider tr td:nth-child(10),
+#page-mod-book-print table.col-11-divider tr td:nth-child(11),
+#page-mod-book-print table.col-12-divider tr td:nth-child(12),
+#page-mod-book-print table.col-13-divider tr td:nth-child(13),
+#page-mod-book-print table.col-14-divider tr td:nth-child(14),
+#page-mod-book-print table.col-15-divider tr td:nth-child(15),
+#page-mod-book-print table.col-16-divider tr td:nth-child(16),
+#page-mod-book-print table.col-17-divider tr td:nth-child(17),
+#page-mod-book-print table.col-18-divider tr td:nth-child(18),
+#page-mod-book-print table.col-19-divider tr td:nth-child(19),
+#page-mod-book-print table.col-20-divider tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.row-1-border tr:nth-child(1) td,
+#page-mod-book-print table.row-2-border tr:nth-child(2) td,
+#page-mod-book-print table.row-3-border tr:nth-child(3) td,
+#page-mod-book-print table.row-4-border tr:nth-child(4) td,
+#page-mod-book-print table.row-5-border tr:nth-child(5) td,
+#page-mod-book-print table.row-6-border tr:nth-child(6) td,
+#page-mod-book-print table.row-7-border tr:nth-child(7) td,
+#page-mod-book-print table.row-8-border tr:nth-child(8) td,
+#page-mod-book-print table.row-9-border tr:nth-child(9) td,
+#page-mod-book-print table.row-10-border tr:nth-child(10) td,
+#page-mod-book-print table.row-11-border tr:nth-child(11) td,
+#page-mod-book-print table.row-12-border tr:nth-child(12) td,
+#page-mod-book-print table.row-13-border tr:nth-child(13) td,
+#page-mod-book-print table.row-14-border tr:nth-child(14) td,
+#page-mod-book-print table.row-15-border tr:nth-child(15) td,
+#page-mod-book-print table.row-16-border tr:nth-child(16) td,
+#page-mod-book-print table.row-17-border tr:nth-child(17) td,
+#page-mod-book-print table.row-18-border tr:nth-child(18) td,
+#page-mod-book-print table.row-19-border tr:nth-child(19) td,
+#page-mod-book-print table.row-20-border tr:nth-child(20) td {
+  border-top: 2px solid #5a6469 !important;
+  border-bottom: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.row-1-border tr:nth-child(1) td:first-child,
+#page-mod-book-print table.row-2-border tr:nth-child(2) td:first-child,
+#page-mod-book-print table.row-3-border tr:nth-child(3) td:first-child,
+#page-mod-book-print table.row-4-border tr:nth-child(4) td:first-child,
+#page-mod-book-print table.row-5-border tr:nth-child(5) td:first-child,
+#page-mod-book-print table.row-6-border tr:nth-child(6) td:first-child,
+#page-mod-book-print table.row-7-border tr:nth-child(7) td:first-child,
+#page-mod-book-print table.row-8-border tr:nth-child(8) td:first-child,
+#page-mod-book-print table.row-9-border tr:nth-child(9) td:first-child,
+#page-mod-book-print table.row-10-border tr:nth-child(10) td:first-child,
+#page-mod-book-print table.row-11-border tr:nth-child(11) td:first-child,
+#page-mod-book-print table.row-12-border tr:nth-child(12) td:first-child,
+#page-mod-book-print table.row-13-border tr:nth-child(13) td:first-child,
+#page-mod-book-print table.row-14-border tr:nth-child(14) td:first-child,
+#page-mod-book-print table.row-15-border tr:nth-child(15) td:first-child,
+#page-mod-book-print table.row-16-border tr:nth-child(16) td:first-child,
+#page-mod-book-print table.row-17-border tr:nth-child(17) td:first-child,
+#page-mod-book-print table.row-18-border tr:nth-child(18) td:first-child,
+#page-mod-book-print table.row-19-border tr:nth-child(19) td:first-child,
+#page-mod-book-print table.row-20-border tr:nth-child(20) td:first-child,
+#page-mod-book-print table.row-1-border-background tr:nth-child(1) td:first-child,
+#page-mod-book-print table.row-2-border-background tr:nth-child(2) td:first-child,
+#page-mod-book-print table.row-3-border-background tr:nth-child(3) td:first-child,
+#page-mod-book-print table.row-4-border-background tr:nth-child(4) td:first-child,
+#page-mod-book-print table.row-5-border-background tr:nth-child(5) td:first-child,
+#page-mod-book-print table.row-6-border-background tr:nth-child(6) td:first-child,
+#page-mod-book-print table.row-7-border-background tr:nth-child(7) td:first-child,
+#page-mod-book-print table.row-8-border-background tr:nth-child(8) td:first-child,
+#page-mod-book-print table.row-9-border-background tr:nth-child(9) td:first-child,
+#page-mod-book-print table.row-10-border-background tr:nth-child(10) td:first-child,
+#page-mod-book-print table.row-11-border-background tr:nth-child(11) td:first-child,
+#page-mod-book-print table.row-12-border-background tr:nth-child(12) td:first-child,
+#page-mod-book-print table.row-13-border-background tr:nth-child(13) td:first-child,
+#page-mod-book-print table.row-14-border-background tr:nth-child(14) td:first-child,
+#page-mod-book-print table.row-15-border-background tr:nth-child(15) td:first-child,
+#page-mod-book-print table.row-16-border-background tr:nth-child(16) td:first-child,
+#page-mod-book-print table.row-17-border-background tr:nth-child(17) td:first-child,
+#page-mod-book-print table.row-18-border-background tr:nth-child(18) td:first-child,
+#page-mod-book-print table.row-19-border-background tr:nth-child(19) td:first-child,
+#page-mod-book-print table.row-20-border-background tr:nth-child(20) td:first-child,
+#page-mod-book-print table.row-1-border-background-2 tr:nth-child(1) td:first-child,
+#page-mod-book-print table.row-2-border-background-2 tr:nth-child(2) td:first-child,
+#page-mod-book-print table.row-3-border-background-2 tr:nth-child(3) td:first-child,
+#page-mod-book-print table.row-4-border-background-2 tr:nth-child(4) td:first-child,
+#page-mod-book-print table.row-5-border-background-2 tr:nth-child(5) td:first-child,
+#page-mod-book-print table.row-6-border-background-2 tr:nth-child(6) td:first-child,
+#page-mod-book-print table.row-7-border-background-2 tr:nth-child(7) td:first-child,
+#page-mod-book-print table.row-8-border-background-2 tr:nth-child(8) td:first-child,
+#page-mod-book-print table.row-9-border-background-2 tr:nth-child(9) td:first-child,
+#page-mod-book-print table.row-10-border-background-2 tr:nth-child(10) td:first-child,
+#page-mod-book-print table.row-11-border-background-2 tr:nth-child(11) td:first-child,
+#page-mod-book-print table.row-12-border-background-2 tr:nth-child(12) td:first-child,
+#page-mod-book-print table.row-13-border-background-2 tr:nth-child(13) td:first-child,
+#page-mod-book-print table.row-14-border-background-2 tr:nth-child(14) td:first-child,
+#page-mod-book-print table.row-15-border-background-2 tr:nth-child(15) td:first-child,
+#page-mod-book-print table.row-16-border-background-2 tr:nth-child(16) td:first-child,
+#page-mod-book-print table.row-17-border-background-2 tr:nth-child(17) td:first-child,
+#page-mod-book-print table.row-18-border-background-2 tr:nth-child(18) td:first-child,
+#page-mod-book-print table.row-19-border-background-2 tr:nth-child(19) td:first-child,
+#page-mod-book-print table.row-20-border-background-2 tr:nth-child(20) td:first-child,
+#page-mod-book-print table.row-1-border-background-3 tr:nth-child(1) td:first-child,
+#page-mod-book-print table.row-2-border-background-3 tr:nth-child(2) td:first-child,
+#page-mod-book-print table.row-3-border-background-3 tr:nth-child(3) td:first-child,
+#page-mod-book-print table.row-4-border-background-3 tr:nth-child(4) td:first-child,
+#page-mod-book-print table.row-5-border-background-3 tr:nth-child(5) td:first-child,
+#page-mod-book-print table.row-6-border-background-3 tr:nth-child(6) td:first-child,
+#page-mod-book-print table.row-7-border-background-3 tr:nth-child(7) td:first-child,
+#page-mod-book-print table.row-8-border-background-3 tr:nth-child(8) td:first-child,
+#page-mod-book-print table.row-9-border-background-3 tr:nth-child(9) td:first-child,
+#page-mod-book-print table.row-10-border-background-3 tr:nth-child(10) td:first-child,
+#page-mod-book-print table.row-11-border-background-3 tr:nth-child(11) td:first-child,
+#page-mod-book-print table.row-12-border-background-3 tr:nth-child(12) td:first-child,
+#page-mod-book-print table.row-13-border-background-3 tr:nth-child(13) td:first-child,
+#page-mod-book-print table.row-14-border-background-3 tr:nth-child(14) td:first-child,
+#page-mod-book-print table.row-15-border-background-3 tr:nth-child(15) td:first-child,
+#page-mod-book-print table.row-16-border-background-3 tr:nth-child(16) td:first-child,
+#page-mod-book-print table.row-17-border-background-3 tr:nth-child(17) td:first-child,
+#page-mod-book-print table.row-18-border-background-3 tr:nth-child(18) td:first-child,
+#page-mod-book-print table.row-19-border-background-3 tr:nth-child(19) td:first-child,
+#page-mod-book-print table.row-20-border-background-3 tr:nth-child(20) td:first-child,
+#page-mod-book-print table.row-1-border-background-4 tr:nth-child(1) td:first-child,
+#page-mod-book-print table.row-2-border-background-4 tr:nth-child(2) td:first-child,
+#page-mod-book-print table.row-3-border-background-4 tr:nth-child(3) td:first-child,
+#page-mod-book-print table.row-4-border-background-4 tr:nth-child(4) td:first-child,
+#page-mod-book-print table.row-5-border-background-4 tr:nth-child(5) td:first-child,
+#page-mod-book-print table.row-6-border-background-4 tr:nth-child(6) td:first-child,
+#page-mod-book-print table.row-7-border-background-4 tr:nth-child(7) td:first-child,
+#page-mod-book-print table.row-8-border-background-4 tr:nth-child(8) td:first-child,
+#page-mod-book-print table.row-9-border-background-4 tr:nth-child(9) td:first-child,
+#page-mod-book-print table.row-10-border-background-4 tr:nth-child(10) td:first-child,
+#page-mod-book-print table.row-11-border-background-4 tr:nth-child(11) td:first-child,
+#page-mod-book-print table.row-12-border-background-4 tr:nth-child(12) td:first-child,
+#page-mod-book-print table.row-13-border-background-4 tr:nth-child(13) td:first-child,
+#page-mod-book-print table.row-14-border-background-4 tr:nth-child(14) td:first-child,
+#page-mod-book-print table.row-15-border-background-4 tr:nth-child(15) td:first-child,
+#page-mod-book-print table.row-16-border-background-4 tr:nth-child(16) td:first-child,
+#page-mod-book-print table.row-17-border-background-4 tr:nth-child(17) td:first-child,
+#page-mod-book-print table.row-18-border-background-4 tr:nth-child(18) td:first-child,
+#page-mod-book-print table.row-19-border-background-4 tr:nth-child(19) td:first-child,
+#page-mod-book-print table.row-20-border-background-4 tr:nth-child(20) td:first-child {
+  border-left: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.row-1-border tr:nth-child(1) td:last-child,
+#page-mod-book-print table.row-2-border tr:nth-child(2) td:last-child,
+#page-mod-book-print table.row-3-border tr:nth-child(3) td:last-child,
+#page-mod-book-print table.row-4-border tr:nth-child(4) td:last-child,
+#page-mod-book-print table.row-5-border tr:nth-child(5) td:last-child,
+#page-mod-book-print table.row-6-border tr:nth-child(6) td:last-child,
+#page-mod-book-print table.row-7-border tr:nth-child(7) td:last-child,
+#page-mod-book-print table.row-8-border tr:nth-child(8) td:last-child,
+#page-mod-book-print table.row-9-border tr:nth-child(9) td:last-child,
+#page-mod-book-print table.row-10-border tr:nth-child(10) td:last-child,
+#page-mod-book-print table.row-11-border tr:nth-child(11) td:last-child,
+#page-mod-book-print table.row-12-border tr:nth-child(12) td:last-child,
+#page-mod-book-print table.row-13-border tr:nth-child(13) td:last-child,
+#page-mod-book-print table.row-14-border tr:nth-child(14) td:last-child,
+#page-mod-book-print table.row-15-border tr:nth-child(15) td:last-child,
+#page-mod-book-print table.row-16-border tr:nth-child(16) td:last-child,
+#page-mod-book-print table.row-17-border tr:nth-child(17) td:last-child,
+#page-mod-book-print table.row-18-border tr:nth-child(18) td:last-child,
+#page-mod-book-print table.row-19-border tr:nth-child(19) td:last-child,
+#page-mod-book-print table.row-20-border tr:nth-child(20) td:last-child,
+#page-mod-book-print table.row-1-border-background tr:nth-child(1) td:last-child,
+#page-mod-book-print table.row-2-border-background tr:nth-child(2) td:last-child,
+#page-mod-book-print table.row-3-border-background tr:nth-child(3) td:last-child,
+#page-mod-book-print table.row-4-border-background tr:nth-child(4) td:last-child,
+#page-mod-book-print table.row-5-border-background tr:nth-child(5) td:last-child,
+#page-mod-book-print table.row-6-border-background tr:nth-child(6) td:last-child,
+#page-mod-book-print table.row-7-border-background tr:nth-child(7) td:last-child,
+#page-mod-book-print table.row-8-border-background tr:nth-child(8) td:last-child,
+#page-mod-book-print table.row-9-border-background tr:nth-child(9) td:last-child,
+#page-mod-book-print table.row-10-border-background tr:nth-child(10) td:last-child,
+#page-mod-book-print table.row-11-border-background tr:nth-child(11) td:last-child,
+#page-mod-book-print table.row-12-border-background tr:nth-child(12) td:last-child,
+#page-mod-book-print table.row-13-border-background tr:nth-child(13) td:last-child,
+#page-mod-book-print table.row-14-border-background tr:nth-child(14) td:last-child,
+#page-mod-book-print table.row-15-border-background tr:nth-child(15) td:last-child,
+#page-mod-book-print table.row-16-border-background tr:nth-child(16) td:last-child,
+#page-mod-book-print table.row-17-border-background tr:nth-child(17) td:last-child,
+#page-mod-book-print table.row-18-border-background tr:nth-child(18) td:last-child,
+#page-mod-book-print table.row-19-border-background tr:nth-child(19) td:last-child,
+#page-mod-book-print table.row-20-border-background tr:nth-child(20) td:last-child,
+#page-mod-book-print table.row-1-border-background-2 tr:nth-child(1) td:last-child,
+#page-mod-book-print table.row-2-border-background-2 tr:nth-child(2) td:last-child,
+#page-mod-book-print table.row-3-border-background-2 tr:nth-child(3) td:last-child,
+#page-mod-book-print table.row-4-border-background-2 tr:nth-child(4) td:last-child,
+#page-mod-book-print table.row-5-border-background-2 tr:nth-child(5) td:last-child,
+#page-mod-book-print table.row-6-border-background-2 tr:nth-child(6) td:last-child,
+#page-mod-book-print table.row-7-border-background-2 tr:nth-child(7) td:last-child,
+#page-mod-book-print table.row-8-border-background-2 tr:nth-child(8) td:last-child,
+#page-mod-book-print table.row-9-border-background-2 tr:nth-child(9) td:last-child,
+#page-mod-book-print table.row-10-border-background-2 tr:nth-child(10) td:last-child,
+#page-mod-book-print table.row-11-border-background-2 tr:nth-child(11) td:last-child,
+#page-mod-book-print table.row-12-border-background-2 tr:nth-child(12) td:last-child,
+#page-mod-book-print table.row-13-border-background-2 tr:nth-child(13) td:last-child,
+#page-mod-book-print table.row-14-border-background-2 tr:nth-child(14) td:last-child,
+#page-mod-book-print table.row-15-border-background-2 tr:nth-child(15) td:last-child,
+#page-mod-book-print table.row-16-border-background-2 tr:nth-child(16) td:last-child,
+#page-mod-book-print table.row-17-border-background-2 tr:nth-child(17) td:last-child,
+#page-mod-book-print table.row-18-border-background-2 tr:nth-child(18) td:last-child,
+#page-mod-book-print table.row-19-border-background-2 tr:nth-child(19) td:last-child,
+#page-mod-book-print table.row-20-border-background-2 tr:nth-child(20) td:last-child,
+#page-mod-book-print table.row-1-border-background-3 tr:nth-child(1) td:last-child,
+#page-mod-book-print table.row-2-border-background-3 tr:nth-child(2) td:last-child,
+#page-mod-book-print table.row-3-border-background-3 tr:nth-child(3) td:last-child,
+#page-mod-book-print table.row-4-border-background-3 tr:nth-child(4) td:last-child,
+#page-mod-book-print table.row-5-border-background-3 tr:nth-child(5) td:last-child,
+#page-mod-book-print table.row-6-border-background-3 tr:nth-child(6) td:last-child,
+#page-mod-book-print table.row-7-border-background-3 tr:nth-child(7) td:last-child,
+#page-mod-book-print table.row-8-border-background-3 tr:nth-child(8) td:last-child,
+#page-mod-book-print table.row-9-border-background-3 tr:nth-child(9) td:last-child,
+#page-mod-book-print table.row-10-border-background-3 tr:nth-child(10) td:last-child,
+#page-mod-book-print table.row-11-border-background-3 tr:nth-child(11) td:last-child,
+#page-mod-book-print table.row-12-border-background-3 tr:nth-child(12) td:last-child,
+#page-mod-book-print table.row-13-border-background-3 tr:nth-child(13) td:last-child,
+#page-mod-book-print table.row-14-border-background-3 tr:nth-child(14) td:last-child,
+#page-mod-book-print table.row-15-border-background-3 tr:nth-child(15) td:last-child,
+#page-mod-book-print table.row-16-border-background-3 tr:nth-child(16) td:last-child,
+#page-mod-book-print table.row-17-border-background-3 tr:nth-child(17) td:last-child,
+#page-mod-book-print table.row-18-border-background-3 tr:nth-child(18) td:last-child,
+#page-mod-book-print table.row-19-border-background-3 tr:nth-child(19) td:last-child,
+#page-mod-book-print table.row-20-border-background-3 tr:nth-child(20) td:last-child,
+#page-mod-book-print table.row-1-border-background-4 tr:nth-child(1) td:last-child,
+#page-mod-book-print table.row-2-border-background-4 tr:nth-child(2) td:last-child,
+#page-mod-book-print table.row-3-border-background-4 tr:nth-child(3) td:last-child,
+#page-mod-book-print table.row-4-border-background-4 tr:nth-child(4) td:last-child,
+#page-mod-book-print table.row-5-border-background-4 tr:nth-child(5) td:last-child,
+#page-mod-book-print table.row-6-border-background-4 tr:nth-child(6) td:last-child,
+#page-mod-book-print table.row-7-border-background-4 tr:nth-child(7) td:last-child,
+#page-mod-book-print table.row-8-border-background-4 tr:nth-child(8) td:last-child,
+#page-mod-book-print table.row-9-border-background-4 tr:nth-child(9) td:last-child,
+#page-mod-book-print table.row-10-border-background-4 tr:nth-child(10) td:last-child,
+#page-mod-book-print table.row-11-border-background-4 tr:nth-child(11) td:last-child,
+#page-mod-book-print table.row-12-border-background-4 tr:nth-child(12) td:last-child,
+#page-mod-book-print table.row-13-border-background-4 tr:nth-child(13) td:last-child,
+#page-mod-book-print table.row-14-border-background-4 tr:nth-child(14) td:last-child,
+#page-mod-book-print table.row-15-border-background-4 tr:nth-child(15) td:last-child,
+#page-mod-book-print table.row-16-border-background-4 tr:nth-child(16) td:last-child,
+#page-mod-book-print table.row-17-border-background-4 tr:nth-child(17) td:last-child,
+#page-mod-book-print table.row-18-border-background-4 tr:nth-child(18) td:last-child,
+#page-mod-book-print table.row-19-border-background-4 tr:nth-child(19) td:last-child,
+#page-mod-book-print table.row-20-border-background-4 tr:nth-child(20) td:last-child {
+  border-right: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.col-1-border tr td:nth-child(1),
+#page-mod-book-print table.col-2-border tr td:nth-child(2),
+#page-mod-book-print table.col-3-border tr td:nth-child(3),
+#page-mod-book-print table.col-4-border tr td:nth-child(4),
+#page-mod-book-print table.col-5-border tr td:nth-child(5),
+#page-mod-book-print table.col-6-border tr td:nth-child(6),
+#page-mod-book-print table.col-7-border tr td:nth-child(7),
+#page-mod-book-print table.col-8-border tr td:nth-child(8),
+#page-mod-book-print table.col-9-border tr td:nth-child(9),
+#page-mod-book-print table.col-10-border tr td:nth-child(10),
+#page-mod-book-print table.col-11-border tr td:nth-child(11),
+#page-mod-book-print table.col-12-border tr td:nth-child(12),
+#page-mod-book-print table.col-13-border tr td:nth-child(13),
+#page-mod-book-print table.col-14-border tr td:nth-child(14),
+#page-mod-book-print table.col-15-border tr td:nth-child(15),
+#page-mod-book-print table.col-16-border tr td:nth-child(16),
+#page-mod-book-print table.col-17-border tr td:nth-child(17),
+#page-mod-book-print table.col-18-border tr td:nth-child(18),
+#page-mod-book-print table.col-19-border tr td:nth-child(19),
+#page-mod-book-print table.col-20-border tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+  border-left: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.col-1-border tr:first-child td:nth-child(1),
+#page-mod-book-print table.col-2-border tr:first-child td:nth-child(2),
+#page-mod-book-print table.col-3-border tr:first-child td:nth-child(3),
+#page-mod-book-print table.col-4-border tr:first-child td:nth-child(4),
+#page-mod-book-print table.col-5-border tr:first-child td:nth-child(5),
+#page-mod-book-print table.col-6-border tr:first-child td:nth-child(6),
+#page-mod-book-print table.col-7-border tr:first-child td:nth-child(7),
+#page-mod-book-print table.col-8-border tr:first-child td:nth-child(8),
+#page-mod-book-print table.col-9-border tr:first-child td:nth-child(9),
+#page-mod-book-print table.col-10-border tr:first-child td:nth-child(10),
+#page-mod-book-print table.col-11-border tr:first-child td:nth-child(11),
+#page-mod-book-print table.col-12-border tr:first-child td:nth-child(12),
+#page-mod-book-print table.col-13-border tr:first-child td:nth-child(13),
+#page-mod-book-print table.col-14-border tr:first-child td:nth-child(14),
+#page-mod-book-print table.col-15-border tr:first-child td:nth-child(15),
+#page-mod-book-print table.col-16-border tr:first-child td:nth-child(16),
+#page-mod-book-print table.col-17-border tr:first-child td:nth-child(17),
+#page-mod-book-print table.col-18-border tr:first-child td:nth-child(18),
+#page-mod-book-print table.col-19-border tr:first-child td:nth-child(19),
+#page-mod-book-print table.col-20-border tr:first-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background tr:first-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background tr:first-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background tr:first-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background tr:first-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background tr:first-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background tr:first-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background tr:first-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background tr:first-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background tr:first-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background tr:first-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background tr:first-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background tr:first-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background tr:first-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background tr:first-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background tr:first-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background tr:first-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background tr:first-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background tr:first-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background tr:first-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background tr:first-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-2 tr:first-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-2 tr:first-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-2 tr:first-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-2 tr:first-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-2 tr:first-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-2 tr:first-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-2 tr:first-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-2 tr:first-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-2 tr:first-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-2 tr:first-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-2 tr:first-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-2 tr:first-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-2 tr:first-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-2 tr:first-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-2 tr:first-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-2 tr:first-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-2 tr:first-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-2 tr:first-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-2 tr:first-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-2 tr:first-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-3 tr:first-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-3 tr:first-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-3 tr:first-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-3 tr:first-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-3 tr:first-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-3 tr:first-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-3 tr:first-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-3 tr:first-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-3 tr:first-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-3 tr:first-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-3 tr:first-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-3 tr:first-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-3 tr:first-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-3 tr:first-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-3 tr:first-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-3 tr:first-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-3 tr:first-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-3 tr:first-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-3 tr:first-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-3 tr:first-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-4 tr:first-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-4 tr:first-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-4 tr:first-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-4 tr:first-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-4 tr:first-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-4 tr:first-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-4 tr:first-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-4 tr:first-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-4 tr:first-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-4 tr:first-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-4 tr:first-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-4 tr:first-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-4 tr:first-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-4 tr:first-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-4 tr:first-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-4 tr:first-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-4 tr:first-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-4 tr:first-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-4 tr:first-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-4 tr:first-child td:nth-child(20) {
+  border-top: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table.col-1-border tr:last-child td:nth-child(1),
+#page-mod-book-print table.col-2-border tr:last-child td:nth-child(2),
+#page-mod-book-print table.col-3-border tr:last-child td:nth-child(3),
+#page-mod-book-print table.col-4-border tr:last-child td:nth-child(4),
+#page-mod-book-print table.col-5-border tr:last-child td:nth-child(5),
+#page-mod-book-print table.col-6-border tr:last-child td:nth-child(6),
+#page-mod-book-print table.col-7-border tr:last-child td:nth-child(7),
+#page-mod-book-print table.col-8-border tr:last-child td:nth-child(8),
+#page-mod-book-print table.col-9-border tr:last-child td:nth-child(9),
+#page-mod-book-print table.col-10-border tr:last-child td:nth-child(10),
+#page-mod-book-print table.col-11-border tr:last-child td:nth-child(11),
+#page-mod-book-print table.col-12-border tr:last-child td:nth-child(12),
+#page-mod-book-print table.col-13-border tr:last-child td:nth-child(13),
+#page-mod-book-print table.col-14-border tr:last-child td:nth-child(14),
+#page-mod-book-print table.col-15-border tr:last-child td:nth-child(15),
+#page-mod-book-print table.col-16-border tr:last-child td:nth-child(16),
+#page-mod-book-print table.col-17-border tr:last-child td:nth-child(17),
+#page-mod-book-print table.col-18-border tr:last-child td:nth-child(18),
+#page-mod-book-print table.col-19-border tr:last-child td:nth-child(19),
+#page-mod-book-print table.col-20-border tr:last-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background tr:last-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background tr:last-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background tr:last-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background tr:last-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background tr:last-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background tr:last-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background tr:last-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background tr:last-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background tr:last-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background tr:last-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background tr:last-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background tr:last-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background tr:last-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background tr:last-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background tr:last-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background tr:last-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background tr:last-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background tr:last-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background tr:last-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background tr:last-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-2 tr:last-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-2 tr:last-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-2 tr:last-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-2 tr:last-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-2 tr:last-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-2 tr:last-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-2 tr:last-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-2 tr:last-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-2 tr:last-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-2 tr:last-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-2 tr:last-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-2 tr:last-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-2 tr:last-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-2 tr:last-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-2 tr:last-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-2 tr:last-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-2 tr:last-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-2 tr:last-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-2 tr:last-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-2 tr:last-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-3 tr:last-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-3 tr:last-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-3 tr:last-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-3 tr:last-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-3 tr:last-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-3 tr:last-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-3 tr:last-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-3 tr:last-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-3 tr:last-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-3 tr:last-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-3 tr:last-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-3 tr:last-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-3 tr:last-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-3 tr:last-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-3 tr:last-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-3 tr:last-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-3 tr:last-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-3 tr:last-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-3 tr:last-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-3 tr:last-child td:nth-child(20),
+#page-mod-book-print table.col-1-border-background-4 tr:last-child td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-4 tr:last-child td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-4 tr:last-child td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-4 tr:last-child td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-4 tr:last-child td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-4 tr:last-child td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-4 tr:last-child td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-4 tr:last-child td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-4 tr:last-child td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-4 tr:last-child td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-4 tr:last-child td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-4 tr:last-child td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-4 tr:last-child td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-4 tr:last-child td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-4 tr:last-child td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-4 tr:last-child td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-4 tr:last-child td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-4 tr:last-child td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-4 tr:last-child td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-4 tr:last-child td:nth-child(20) {
+  border-bottom: 2px solid #5a6469 !important;
+}
+#page-mod-book-print table td.highlight-cell.background,
+#page-mod-book-print table.row-1-background tr:nth-child(1) td,
+#page-mod-book-print table.row-2-background tr:nth-child(2) td,
+#page-mod-book-print table.row-3-background tr:nth-child(3) td,
+#page-mod-book-print table.row-4-background tr:nth-child(4) td,
+#page-mod-book-print table.row-5-background tr:nth-child(5) td,
+#page-mod-book-print table.row-6-background tr:nth-child(6) td,
+#page-mod-book-print table.row-7-background tr:nth-child(7) td,
+#page-mod-book-print table.row-8-background tr:nth-child(8) td,
+#page-mod-book-print table.row-9-background tr:nth-child(9) td,
+#page-mod-book-print table.row-10-background tr:nth-child(10) td,
+#page-mod-book-print table.row-11-background tr:nth-child(11) td,
+#page-mod-book-print table.row-12-background tr:nth-child(12) td,
+#page-mod-book-print table.row-13-background tr:nth-child(13) td,
+#page-mod-book-print table.row-14-background tr:nth-child(14) td,
+#page-mod-book-print table.row-15-background tr:nth-child(15) td,
+#page-mod-book-print table.row-16-background tr:nth-child(16) td,
+#page-mod-book-print table.row-17-background tr:nth-child(17) td,
+#page-mod-book-print table.row-18-background tr:nth-child(18) td,
+#page-mod-book-print table.row-19-background tr:nth-child(19) td,
+#page-mod-book-print table.row-20-background tr:nth-child(20) td,
+#page-mod-book-print table.col-1-background tr td:nth-child(1),
+#page-mod-book-print table.col-2-background tr td:nth-child(2),
+#page-mod-book-print table.col-3-background tr td:nth-child(3),
+#page-mod-book-print table.col-4-background tr td:nth-child(4),
+#page-mod-book-print table.col-5-background tr td:nth-child(5),
+#page-mod-book-print table.col-6-background tr td:nth-child(6),
+#page-mod-book-print table.col-7-background tr td:nth-child(7),
+#page-mod-book-print table.col-8-background tr td:nth-child(8),
+#page-mod-book-print table.col-9-background tr td:nth-child(9),
+#page-mod-book-print table.col-10-background tr td:nth-child(10),
+#page-mod-book-print table.col-11-background tr td:nth-child(11),
+#page-mod-book-print table.col-12-background tr td:nth-child(12),
+#page-mod-book-print table.col-13-background tr td:nth-child(13),
+#page-mod-book-print table.col-14-background tr td:nth-child(14),
+#page-mod-book-print table.col-15-background tr td:nth-child(15),
+#page-mod-book-print table.col-16-background tr td:nth-child(16),
+#page-mod-book-print table.col-17-background tr td:nth-child(17),
+#page-mod-book-print table.col-18-background tr td:nth-child(18),
+#page-mod-book-print table.col-19-background tr td:nth-child(19),
+#page-mod-book-print table.col-20-background tr td:nth-child(20) {
+  background-color: #FCEAB7 !important;
+}
+#page-mod-book-print table td.highlight-cell.background-2,
+#page-mod-book-print table.row-1-background-2 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-background-2 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-background-2 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-background-2 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-background-2 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-background-2 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-background-2 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-background-2 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-background-2 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-background-2 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-background-2 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-background-2 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-background-2 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-background-2 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-background-2 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-background-2 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-background-2 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-background-2 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-background-2 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-background-2 tr:nth-child(20) td,
+#page-mod-book-print table.col-1-background-2 tr td:nth-child(1),
+#page-mod-book-print table.col-2-background-2 tr td:nth-child(2),
+#page-mod-book-print table.col-3-background-2 tr td:nth-child(3),
+#page-mod-book-print table.col-4-background-2 tr td:nth-child(4),
+#page-mod-book-print table.col-5-background-2 tr td:nth-child(5),
+#page-mod-book-print table.col-6-background-2 tr td:nth-child(6),
+#page-mod-book-print table.col-7-background-2 tr td:nth-child(7),
+#page-mod-book-print table.col-8-background-2 tr td:nth-child(8),
+#page-mod-book-print table.col-9-background-2 tr td:nth-child(9),
+#page-mod-book-print table.col-10-background-2 tr td:nth-child(10),
+#page-mod-book-print table.col-11-background-2 tr td:nth-child(11),
+#page-mod-book-print table.col-12-background-2 tr td:nth-child(12),
+#page-mod-book-print table.col-13-background-2 tr td:nth-child(13),
+#page-mod-book-print table.col-14-background-2 tr td:nth-child(14),
+#page-mod-book-print table.col-15-background-2 tr td:nth-child(15),
+#page-mod-book-print table.col-16-background-2 tr td:nth-child(16),
+#page-mod-book-print table.col-17-background-2 tr td:nth-child(17),
+#page-mod-book-print table.col-18-background-2 tr td:nth-child(18),
+#page-mod-book-print table.col-19-background-2 tr td:nth-child(19),
+#page-mod-book-print table.col-20-background-2 tr td:nth-child(20) {
+  background-color: #A2E6F4 !important;
+}
+#page-mod-book-print table td.highlight-cell.background-3,
+#page-mod-book-print table.row-1-background-3 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-background-3 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-background-3 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-background-3 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-background-3 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-background-3 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-background-3 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-background-3 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-background-3 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-background-3 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-background-3 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-background-3 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-background-3 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-background-3 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-background-3 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-background-3 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-background-3 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-background-3 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-background-3 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-background-3 tr:nth-child(20) td,
+#page-mod-book-print table.col-1-background-3 tr td:nth-child(1),
+#page-mod-book-print table.col-2-background-3 tr td:nth-child(2),
+#page-mod-book-print table.col-3-background-3 tr td:nth-child(3),
+#page-mod-book-print table.col-4-background-3 tr td:nth-child(4),
+#page-mod-book-print table.col-5-background-3 tr td:nth-child(5),
+#page-mod-book-print table.col-6-background-3 tr td:nth-child(6),
+#page-mod-book-print table.col-7-background-3 tr td:nth-child(7),
+#page-mod-book-print table.col-8-background-3 tr td:nth-child(8),
+#page-mod-book-print table.col-9-background-3 tr td:nth-child(9),
+#page-mod-book-print table.col-10-background-3 tr td:nth-child(10),
+#page-mod-book-print table.col-11-background-3 tr td:nth-child(11),
+#page-mod-book-print table.col-12-background-3 tr td:nth-child(12),
+#page-mod-book-print table.col-13-background-3 tr td:nth-child(13),
+#page-mod-book-print table.col-14-background-3 tr td:nth-child(14),
+#page-mod-book-print table.col-15-background-3 tr td:nth-child(15),
+#page-mod-book-print table.col-16-background-3 tr td:nth-child(16),
+#page-mod-book-print table.col-17-background-3 tr td:nth-child(17),
+#page-mod-book-print table.col-18-background-3 tr td:nth-child(18),
+#page-mod-book-print table.col-19-background-3 tr td:nth-child(19),
+#page-mod-book-print table.col-20-background-3 tr td:nth-child(20) {
+  background-color: #F5B6B3 !important;
+}
+#page-mod-book-print table td.highlight-cell.background-4,
+#page-mod-book-print table.row-1-background-4 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-background-4 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-background-4 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-background-4 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-background-4 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-background-4 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-background-4 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-background-4 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-background-4 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-background-4 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-background-4 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-background-4 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-background-4 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-background-4 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-background-4 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-background-4 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-background-4 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-background-4 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-background-4 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-background-4 tr:nth-child(20) td,
+#page-mod-book-print table.col-1-background-4 tr td:nth-child(1),
+#page-mod-book-print table.col-2-background-4 tr td:nth-child(2),
+#page-mod-book-print table.col-3-background-4 tr td:nth-child(3),
+#page-mod-book-print table.col-4-background-4 tr td:nth-child(4),
+#page-mod-book-print table.col-5-background-4 tr td:nth-child(5),
+#page-mod-book-print table.col-6-background-4 tr td:nth-child(6),
+#page-mod-book-print table.col-7-background-4 tr td:nth-child(7),
+#page-mod-book-print table.col-8-background-4 tr td:nth-child(8),
+#page-mod-book-print table.col-9-background-4 tr td:nth-child(9),
+#page-mod-book-print table.col-10-background-4 tr td:nth-child(10),
+#page-mod-book-print table.col-11-background-4 tr td:nth-child(11),
+#page-mod-book-print table.col-12-background-4 tr td:nth-child(12),
+#page-mod-book-print table.col-13-background-4 tr td:nth-child(13),
+#page-mod-book-print table.col-14-background-4 tr td:nth-child(14),
+#page-mod-book-print table.col-15-background-4 tr td:nth-child(15),
+#page-mod-book-print table.col-16-background-4 tr td:nth-child(16),
+#page-mod-book-print table.col-17-background-4 tr td:nth-child(17),
+#page-mod-book-print table.col-18-background-4 tr td:nth-child(18),
+#page-mod-book-print table.col-19-background-4 tr td:nth-child(19),
+#page-mod-book-print table.col-20-background-4 tr td:nth-child(20) {
+  background-color: #FFA375 !important;
+}
+#page-mod-book-print table.row-1-border-background tr:nth-child(1) td,
+#page-mod-book-print table.row-2-border-background tr:nth-child(2) td,
+#page-mod-book-print table.row-3-border-background tr:nth-child(3) td,
+#page-mod-book-print table.row-4-border-background tr:nth-child(4) td,
+#page-mod-book-print table.row-5-border-background tr:nth-child(5) td,
+#page-mod-book-print table.row-6-border-background tr:nth-child(6) td,
+#page-mod-book-print table.row-7-border-background tr:nth-child(7) td,
+#page-mod-book-print table.row-8-border-background tr:nth-child(8) td,
+#page-mod-book-print table.row-9-border-background tr:nth-child(9) td,
+#page-mod-book-print table.row-10-border-background tr:nth-child(10) td,
+#page-mod-book-print table.row-11-border-background tr:nth-child(11) td,
+#page-mod-book-print table.row-12-border-background tr:nth-child(12) td,
+#page-mod-book-print table.row-13-border-background tr:nth-child(13) td,
+#page-mod-book-print table.row-14-border-background tr:nth-child(14) td,
+#page-mod-book-print table.row-15-border-background tr:nth-child(15) td,
+#page-mod-book-print table.row-16-border-background tr:nth-child(16) td,
+#page-mod-book-print table.row-17-border-background tr:nth-child(17) td,
+#page-mod-book-print table.row-18-border-background tr:nth-child(18) td,
+#page-mod-book-print table.row-19-border-background tr:nth-child(19) td,
+#page-mod-book-print table.row-20-border-background tr:nth-child(20) td {
+  border-top: 2px solid #5a6469 !important;
+  border-bottom: 2px solid #5a6469 !important;
+  background-color: #FCEAB7 !important;
+}
+#page-mod-book-print table.row-1-border-background-2 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-border-background-2 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-border-background-2 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-border-background-2 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-border-background-2 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-border-background-2 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-border-background-2 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-border-background-2 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-border-background-2 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-border-background-2 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-border-background-2 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-border-background-2 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-border-background-2 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-border-background-2 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-border-background-2 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-border-background-2 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-border-background-2 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-border-background-2 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-border-background-2 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-border-background-2 tr:nth-child(20) td {
+  border-top: 2px solid #5a6469 !important;
+  border-bottom: 2px solid #5a6469 !important;
+  background-color: #A2E6F4 !important;
+}
+#page-mod-book-print table.row-1-border-background-3 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-border-background-3 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-border-background-3 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-border-background-3 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-border-background-3 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-border-background-3 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-border-background-3 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-border-background-3 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-border-background-3 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-border-background-3 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-border-background-3 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-border-background-3 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-border-background-3 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-border-background-3 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-border-background-3 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-border-background-3 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-border-background-3 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-border-background-3 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-border-background-3 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-border-background-3 tr:nth-child(20) td {
+  border-top: 2px solid #5a6469 !important;
+  border-bottom: 2px solid #5a6469 !important;
+  background-color: #F5B6B3 !important;
+}
+#page-mod-book-print table.row-1-border-background-4 tr:nth-child(1) td,
+#page-mod-book-print table.row-2-border-background-4 tr:nth-child(2) td,
+#page-mod-book-print table.row-3-border-background-4 tr:nth-child(3) td,
+#page-mod-book-print table.row-4-border-background-4 tr:nth-child(4) td,
+#page-mod-book-print table.row-5-border-background-4 tr:nth-child(5) td,
+#page-mod-book-print table.row-6-border-background-4 tr:nth-child(6) td,
+#page-mod-book-print table.row-7-border-background-4 tr:nth-child(7) td,
+#page-mod-book-print table.row-8-border-background-4 tr:nth-child(8) td,
+#page-mod-book-print table.row-9-border-background-4 tr:nth-child(9) td,
+#page-mod-book-print table.row-10-border-background-4 tr:nth-child(10) td,
+#page-mod-book-print table.row-11-border-background-4 tr:nth-child(11) td,
+#page-mod-book-print table.row-12-border-background-4 tr:nth-child(12) td,
+#page-mod-book-print table.row-13-border-background-4 tr:nth-child(13) td,
+#page-mod-book-print table.row-14-border-background-4 tr:nth-child(14) td,
+#page-mod-book-print table.row-15-border-background-4 tr:nth-child(15) td,
+#page-mod-book-print table.row-16-border-background-4 tr:nth-child(16) td,
+#page-mod-book-print table.row-17-border-background-4 tr:nth-child(17) td,
+#page-mod-book-print table.row-18-border-background-4 tr:nth-child(18) td,
+#page-mod-book-print table.row-19-border-background-4 tr:nth-child(19) td,
+#page-mod-book-print table.row-20-border-background-4 tr:nth-child(20) td {
+  border-top: 2px solid #5a6469 !important;
+  border-bottom: 2px solid #5a6469 !important;
+  background-color: #FFA375 !important;
+}
+#page-mod-book-print table.col-1-border-background tr td:nth-child(1),
+#page-mod-book-print table.col-2-border-background tr td:nth-child(2),
+#page-mod-book-print table.col-3-border-background tr td:nth-child(3),
+#page-mod-book-print table.col-4-border-background tr td:nth-child(4),
+#page-mod-book-print table.col-5-border-background tr td:nth-child(5),
+#page-mod-book-print table.col-6-border-background tr td:nth-child(6),
+#page-mod-book-print table.col-7-border-background tr td:nth-child(7),
+#page-mod-book-print table.col-8-border-background tr td:nth-child(8),
+#page-mod-book-print table.col-9-border-background tr td:nth-child(9),
+#page-mod-book-print table.col-10-border-background tr td:nth-child(10),
+#page-mod-book-print table.col-11-border-background tr td:nth-child(11),
+#page-mod-book-print table.col-12-border-background tr td:nth-child(12),
+#page-mod-book-print table.col-13-border-background tr td:nth-child(13),
+#page-mod-book-print table.col-14-border-background tr td:nth-child(14),
+#page-mod-book-print table.col-15-border-background tr td:nth-child(15),
+#page-mod-book-print table.col-16-border-background tr td:nth-child(16),
+#page-mod-book-print table.col-17-border-background tr td:nth-child(17),
+#page-mod-book-print table.col-18-border-background tr td:nth-child(18),
+#page-mod-book-print table.col-19-border-background tr td:nth-child(19),
+#page-mod-book-print table.col-20-border-background tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+  border-left: 2px solid #5a6469 !important;
+  background-color: #FCEAB7 !important;
+}
+#page-mod-book-print table.col-1-border-background-2 tr td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-2 tr td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-2 tr td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-2 tr td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-2 tr td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-2 tr td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-2 tr td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-2 tr td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-2 tr td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-2 tr td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-2 tr td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-2 tr td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-2 tr td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-2 tr td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-2 tr td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-2 tr td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-2 tr td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-2 tr td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-2 tr td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-2 tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+  border-left: 2px solid #5a6469 !important;
+  background-color: #A2E6F4 !important;
+}
+#page-mod-book-print table.col-1-border-background-3 tr td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-3 tr td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-3 tr td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-3 tr td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-3 tr td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-3 tr td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-3 tr td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-3 tr td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-3 tr td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-3 tr td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-3 tr td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-3 tr td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-3 tr td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-3 tr td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-3 tr td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-3 tr td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-3 tr td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-3 tr td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-3 tr td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-3 tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+  border-left: 2px solid #5a6469 !important;
+  background-color: #F5B6B3 !important;
+}
+#page-mod-book-print table.col-1-border-background-4 tr td:nth-child(1),
+#page-mod-book-print table.col-2-border-background-4 tr td:nth-child(2),
+#page-mod-book-print table.col-3-border-background-4 tr td:nth-child(3),
+#page-mod-book-print table.col-4-border-background-4 tr td:nth-child(4),
+#page-mod-book-print table.col-5-border-background-4 tr td:nth-child(5),
+#page-mod-book-print table.col-6-border-background-4 tr td:nth-child(6),
+#page-mod-book-print table.col-7-border-background-4 tr td:nth-child(7),
+#page-mod-book-print table.col-8-border-background-4 tr td:nth-child(8),
+#page-mod-book-print table.col-9-border-background-4 tr td:nth-child(9),
+#page-mod-book-print table.col-10-border-background-4 tr td:nth-child(10),
+#page-mod-book-print table.col-11-border-background-4 tr td:nth-child(11),
+#page-mod-book-print table.col-12-border-background-4 tr td:nth-child(12),
+#page-mod-book-print table.col-13-border-background-4 tr td:nth-child(13),
+#page-mod-book-print table.col-14-border-background-4 tr td:nth-child(14),
+#page-mod-book-print table.col-15-border-background-4 tr td:nth-child(15),
+#page-mod-book-print table.col-16-border-background-4 tr td:nth-child(16),
+#page-mod-book-print table.col-17-border-background-4 tr td:nth-child(17),
+#page-mod-book-print table.col-18-border-background-4 tr td:nth-child(18),
+#page-mod-book-print table.col-19-border-background-4 tr td:nth-child(19),
+#page-mod-book-print table.col-20-border-background-4 tr td:nth-child(20) {
+  border-right: 2px solid #5a6469 !important;
+  border-left: 2px solid #5a6469 !important;
+  background-color: #FFA375 !important;
+}
+#page-mod-book-print table .highlight-cell.border {
+  border: 4px solid #002395 !important;
+}
+#page-mod-book-print table .highlight-cell.border-t,
+#page-mod-book-print table .highlight-cell.border-tr,
+#page-mod-book-print table .highlight-cell.border-tb,
+#page-mod-book-print table .highlight-cell.border-tl,
+#page-mod-book-print table .highlight-cell.border-trb,
+#page-mod-book-print table .highlight-cell.border-trl,
+#page-mod-book-print table .highlight-cell.border-tbl {
+  border-top: 4px solid #002395 !important;
+}
+#page-mod-book-print table .highlight-cell.border-r,
+#page-mod-book-print table .highlight-cell.border-tr,
+#page-mod-book-print table .highlight-cell.border-rb,
+#page-mod-book-print table .highlight-cell.border-rl,
+#page-mod-book-print table .highlight-cell.border-trb,
+#page-mod-book-print table .highlight-cell.border-trl,
+#page-mod-book-print table .highlight-cell.border-rbl {
+  border-right: 4px solid #002395 !important;
+}
+#page-mod-book-print table .highlight-cell.border-b,
+#page-mod-book-print table .highlight-cell.border-tb,
+#page-mod-book-print table .highlight-cell.border-rb,
+#page-mod-book-print table .highlight-cell.border-bl,
+#page-mod-book-print table .highlight-cell.border-trb,
+#page-mod-book-print table .highlight-cell.border-tbl,
+#page-mod-book-print table .highlight-cell.border-rbl {
+  border-bottom: 4px solid #002395 !important;
+}
+#page-mod-book-print table .highlight-cell.border-l,
+#page-mod-book-print table .highlight-cell.border-tl,
+#page-mod-book-print table .highlight-cell.border-rl,
+#page-mod-book-print table .highlight-cell.border-bl,
+#page-mod-book-print table .highlight-cell.border-trl,
+#page-mod-book-print table .highlight-cell.border-tbl,
+#page-mod-book-print table .highlight-cell.border-rbl {
+  border-left: 4px solid #002395 !important;
+}
+#page-mod-book-print table.line-associated-content.with-line-numbers tr pre {
+  padding-left: 26px;
+  text-indent: -26px;
+}
+#page-mod-book-print table.line-associated-content tr pre {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: normal;
+  border: none;
+  word-break: break-word;
+}
+
+/* process */
+#page-mod-book-print .process-container .process-card img{
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}
+#page-mod-book-print .process-container .connector-container {
+  text-align:center;
+  margin-bottom: 1.25rem;
+}
+#page-mod-book-print .process-container .connector-container .icon.arrow-down::before{
+  content: '\f063';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 30px;
+  font-weight: 900;
+  margin:10px;
+  }
+#page-mod-book-print .process-container .connector-container .icon.arrow-up::after{
+  content: '\f062';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 30px;
+  font-weight: 900;
+  margin:10px;
+}
+#page-mod-book-print .process-container .connector-container .icon.relate{
+  border-right:3px solid black !important;
+  height:40px;
+  width: 50%;
+  margin:10px;
 }
 
 /* timeline */
@@ -690,6 +1704,9 @@ button .h4::before {
 #page-mod-book-print .timeline-container .row,
 #page-mod-book-print .timeline-container .col {
   margin: 0 !important;
+}
+#page-mod-book-print .timeline-container .col-auto {
+  flex-direction: column;
 }
 #page-mod-book-print .timeline-container .timeline-row .col.border-right {
   border-right: 2px solid #5a6469;
@@ -756,6 +1773,12 @@ button .h4::before {
   margin: 0;
 }
 #page-mod-book-print .timeline-container .timeline-row .timeline-content
+.timeline-card .card-body .col-md,
+#page-mod-book-print .timeline-container .timeline-row .timeline-content
+.timeline-card .card-body .col-md-3 {
+  margin: 0;
+}
+#page-mod-book-print .timeline-container .timeline-row .timeline-content
 .timeline-card .card-body .col-md-3 img {
   max-width: 100%;
   height: auto;
@@ -788,11 +1811,11 @@ button .h4::before {
   margin-bottom:  0;
   padding-bottom: 1.25rem;
 }
-#page-mod-book-print .view-generic-container a.view-hide-generic,
-#page-mod-book-print .view-answer-container a.view-hide-answer,
-#page-mod-book-print .view-description-container a.view-hide-description,
-#page-mod-book-print .view-feedback-container a.view-hide-feedback,
-#page-mod-book-print .view-model-answer-container a.view-hide-model-answer {
+#page-mod-book-print .view-generic-container .view-hide-generic,
+#page-mod-book-print .view-answer-container .view-hide-answer,
+#page-mod-book-print .view-description-container .view-hide-description,
+#page-mod-book-print .view-feedback-container .view-hide-feedback,
+#page-mod-book-print .view-model-answer-container .view-hide-model-answer {
   display: none;
 }
 #page-mod-book-print .view-generic-container .view-answer-card > .card-body,
@@ -818,7 +1841,13 @@ button .h4::before {
 #page-mod-book-print .view-description-container .view-description-card > .card-body > .card-author > img,
 #page-mod-book-print .view-feedback-container .view-feedback-card > .card-body > .card-author > img,
 #page-mod-book-print .view-model-answer-container .view-model-answer-card > .card-body > .card-author > img,
-#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-author > img {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-author > img,
+#page-mod-book-print .view-generic-container .view-generic-card > .card-body > .card-author > .filter-ally-wrapper > img,
+#page-mod-book-print .view-answer-container .view-answer-card > .card-body > .card-author > .filter-ally-wrapper > img,
+#page-mod-book-print .view-description-container .view-description-card > .card-body > .card-author > .filter-ally-wrapper > img,
+#page-mod-book-print .view-feedback-container .view-feedback-card > .card-body > .card-author > .filter-ally-wrapper > img,
+#page-mod-book-print .view-model-answer-container .view-model-answer-card > .card-body > .card-author > .filter-ally-wrapper > img,
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-author > .filter-ally-wrapper > img {
   border-radius: 50%;
   width: 150px;
   height: auto;
@@ -1052,6 +2081,7 @@ button .h4::before {
     page-break-inside: avoid;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     border: 2px solid #5a6469;
     border-radius: 0;
     margin-bottom: 1.25rem;
@@ -1060,6 +2090,7 @@ button .h4::before {
   .card .card-body {
     background-color: transparent;
     padding: 0;
+    flex: 1;
   }
   .card .card-body p:last-child {
     margin-bottom: 0;
@@ -1067,15 +2098,21 @@ button .h4::before {
   .card .card-title, .card h4, .float-box h4 {
     margin-bottom: 0.625rem;
   }
-  .card img, .float-box img {
+  .card img {
     margin: 0 1.25rem 0 0;
     width: 330px;
-    height: 100%;
+    height: auto;
     flex-shrink: 0;
   }
-  .card img.img-right, .float-box img.img-right {
+  .card.img-right > .filter-ally-wrapper,
+  .float-box.img-right > .filter-ally-wrapper {
     order: 2;
     margin: 0 0 0 1.25rem;
+  }
+  .card.img-right > .filter-ally-wrapper > img,
+  .float-box.img-right > .filter-ally-wrapper > img {
+    margin: 0;
+    height: auto;
   }
   .card img.img-top {
     width: 100%;
@@ -1104,6 +2141,18 @@ button .h4::before {
     page-break-inside: avoid;
     display: flex;
     margin-bottom: 1.25rem;
+  }
+  .float-box > .filter-ally-wrapper,
+  .float-box > img {
+    margin: 0 1.25rem 0 0;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+  .float-box > .filter-ally-wrapper > img {
+    margin: 0;
+  }
+  .float-box.small-image img {
+    width: 100px;
   }
 
   /* carousel */
@@ -1147,6 +2196,46 @@ button .h4::before {
   .carousel.text-only .carousel-caption {
     max-width: 100% !important;
   }
+
+  /* new carousel  */
+.new-carousel .nc-gallery{
+  /* list-style: decimal inside; */
+  counter-reset: my-awesome-counter;
+}
+.new-carousel .nc-gallery li{
+  /* list-style: decimal inside; */
+  counter-increment: my-awesome-counter;
+  border:1px solid black;
+  padding:16px;
+  margin-left:0;
+  display:inline-block;
+  width:100%;
+}
+.new-carousel .nc-gallery li:before{
+  content: counter(my-awesome-counter);
+  color: black;
+  font-weight: bold;
+  vertical-align: top;
+}
+.landscape-carousel .nc-gallery li, .portrait-carousel .nc-gallery li{
+  width:40%;
+}
+.text-carousel .nc-gallery li table tr td .nc-label{
+  margin-bottom: 32px;
+  font-family: 'KingsBureauGrot';
+  padding-top:16px;
+  font-size: larger;
+}
+.new-carousel figure{
+  margin:0;
+}
+.new-carousel img{
+  max-width: 100%;
+  margin-bottom:16px;
+}
+.new-carousel ul.nc-buttons{
+  display:none;
+}
 
   /* collapse */
   .collapse-container {
@@ -1241,11 +2330,14 @@ button .h4::before {
   /* images */
   .full-width-img, .img-full-width,
   .center-img, .img-center,
-  .circular-img, .img-circular {
+  .circular-img, .img-circular,
+  .image-scroll {
     margin-bottom: 1.25rem;
   }
-  .full-width-img img, .img-full-width img {
+  .full-width-img img, .img-full-width img,
+  .img-scroll img {
     width: 100%;
+    height: auto;
   }
   .full-width-img img:not(:last-child),
   .img-full-width img:not(:last-child),
@@ -1371,6 +2463,9 @@ button .h4::before {
   .timeline-container .col {
     margin: 0;
   }
+  .timeline-container .col-auto {
+    flex-direction: column;
+  }
   .timeline-container .timeline-row .col.border-right {
     border-right: 2px solid #5a6469;
   }
@@ -1427,6 +2522,10 @@ button .h4::before {
   }
   .timeline-container .timeline-row .timeline-content .timeline-card .card-body .row {
     margin: 0;
+  }
+  .timeline-container .timeline-row .timeline-content .timeline-card .card-body .col-md,
+  .timeline-container .timeline-row .timeline-content .timeline-card .card-body .col-m3 {
+    margin: 0 ;
   }
   .timeline-container .timeline-row .timeline-content .timeline-card .card-body .col-md-3 img {
     max-width: 100%;
@@ -1498,12 +2597,18 @@ button .h4::before {
     border-right: 2px solid #5a6469;
     padding-right: 20px !important;
   }
-  .view-generic-container .view-generic-card > .card-body .card-author img,
-  .view-answer-container .view-answer-card > .card-body .card-author img,
-  .view-description-container .view-description-card > .card-body .card-author img,
-  .view-feedback-container .view-feedback-card > .card-body .card-author img,
-  .view-model-answer-container .view-model-answer-card > .card-body .card-author img,
-  .academic-note-container .academic-note-card > .card-body .card-author img {
+  .view-generic-container .view-generic-card > .card-body .card-author >
+  .filter-ally-wrapper > img,
+  .view-answer-container .view-answer-card > .card-body .card-author >
+  .filter-ally-wrapper > img,
+  .view-description-container .view-description-card > .card-body .card-author >
+  .filter-ally-wrapper > img,
+  .view-feedback-container .view-feedback-card > .card-body .card-author >
+  .filter-ally-wrapper > img,
+  .view-model-answer-container .view-model-answer-card > .card-body .card-author >
+  .filter-ally-wrapper > img,
+  .academic-note-container .academic-note-card > .card-body .card-author >
+  .filter-ally-wrapper > img {
     border-radius: 50%;
     width: 150px !important;
     height: auto;

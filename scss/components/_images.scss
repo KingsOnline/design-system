@@ -65,3 +65,8 @@ figure {
   border: 1px solid $rules-and-outlines;
   margin-bottom: $component-margin-bottom;
 }
+
+// image-scroll container
+.image-scroll {
+  overflow-x: scroll;
+}

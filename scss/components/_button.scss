@@ -18,6 +18,13 @@ button, .btn {
       background-color: #536c84 !important;
       text-decoration: none !important;
     }
+    &:focus {
+        outline: thin dotted $sky-blue !important;
+        outline-color:$sky-blue !important;
+        outline-style: dotted;
+        outline-width: thin;
+        outline-offset: -2px;
+    }
   }
   &.btn-secondary {
     background-color: $white !important;

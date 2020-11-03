@@ -111,16 +111,19 @@
 .transcript-container {
   margin-bottom: $component-margin-bottom;
   .transcript-button-group {
-    a::before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        margin-right: 0.375rem
+    .view-close-transcript:focus, .download-transcript:focus {
+      outline: $pearl-grey auto 1px !important;
     }
-  a.view-close-transcript::before {
-        content: '\f070';
+    & > ::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin-right: 0.375rem
     }
-    a.download-transcript::before {
-        content: '\f019';
+    .view-close-transcript::before {
+      content: '\f070';
+    }
+    .download-transcript::before {
+      content: '\f019';
     }
   }
   .transcript-card .card-body {
@@ -129,7 +132,7 @@
     margin-top: 1.5rem;
   }
   &.collapsed {
-    .transcript-button-group a.view-close-transcript::before {
+    .transcript-button-group .view-close-transcript::before {
         content: '\f06e';
     }
     .transcript-card {

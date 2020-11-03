@@ -1,12 +1,140 @@
 // -----------------------------------------------------------------------------
 // table
 // -----------------------------------------------------------------------------
+
+// define table highlight background colours
+$table-bg-colors: (
+  1: #FCEAB7 !important, // yellow 30%
+  2: #A2E6F4 !important, // sky-blue 37%
+  3: #F5B6B3 !important, // red 33%
+  4: #FFA375 !important // orange 58%
+ );
+
+// mixin to add borders around and bg to individual row/col
+@mixin table-single-row-col-border {
+  @for $i from 1 through 50 {
+    &.row-#{$i}-border {
+      tr:nth-child(#{$i}) td {
+        border-top: 1px solid $table-border !important;
+        border-bottom: 1px solid $table-border !important;
+        &:first-child {
+          border-left: 1px solid $table-border !important;
+        }
+        &:last-child {
+          border-right: 1px solid $table-border !important;
+        }
+      }
+    }
+    // if no numerical value after background
+    &.row-#{$i}-background {
+      tr:nth-child(#{$i}) td {
+        background-color: map-get($table-bg-colors, 1);
+      }
+    }
+    &.row-#{$i}-border-background {
+      @extend .row-#{$i}-border;
+      tr:nth-child(#{$i}) td {
+        background-color: map-get($table-bg-colors, 1);
+      }
+    }
+    //map to table-bg-colors
+    @each $bg-num, $hex in $table-bg-colors {
+      &.row-#{$i}-background-#{$bg-num} {
+        tr:nth-child(#{$i}) td {
+          background-color: $hex;
+        }
+      }
+      &.row-#{$i}-border-background-#{$bg-num} {
+        @extend .row-#{$i}-border;
+        tr:nth-child(#{$i}) td {
+          background-color: $hex;
+        }
+      }
+    }
+    &.col-#{$i}-border {
+      tr {
+        td:nth-child(#{$i}) {
+          border-left: 1px solid $table-border !important;
+          border-right: 1px solid $table-border !important;
+        }
+        &:first-child {
+         td:nth-child(#{$i}) {
+            border-top: 1px solid $table-border !important;
+          }
+        }
+        &:last-child {
+         td:nth-child(#{$i}) {
+            border-bottom: 1px solid $table-border !important;
+          }
+        }
+      }
+    }
+    // if no numerical value after background
+    &.col-#{$i}-background {
+      tr {
+        td:nth-child(#{$i}) {
+          background-color: map-get($table-bg-colors, 1);
+        }
+      }
+    }
+    &.col-#{$i}-border-background {
+      @extend .col-#{$i}-border;
+      tr {
+        td:nth-child(#{$i}) {
+          background-color: map-get($table-bg-colors, 1);
+        }
+      }
+    }
+    //map to table-bg-colors
+    @each $bg-num, $hex in $table-bg-colors {
+      &.col-#{$i}-background-#{$bg-num} {
+        tr {
+          td:nth-child(#{$i}) {
+            background-color: $hex;
+          }
+        }
+      }
+      &.col-#{$i}-border-background-#{$bg-num} {
+        @extend .col-#{$i}-border;
+        tr {
+          td:nth-child(#{$i}) {
+            background-color: $hex;
+          }
+        }
+      }
+    }
+  }
+}
+// mixin to add borders to mimic divider for row/col
+@mixin table-divider {
+  @for $i from 1 through 50 {
+    &.row-#{$i}-divider {
+      tr:nth-child(#{$i}) td {
+        border-bottom: 1px solid $table-border !important;
+      }
+    }
+    &.col-#{$i}-divider {
+      tr {
+        td:nth-child(#{$i}) {
+          border-right: 1px solid $table-border !important;
+        }
+      }
+    }
+  }
+}
+
 .table-scroll {
   overflow: auto;
   margin-bottom: $component-margin-bottom;
   table {
     margin-bottom: 0;
     display: inline;
+  }
+}
+// IE issue not rendering left border of table
+@-moz-document url-prefix() {
+  table, .table {
+    margin-left: 1px;
   }
 }
 table, .table {
@@ -23,6 +151,11 @@ table, .table {
   }
   
   &.outer-borders-only {
+    &.background {
+      td {
+        background-color: $block-background;
+      }
+    }
     thead {
       border: 1px solid $table-border !important;
     }
@@ -38,6 +171,8 @@ table, .table {
       border: none !important;
     }  
   }
+  @include table-single-row-col-border;
+  @include table-divider;
   &.text-align-right {
     td {
       text-align: right;
@@ -74,6 +209,7 @@ table, .table {
   td {
     line-height: 1.375;
     color: $body-text;
+    background-color: $white;
   }
   tr.border-none td, tr.border-none th {
     border-top: 0 !important;
@@ -129,22 +265,55 @@ table, .table {
       &.border-l, &.border-tl, &.border-trl, &.border-tbl, &.border-rl, &.border-rbl, &.border-bl {
         border-left: 4px solid $reflex-blue !important;
       }
-      &.background, &.background-1 {
-        // yellow 30%
-        background-color: #FCEAB7 !important;
+      &.background {
+        background-color: map-get($table-bg-colors, 1);
       }
-      &.background-2 {
-        // sky-blue 37%
-        background-color: #A2E6F4 !important;
+      @each $index, $background-color in $table-bg-colors {
+        &.background-#{$index} {
+          background-color: $background-color;
+        }
       }
-      &.background-3 {
-        // red 33%
-        background-color: #F5B6B3 !important;
+    }
+  }
+  &.line-associated-content {
+    &.with-line-numbers {
+      tr {
+        pre {
+          padding-left: 1rem;
+          text-indent: -26px;
+        }
       }
-      &.background-4 {
-        // orange 58%
-        background-color: #FFA375 !important;
+    }
+    tr {
+      &:not(:first-child):not(:last-child) {
+        td {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
       }
+      pre {
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        line-height: normal;
+        border: none;
+        word-break: break-word;
+      }
+      &:first-child {
+        td {
+          padding-bottom: 0;
+        }
+      }
+      &:last-child {
+        td {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  &.bg-transparent {
+    td {
+      background-color: transparent !important;
     }
   }
 }

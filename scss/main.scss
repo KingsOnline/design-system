@@ -17,13 +17,13 @@
 @import 'layout/sidebar';
 @import 'layout/forms';
 
-//@import 'components/buttons';
 @import 'components/academicnote';
 @import 'components/activitylabel';
 @import 'components/alert';
 @import 'components/button';
 @import 'components/card';
 @import 'components/carousel';
+@import 'components/newcarousel';
 @import 'components/collapse';
 @import 'components/download';
 @import 'components/embed';
@@ -32,7 +32,9 @@
 @import 'components/images';
 @import 'components/infobox';
 @import 'components/modal';
+@import 'components/process';
 @import 'components/quotation';
+@import 'components/screenreaderdescription';
 @import 'components/scrollbar';
 @import 'components/table';
 @import 'components/timeline';
@@ -41,6 +43,7 @@
 @import 'pages/all';
 @import 'pages/book';
 @import 'pages/choice';
+@import 'pages/contentbank';
 @import 'pages/database';
 @import 'pages/editor';
 @import 'pages/feedback';
@@ -49,9 +52,12 @@
 @import 'pages/kalvidassign';
 @import 'pages/kitchensink';
 @import 'pages/lesson';
+@import 'pages/link';
 @import 'pages/logs';
+@import 'pages/modinfo';
 @import 'pages/questionnaire';
 @import 'pages/quiz';
+@import 'pages/tab';
 @import 'pages/url';
 @import 'pages/versioning';
 @import 'pages/webinar';

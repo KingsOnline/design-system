@@ -19,6 +19,11 @@
       width: 100% !important;
       height: auto;
     }
+    .filter-ally-wrapper .ally-score-indicator-embedded {
+      top: unset !important;
+      bottom: 0.5rem;
+      z-index: 11 !important;
+    }
   }
   .carousel-caption {
     @extend .caption-overlay;

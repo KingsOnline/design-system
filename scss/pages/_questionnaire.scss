@@ -10,7 +10,7 @@
 .path-mod-questionnaire {
   // pre questionnaire intro page
   .mod_questionnaire_viewpage {
-    .complete, .allresponses, .yourresponse {
+    .complete, .allresponses, .yourresponse, .message {
       margin-bottom: $component-margin-bottom;
       &> a {
         @extend .btn, .btn-primary;
@@ -77,6 +77,9 @@
     display: block;
   }
   .qn-container {
+    &:first-of-type {
+      position: relative;
+    }
     &:first-of-type:before {
       content: 'Indicates required field';
       font-family: "Open Sans";
@@ -94,7 +97,8 @@
       font-size: 0.5rem;
       font-weight: bold;
       position: absolute;
-      top: 3.125rem;
+      //top: 3.125rem;
+      top: 0;
       color: red;
       left: 0;
     }

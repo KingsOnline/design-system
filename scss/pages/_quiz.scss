@@ -74,10 +74,14 @@
 }
 
 //quiz attempt page
-#page-mod-quiz-attempt {
+#page-mod-quiz-attempt,
+#page-mod-quiz-review {
   .submitbtns {
-    .mod_quiz-prev-nav.btn.btn-secondary {
+    display: flex;
+    margin-bottom: $component-margin-bottom;
+    .mod_quiz-prev-nav {
       @extend .btn, .btn-secondary;
+      float: none !important;
     }
   }
 }
@@ -89,6 +93,7 @@
   .qn_buttons {
     margin-bottom: $component-margin-bottom;
     h3.mod_quiz-section-heading {
+      font-family: 'KingsBureauGrot';
       margin-bottom: $component-margin-bottom-xs;
     }
     h3.mod_quiz-section-heading:not(:first-child) {
@@ -100,13 +105,14 @@
       font-size: 1rem !important;
       padding: 0 !important;
       margin: 0 0.625rem 0.625rem 0;
-      background-color: $pearl-grey !important;
+      background-color: transparent !important;
       color: $headings !important;
       &:hover {
         text-decoration: none !important;
       }
       .thispageholder {
-        border: none;
+        border: 1px solid $rules-and-outlines;
+        border-radius: 4px !important;
       }
       &.flagged .thispageholder {
         background: transparent url(https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg) 15px 0 no-repeat;
@@ -118,20 +124,25 @@
         // background-color: rgba(65, 195, 130, 0.5) !important;
         background-color: transparent !important;
         span.thispageholder {
-          border: 2px solid $pea-green;
-          border-radius: 4px;
+          border: 1px solid $pea-green;
         }
       }
       &.incorrect {
         background-color: rgba(234, 100, 94, 0.5) !important;
+        span.thispageholder {
+          border: 1px solid $kings-red;
+        }
+      }
+      &.partiallycorrect {
+        background-color: #FCEAB7 !important;
+        span.thispageholder {
+          border: 1px solid $yellow;
+        }
+      }
+      &.notyetanswered {
       }
       &.notanswered {
-        background-color: rgba(65, 185, 225, 0.5) !important;
-        span.thispageholder {
-          // border: 2px solid #f5b90d;
-          border: 2px solid $rules-and-outlines;
-          border-radius: 4px;
-        }
+        color: $rules-and-outlines !important;
       }
     }
   }
@@ -289,9 +300,50 @@
             margin-bottom: $component-margin-bottom-xs !important;
             label {
               font-size: 1rem;
+              line-height: 1.5;
+              p {
+                margin: 0;
+              }
             }
             img {
               display: none;
+            }
+          }
+          > div.correct {
+            background-color: rgba(40, 195, 130, 0.2) !important;
+          }
+          > div.incorrect {
+            background-color: rgba(226, 35, 26, 0.2) !important;
+          }
+          ul.sortablelist {
+            li {
+              position: relative;
+              border-radius: 4px;
+              padding: 4px 8px;
+              .icon {
+                display: none;
+              }
+              &::before {
+                font-family: 'Font Awesome 5 Free';
+                margin-right: $component-margin-xs;
+                font-weight: 900;
+              }
+              &.correct {
+                background-color: rgba(40, 195, 130, 0.2) !important;
+                border-color: $pea-green !important;
+                &::before {
+                  color: $pea-green;
+                  content: '\f058';
+                }
+              }
+              &.incorrect {
+                background-color: rgba(226, 35, 26, 0.2) !important;
+                border-color: $kings-red !important;
+                &::before {
+                  color: $kings-red;
+                  content: '\f057';
+                }
+              }
             }
           }
         }
@@ -327,7 +379,8 @@
   &.correct {
     .formulation input.correct {
       background-color: rgba(40, 195, 130, 0.2) !important;
-      border-color: $pea-green !important;   
+      border-color: $pea-green !important;
+      border-radius: 4px;
     }
     .outcome {
       background-color: rgba(40, 195, 130, 0.2) !important;
@@ -339,9 +392,10 @@
     }
   }
   &.incorrect {
-    .formulation input.correct {
+    .formulation input.incorrect {
       background-color: rgba(226, 35, 26, 0.2) !important;
       border-color: $kings-red !important;   
+      border-radius: 4px;
     }
     .outcome {
       background-color: rgba(226, 35, 26, 0.2) !important;
