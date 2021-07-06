@@ -1,9 +1,7 @@
-// -----------------------------------------------------------------------------
-// scrollbar
-// -----------------------------------------------------------------------------
+/* Scrollbar
+   =========================*/
 
 #region-main {
- // !important is needed sometimes
   ::-webkit-scrollbar {
      width: 16px !important;
      height: 16px !important;
@@ -17,17 +15,13 @@
   ::-webkit-scrollbar-thumb {
     border-top: 8px solid $white !important; 
     background: $midnight-blue !important; 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
   }
   ::-webkit-scrollbar-thumb:window-inactive {
     background: $rules-and-outlines !important; 
   }
   
   .table-scroll {
-    // IE
-    -ms-scrollbar-base-color: $midnight-blue;
-    -ms-scrollbar-track-color: $pearl-grey;
-    -ms-scrollbar-arrow-color: $midnight-blue;
     // firefox
     scrollbar-color: $midnight-blue $pearl-grey;
     scrollbar-width: thin;

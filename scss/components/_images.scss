@@ -1,6 +1,5 @@
-// -----------------------------------------------------------------------------
-// images
-// -----------------------------------------------------------------------------
+/* Images
+   =========================*/
 
 // icons
 img.icon {
@@ -68,5 +67,6 @@ figure {
 
 // image-scroll container
 .image-scroll {
-  overflow-x: scroll;
+  overflow-x: auto;
+  margin-bottom: $component-margin-bottom;
 }

@@ -1,0 +1,245 @@
+/* Book
+  ======================== */
+
+#page-mod-book-view {
+  #page-content {
+    #region-main {
+      position: relative;
+      // book print button
+      #print-btn-container {
+        margin-bottom: $component-margin-bottom;
+        position: absolute;
+        right: 0;
+        .print-book-btn {
+          margin: unset !important;
+          &::before {
+            @extend .icon-before;
+            content: '\f02f';
+            margin-right: $component-margin-xs;
+          }
+        }
+      }
+      & > div:first-of-type {
+        & > h2:first-of-type {
+          // override theme book heading style
+          @extend .h2;
+          margin-bottom: $component-margin-bottom-lg;
+          // prevent the title from overlapping with the print button
+          margin-right: calc(88px + #{$component-margin-sm});
+        }
+      }
+      .book_content {
+        // override theme chapter heading style
+        & > h3 {
+          @extend .h3;
+        }
+        & > div > *:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    aside {
+      // book table of contents block
+      .block_book_toc {
+        .book_toc {
+          // prevent book TOC from truncating title
+          .d-flex:not(.action-list) {
+            display: block !important;
+            .text-truncate {
+              white-space: initial;
+            }
+            .action-list {
+              justify-content: flex-end;
+            }
+          }
+          // subchapters in TOC
+          ul ul {
+            margin-top: $component-margin-xs;
+            margin-left: $component-margin;
+            li {
+              margin-bottom: $component-margin-xs;
+            }
+          }
+        }
+      }
+    }
+  }
+  // hide first chapter title
+  // and bottom nav of single chapter book
+  &.single-chapter-book {
+    .book_content > h3:first-of-type,
+    .navbottom {
+      display: none;
+    }
+  }
+}
+
+// book navigation
+#page-mod-book-view {
+  .navtop,
+  .navbottom {
+    padding: 0 0 $component-margin-bottom-lg 0 !important;
+    margin: $component-margin-lg 0;
+    text-align: center;
+    border-top: none;
+    border-bottom: 1px solid $rules-and-outlines;
+    a {
+      margin: 0;
+      max-width: none;
+      float: none;
+      &.bookprev,
+      &.booknext {
+        text-align: center;
+        width: 1.5rem;
+        height: 2.25rem;
+        &:hover {
+          text-decoration: none;
+        }
+        @media only screen and (max-width: $neo-breakpoint) {
+          display: inline-block;
+        }
+      }
+      &.bookprev::before,
+      &.booknext::after,
+      &.bookexit::after {
+        font-size: 1.5rem;
+        color: $midnight-blue;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+      &.bookprev:hover::before,
+      &.booknext:hover::after,
+      &.bookexit:hover::after {
+        @include colour-opacity($midnight-blue, 0.85);
+      }
+    }
+    ul {
+      margin: 0;
+      display: inline-block;
+      line-height: normal;
+      // added for quick fix to remove long-book pag changes for 2.4
+      @media only screen and (max-width: $neo-breakpoint) {
+        li.chapter:not(.current):not(.mob-prev):not(.mob-next) {
+          display: none;
+        }
+      }
+      li.chapter {
+        list-style: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'KingsBureauGrot';
+        font-size: 1.5rem;
+        height: 2.25rem;
+        margin: 0 0.375rem;
+        &.current {
+          cursor: default;
+          background-color: $sea-blue;
+          border-radius: 50%;
+          strong {
+            min-width: 2.25rem;
+            color: $white;
+          }
+          //for firefox on mac only, helps with Safari too
+          @supports (-moz-osx-font-smoothing: auto) {
+            strong {
+              height: 36px;
+              margin-bottom: -30%;
+            }
+          }
+        }
+        a {
+          min-width: 2.25rem;
+          &:hover {
+            text-decoration: none;
+            @include colour-opacity($midnight-blue, 0.85);
+          }
+        }
+        @media only screen and (min-width: $neo-breakpoint) {
+          margin: 0 $component-margin-xs;
+        }
+      }
+      // books with 6+ chapters
+      &.mob-large-book-pagination,
+      // books with 11+ chapters
+      &.large-book-pagination {
+        li.chapter {
+          display: none;
+          &:first-child,
+          &.mob-prev,
+          &.current,
+          &.mob-next,
+          &:last-child {
+            display: inline-flex;
+          }
+          &:not(:first-child) + .mob-prev::before,
+          &.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+            content: '\2026';
+          }
+          &:not(:first-child) + .mob-prev::before {
+            margin-right: 0.375rem;
+          }
+          &.mob-next:not(:last-child)::after {
+            margin-left: 0.375rem;
+          }
+          @media only screen and (min-width: $neo-breakpoint) {
+            &.prev,
+            &.next {
+              display: inline-flex;
+            }
+            &:not(:first-child) + .mob-prev::before,
+            &.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+              content: none;
+              margin: 0;
+            }
+            &:not(.prev):not(:first-child) + .prev::before,
+            &.next + .next:not(:last-child):not(:nth-last-child(2))::after {
+              content: '\2026';
+            }
+            &:not(.prev):not(:first-child) + .prev::before {
+              margin-right: $component-margin-sm;
+            }
+            &.next + .next:not(:last-child)::after {
+              margin-left: $component-margin-sm;
+            }
+          }
+        }
+      }
+      // books with 6 - 10 chapters
+      &.mob-large-book-pagination {
+        li.chapter {
+          @media only screen and (min-width: $neo-breakpoint) {
+            display: inline-flex;
+            &:not(.prev):not(:first-child) + .prev::before,
+            &.next + .next:not(:last-child)::after {
+              content: none;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  // for books with sub-chapters, hide the nav
+  &.has-sub-chaps {
+    .navbottom {
+      ul {
+        display :none;
+      }
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        font-family: 'KingsBureauGrot';
+        color: $midnight-blue;
+        display: flex;
+        align-items: center;
+        &::before,
+        &::after {
+          padding: $component-margin-xs;
+        }
+      }
+    }
+  }
+}

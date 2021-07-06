@@ -1,0 +1,59 @@
+/* Footnotes
+   ======================== */
+
+section#region-main {
+  // style counter
+  a[aria-describedby="footnote-label"] {
+    color: inherit;
+    cursor: default;
+    outline: none;
+    vertical-align: super;
+    font-size: 0.75rem;
+    padding: 3px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      @include bg-colour-opacity($yellow, 0.3);
+    }
+    &:focus {
+      @include bg-colour-opacity($yellow, 0.3);
+    }
+    .sr-only.ref-label {
+      border: none;
+      padding: 0;
+      margin: 0;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  // style footnote
+  aside.footnotes{
+    border-top: 1px solid $rules-and-outlines;
+    padding: $component-margin-bottom 0 0 0;
+    margin: $component-margin 0 0 0;
+    :target {
+      @include bg-colour-opacity($yellow, 0.3);
+    }
+    ol {
+      margin-bottom: 0;
+      li {
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+// hide the screenreader only note in editor view of books
+.editing {
+  #region-main {
+    #id_content_editoreditable {
+      a {
+        .ref-label {
+          display: none;
+        }
+      }
+    }
+  }
+}

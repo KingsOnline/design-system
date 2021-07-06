@@ -1,35 +1,26 @@
-// -----------------------------------------------------------------------------
-// editor
-// -----------------------------------------------------------------------------
+/* Editor
+   ======================== */
 
-.editor_atto_toolbar {
-  button, button:last-child {
-    margin: 0 !important;
-  }
+// see Modal for .modchooser and .filepicker
+
+// hide activity icon from add a new activity page
+.editing #region-main h2:first-of-type > img.icon {
+  display: none;
 }
 
-.filemanager {
-  .fp-navbar {
-    margin: 0 !important;
-    padding-bottom: 9px;
-    .fp-toolbar, .fp-viewbar {
-      margin: 9px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      & > div a, & a {
-        margin: 0 !important;
-        padding: 0 !important;
-        border: none !important;
-        img {
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-      }
-    }
-    .fp-toolbar > div {
+// remove standard button styles from editor buttons
+.editor_atto_toolbar {
+  .atto_group {
+    & > button {
       margin: 0 !important;
-      padding: 0 !important;
-      border: none !important;
+      padding: 4px 8px !important;
+      border-radius: 0 !important;
+      & > :first-child {
+        border-radius: 4px 0 0 4px !important;
+      }
+      & > :last-child {
+        border-radius: 0 4px 4px 0 !important;
+      }
     }
   }
 }

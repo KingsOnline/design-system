@@ -1,6 +1,5 @@
-// -----------------------------------------------------------------------------
-// modal
-// -----------------------------------------------------------------------------
+/* Modal
+   =========================*/
 
 .close-button {
   padding: 0 !important ;
@@ -46,11 +45,13 @@
       position: relative;
       h1 {
         @extend .h4;
+        // from typography
       }
       span {
         padding: 0 !important;
         .closebutton {
           @extend .close-button;
+          // from within this file
         }
       }
     }
@@ -85,6 +86,7 @@
       border: none;
       h4 {
         @extend .h1;
+        // from typography
       }
     }
     .modal-body {
@@ -102,6 +104,7 @@
         text-align: center;
         .singlebutton > form > div > input[type="submit"]:first-child {
           @extend .btn, .btn-primary;
+          // from button
         }
       }
     }
@@ -126,6 +129,7 @@
         }
         .close {
           @extend .close-button;
+          // from within this file
           width: 32px;
           height: 32px;
           top: 8px;

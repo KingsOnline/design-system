@@ -1,0 +1,20 @@
+/* Course view
+   ======================== */
+
+// only grid and collapsed topics formtas are supported
+#page-course-view-grid,
+#page-course-view-topcoll {
+  #region-main {
+    .course-content {
+    }
+  }
+  // grid format only
+  &.format-grid {
+  }
+  // collapsed topics only
+  &.format-topcoll {
+  }
+  // editing mode on for both grid and collapsed topics format
+  &.editing {
+  }
+}

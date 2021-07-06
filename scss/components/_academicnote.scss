@@ -1,7 +1,13 @@
-// -----------------------------------------------------------------------------
-// academic note
-// -----------------------------------------------------------------------------
+/* Academic note
+   ======================== */
 
 .academic-note-container {
   @extend .note-container;
+  // from common
+  //we added the following to make it work with 2 authors in one consultancy course: https://keats.kcl.ac.uk/mod/book/view.php?id=4621952&chapterid=426074
+  .card-author.multi-author{
+    .card-title{
+      margin-right: $component-margin!important;
+    }
+  }
 }

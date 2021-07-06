@@ -1,0 +1,1414 @@
+@charset "UTF-8";
+
+@import '../utilities/variables';
+
+// primary font used for headings
+@font-face {
+  font-family: 'KingsBureauGrot';
+  src: url('https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// secondary fonts
+// Open Sans support font used for body text within sidebar blocks
+@font-face {
+  font-family: 'KingsBureauGrotFiveOne';
+  src: url('https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf') format('truetype');
+  font-style: normal;
+}
+// King's Caslon Display regular support font used for quotations
+@font-face {
+  font-family: 'KingsCaslonDisplay';
+  src: url('https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf') format('truetype');
+  font-style: normal;
+}
+
+// print common
+.print-icon-before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.print-component-border {
+  border: 2px solid $slate-grey;
+}
+$print-component-border: 2px solid $slate-grey;
+$print-component-border-thin: 1px solid $slate-grey;
+$print-component-margin: 1.25rem;
+$print-component-margin-sm: calc(#{$print-component-margin} / 2);
+$print-component-padding: 1.25rem;
+
+html {
+  font-size: 16px;
+}
+
+/* print preview */
+#page-mod-book-print {
+  font-size: 14px;
+  color: $body-text;
+  font-family: 'Open Sans';
+  margin: 0;
+  #page-content {
+    max-width: 85%;
+    margin: 0 auto;
+    // single chapter book hide toc and first chapter title for print preview
+    &.single-chapter-book {
+      [class^="book_toc_"],
+      &.single-chapter-book .book_chapter h2:first-of-type {
+        display: none;
+      }
+    }
+    // add margin before absolutely positioned print button
+    #maincontent {
+      margin-bottom: $component-margin-bottom-lg;
+    }
+    .book {
+      // chrome preview print book button
+      .text-right {
+        a.hidden-print {
+          color: $white;
+          position: relative;
+          img {
+            display: none;
+          }
+          // mimic button styles around print button
+          // with print icon
+          &::before,
+          &::after {
+            color: $midnight-blue;
+            background-color: $white;
+            border: 2px solid $midnight-blue;
+            font-size: 1.125rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 22.5px;
+          }
+          &::before {
+            @extend .print-icon-before;
+            content: '\f02f';
+            padding: 10px 8px 10px 12px;
+            border-radius: 4px 0 0 4px;
+            border-right: none;
+          }
+          &::after {
+            content: 'Print';
+            font-family: 'KingsBureauGrot';
+            padding: 10px 12px 10px 0;
+            border-radius: 0 4px 4px 0;
+            left: 38px;
+            border-left: none;
+          }
+          &:hover {
+            &::before,
+            &::after {
+              color: white !important;
+              background-color: $link-hover !important;
+              border-color:$link-hover;
+              transition: all 0.3s ease 0.1s;
+            }
+          }
+        }
+      }
+      .book_title {
+        // large margin to prevent overlap with print button
+        h1:first-of-type {
+          margin-top: 4rem;
+        }
+      }
+      .book_info {
+        & > .w-50 {
+          width: 100%;
+        }
+        table {
+          margin-bottom: 4.5rem;
+          td {
+            padding: 0;
+            color: $body-text;
+            // to allow both book info tables to line up
+            &:first-child {
+              width: 100px;
+            }
+          }
+          tr td:nth-child(2) {
+            padding-left: $print-component-padding;
+          }
+        }
+      }
+      // book description
+      .book_description {
+        .book_summary {
+          text-align: left;
+          margin: 0;
+        }
+      }
+      // book table of contents
+      [class^="book_toc_"] {
+        page-break-after: always;
+        page-break-before: auto;
+        margin-bottom: $component-margin-bottom-xl;
+        ul {
+          margin-left: 0;
+          li {
+            margin-top: $component-margin-xs;
+            list-style: none;
+            ul {
+              margin-left: $component-margin-bottom-lg;
+            }
+          }
+        }
+        & > a:first-child {
+          display: none;
+        }
+      }
+      // book chapters
+      & > :last-child {
+        .book_chapter {
+          page-break-before: auto;
+          &:not(:last-child) {
+            margin-bottom: 4.5rem;
+          }
+          & > a:first-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // Typography
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    font-family: 'KingsBureauGrot';
+    color: $headings;
+    margin-top: 0;
+    margin-bottom: $print-component-margin;
+  }
+  h1, .h1 {
+    font-size: 2.375rem;
+    line-height: 1.1;
+  }
+  h2, .h2 {
+    font-size: 1.875rem;
+    line-height: 1.125;
+  }
+  h3, .h3 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  h4, .h4 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  h5, .h5 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  h6, .h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  p,
+  li {
+    font-family: "Open Sans" !important;
+    color: $body-text;
+  }
+  p {
+    line-height: 1.5;
+    margin-bottom: $print-component-margin;
+  }
+  p a,
+  li p a {
+    text-decoration: underline;
+    // prevent weblinks from being cut off
+    word-break: break-word;
+    position: relative;
+    margin-right: 8px;
+    i.open-icon {
+      display: none;
+    }
+    &::after {
+      @extend .print-icon-before;
+      position: absolute;
+      content: '\f0c1';
+      font-size: 8px;
+      margin-left: 1px;
+    }
+  }
+  ol,
+  ul {
+    margin: 0 0 $print-component-margin $print-component-margin;
+    li:not(:last-child) {
+      margin-bottom: 0.625rem;
+    }
+  }
+  .caption {
+    font-size: 0.875rem;
+  }
+  .alert {
+    color: $body-text;
+  }
+  .quote-box {
+    border: 2px solid $footer-dark;
+    margin:0;
+    margin-bottom: $print-component-margin;
+    position: relative;
+    padding: $print-component-padding;;
+    & > :first-child {
+      padding-left: 2.75rem;
+      &::before {
+        content: '“';
+        color: $footer-dark;
+        font-family: 'KingsCaslonDisplay';
+        font-size: 4.5rem;
+        font-weight: 900;
+        top: 2.5rem;
+        position: absolute;
+        left: $component-margin-sm;
+      }
+    }
+    .quote-attribution {
+      margin: 0;
+      font-size: 1.2rem;
+      font-family: 'KingsBureauGrot';
+    }
+    .quote-body {
+      font-family: 'Open Sans';
+    }
+  }
+  figure {
+    &.quote-box {
+      padding-left: 4rem;
+      blockquote.quote-body {
+        border: none;
+        padding: 0;
+      }
+    }
+    figcaption {
+      line-height: 1.5;
+    }
+  }
+  pre {
+    white-space: pre-line;
+    margin-bottom: $print-component-margin;
+    background-color: transparent;
+    border: 1px solid $block-header;
+    border-radius: 0;
+    padding: $component-padding-sm;
+  }
+
+  // Bootstrap
+  .container {
+    width: auto;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .col,
+  [class*="col-"] {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .col-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: calc(25% - 30px);
+  }
+  .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: calc(33.3333% - 30px);
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: calc(50% - 30px);
+  }
+  .col-md-9 {
+    flex: 0 0 75%;
+    max-width: calc(75% - 30px);
+  }
+  .h-50 {
+    height: 50% !important;
+  }
+
+  // Card
+  .card {
+    @extend .print-component-border;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0;
+    margin-bottom: $print-component-margin;
+    padding: $print-component-padding;
+    .card-body {
+      background-color: transparent;
+      padding: 0;
+      flex: 1;
+      .card-title,
+      h3, h4, h5, h6 {
+        margin-bottom: 0.625rem;
+      }
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    img {
+      margin: 0 $print-component-margin 0 0;
+      width: 330px;
+      &.img-top {
+        width: 100%;
+        height: 100%;
+        margin: 0 0 $print-component-margin 0;
+      }
+    }
+    & > img {
+      align-self: flex-start;
+    }
+    &.img-right {
+      & > .filter-ally-wrapper,
+      & > img {
+        order: 2;
+        margin: 0 0 0 $print-component-margin;
+      }
+      & > .filter-ally-wrapper > img {
+        margin: 0;
+        height: auto;
+      }
+    }
+  }
+  // Card deck
+  .card-deck {
+    display: flex;
+    flex-direction: row-wrap;
+    margin: 0;
+    .card {
+      display: block;
+      flex: 1 0 0%;
+      margin: 0 $print-component-margin-sm $print-component-margin 0 !important;
+      &:last-child {
+        margin: 0 0 $print-component-margin $print-component-margin-sm !important;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  // Float box
+  .float-box {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $print-component-margin;
+    & > .filter-ally-wrapper,
+    & > img {
+      margin: 0 $print-component-margin 0 0;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    & > .filter-ally-wrapper > img {
+      margin: 0;
+    }
+    &.small-image img {
+      width: 100px;
+    }
+    h3, h4, h5, h6 {
+      margin-bottom: 0.625rem;
+    }
+    &.img-right {
+      & > .filter-ally-wrapper,
+      & > img {
+        order: 2;
+        margin: 0 0 0 $print-component-margin;
+      }
+      & > .filter-ally-wrapper > img {
+        margin: 0;
+        height: auto;
+      }
+    }
+  }
+
+  // Carousel (2.3-)
+  .carousel {
+    &::before {
+      display: none;
+    }
+    .carousel-indicators {
+      display: none;
+    }
+    .carousel-item {
+      display: block;
+      margin-bottom: $print-component-margin;
+      padding: 0;
+      img {
+        max-width: 100%;
+      }
+      .carousel-caption {
+        @extend .print-component-border;
+        position: static;
+        max-width: calc(100% - 2.5rem - 4px);
+        padding: $print-component-padding;
+        background-color: transparent !important;
+        h3, h4, h5, h6 {
+          font-size: 1.125rem;
+          color: $body-text;
+        }
+        & > * {
+          color: $body-text;
+          margin-bottom: $print-component-margin;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+  }
+  // New Carousel (2.4+)
+  .new-carousel {
+    margin-bottom: $print-component-margin;
+    width: 100% !important;
+    .nc-gallery {
+      list-style-type: none;
+      counter-reset: newcarousel;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      margin-right: -0.625rem !important;
+      & > li {
+        list-style-type: none;
+        border: $print-component-border-thin;
+        margin: 0 $print-component-margin-sm $print-component-margin-sm 0;
+        padding: $print-component-padding 0;
+        display: inline-block;
+        width: calc(50% - 0.75rem);
+        counter-increment: newcarousel;
+        &::before {
+          content: counter(newcarousel);
+          color: $body-text;
+          font-weight: bold;
+          vertical-align: top;
+          margin-left: $print-component-margin;
+        }
+        figure {
+          margin: 0;
+          padding: 0 $print-component-padding;
+          figcaption :last-child {
+            margin-bottom: 0;
+          }
+        }
+        img {
+          max-width: 100%;
+          margin-bottom: $component-margin-bottom-sm;
+        }
+      }
+    }
+    .nc-buttons {
+      display: none;
+    }
+  }
+
+  // Collapse
+  .collapse-container {
+    margin-bottom: $print-component-margin;
+    .collapse-card {
+      border-bottom: 2px solid $pearl-grey;
+      padding: $print-component-padding;
+      padding-left: 4rem;
+      &:first-child {
+        border-top: 2px solid $pearl-grey;
+      }
+      .collapse-header {
+        button {
+          margin: 0;
+          padding: 0;
+          &:hover {
+            text-decoration: none;
+            cursor: text;
+          }
+          h3, h4, h5, h6 {
+            position: relative;
+            text-align: left;
+            &::before {
+              @extend .print-icon-before;
+              content: '\f107';
+              color: $slate-grey;
+              position: absolute;
+              left: -2.5rem;
+              top: -6px;
+              font-size: 24px;
+            }
+          }
+        }
+      }
+      .collapse-body {
+        & > :last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // Embed audio and video
+  .audio-container {
+    position: absolute;
+    display: inline-block;
+    margin-bottom: $print-component-margin;
+    .audio-top {
+      display: flex;
+      .audio-image {
+        width: 80px;
+        height: 80px;
+        margin-right: $print-component-margin;
+        border-radius: 6px;
+        border: 1px solid $rules-and-outlines;
+      }
+      .audio-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .audio-speaker,
+        .audio-title {
+          font-size: 1.125rem;
+          line-height: normal;
+        }
+        .audio-speaker {
+          margin-bottom: $print-component-margin-sm;
+        }
+        .audio-title {
+          margin: 0;
+        }
+      }
+    }
+    .embed-responsive-audio {
+      margin-top: $print-component-margin;
+    }
+  }
+  .audio-container + .transcript-container {
+    margin-top: 102px;
+    // icon width
+    margin-left: 40px;
+  }
+  .embed-responsive {
+    height: 36px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: top;
+    border-right: none;
+    margin-right: -5px;
+    position: relative;
+    // hide embed content
+    iframe {
+      display: none;
+    }
+    &:not(.embed-responsive-audio) {
+      &::before {
+        content: '\f144';
+        left: calc(50% - 18px);
+        font-size: 24px;
+      }
+      &::after {
+        content: 'Video transcript';
+      }
+    }
+    &::before {
+      @extend .print-icon-before;
+      content: '\f3c9';
+      color: $body-text;
+      position: absolute;
+      top: 6px;
+      left: calc(50% - 12.25px);
+      font-size: 28px;
+    }
+    &::after {
+      content: 'Audio transcript';
+      position: absolute;
+      left: calc(42px + 1.25rem);
+      width: 200px;
+      top: 4px;
+    }
+  }
+
+  // Footnotes
+  .book-content {
+    counter-reset: footnotes;
+  }
+  a[aria-describedby="footnote-label"]{
+    content: counter(footnotes);
+    vertical-align: super;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin: 0 0 0 4px;
+    text-decoration: underline;
+    &::after {
+      display: none;
+    }
+  }
+  aside.footnotes {
+    border-top: $print-component-border-thin;
+    padding-top: $print-component-padding;
+  }
+
+  // Images
+  .full-width-img,
+  .img-full-width,
+  .center-img,
+  .img-center,
+  .circular-img,
+  .img-circular,
+  .image-scroll {
+    margin-bottom: $print-component-margin;
+  }
+  .full-width-img,
+  .img-full-width,
+  .image-scroll {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .full-width-img,
+  .img-full-width,
+  .center-img,
+  .img-center {
+     img:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+  }
+  .full-width-img,
+  .img-full-width {
+    .caption {
+      margin-bottom: 0;
+    }
+  }
+  .center-img,
+  .img-center {
+    text-align: center;
+  }
+  .circular-img,
+  .img-circular {
+    border-radius: 50%;
+    max-width: 100%;
+  }
+  .image-scroll {
+    margin-top: 54px;
+    position: relative;
+    &::before {
+      @extend .print-icon-before;
+      content: '\f03e';
+      color: $body-text;
+      position: absolute;
+      top: -36px;
+      left: 0;
+      font-size: 28px;
+    }
+    &::after {
+      content: 'This is a wide image, please return to the webpage to check more details.';
+      position: absolute;
+      top: -36px;
+      left: 36px;
+    }
+  }
+  // Info box
+  .editing-help-box {
+    display: none;
+  }
+  .definition-box,
+  .alert-caution,
+  .alert-instructional,
+  .feedback-box,
+  .learning-outcome-box,
+  .reading-box {
+    & > :first-child::before {
+      @extend .print-icon-before;
+      font-size: 1.2rem;
+      position: absolute;
+      top: $print-component-margin;
+      left: $print-component-margin;
+      color: $slate-grey;
+    }
+  }
+  .definition-box > :first-child::before {
+    content: '\f02e';
+    padding: 0 7px;
+    top: 1.2rem;
+  }
+  .alert-caution > :first-child::before {
+    content: '\f071';
+    padding: 0 2px;
+    top: 1.1rem;
+  }
+  .alert-instructional > :first-child::before {
+    content: '\f086';
+    padding: 0 2px;
+    top: 1.1rem;
+  }
+  .feedback-box > :first-child::before {
+    content: '\f27a';
+    padding: 0 4px;
+  }
+  .learning-outcome-box > :first-child::before {
+    content: '\f091';
+    padding: 0 3px;
+    top: 1.15rem;
+  }
+  .reading-box > :first-child::before {
+    content: '\f5da';
+    padding: 0 4px;
+  }
+  .definition-box,
+  .alert-caution,
+  .alert-instructional,
+  .feedback-box,
+  .key-concept-box,
+  .learning-outcome-box,
+  .reading-box {
+    border: 2px solid $table-border;
+    padding: $print-component-padding;
+    padding-left: 4rem;
+    margin-bottom: $print-component-margin;
+    position: relative;
+    h3, h4, h5, h6 {
+      font-size: 1.2rem;
+    }
+    & > div > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  .alert-caution,
+  .alert-instructional {
+    background-color: $block-header;
+  }
+  .key-concept-box {
+    @extend .print-component-border;
+    padding: $print-component-padding;
+    font-weight: bold;
+    background-color: $block-header;
+  }
+  .learning-outcome-box ol,
+  .learning-outcome-box ul {
+     margin-bottom: 0;
+  }
+
+  // Process
+  .process-container {
+    .process-card {
+      img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+      }
+    }
+    .connector-container {
+      text-align: center;
+      margin-bottom: $print-component-margin;
+      .icon.arrow-down::before,
+      .icon.arrow-up::after {
+        @extend .print-icon-before;
+        content: '\f063';
+        font-size: 30px;
+        margin: 10px;
+      }
+      .icon.arrow-up::after {
+        content: '\f062';
+      }
+      .icon.relate {
+        border-right: 3px solid $black !important;
+        height: 40px;
+        width: 50%;
+        margin: 10px;
+      }
+    }
+  }
+
+  // Table
+  // table variables
+  $print-table-border: 2px solid $table-border;
+
+  // mixin to add borders around and bg to individual row/col
+  @mixin table-single-row-col-border {
+    @for $i from 1 through 50 {
+      &.row-#{$i}-border {
+        tr:nth-child(#{$i}) td {
+          border-top: $print-table-border !important;
+          border-bottom: $print-table-border !important;
+          &:first-child {
+            border-left: $print-table-border !important;
+          }
+          &:last-child {
+            border-right: $print-table-border !important;
+          }
+        }
+      }
+      // if no numerical value after background
+      &.row-#{$i}-background {
+        tr:nth-child(#{$i}) td {
+          background-color: map-get($table-bg-colors, 1);
+        }
+      }
+      &.row-#{$i}-border-background {
+        @extend .row-#{$i}-border;
+        tr:nth-child(#{$i}) td {
+          background-color: map-get($table-bg-colors, 1);
+        }
+      }
+      //map to table-bg-colors
+      @each $bg-num, $hex in $table-bg-colors {
+        &.row-#{$i}-background-#{$bg-num} {
+          tr:nth-child(#{$i}) td {
+            background-color: $hex;
+          }
+        }
+        &.row-#{$i}-border-background-#{$bg-num} {
+          @extend .row-#{$i}-border;
+          tr:nth-child(#{$i}) td {
+            background-color: $hex;
+          }
+        }
+      }
+      &.col-#{$i}-border {
+        tr {
+          td:nth-child(#{$i}) {
+            border-left: $print-table-border !important;
+            border-right: $print-table-border !important;
+          }
+          &:first-child {
+           td:nth-child(#{$i}) {
+              border-top: $print-table-border !important;
+            }
+          }
+          &:last-child {
+           td:nth-child(#{$i}) {
+              border-bottom: $print-table-border !important;
+            }
+          }
+        }
+      }
+      // if no numerical value after background
+      &.col-#{$i}-background {
+        tr {
+          td:nth-child(#{$i}) {
+            background-color: map-get($table-bg-colors, 1);
+          }
+        }
+      }
+      &.col-#{$i}-border-background {
+        @extend .col-#{$i}-border;
+        tr {
+          td:nth-child(#{$i}) {
+            background-color: map-get($table-bg-colors, 1);
+          }
+        }
+      }
+      //map to table-bg-colors
+      @each $bg-num, $hex in $table-bg-colors {
+        &.col-#{$i}-background-#{$bg-num} {
+          tr {
+            td:nth-child(#{$i}) {
+              background-color: $hex;
+            }
+          }
+        }
+        &.col-#{$i}-border-background-#{$bg-num} {
+          @extend .col-#{$i}-border;
+          tr {
+            td:nth-child(#{$i}) {
+              background-color: $hex;
+            }
+          }
+        }
+      }
+    }
+  }
+  // mixin to add borders to mimic divider for row/col
+  @mixin table-divider {
+    @for $i from 1 through 50 {
+      &.row-#{$i}-divider {
+        tr:nth-child(#{$i}) td {
+          border-bottom: $print-table-border !important;
+        }
+      }
+      &.col-#{$i}-divider {
+        tr {
+          td:nth-child(#{$i}) {
+            border-right: $print-table-border !important;
+          }
+        }
+      }
+    }
+  }
+  // define table highlight background colours
+  $table-bg-colors: (
+    1: #FCEAB7 !important, // yellow 30%
+    2: #A2E6F4 !important, // sky-blue 37%
+    3: #F5B6B3 !important, // red 33%
+    4: #FFA375 !important // orange 58%
+  );
+
+  table {
+    margin-bottom: $print-component-margin;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 0;
+    &.no-borders,
+    &.outer-borders-only {
+      tr td {
+        border: none;
+      }
+    }
+    &.default-width {
+      width: auto;
+    }
+    &.line-associated-content {
+      &.with-line-numbers {
+        tr {
+          pre {
+            padding-left: 26px;
+            text-indent: -26px;
+          }
+        }
+      }
+      tr {
+        &:not(:first-child):not(:last-child) {
+          td {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          font-size: 1rem;
+          line-height: normal;
+          border: none;
+          word-break: break-word;
+        }
+        &:first-child {
+          td {
+            padding-bottom: 0;
+          }
+        }
+        &:last-child {
+          td {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+    &.no-borders {
+      td {
+        border: none !important;
+      }
+    }
+    @include table-single-row-col-border;
+    @include table-divider;
+    &.outer-borders-only {
+      thead {
+        border: $print-table-border;
+        th {
+          border: none !important;
+        }
+      }
+      &.background {
+        td {
+          background-color: $block-background;
+        }
+      }
+    }
+    &.outer-borders-only,
+    &.table-bordered {
+      border: $print-table-border;
+      border-radius: 0;
+      border-collapse: collapse;
+    }
+    &.table-bordered {
+      th,
+      td {
+        border: $print-table-border;
+      }
+      th {
+        background-color: $block-header;
+        color: $headings;
+      }
+      td {
+        color: $body-text;
+      }
+    }
+    &.table-diagonal-split {
+      .split-cell {
+        background: linear-gradient(to top right,
+        $block-header 49%,
+        $rules-and-outlines 49%,
+        $rules-and-outlines 51%,
+        $block-header 51%);
+        line-height: 1;
+        .top {
+          margin-left: 120px;
+          text-align: right;
+        }
+        .bottom {
+          margin-right: 120px;
+          text-align: left;
+        }
+      }
+      th {
+        vertical-align: top;
+        line-height: 1;
+      }
+    }
+    &.table-highlight {
+      .highlight-cell {
+        &.border {
+          border: 4px solid $reflex-blue !important;
+        }
+        &.border-t, &.border-tr, &.border-trb, &.border-trl, &.border-tb, &.border-tbl, &.border-tl {
+          border-top: 4px solid $reflex-blue !important;
+        }
+        &.border-b, &.border-tb, &.border-trb, &.border-tbl, &.border-rb, &.border-rbl, &.border-bl {
+          border-bottom: 4px solid $reflex-blue !important;
+        }
+        &.border-r, &.border-tr, &.border-trb, &.border-trl, &.border-rb, &.border-rbl, &.border-rl {
+          border-right: 4px solid $reflex-blue !important;
+        }
+        &.border-l, &.border-tl, &.border-trl, &.border-tbl, &.border-rl, &.border-rbl, &.border-bl {
+          border-left: 4px solid $reflex-blue !important;
+        }
+        &.background {
+          background-color: map-get($table-bg-colors, 1);
+        }
+        @each $index, $background-color in $table-bg-colors {
+          &.background-#{$index} {
+            background-color: $background-color;
+          }
+        }
+      }
+    }
+    &.text-align-right {
+      td {
+        text-align: right;
+      }
+    }
+    caption {
+      font-size: 0.75rem;
+      line-height: normal;
+      font-weight: normal;
+      caption-side: bottom !important;
+      margin-top: $component-margin-xs;
+    }
+  }
+  .table-scroll {
+    position: relative;
+    margin-top: 84px;
+    &::before {
+      @extend .print-icon-before;
+      content: '\f03e';
+      color: $body-text;
+      position: absolute;
+      top: -66px;
+      left: 0;
+      font-size: 28px;
+    }
+    &::after {
+      content: 'This is a wide table and some information may be excluded in print.\00000a Please return to the webpage to check for more details.';
+      position: absolute;
+      top: -66px;
+      left: 36px;
+      white-space: pre-wrap;
+    }
+  }
+
+  // Timeline (v2.4-)
+  .timeline-container {
+    margin-top: calc(25px - 2.5rem);
+    .row,
+    .col {
+      margin: 0 !important;
+    }
+    .col-auto {
+      flex-direction: column;
+    }
+  }
+  .timeline-row {
+    .col.border-right {
+      border-right: $print-component-border;
+    }
+    .timeline-badge-pill {
+      border-radius: 50%;
+      border: 2px solid $slate-grey;
+      height: calc(1.25rem - 2px);
+      width: 1.25rem;
+      padding: 0;
+      padding-top: 2px;
+      background-color: transparent;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: calc(100% + 2px);
+        border-top: $print-component-border-thin;
+        border-bottom: $print-component-border-thin;
+        width: 1rem;
+      }
+    }
+    &:last-child .timeline-content .timeline-card {
+      margin-bottom: $print-component-margin;
+    }
+  }
+  .timeline-content {
+    margin-left: 0.625rem;
+    .timeline-card {
+      margin-bottom: 0.25rem;
+      margin-top: 2.5rem;
+      .date-tab {
+        position: absolute;
+        top: -23px;
+        left: -2px;
+        padding: 0 $print-component-padding;
+        border-radius: 6px 6px 0 0;
+        font-family: 'KingsBureauGrot';
+        line-height: 1.4;
+        color: $headings;
+        border: $print-component-border;
+        border-bottom: none;
+      }
+      .card-body {
+        width: 100% !important;
+        .row {
+          margin: 0;
+          .col-md,
+          .col-md-3 {
+            margin: 0;
+          }
+          .col-md-3 img {
+            max-width: 100%;
+            height: auto;
+          }
+          .col-md {
+            h3, h4, h5, h6 {
+              line-height: 1.4;
+              font-size: 1.125rem;
+            }
+            &:not(:first-child) {
+              margin-left: $print-component-margin;
+            }
+          }
+        }
+        .img-reference {
+          text-align: right;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+  &.highlighted  {
+    .timeline-badge-pill,
+    .timeline-content .timeline-card .date-tab,
+    .timeline-content .timeline-card {
+      background-color: #ffe1d2;
+    }
+  }
+  // Timeline (v2.5+)
+  .timeline-2021-container {
+    margin-top: 0;
+    margin-bottom: $print-component-margin;
+    .timeline-card {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      border: $print-component-border;
+      border-style: dashed;
+      margin-bottom: 2.25rem;
+      padding: $print-component-padding;
+      &:not(:first-child) {
+        &::before {
+          position: absolute;
+          content: '';
+          border: 0.25rem solid $slate-grey;
+          height: 2rem;
+          top: -2.5rem;
+          left: 4.5rem;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &.highlighted {
+        border: 4px solid $slate-grey;
+      }
+      .date-label {
+        line-height: 1;
+        font-family: OpenSans, sans-serif;
+        font-size: 1rem;
+        font-weight: bold !important;
+        color: $white;
+        background-color: $slate-grey;
+        padding: 0.5rem;
+        width: fit-content;
+      }
+      .card-body {
+        .card-title {
+          margin-bottom: 0.75rem;
+        }
+        &:only-child > :last-child {
+          margin-bottom: 0;
+        }
+      }
+      .card-image {
+        margin: 0 0 0 $print-component-margin;
+        order: 2;
+        max-width: 130px;
+        img {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+
+  // Transcript
+  .transcript-container {
+    display: inline-block;
+    // icon width
+    width: calc(100% - 40px);
+    margin-bottom: $print-component-margin;
+    .transcript-button-group {
+      display: none;
+    }
+    .transcript-card {
+      .card-body {
+        border-left: $print-component-border;
+        padding-left: $print-component-padding;
+        padding-top: 3rem;
+      }
+    }
+  }
+
+  // View answer and Academic note
+  .view-generic-container,
+  .view-answer-container,
+  .view-description-container,
+  .view-feedback-container,
+  .view-model-answer-container,
+  .academic-note-container {
+    & > h3, & > h4, & > h5, & > h6 {
+      font-size: 1.2rem;
+      margin-left: calc(150px + #{$print-component-margin});
+      border-left: $print-component-border;
+      padding-left: $print-component-padding;
+      margin-bottom:  0;
+      padding-bottom: $print-component-margin;
+    }
+    // hide button
+    [class*="view-hide-"] {
+      display: none;
+    }
+    [class*="-card"] > .card-body {
+      display: flex;
+      border: none;
+      .card-author {
+        text-align: center;
+        border-right: $print-component-border;
+        padding-right: $print-component-padding;
+        & > img,
+        & > .filter-ally-wrapper > img {
+          border-radius: 50%;
+          width: 150px;
+          height: auto;
+          margin: 0 0 0.625rem 0;
+        }
+        .card-title {
+          max-width: 150px;
+        }
+      }
+      & > .card-text {
+        margin-left: $print-component-margin;
+      }
+      & .card-text:only-child,
+      & > p {
+        margin-left: calc(150px + #{$print-component-margin});
+        border-left: $print-component-border;
+        padding-left: $print-component-padding;
+      }
+    }
+  }
+  .float-box {
+    .view-generic-container,
+    .view-answer-container,
+    .view-description-container,
+    .view-feedback-container,
+    .view-model-answer-container,
+    .academic-note-container {
+      border-left: $print-component-border;
+      padding-left: $print-component-padding;
+      [class*="-card"] > .card-body {
+        display: block;
+      }
+      .card-author {
+        width: 150px;
+      }
+      & > h3, & > h4, & > h5, & > h6,
+      & > img,
+      & > .filter-ally-wrapper > img,
+      .card-author,
+      .card-text,
+      & > p {
+        margin-left: 0 !important;
+        border: none !important;
+        padding-left: 0 !important;
+      }
+    }
+  }
+}
+
+/* print */
+@media print {
+  #page-content {
+  }
+  .book {
+    .book_title {
+      margin-top: 0 !important;
+      // large margin to prevent overlap with print button
+      h1:first-of-type {
+        margin-top: 0 !important;
+      }
+    }
+  }
+  // View answer and Academic note
+  // no idea why but image needs to be twice as big for print than
+  // print-preview to occupy the same space
+  .view-generic-container,
+  .view-answer-container,
+  .view-description-container,
+  .view-feedback-container,
+  .view-model-answer-container,
+  .academic-note-container {
+    [class*="-card"] > .card-body {
+      .card-author {
+        & > img,
+        & > .filter-ally-wrapper > img {
+          width: 300px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
-// -----------------------------------------------------------------------------
-// embed
-// -----------------------------------------------------------------------------
+/* Embed
+   ======================== */
 
 .embed-responsive {
   margin-bottom: $component-margin-bottom;
@@ -33,7 +32,6 @@
 }
 // kaltura playlist
 .embed-responsive-kaltura-playlist {
-  // padding-top: calc(330%/7.4);
   padding-top: 0;
   & > * {
     width: 100% !important;
@@ -96,18 +94,22 @@
       .audio-speaker {
         margin-bottom: 0.75rem;
       }
-      .audio-title {
-        font-family: 'KingsBureauGrot';
+      .audio-title,
+      h3, h4, h5, h6 {
+        @extend .h5;
+        margin-top: 0;
         margin-bottom: 0;
       }
     }
   }
-  .embed-responsive-audio, .audio-player {
+  .embed-responsive-audio,
+  .audio-player {
     padding-top: 40px;
     margin-bottom: 0;
   }
 }
 
+// transcript
 .transcript-container {
   margin-bottom: $component-margin-bottom;
   .transcript-button-group {
@@ -137,6 +139,15 @@
     }
     .transcript-card {
       display: none;
+    }
+  }
+}
+
+// display in block in atto editor
+.editor_atto_content {
+  .transcript-container.collapsed {
+    .transcript-card {
+      display: block !important;
     }
   }
 }

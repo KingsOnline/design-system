@@ -1,6 +1,5 @@
-// -----------------------------------------------------------------------------
-// typography
-// -----------------------------------------------------------------------------
+/* Typography
+   ======================== */
 
 $font-kbg: (
   family: 'KingsBureauGrot',
@@ -15,8 +14,6 @@ $font-kbg: (
   h3-sm: ( font-size: 1.25rem, line-height: 1.25 ),
   h4-sm: ( font-size: 1.125rem, line-height: 1.4 ),
   h56-sm: ( font-size: 1rem, line-height: 1.4 ),
-  quote-attribution: ( font-size: 1.125rem, line-height: 1.25 ),
-  quote-attribution-sm: ( font-size: 1rem, line-height: 1.25 ),
   btn: ( font-size: 1.125rem !important, line-height: 1.25 !important),
   btn-lg: ( font-size: 1.25rem !important, line-height: 1.5 !important)
 );
@@ -33,7 +30,7 @@ $font-kcd: (
 );
 
 $font-default: $font-kbg;
-@function _fontset-feature($feature, $family:$font-default, $set: 'base'){
+@function _fontset-feature($feature, $family: $font-default, $set: 'base'){
   $result: map-get(map-get($family, $set), $feature);
   @return ($result);
 }
@@ -71,22 +68,37 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
+.h1, .h2, .h3, .h4, .h5, .h6
 .quote-attribution {
   font-family: 'KingsBureauGrot';
   color: $headings;
   margin-top: 0;
   margin-bottom: $component-margin-bottom-sm;
 }
+h6, .h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700 !important;
+}
 h1, .h1 { @include font-scale(h1-sm) ;}
 h2, .h2 { @include font-scale(h2-sm) ;}
 h3, .h3 { @include font-scale(h3-sm) ;}
-h4, .h4 { @include font-scale(h4-sm) ;}
-h5, .h5, h6, .h6 { @include font-scale(h56-sm) ;}
+h4, .h4 {
+  @include font-scale(h4-sm);
+  letter-spacing: 0.25px;
+}
+h5, .h5 {
+  @include font-scale(h56-sm);
+  letter-spacing: 0.5px;
+}
+h6, .h6 { @include font-scale(h56-sm) ;}
 
 // allow margin above headers in main region to increase to 36px
-#region-main h3:not(:first-child), #region-main h4:not(:first-child), #region-main h5:not(:first-child), #region-main h6:not(:first-child){
-  margin-top: 12px;
+#region-main .no-overflow {
+  & > h3, & > h4, & > h5, & > h6 {
+    &:not(:first-child) {
+      margin-top: 0.75rem;
+    }
+  }
 }
 
 p {
@@ -97,20 +109,17 @@ p {
 .caption {
   @include font-scale(caption, $font-os);
 }
-.quote-body {
-  @include font-scale(quote-body-sm, $font-kcd);
-  margin-bottom: 1.75rem;
-  font-style: italic;
+.quote-box {
+  .quote-body {
+    @include font-scale(quote-body-sm, $font-kcd);
+    margin-bottom: 1.75rem;
+  }
 }
-.quote-attribution {
-  @include font-scale(quote-attribution-sm);
-  margin-bottom: 0 !important;
-}
-select, option, {
+select, option {
   font-family: 'Open Sans', sans-serif;
 }
 
-// mobile fonts
+// large screen fonts
 @media only screen and (min-width: $neo-breakpoint) {
   h1, .h1 { @include font-scale(h1) ;}
   h2, .h2 { @include font-scale(h2) ;}
@@ -118,18 +127,22 @@ select, option, {
   h4, .h4 { @include font-scale(h4) ;}
   h5, .h5 { @include font-scale(h5) ;}
   h6, .h6 { @include font-scale(h6) ;}
-  .quote-body { @include font-scale(quote-body, $font-kcd); }
-  .quote-attribution { @include font-scale(quote-attribution); }
+  .quote-box {
+    .quote-body {
+      @include font-scale(quote-body, $font-kcd);
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 
+// theme overrides
 // hide page title underline
-.path-mod-book .generalbox.book_content>h3 {
+.path-mod-book .generalbox.book_content > h3 {
   background: none;
   &:after {
     display: none;
   }
 }
-
 //override theme list font style
 li {
   line-height: inherit;
@@ -137,38 +150,91 @@ li {
     margin-bottom: 0;
   }
 }
-hr {
-  margin: $component-margin 0;
-  border: 1px solid $rules-and-outlines;
-  border-width: 0 0 1px 0;
-}
-
 //override module week page link
 .instancename {
   color: $midnight-blue;
   &:hover {
-    color: #003d5c;
+    color: darken($midnight-blue, 10%);
   }
-}
-
-// override theme permanent underline
-section#region-main a:link {
-  text-decoration: none;
 }
 
 #region-main {
   // link hover styles
-  p a, li p a {
+  p a,
+  li p a,
+  figcaption a {
     @extend .ds-link;
+    // icon for external links
+    i.open-icon {
+      display: inline-block;
+      margin: 0.375rem;
+      vertical-align: baseline;
+      transform: translateY(-10%);
+    }
+    .sr-link-message{
+      display: inline-block;
+    } 
+  }
+  a {
+    // override theme permanent underline
+    &:link {
+      text-decoration: none;
+    }
+    // link download
+    // download button in components/_button
+    &.link-download {
+      @include bg-colour-opacity($yellow, 0.2);
+      padding: 2px 4px;
+    }
   }
   // list margin bottom
   ol, ul {
     margin: 0 0 $component-margin-bottom $component-margin-lg;
-    &> li:not(:last-child) {
-      margin-bottom: $component-margin-bottom-sm;
+    & > li {
+      &:not(:last-child) {
+        margin-bottom: $component-margin-bottom-sm;
+      }
       // remove margin bottom from nested lists
-      ul, ol, li {
-        margin-bottom: 0;
+      ol, ul {
+        & > li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .summary {
+    ol, ul {
+      // Moodle adds a span around li on section pages
+      & > span > li,
+      & > li  {
+        &:not(:last-child) {
+          margin-bottom: $component-margin-bottom-sm;
+        }
+        ol, ul {
+          & > span > li,
+          & > li {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+    }
+  }
+  hr {
+    margin: $component-margin 0;
+    border: 1px solid $rules-and-outlines;
+    border-width: 0 0 1px 0;
+  }
+}
+
+// hide screenreader only note on external links in editor view of books
+.editing {
+  #region-main {
+    #id_content_editoreditable {
+      p a,
+      li p a {
+        .sr-link-message {
+         display: none;
+        }
       }
     }
   }
@@ -187,25 +253,17 @@ pre {
 }
 code {
   border: 1px solid $block-header;
-  background-color: rgba(237, 241, 242, 0.2);
+  @include bg-colour-opacity($block-background, 0.2);
   color: $kings-red;
   border-radius: 4px;
 }
-
-/*
- //override book headings
-.path-mod-book {
-  #region-main > div:first-of-type > h2:first-of-type {
-    @extend .h1;
-    margin-bottom: $component-margin-bottom-lg;
-  }
-  .generalbox.book_content>h3 {
-    @extend .h2;
-  }
+table code{
+  //so that the code is still visible when cells are highlighted
+  background:#F7F7F9!important;
 }
-*/
-// and page headings
-.path-mod-page #region-main>div>h2 {
+
+// remove page heading underline
+.path-mod-page #region-main > div > h2 {
   background: none;
   &::after {
     display: none;

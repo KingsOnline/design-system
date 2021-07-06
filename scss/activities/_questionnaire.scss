@@ -1,0 +1,145 @@
+/* Questionnaire
+   ======================== */
+
+
+// pre questionnaire intro page
+#page-mod-questionnaire-view {
+}
+
+// questionniare page and post submission page
+#page-mod-questionnaire-complete {
+  // post submission page
+  .mod_questionnaire_completepage {
+    margin-bottom: $component-margin-bottom-sm !important;
+    .singlebutton {
+      // continue button
+      button {
+        @extend .btn-primary;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}
+
+/* =========== */
+
+#page-mod-questionnaire-preview fieldset,
+#page-mod-questionnaire-complete fieldset {
+  min-inline-size: auto;
+}
+
+.path-mod-questionnaire {
+  // pre questionnaire intro page
+  .mod_questionnaire_viewpage {
+    .complete,
+    .allresponses,
+    .yourresponse,
+    .message {
+      margin-bottom: $component-margin-bottom;
+      & > a {
+        @extend .btn, .btn-primary;
+      }
+    }
+  }
+  &#page-mod-questionnaire-complete {
+    .surveyTitle {
+      padding: 0;
+      margin-bottom: $component-margin-bottom;
+    }
+    .message {
+      border: none;
+      padding: 0;
+      & > a {
+        @extend .btn, .btn-primary;
+      }
+    }
+    .c1, .c0 {
+      border-bottom: 0;
+      border-right: 0;
+      border-top: 1px solid $table-border;
+      border-left: 1px solid $table-border;
+    }
+    .qn-answer table {
+      @extend .table, .table-bordered;
+    }
+  }
+}
+
+.path-mod-questionnaire {
+  // space between buttons
+  #notice .buttons .singlebutton{
+    margin-right: $component-margin-xs;
+  }
+  .floatprinticon {
+    width: 100%;
+    margin: 0;
+    // couldn't add bottom-margin to title as this overrides styles of title on other pages, so had to apply it to the print 
+    margin-top:-1.5rem;
+    float: none;
+    text-align: right !important;
+    display: block;
+  }
+  .qn-container {
+    &:first-of-type {
+      position: relative;
+    }
+    &:first-of-type:before {
+      content: 'Indicates required field';
+      font-family: "Open Sans";
+      font-size: 1rem;
+      font-weight: normal;
+      display: block;
+      margin-left: 0.825rem;
+      text-align: left;
+      margin-bottom: $component-margin-bottom;
+      cursor: text;
+    }
+    &:first-of-type:after {
+      content: '\f06a';
+      font-family: "Font Awesome 5 Free";
+      font-weight: bold;
+      position: absolute;
+      //top: 3.125rem;
+      top: 0;
+      color: #CA3120;
+      left: 0;
+    }
+    .qn-legend {
+      margin-right: $component-margin-xs;
+      .qn-info {
+        padding: 0;
+        background: none;
+        .qn-number {
+          font-family: "Open Sans";
+          font-size: 1rem;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+      }
+      .req {
+        vertical-align: top !important;
+      }
+    }
+    .qn-content {
+      margin-left: 0;
+      .qn-question {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+        background-color:transparent;
+        p,
+        label {
+          margin: 0 0 $component-margin-bottom 0;
+          font-weight: bold;
+          cursor: text;
+        }
+      }
+      .qn-answer, .editor_atto_wrap {
+        margin-bottom: $component-margin-bottom;
+      }
+      .qn-answer table {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

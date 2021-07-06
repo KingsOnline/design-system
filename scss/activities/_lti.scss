@@ -1,0 +1,10 @@
+/* LTI
+   ======================== */
+
+// Reading list tool etc
+#page-mod-lti-view {
+  #region-main > div:first-child a:link {
+    // from Common
+    @extend .bold-link;
+  }
+}

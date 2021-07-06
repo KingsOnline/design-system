@@ -1,3 +1,7 @@
+/* optional file to hide all activities labels
+   see guidance:
+   https://iddkingsonline.com/design-system/guidance/no-activity-labels.html */
+
 li.activity .activityinstance:not(.exception) .activity-label-container {
   display: none !important;
 }

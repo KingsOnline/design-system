@@ -6,6 +6,10 @@ $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add 
 // if there are no visible blocks in aside hide it and make main region full width
 $("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
 $("#block-region-side-post:not(:has(.block:not(.hide)))").addClass("hide").parents("body").addClass("empty-region-side-post used-region-side-pre");
+// add networking-block- class
+$(".block ul[id*=networking-list]").each(function() {
+  $(this).parents(".block").addClass($(this).attr("id").replace("-list-", "-block-"));
+});
 
 // if the foundation css is loaded, remove it
 var foundationCSS = $('link[href="https://www.kcl.ac.uk/study/learningteaching/ctel/Documents/hosting/css/templates/foundation-template.css"]');
@@ -13,15 +17,6 @@ if (foundationCSS.length) {
   //foundationCSS.prop('disabled', true);
   foundationCSS.remove();
 }
-
-// module nav block fails to open/collapse in IE
-if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-  const modNavBlock = ".block.block_course_modulenavigation .section .allsectionnames > a";
-  $(document).on("click", modNavBlock, function(event) {
-    event.preventDefault();
-    $(this).parents(".section").children(".section-collapse").toggleClass('in');
-  });
-};
 
 // remove this for no-print.js
 // pull print button from admin block and position at top of book
@@ -34,6 +29,38 @@ const blockHide = "#block-region-side-pre .block .title h2, #block-region-side-p
 $(document).on("click", blockHide, function(event) {
   $(this).parents(".block").toggleClass('hidden');
 });
+
+/* grid format */
+// return 'accesshide' class to sectionname post 3.9.3
+$(".gtopics .content .sectionname").addClass("accesshide");
+
+/* external links in paragraphs */
+// if external links are present
+const externalLink = $('a[target="_blank"]');
+if ((externalLink).length) {
+  $(window).on('load', function() {
+    addNewWindowIcon();
+    addNewWindowMessage();
+  });
+}
+function addNewWindowIcon() {
+  $(externalLink).each(function(i) {
+    // only add icon if in region main and icon not already present
+    //if ($(this).closest("#region-main, .editor_atto_content_wrap").length && $(this).not(".open-icon")) {
+    if ($(this).parents("#region-main").length && $(this).children("i").filter(".open-icon").length == 0) {
+      $(this).append('<i class="open-icon fas fa-external-link-alt fa-xs" aria-hidden="true"></i>');
+    }
+  });
+}
+function addNewWindowMessage() {
+  $(externalLink).each(function(i) {
+    // add span if not already present
+    if ($(this).find(".sr-link-message").length == 0) {
+      $(this).append('<span class="sr-only sr-link-message">(opens in a new tab)</span>');
+      $("this").attr('rel','noopener');
+    }
+  });
+}
 
 /* card deck */
 // call function on window load (instead of doc ready)
@@ -94,116 +121,226 @@ $(document).on("click", ".carousel-control-prev, .carousel-control-next, .carous
   carouselContainer.find(".carousel-indicators li:nth-child(2)").css("background-color", newSlide === 2 ? "white" : "rgba(255, 255, 255, 0.5)");
 });
 
+/* new carousel */
+// on window load, set width
+$(window).on('load', function() {
+  resetCarWidth();
+});
+// also on re-size
+$(window).resize(function() {
+  resetCarWidth();
+});
+function resetCarWidth() {
+  // resize to make integer width so scroll will work
+  // remove the in-line attribute if it has been set in the editor
+  $(".new-carousel").removeAttr("style");
+  var loadWidth= $(".new-carousel").width();
+  var carWidth = Math.floor(loadWidth);
+  $(".new-carousel").each(function() {
+    $(this).width(carWidth);
+  });
+  var newWidth= $(".new-carousel").width();
+};
+
+$(".new-carousel").on("click", ".nc-next", function(event) {
+  // get component width
+  var slideWidth = $(".nc-gallery").width();
+  // update value upon window resize
+  $(window).resize(function() {
+  slideWidth = $(".nc-gallery").width();
+  });
+  var newCarousel = $(this).parents()[2];
+  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
+  // scroll
+  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '+=' + slideWidth }, 2).animate({opacity:"1"},300);
+});
+
+$(".new-carousel").on("click", ".nc-previous", function(event) {
+  // get component width
+  var slideWidth = $(".nc-gallery").width();
+  // update value upon window resize
+  $(window).resize(function() {
+  slideWidth = $(".nc-gallery").width();
+  });
+  // scroll
+  var newCarousel = $(this).parents()[2];
+  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
+  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '-=' + slideWidth }, 2).animate({opacity:"1"},300);
+});
+
+$(".nc-gallery").scroll(function() {
+  // Get component width
+  var slideWidth = $(this).width();
+  // Get how far we scrolled left
+  var leftNumber = $(this).scrollLeft();
+  // divide our scroll distance by component width to calculate which slide we're on (accounting for + 1 error)
+  var currSlideNum = (leftNumber / slideWidth) + 1;
+  // find the indicator dot with the same index and make that dot active, removing active from others
+  var newCarousel = $(this).parents()[0];
+  var indicDots = $(newCarousel).find(".indic-dots")[0];
+  var liveDot = $(indicDots).find(".active")[0];
+  $(liveDot).removeClass("active");
+  console.log(currSlideNum);
+  var activeDot = $(indicDots).find("li:nth-child(" + (currSlideNum) + ")")[0]
+  $(activeDot).addClass("active");
+  // For buttons
+  var noOfIndic = $(indicDots).find("li").length;
+  var ncNextButton = $(newCarousel).find(".nc-next")[0];
+  var ncPreviousButton = $(newCarousel).find(".nc-previous")[0];
+  // If slide number is last (equal to number of slides), make next button inactive
+  if (currSlideNum === noOfIndic) {
+    $(ncNextButton).attr('disabled','disabled')
+  } else {
+    $(ncNextButton).removeAttr('disabled')
+  }
+  // If slide number is 1, make previous button inactive
+  if (currSlideNum === 1) {
+    $(ncPreviousButton).attr('disabled','disabled')
+  }
+  else {
+    $(ncPreviousButton).removeAttr('disabled')
+  }
+});
+
+$(".indic-dots li").click(function(numberDot){
+  var newCarousel = $(this).parents()[3];
+  var ncGallery= $(newCarousel).find(".nc-gallery")[0];
+  var slideWidth = $(ncGallery).width();
+  var numberDot = $(this).index();
+  var scrollTargetDistance = slideWidth * (numberDot);
+  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: scrollTargetDistance }, 2).animate({opacity:"1"},300);
+});
+
 /* collapse */
 // hide and show collapse card
 $(document).on("click", ".collapse-card .collapse-header", function(event) {
+  event.preventDefault();
   $(this).parents(".collapse-card").toggleClass("collapsed");
+  // toggle aria that tells if expanded
+  $(this).find("button").attr('aria-expanded', function (i, attr) {
+    return attr == 'true' ? 'false' : 'true'
+  });
 });
 
 /* transcript */
 // toggle transcript button text and transcript card
 $(document).on("click", ".transcript-button-group .view-close-transcript", function(event) {
+  event.preventDefault();
   $(this).text($(this).text() == 'View transcript' ? 'Hide transcript' : 'View transcript');
   $(this).parents(".transcript-container").toggleClass("collapsed");
+  // toggle aria that tells if expanded
+  $(this).attr('aria-expanded', function (i, attr) {
+    return attr == 'true' ? 'false' : 'true'
+  });
 });
-/*
-// generate printable transcript from text
-// unable to add stylesheet on safari
-$(".download-transcript").click(function() {
-  var printContent = $(this).parents(".transcript-container").children(".transcript-card").html();
-  var printWindow = window.open('', 'PRINT', 'height=600, width=800');
 
-  var is_safari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
-  var is_chrome = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') != -1;
-
-  printWindow.document.write(
-    '<html><head><title>'
-    + document.title
-    + '</title>');
-  // insert stylesheet if not safari
-  if (!is_safari) {
-    printWindow.document.write('<link type="text/css" rel="stylesheet" href="https://iddkingsonline.com/designsystem/ephie/css/transcript.css">');
-  }
-  printWindow.document.write(
-    '</head><body><div id="page-mod-book-print"><h1>'
-    + document.title
-    + '</h1>');
-  printWindow.document.write(printContent);
-  printWindow.document.write('</div></body></html>');
-
-  printWindow.document.close(); // necessary for IE >= 10
-  printWindow.focus(); // necessary for IE >= 10
-
-  printWindow.print();
-  printWindow.close();
-
-  return true;
-});
-*/
-
-/* view answer */
+/* view/hide */
 // toggle view generic, view answer, model answer, and feedback button text and card
-$(document).on("click", ".view-hide-generic", function(event) {
-  $(this).text($(this).text() == 'View' ? 'Hide' : 'View');
-  $(this).parents(".view-generic-container").toggleClass("collapsed");
-});
-$(document).on("click", ".view-hide-answer", function(event) {
-  $(this).text($(this).text() == 'View answer' ? 'Hide answer' : 'View answer');
-  $(this).parents(".view-answer-container").toggleClass("collapsed");
-});
-$(document).on("click", ".view-hide-description", function(event) {
-  $(this).text($(this).text() == 'View description' ? 'Hide description' : 'View description');
-  $(this).parents(".view-description-container").toggleClass("collapsed");
-});
-$(document).on("click", ".view-hide-feedback", function(event) {
-  $(this).text($(this).text() == 'View feedback' ? 'Hide feedback' : 'View feedback');
-  $(this).parents(".view-feedback-container").toggleClass("collapsed");
-});
-$(document).on("click", ".view-hide-model-answer", function(event) {
-  $(this).text($(this).text() == 'View model answer' ? 'Hide model answer' : 'View model answer');
-  $(this).parents(".view-model-answer-container").toggleClass("collapsed");
+var viewHideOptions = [
+  "View", "Hide",
+  "View answer", "Hide answer",
+  "View description", "Hide description",
+  "View feedback", "Hide feedback",
+  "View model answer", "Hide model answer"
+];
+$(document).on("click", "[class*='view-hide-']", function(event) {
+  event.preventDefault();
+  // toggle aria that tells if expanded
+  $(this).attr('aria-expanded', function (i, attr) {
+    return attr == 'true' ? 'false' : 'true'
+  });
+  $(this).text(function(i, currentText) {
+    if (viewHideOptions.includes($(this).text())) {
+      $(this).parents("div[class^='view-'][class*='-container']").toggleClass("collapsed");
+      if($(this).is(':contains("View")')) {
+        return currentText.replace("View", "Hide");
+      } else {
+        return currentText.replace("Hide", "View");
+      }
+    }
+  });
 });
 
 /* book activity */
-// copy chapterlist to book nav and remove .action-list
-booknav = $(".block_fake .content > div > ul").clone().find(".action-list").remove().end();
-$(".navbottom.clearfix.navtext a.bookprev").length
-  ? booknav.insertAfter(".navbottom.clearfix a.bookprev")
-  : booknav.insertBefore(".navbottom.clearfix a.booknext");
-//$(".book_toc_indented ul").clone().find(".action-list").remove().end().insertAfter(".navbottom.clearfix.navtext a.bookprev");
-$(".navbottom.clearfix ul li").removeClass("clearfix").addClass("chapter");
-$(".navbottom.clearfix ul li a, .navbottom.clearfix ul li strong").each(function(i) {
-  $(this).text(i+1);
-});
-// add current class to current page
-$(".navbottom.clearfix ul li strong").parents("li").addClass("current");
-// add prev and next class to li before and after current for mobile
-$(".chapter.current").prev("li").addClass("prev");
-$(".chapter.current").next("li").addClass("next");
-// show one more page if first or last page on mobile
-if ($(".navbottom a.bookprev").length == 0) {
-  $("li.chapter:nth-child(3), li.chapter:nth-child(4)").addClass("next");
-} else if ($(".navbottom a.booknext").length == 0) {
-  $("li.chapter:nth-last-child(3), li.chapter:nth-last-child(4)").addClass("prev");
+if ($("#page-mod-book-view").length) {
+  // remove text from previous and next buttons
+  $(".navbottom.clearfix > a").empty();
 }
-// remove text from previous and next buttons
-$(".navbottom.clearfix > a").empty();
-
-// hide toc for single chapter book
-$(".block_book_toc .content ul > li:only-child strong:only-child").parents(".block_book_toc").hide();
-
-// add single-chapter-book class to screen and print to hide toc and title
-$(".block_book_toc .content ul > li:only-child, #page-mod-book-print .book_toc_numbered ul li:only-child").parents("#page-content").addClass("single-chapter-book");
-
-// remove subchapter option when editing book
-$("#page-mod-book-edit #id_subchapter").parents(".fitem").addClass("subchapter");
-
+// if book contains subchapters
+if ($(".block_book_toc .book_toc > ul > li").find("ul").length > 0) {
+  // give page class
+  $("body").addClass("has-sub-chaps");
+  // add previous/next chapter button text
+  $(".navbottom.clearfix > a.booknext").text("Next");
+  $(".navbottom.clearfix > a.bookprev").text("Previous");
+// else if single chapter book
+} else if ($(".block_book_toc .book_toc > ul > li:only-child > strong").length > 0 || $(".block_book_toc .book_toc > ul > li:only-child > div > strong").length > 0) {
+  // add class to body
+  $("body").addClass("single-chapter-book");
+  if ($(".block_book_toc .book_toc > ul > li:only-child > strong").length > 0) {
+    // hide toc
+    $(".block_book_toc").hide();
+  }
+// otherwise, create the numbered pagination
+} else {
+  // copy chapterlist to book nav and remove .action-list
+  booknav = $(".block_fake .content > div > ul").clone().find(".action-list").remove().end();
+  $(".navbottom.clearfix.navtext a.bookprev").length
+    ? booknav.insertAfter(".navbottom.clearfix a.bookprev")
+    : booknav.insertBefore(".navbottom.clearfix a.booknext");
+  //$(".book_toc_indented ul").clone().find(".action-list").remove().end().insertAfter(".navbottom.clearfix.navtext a.bookprev");
+  $(".navbottom.clearfix ul li").removeClass("clearfix").addClass("chapter");
+  $(".navbottom.clearfix ul li a, .navbottom.clearfix ul li strong").each(function(i) {
+    $(this).text(i+1);
+  });
+  // add current class to current page
+  $(".navbottom.clearfix ul li strong").parents("li").addClass("current");
+  // add prev and next class to li before and after current for mobile
+  $(".chapter.current").prev("li").addClass("mob-prev");
+  $(".chapter.mob-prev").prevAll(":lt(2)").addClass("prev");
+  $(".chapter.current").next("li").addClass("mob-next");
+  $(".chapter.mob-next").nextAll(":lt(2)").addClass("next");
+  /*
+  // show one more page if first or last page on mobile
+  if ($(".navbottom a.bookprev").length == 0) {
+    $("li.chapter:nth-child(3), li.chapter:nth-child(4), li.chapter:nth-child(5)").addClass("mob-next");
+  } else if ($(".navbottom a.booknext").length == 0) {
+    $("li.chapter:nth-last-child(3), li.chapter:nth-last-child(4), li.chapter:nth-last-child(5)").addClass("mob-prev");
+  } else {
+    $(".chapter.prev").prev("li").addClass("mob-prev");
+    $(".chapter.next").next("li").addClass("mob-next");
+  }
+  */
+  // 2.4 long-book nav removed
+  /*
+  if ($(".book_toc ul").length !== 0) {
+    // add large-book-pagination class if more than 10 chapters
+    if ($(".book_toc ul").get(0).childElementCount > 10) {
+      $(".navbottom ul").addClass("large-book-pagination");
+    // add mob-large-book-pagination class if more than 5 chapters
+    } else if ($(".book_toc ul").get(0).childElementCount > 5) {
+      $(".navbottom ul").addClass("mob-large-book-pagination");
+    };
+  };
+  */
+}
 // remove stupid arrows from prev and next activity links
 $(".activity-navigation a#prev-activity-link").text(function(i, text) {
   return text.slice(2);
 });
 $(".activity-navigation a#next-activity-link").text(function(i, text) {
   return text.slice(0, -2);
+});
+// add class to subchapter option when editing book
+$("#page-mod-book-edit #id_subchapter").parents(".fitem").addClass("subchapter");
+
+/* blog activity */
+// moves the info block into the main body text
+$("#oublog_info_block").detach().prependTo($("#region-main"));
+$("#oublog_info_block").addClass("main-description");
+// changes the heading level on the info to h2
+$("#oublog_info_block h5").replaceWith(function () {
+  return "<h2>" + $(this).html() + "</h2>";
 });
 
 /* activity labels */
@@ -270,6 +407,7 @@ strip keywords from elsewhere:
 section view activity title, activity page title
 print page title, print book info title
 breadcrumb
+activity restriction info
 previous/next activity buttons
 webinar title
 course module navitation block
@@ -278,9 +416,28 @@ forum new post confirmation
 question bank question page dropdown, question category page and export page
 question editing page
 */
-$("#region-main h2:first-of-type:contains('activity-label'), #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label'), .breadcrumb li a span:contains('activity-label'), .breadcrumb li a:contains('activity-label'), .activity-navigation .col-md-4 a:contains('activity-label'), .chosted-info .chosted-info-value p:contains('activity-label'), .alert p:contains('activity-label'), .block_course_modulenavigation .activityname:contains('activity-label'), #page-report-log-index td a:contains('actted-info .chosted-info-value p:contains('activity-label'), .alert p:contains('activity-label'), .block_course_modulenavigation .activityname:contains('activity-label'), #page-report-log-index td a:contains('activity-label'), #page-report-outline-index td a:contains('activity-label'), #page-question-edit select option:contains('activitiy-label'), #page-question-category h3:contains('activity-label'), #page-question-category ul li b a:contains('activity-label'), #page-question-category ul li .text_to_html:contains('activity-label'), #page-question-category select option:contains('activity-label'), #page-question-export select option:contains('activity-label'), .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')").text(function(i, currentText) {
+$(`#region-main h2:first-of-type:contains('activity-label'),
+ #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'),
+ #page-mod-book-print #page-content .book_info td:contains('activity-label'),
+ .breadcrumb li a span:contains('activity-label'),
+ .breadcrumb li a:contains('activity-label'),
+ .availabilityinfo.isrestricted strong a:contains('activity-label'),
+ .activity-navigation .col-md-4 a:contains('activity-label'),
+ .chosted-info .chosted-info-value p:contains('activity-label'),
+ .alert p:contains('activity-label'),
+ .block_course_modulenavigation .activityname:contains('activity-label'),
+ #page-report-log-index td a:contains('activity-label'),
+ #page-report-outline-index td a:contains('activity-label'),
+ #page-question-edit select option:contains('activitiy-label'),
+ #page-question-category h3:contains('activity-label'),
+ #page-question-category ul li b a:contains('activity-label'),
+ #page-question-category ul li .text_to_html:contains('activity-label'),
+ #page-question-category select option:contains('activity-label'),
+ #page-question-export select option:contains('activity-label'),
+ .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')`).text(function(i, currentText) {
   return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 })
+
 // completion progress activity title
 $(".course-content ul.section li.activity .actions button img.icon, .course-content ul.section li.activity .actions .autocompletion img.icon").attr("title", function(i, currentText) {
   return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
@@ -296,6 +453,12 @@ if ($('#fgroup_id_currentgrp fieldset').length) {
   })[0];
   currentCategory.nodeValue = currentCategory.nodeValue.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 }
+// activity restrict access dropdown
+setTimeout(function (){
+  $(".availability-group .custom-select option:contains('activity-label')").text(function(i, currentText) {
+    return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+  });
+}, 2000);
 
 if (window.matchMedia('print').matches) {
   $("#page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label')").text(function(i, currentText) {

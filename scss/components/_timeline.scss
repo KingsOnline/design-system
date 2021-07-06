@@ -1,9 +1,11 @@
-// -----------------------------------------------------------------------------
-// timeline
-// -----------------------------------------------------------------------------
+/* Timeline
+   =========================*/
+
+// timeline variables
+$timeline-join: 3px solid $rules-and-outlines !important;
 
 .timeline-container {
-  margin-left: 64px;
+  margin-left: 4rem;
   @media only screen and (max-width: $neo-breakpoint) {
     margin-left: 0;
   }
@@ -18,23 +20,23 @@
     &.fill {
       background-color: $teal-blue;
     }
+    // horizontal line between pill and card
     &::after {
       content: '';
       position: absolute;
       display: block;
-      top: 50%;
+      top: calc(50% - 1.5px);
       left: calc(50% + 12px);
-      border-top: 1.5px solid $rules-and-outlines;
-      border-bottom: 1.5px solid $rules-and-outlines;
+      border-bottom: $timeline-join;
       width: 38px;
     }
   }
   .timeline-row {
     .border-right {
-      border-right: 3px solid $rules-and-outlines !important;
+      border-right: $timeline-join;
     }
     .border-left {
-      border-left: 3px solid $rules-and-outlines !important;
+      border-left: $timeline-join;
     }
     .flex-column {
       display: flex !important;
@@ -50,7 +52,7 @@
       margin-bottom: $component-margin-bottom;
       border: none;
       border-radius: 0 6px 6px 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
       &.no-date {
         border-radius: 6px;
       }
@@ -80,9 +82,8 @@
           padding-right: 5px;
         }
       }
-      h5 {
-        line-height: 1.4;
-        color: $headings;
+      h3, h4, h5, h6 {
+        @extend .h4;
         margin-top: 0;
       }
       .img-reference {
@@ -107,6 +108,84 @@
         &.fill {
           background-color: $orange;
         }
+      }
+    }
+    &:last-child {
+      .timeline-card {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// timeline introduced in v2.5
+.timeline-2021-container {
+  margin-bottom: $component-margin-bottom;
+  // if overriding original timeline
+  // the margin-left and padding can be omitted
+  margin-left: 0;
+  padding: 0;
+  .timeline-card {
+    display: flex;
+    background-color: $block-background;
+    padding: 1.25rem;
+    margin-bottom: $component-margin-lg;
+    position: relative;
+    &:not(:first-child) {
+      &::before {
+        position: absolute;
+        content: '';
+        /* teal darken 15% */
+        border: 0.25rem solid darken($teal-blue, 15%);
+        height: 2.25rem;
+        top: -$component-margin-lg;
+        left: $component-margin-xl;
+      }
+      &.highlighted::before {
+        top: calc(-2.25rem - 3px);
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.highlighted {
+      border: 3px solid $orange;
+      padding: calc(1.25rem - 3px);
+      .date-label {
+      /*  background-color: #D93900; */
+      }
+    }
+    .date-label {
+      line-height: 1rem;
+      font-family: OpenSans, sans-serif;
+      font-size: 1rem;
+      font-weight: bold !important;
+      color: white;
+      /* teal darken 15% */
+      background-color: darken($teal-blue, 15%);
+      padding: $component-padding-xs;
+      width: fit-content;
+    }
+    & > :last-child {
+      margin-bottom: 0;
+    }
+    .card-body {
+      padding: 0;
+      width: 100%;
+      &:not(:only-child) {
+      }
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    .card-image {
+      order: 2;
+      max-width: 130px;
+      margin-left: 1.25rem;
+      margin-bottom: 0;
+      img {
+        max-width: 100%;
+        margin-bottom: $component-margin-bottom-xs;
       }
     }
   }

@@ -1,9 +1,9 @@
-// -----------------------------------------------------------------------------
-// hero banner
-// -----------------------------------------------------------------------------
+/* Hero banner
+   =========================*/
 
 .hero {
   @extend .top-bar;
+  // from common
   margin-bottom: $component-margin-bottom-lg;
   &::before {
     z-index: 0 !important;
@@ -13,6 +13,7 @@
   }
   .hero-caption {
     @extend .caption-overlay;
+    // from common
     @media only screen and (max-width: $neo-breakpoint) {
       position: static;
     }

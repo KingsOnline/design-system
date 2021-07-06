@@ -1,41 +1,45 @@
+/* Screenreader-only description
+   ============================= */
+
 @mixin label-inner-top-left ($label-text, $bg-color){
-    &::before{
-        font-family: 'KingsBureauGrot';
-        font-size: 1.125rem;
-        color: $white;
-        height:27px;
-        justify-content: center;
-        padding: 4px;
-        content: $label-text;
-        background-color: $bg-color;
-    }
+  &::before{
+    font-family: 'KingsBureauGrot';
+    font-size: 1.125rem;
+    color: $white;
+    height: 27px;
+    justify-content: center;
+    padding: 4px;
+    margin-right: 4px;
+    content: $label-text;
+    background-color: $bg-color;
+  }
 }
 
+// In student view, the sr-only content is invisible to sighted users.
+// The .sr-only class is defined in the fontawesome library and the Lambda theme
+
+// Editor view
 .path-mod-book.editing {
-    #region-main {
-      #id_content_editoreditable .sr-only {
-        width: auto;
-        height: auto;
-        background-color: rgba(0, 155, 158, 0.2);
-        position: initial;
-        margin: 0.5rem 0rem !important;
-        padding: 0.5rem;
-        border: 1px dashed $body-text;
-        @include label-inner-top-left ('Description for screen readers', $teal-blue)
-      }
-
-      .sr-only p:first-child{
-        margin-top:20px;
-        }
-
-      #id_content_editoreditable .complex-image {
-          //orange
-          background-color: rgba(255, 97, 5, 0.2);
-          padding: 0.5rem;
-          margin: 0.5rem 0rem !important;
-          border: 1px solid $body-text;
-          @include label-inner-top-left ('Complex image', $orange);
-        }
+  #region-main {
+    #id_content_editoreditable .sr-only {
+      width: auto;
+      height: auto;
+      @include bg-colour-opacity($teal-blue, 0.2);
+      position: initial;
+      margin: $component-margin-xs 0 !important;
+      padding: 0.5rem;
+      border: 1px dashed $body-text;
+      @include label-inner-top-left ('Description for screen readers', $teal-blue)
     }
+    .sr-only p:first-child{
+      margin-top: 20px;
+    }
+    #id_content_editoreditable .complex-image {
+      @include bg-colour-opacity($orange, 0.2);
+      padding: 0.5rem;
+      margin: 0.5rem 0rem !important;
+      border: 1px solid $body-text;
+      @include label-inner-top-left ('Complex image', $orange);
+    }
+  }
 }
-

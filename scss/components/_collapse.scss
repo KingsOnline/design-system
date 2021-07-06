@@ -1,6 +1,5 @@
-// -----------------------------------------------------------------------------
-// carousel
-// -----------------------------------------------------------------------------
+/* Collapse
+   ======================== */
 
 .collapse-container {
   margin-bottom: $component-margin-bottom;
@@ -16,22 +15,24 @@
         padding: 0 !important;
         width: 100%;
         text-align: left;
-        .h4 {
+        .collapse-title,
+        h3, h4, h5, h6 {
+          @extend .h4;
           position: relative;
           margin-bottom: 0;
           margin-left: 1.75rem;
           line-height: 1;
           color: $midnight-blue;
           width: calc(100% - 1.75rem);
-        }
-        .h4::before {
-          content: '\f107';
-          font-family: 'Font Awesome 5 Free';
-          font-weight: 900;
-          font-size: 1.5rem;
-          position: absolute;
-          left: -1.75rem;
-          top: -2px;
+          &::before {
+            @extend .icon-before;
+            content: '\f107';
+            margin: 0;
+            font-size: 1.5rem;
+            position: absolute;
+            left: -1.75rem;
+            top: -2px;
+          }
         }
       }
       &:focus-within {
@@ -49,6 +50,7 @@
         background-color: $block-background;
       }
       .collapse-subheading {
+        @extend .h5;
         margin-bottom: 1rem;
       }
       p {
@@ -59,11 +61,29 @@
       }
     }
     &.collapsed {
-      .collapse-header button .h4::before {
-        content: '\f105';
+      .collapse-header {
+        button {
+          .collapse-title,
+          h3, h4, h5, h6 {
+            &::before {
+              content: '\f105';
+            }
+          }
+        }
       }
       .collapse-body {
         display: none;
+      }
+    }
+  }
+}
+
+// display in block in atto editor
+.editor_atto_content {
+  .collapse-container {
+    .collapse-card.collapsed {
+      .collapse-body {
+        display: block !important;
       }
     }
   }

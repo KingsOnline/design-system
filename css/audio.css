@@ -1,3 +1,7 @@
+/* kaltura media player within audio component
+   called in within the iframe variables
+   see guidance: https://iddkingsonline.com/design-system/guidance/audio.html */
+
 body {
   background-color: transparent;
 }
@@ -23,6 +27,7 @@ body {
 .durationLabel {
   left: 2.25rem;
 }
+/* reduce margin for small screens to maximise scrubber width */
 @media only screen and (min-width: 600px) {
   .currentTimeLabel {
     margin-left: -2.25rem;
@@ -81,6 +86,7 @@ body {
   height: 0px !important;
   border: none !important;
 }
+/* show volume controls for larger screens only */
 @media only screen and (min-width: 600px) {
   .scrubber {
     margin: 0 6rem 0 8rem;

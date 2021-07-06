@@ -1,10 +1,16 @@
-// -----------------------------------------------------------------------------
-// form
-// -----------------------------------------------------------------------------
+/* Form
+   =========================*/
 
 // override margins
 @media (max-width: 1199px) {
   body #region-main .mform:not(.unresponsive) .fitem .felement {
     padding: 0 15px !important;
   }
+}
+
+.singleselect form,
+.singleselect select,
+.singleselect select option {
+  font-family: 'KingsBureauGrotFiveOne';
+  font-size: 1rem;
 }

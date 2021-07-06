@@ -1,8 +1,11 @@
-// -----------------------------------------------------------------------------
-// logs
-// -----------------------------------------------------------------------------
+/* Logs
+   ======================== */
 
-.page-item.active .page-link {
-  background-color: $midnight-blue;
-  border-color: $midnight-blue;
+// corrects the current page background and border colour
+// within the log pagination
+#page-report-log-index{
+  .page-item.active .page-link {
+    background-color: $midnight-blue;
+    border-color: $midnight-blue;
+  }
 }

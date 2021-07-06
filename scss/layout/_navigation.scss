@@ -1,34 +1,16 @@
-// -----------------------------------------------------------------------------
-// navigation
-// -----------------------------------------------------------------------------
+/* Navigation
+   ======================== */
 
 // hide last modified date
 .modified {
   display: none;
 }
 
-// hide the jump to activity dropdown
-#jump-to-activity {
-  display: none;
-}
-
-// link is white by default because of course why not moodle
-#next-activity-link:visited, #prev-activity-link:visited {
-  color: #555;
-}
-
 .navcontainer {
-  // min-height: 6rem;
   display: flex;
-  margin-top: 0.825rem;
-  margin-bottom: 1.5rem;
+  margin-top: $component-margin-lg;
+  margin-bottom: $component-margin-bottom-lg !important;
   padding: 0;
-  @media only screen and (max-width: $lg-breakpoint) {
-    // min-height: 10rem;
-  }
-  @media only screen and (max-width: $neo-breakpoint) {
-    // min-height: 14.5rem;
-  }
   .navtextcontainer {
     flex: 1;
     top: 0;
@@ -38,48 +20,64 @@
   }
   .navtext {
     position: relative;
+    display:inline-block;
     float: none;
-    margin: 2.125rem 0;
+    margin: 0;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0 !important;
     font-family: 'KingsBureauGrot';
     font-size: 1.25rem !important;
     line-height: 1.2;
     color: $midnight-blue !important;
-    @media only screen and (max-width: $xl-breakpoint) {
-      // max-width: 16rem;
+    background-color: transparent !important;
+    box-shadow: none;
+    &.prev {
+      left: 0;
+      padding-right: 0.75rem !important;
+      padding-left: 3.25rem !important;
+      text-align: left;
     }
-    @media only screen and (max-width: $lg-breakpoint) {
-      // max-width: 8rem;
+    &.next {
+      right: 0;
+      padding-right: 3.25rem !important;
+      padding-left: 0.75rem !important;
+      text-align: left;
     }
-    @media only screen and (max-width: $neo-breakpoint) {
-      // width: calc(50% - 5rem);
+    @media only screen and (min-width: $neo-breakpoint) {
+      padding: 0.25rem 3rem 0 3rem !important;
     }
   }
 }
 .navbutton {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  font-size: 1.25rem;
+  @extend .icon-before;
+  padding: 5px 16.5px;
+  font-size: 1.5625rem;
   color: $white;
   border-radius: 0.25rem;
   position: absolute;
   top: 0;
-//  top: calc(50% - 1rem);
   margin: 0;
-  padding: 4px 12px;
   background-color: $midnight-blue;
   box-shadow: 0 2px 0 0 #05192e;
   &:hover {
-    background-color: #526C84;
+    @include bg-colour-opacity($midnight-blue, 0.85);
     box-shadow: 0 2px 0 0 #43566B;
   }
-  @media only screen and (max-width: $neo-breakpoint) {
-    padding: 5px 16.5px;
-    font-size: 1.5625rem;
+  @media only screen and (min-width: $neo-breakpoint) {
+    font-size: 1.25rem;
+    padding: 4px 12px;
+  }
+  &::before {
+    left: 0;
+    content: '\f104';
+  }
+  &::after {
+    right: 0;
+    content: '\f105';
   }
 }
 
 // activity navigation
-
 .activity-navigation {
   @extend .navcontainer;
   .row {
@@ -90,43 +88,29 @@
     .col-md-4 {
       padding: 0;
       @extend .navtextcontainer;
-      // hide empty middle col
+      // hide the jump to activity dropdown
       &:nth-child(2) {
         display: none;
+      }
+      a#prev-activity-link,
+      a#next-activity-link {
+        @extend .navtext;
+      }
+      a#prev-activity-link {
+        @extend .navtext, .prev;
+        &::before {
+          @extend .navbutton;
+        }
       }
       // right align next activity link
       &:last-child {
         display: flex;
         justify-content: flex-end;
         a#next-activity-link {
-          right: 3rem;
-          text-align: right;
-          padding-left: 3rem !important;
+          @extend .navtext, .next;
           &::after {
             @extend .navbutton;
-            right: -3.125rem;
-            top: 0;
-            content: '\f105';
           }
-        }
-      }
-      a#prev-activity-link, a#next-activity-link {
-        @extend .navtext;
-        margin-top: 0;
-        padding: 0.25rem !important;
-        @media only screen and (max-width: $neo-breakpoint) {
-          padding: 0.5rem !important;
-        }
-      }
-      a#prev-activity-link {
-        left: 3rem;
-        text-align: left;
-        padding-right: 3rem !important;
-        &::before {
-          @extend .navbutton;
-          left: -3.125rem;
-          top: 0;
-          content: '\f104';
         }
       }
     }
@@ -136,118 +120,29 @@
 // section navigation
 .course-content .single-section .section-navigation.mdl-bottom {
   @extend .navcontainer;
-  .mdl-left, .mdl-right {
+  .mdl-left,
+  .mdl-right {
     @extend .navtextcontainer;
     a {
       @extend .navtext;
     }
   }
   .mdl-left {
-    margin-right: 3.5rem !important;
     a {
-      left: $lg-nav-margin;
-      @media only screen and (max-width: $neo-breakpoint) {
-        left: $sm-nav-margin;
-      }
-      &:before {
+      padding-left:3rem;
+      &::before {
         @extend .navbutton;
-        left: -3.125rem;
-        top: 0;
+          left: 0;
       }
     }
   }
   .mdl-right {
-    margin-left: 3.5rem !important;
     a {
       text-align: right;
-      right: $lg-nav-margin;
-      @media only screen and (max-width: $neo-breakpoint) {
-        right: $sm-nav-margin;
-      }
-      &:after {
+      padding-right:3rem;
+      &::after {
         @extend .navbutton;
-        right: -3.125rem;
-        top: 0;
-      }
-    }
-  }
-}
-
-// book navigation
-#page-mod-book-view {
-  .navtop, .navbottom {
-    padding: 0 0 $component-margin-bottom-lg 0;
-    margin: $component-margin-lg 0;
-    text-align: center;
-    border-top: none;
-    border-bottom: 1px solid $rules-and-outlines;
-    a {
-      margin: 0;
-      max-width: none;
-      float: none;
-      &.bookprev, &.booknext {
-        text-align: center;
-        width: 2.25rem;
-        height: 2.25rem;
-        &:hover {
-          text-decoration: none;
-        }
-        @media only screen and (max-width: $neo-breakpoint) {
-          display: inline-block;
-        }
-      }
-      &.bookprev:before, &.booknext:after, &.bookexit:after {
-        font-size: 1.5rem;
-        color: $midnight-blue;
-        background-color: transparent;
-        margin: 0;
-        padding: 0;
-      }
-      &.bookprev:hover:before, &.booknext:hover:after, &.bookexit:hover:after {
-        color: #526C84;
-      }
-    }
-    ul {
-      margin: 0;
-      display: inline-block;
-      @media only screen and (max-width: $neo-breakpoint) {
-        li.chapter:not(.current):not(.prev):not(.next) {
-          display: none;
-        }
-      }
-      li.chapter {
-        list-style: none;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'KingsBureauGrot';
-        font-size: 1.5rem;
-        min-width: 2.25rem;
-        height: 2.25rem;
-        margin: 0 0.5rem;
-        &.current {
-          background-color: $sea-blue;
-          border-radius: 50%;
-          strong {
-            color: $white;
-          }
-          // spacing slightly out for safari
-          @media not all and (min-resolution:.001dpcm) {
-            strong {
-              height: 36px;
-            }
-          }
-          // also for firefox on mac only
-          @supports (-moz-osx-font-smoothing: auto) {
-            strong {
-              height: 36px;
-            }
-          }
-        }
-        a:hover {
-          color: #526C84;
-          text-decoration: none;
-        }
+          right: 0;
       }
     }
   }

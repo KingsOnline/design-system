@@ -1,18 +1,55 @@
-// -----------------------------------------------------------------------------
-// quotation box
-// -----------------------------------------------------------------------------
+/* Quotation box
+   =========================*/
 
-.quote-box {
+// pre Rumdoodle 2.3
+div.quote-box {
   @extend .info-box;
+  // from common
   background-color: $block-background;
-  & > :first-child::before {
-    content: '“';
+  & > :first-child {
+    &::before {
+      content: '“';
+      padding: 0;
+      color: $orange;
+      font-family: 'KingsCaslonDisplay';
+      font-size: 4.5rem;
+      position: absolute;
+      left: 18px;
+      top: 40px;
+    }
+    .quote-attribution,
+    h3, h4, h5, h6 {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+// Rumdoodle 2.3
+figure.quote-box {
+  margin-bottom: $component-margin-bottom;
+  background-color: $block-background;
+  position: relative;
+  padding: 1.25rem 1.75rem 1.25rem 4.625rem;
+  blockquote {
+    border: none;
     padding: 0;
-    color: $orange;     
-    font-family: 'KingsCaslonDisplay'; 
-    font-size: 4.5rem;
-    position: absolute;
-    left: 18px;
-    top: 40px;
+    &::before {
+      content: '“';
+      padding: 0;
+      color: $orange;
+      font-family: 'KingsCaslonDisplay';
+      font-size: 4.5rem;
+      font-style: normal;
+      font-weight: normal;
+      position: absolute;
+      left: 18px;
+      top: 8px;
+      margin: 0;
+    }
+  }
+  figcaption:last-child {
+    @extend .h4;
+    margin-bottom: 0;
   }
 }

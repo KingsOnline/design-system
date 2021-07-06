@@ -1,15 +1,29 @@
-// -----------------------------------------------------------------------------
-// info box
-// -----------------------------------------------------------------------------
+/* Info boxes
+   =========================*/
+
+// Alert-type info boxes are covered in alerts
 
 //definition box
 .definition-box {
   @extend .info-box;
+  // from common
   background-color: $block-background;
   &::before {
     content: '\f02e';
     padding: 0 5px;
     color: $purple70;
+  }
+}
+
+//media box
+.media-box {
+  @extend .info-box;
+  // from common
+  background-color: $block-background;
+  &::before {
+    content: '\f03d';
+    padding: 0 5px;
+    color: $midnight-blue;
   }
 }
 
@@ -22,8 +36,7 @@ body {
   }
   .editing-help-box {
     @extend .info-box;
-    // lime green 0.2 opacity
-    background-color: rgba(198, 226, 40, 0.2);
+    @include bg-colour-opacity($lime-green, 0.2);
     border-radius: 1.5rem;
     &::before {
       font-size: 1.5rem;
@@ -38,7 +51,7 @@ body {
 .feedback-box {
   @extend .info-box;
   &.correct-answer {
-    background-color: rgba(40,195,130,0.2) !important;
+    @include bg-colour-opacity($pea-green, 0.2);
     &::before {
       color: $pea-green;
       padding: 0 4px;
@@ -46,7 +59,7 @@ body {
     }
   }
   &.model-answer {
-    background-color: rgba(245,185,15,0.2) !important;
+    @include bg-colour-opacity($yellow, 0.2);
     &::before {
       content: '\f27a';
       color: $yellow;
@@ -54,7 +67,7 @@ body {
     }
   }
   &.incorrect-answer {
-    background-color: rgba(226,35,26,0.2) !important;
+    @include bg-colour-opacity($kings-red, 0.2);
     &::before {
       color: $kings-red;
       content: '\f057';
@@ -75,26 +88,24 @@ body {
     @include font-scale(key-concept, $font-os);
     font-weight: bold;
   }
-  ul, ol {
-    li:last-child {
-      margin-bottom: 0 !important;
-    }
-  }
 }
 
 //learning outcome box
 #region-main .learning-outcome-box {
   @extend .info-box;
-  background-color: #edf1f2;
+  background-color: $block-background;
   &::before {
     content: '\f091';
     color: $teal-blue;
     padding: 0 4px;
   }
   ol, ul {
-    margin: 0 0 0 1.25rem;
+    margin: 0 0 $component-margin-bottom 1.25rem;
     li:last-child {
       margin-bottom: 0;
+    }
+    &:last-child {
+      margin: 0 0 0 1.25rem;
     }
   }
 }

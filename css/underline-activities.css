@@ -1,4 +1,6 @@
-/* optional file to permanently underline activities titles */
+/* optional file to permanently underline activities titles
+   see guidance:
+   https://iddkingsonline.com/design-system/guidance/underline-activities.html */
 
 .course-content ul.section li.activity .activityinstance a:not(.quickeditlink)
 .instancename:not(.is-numbered),

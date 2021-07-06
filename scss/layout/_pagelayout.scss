@@ -1,0 +1,84 @@
+/* Page layout
+   =========================*/
+
+/* hide veritcal scrollbar in chrome on mac */
+.no-overflow {
+  padding-bottom: 2px;
+}
+
+// general layout styles applied on every page
+#wrapper {
+  // required for sticky footer
+  height: 100%;
+  #page {
+    padding: 0;
+    // sticky footer for pages with little content
+    min-height: calc(100% - 231px);
+    #page-header-nav, #page-content {
+      // ensure content is no wider than 1312px even on extra wide screens
+      @media only screen and (min-width: $xxl-breakpoint) {
+        max-width: 1312px;
+        margin: 0 auto;
+      }
+    }
+    #page-content {
+      #region-bs-main-and-pre {
+        #region-main {
+          // remove 1px height set by theme
+          #maincontent {
+            height: auto;
+            // remove theme's padding from main content area
+            // unless there is no page heading
+            & ~ h2 ~ .generalbox {
+              padding: 0 !important;
+            }
+            // keep top padding only when page heading absent
+            & + .generalbox {
+              padding-bottom: 0 !important;
+            }
+          }
+          // prevent horizontal scrollbar
+          .container {
+            padding: 0;
+            overflow: hidden;
+            &:not(:last-child) {
+              margin-bottom: $component-margin-bottom;
+            }
+            & > .row:last-child > [class^="col"] > :last-child {
+              margin-bottom: 0 !important;
+            }
+          }
+          .row {
+            // prevent safari grid elements from stacking
+            &:before,
+            &:after {
+              display: none !important;
+            }
+          }
+        }
+      }
+      // this region is not styled as we do
+      // not display blocks on the right
+      #block-region-side-post {
+      }
+    }
+    // override theme margin and bg
+    .row {
+      margin-left: -15px;
+      margin-right: -15px;
+      background-color: transparent;
+    }
+    // sections
+    section:not(#region-main) {
+      & > :last-child {
+        margin-bottom: 0 !important;
+      }
+      &:not(:last-of-type) {
+        margin-bottom: $section-margin-bottom-sm;
+        @media only screen and (min-width: $neo-breakpoint) {
+          margin-bottom: $section-margin-bottom;
+        }
+      }
+    }
+  }
+}

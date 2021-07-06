@@ -1,0 +1,34 @@
+/* File manager
+   ======================== */
+
+// see Modal for .modchooser and .filepicker
+
+.filemanager {
+  .fp-navbar.card {
+    margin-bottom: 0;
+    display: block;
+  }
+  .fp-toolbar,
+  .fp-viewbar {
+    background-color: transparent;
+    a.btn {
+      &.btn-secondary {
+        @extend .btn, .btn-secondary;
+        padding: 0!important;
+        margin: 0 0 0.5rem 0 !important;
+        .icon {
+          width: 60%;
+          height: auto;
+          padding: 20% 20% 20% 20%;
+          margin: 0;
+        }
+      }
+    } 
+  }
+  .fp-viewbar {
+    border: none;
+    a.btn.btn-secondary {
+      margin:0 0.25rem 0.5rem 0 !important;
+    }
+  }
+}

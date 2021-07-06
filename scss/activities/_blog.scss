@@ -1,0 +1,57 @@
+/* OU Blog
+   ======================== */
+
+#page-mod-oublog-view{
+  #region-main{
+    // Info/description section
+    #oublog_info_block.main-description{
+      .card-body{
+        padding:$component-margin !important;
+      }
+    }
+    // individual posts
+    .oublog-userpic{
+      padding:0;
+      img.userpicture{
+        border-radius: 50%;
+      }
+    }
+    #oublog-posts{
+      margin-bottom: $component-margin-sm;
+    }
+  }
+  // sideblocks
+  #block-region-side-post .block .content ul.oublog-accordion li{
+    margin-bottom:8px;
+    img.userpicture{
+      border-radius: 50%;
+    }
+    h3{
+      font-family: 'KingsBureauGrotFiveOne';
+      color: $body-text;
+      font-size: 1.1rem;
+    }
+    .oublog_statsview_content{
+      margin:$component-margin-xs;
+      .oublog_statsinfo{
+        margin-left:0;
+      }
+      .oublog_statsinfo_bar span.oublogbar{
+        background: transparent;
+      }
+    }
+    #fitem_id_timefilter_commentpoststats{
+      .col-md-3{
+        flex: 0 0 100%;
+        max-width: 100%;
+        .col-form-label.d-inline[for="id_timefilter_commentpoststats"] {
+          padding-right: 0px;
+          padding-left: 0px;
+        }
+      }
+      .col-md-9{
+        margin-left:0;
+      }
+    }
+  }
+}

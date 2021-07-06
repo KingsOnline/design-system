@@ -1,0 +1,38 @@
+/* Choice
+   ======================== */
+
+#page-mod-choice-view {
+  #region-main {
+    .reportlink {
+      text-align: left;
+      a {
+        // from Common
+        @extend .ds-link;
+      }
+    }
+    .clearer {
+      height: auto;
+    }
+    .generalbox {
+      padding: 0 !important;
+      margin-bottom: $component-margin-bottom !important;
+    }
+    // hide chart image and display data table
+    .chart-area {
+      .chart-image {
+        display: none;
+      }
+      .chart-table {
+        .chart-table-expand {
+          display: none;
+        }
+        .chart-table-data {
+          display: block;
+          table {
+            @extend .table, .table-bordered;
+          }
+        }
+      }
+    }
+  }
+}

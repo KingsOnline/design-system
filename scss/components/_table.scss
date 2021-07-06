@@ -1,13 +1,22 @@
-// -----------------------------------------------------------------------------
-// table
-// -----------------------------------------------------------------------------
+/* Table
+   =========================*/
 
 // define table highlight background colours
+// Previous colors: (v2.4-)
+// 1: #FCEAB7, // yellow 30%
+// 2: #A2E6F4, // sky-blue 37%
+// 3: #F5B6B3, // red 33%
+// 4: #FFA375, // orange 58%
 $table-bg-colors: (
   1: #FCEAB7 !important, // yellow 30%
   2: #A2E6F4 !important, // sky-blue 37%
   3: #F5B6B3 !important, // red 33%
-  4: #FFA375 !important // orange 58%
+  4: #FFA375 !important, // orange 58%
+  // 4 additional colours for GFB (v2.5+)
+  5: #FDF6DE !important, // pale yellow 2
+  6: #DBD4E8 !important, // lilac
+  7: #02DFE3 !important, // teal blue
+  8: #BFDB1F !important // lime green
  );
 
 // mixin to add borders around and bg to individual row/col
@@ -131,12 +140,6 @@ $table-bg-colors: (
     display: inline;
   }
 }
-// IE issue not rendering left border of table
-@-moz-document url-prefix() {
-  table, .table {
-    margin-left: 1px;
-  }
-}
 table, .table {
   margin-bottom: $component-margin-bottom;
   border-collapse: collapse;
@@ -148,6 +151,9 @@ table, .table {
     th, td {
       border: 1px solid $table-border !important;
     }
+  }
+  &.table-fixed{
+    table-layout:fixed;
   }
   
   &.outer-borders-only {
@@ -228,6 +234,7 @@ table, .table {
      }
   }
   &.table-diagonal-split {
+    // hack to display diagonal split in top left cell
     .split-cell {
       background: linear-gradient(to top right, $block-background 49.5%,
       $rules-and-outlines 49.5%, $rules-and-outlines 50.5%,
@@ -248,7 +255,9 @@ table, .table {
     }  
   }
   &.table-highlight {
-    margin: 2px;
+    // prevent cut off borders in some browsers
+    margin: 0 2px $component-margin-bottom 2px;
+    width: calc(100% - 4px);
     .highlight-cell {
       &.border {
         border: 4px solid $reflex-blue !important;

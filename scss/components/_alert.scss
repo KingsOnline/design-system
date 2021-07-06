@@ -1,11 +1,13 @@
-// -----------------------------------------------------------------------------
-// alert
-// -----------------------------------------------------------------------------
+/* Alert
+   ======================== */
+
+// Non-alert info boxes are covered in infobox
 
 .alert {
   @extend .info-box;
+  // from common
   &.alert-success {
-    background-color: rgba(40,195,130,0.2) !important;
+    @include bg-colour-opacity($pea-green, 0.2);
     &::before {
       content: '\f164';
       color: $pea-green;
@@ -13,25 +15,25 @@
     }
   }
   &.alert-instructional {
-    background-color: rgba(245,185,15,0.2) !important;
+    @include bg-colour-opacity($yellow, 0.2);
     &::before {
       content: '\f086';
-      color: #8262ae;
+      color: $purple70;
       padding: 0 3px;
     }
   }
   &.alert-caution {
-    background-color: rgba(245, 184, 15, 0.2) !important;
+    @include bg-colour-opacity($yellow, 0.2);
     &::before {
-      color: #e2231a;
+      color: $kings-red;
       content: '\f071';
       padding: 0 3px;
     }
   }
   &.alert-danger {
-    background-color: rgba(226,35,26,0.2) !important;
+    @include bg-colour-opacity($kings-red, 0.2);
     &::before {
-      color: #e2231a;
+      color:$kings-red;
       content: '\f071';
       padding: 0 3px;
     }
@@ -61,4 +63,3 @@
     }
   }
 }
-

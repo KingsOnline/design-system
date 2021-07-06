@@ -1,13 +1,85 @@
-// screen reader
-.ds-sr-only {
+/* Common
+   ======================== */
+
+// Table of contents
+// =================
+// 1. Font Awesome psuedoelement
+//   - .icon-before / Button, etc.
+// 2. Image psuedoelements
+//    - .top-bar / Hero
+// 3. Links
+//    - .ds-link / Choice, Typography
+//    - .bold-link / File, LTI, URL
+// 4. Component templates and subcomponents
+//    - .caption-overlay / Carousel, Hero
+//    - .infobox / Alert, Infobox
+//    - .note-contaienr / Academic note, Viewhide
+// 5. Navigation within non-book activities
+//    - tab navigation
+//    - pagination
+
+// 1. Font Awesome psuedoelement
+// extended in Button, etc
+
+.icon-before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 0.375rem;
+}
+
+// 2. Image psuedoelements
+// extended in Hero
+
+.top-bar {
+  position: relative;
+   &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    @include bg-colour-opacity($black, 0.25);
+    z-index: 0;
+  }
+}
+
+// 3. Links
+// extended in Choice
+
+.ds-link {
+  text-decoration: underline;
+  color: $reflex-blue;
+  overflow-wrap: break-word;
+  &:hover {
+    color: $sea-blue;
+  }
+  &:visited {
+    color: $midnight-blue;
+  }
+}
+
+// extended in File, LTI, URL
+.bold-link {
+  margin-bottom: $component-margin-bottom-lg;
+  a:link {
+    font-weight: bold;
+    text-decoration: underline !important;
+  }
+}
+
+// 4. Component templates and subcomponents
+// extended in Alert, Infobox
+// extended in Carousel, Hero
+
+.caption-overlay {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+  @include bg-colour-opacity($midnight-blue, 0.85);
+  bottom: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
 }
 
 .info-box {
@@ -16,18 +88,28 @@
   border: none;
   padding: 0.75rem 1.25rem;
   position: relative;
-  color: #000 !important;
-  & > :first-child, .info-box-inner {
+  & > :first-child,
+  .info-box-inner {
     padding: 0.5rem 0.25rem 0.5rem 3.125rem;
+    & > :last-child {
+      margin-bottom: 0;
+    }
   }
-  h5, .info-box-title {
-    font-family: 'KingsBureauGrot' !important;
-    font-size: 1.2rem;
-    color: $headings !important;
-    margin-top: 0;
-    margin-bottom: $component-margin-bottom-sm;
+  & > :first-child {
+    .info-box-title,
+    h3, h4, h5, h6 {
+      @extend .h4;
+      margin-top: 0;
+      margin-bottom: $component-margin-bottom-sm;
+    }
   }
   p {
+    color: $body-text !important;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  ul li, ol li {
     color: $body-text !important;
     &:last-child {
       margin-bottom: 0;
@@ -43,60 +125,25 @@
   }
 }
 
-.ds-link {
-  text-decoration: underline;
-  color: $reflex-blue;
-  &:hover {
-    color: $sea-blue;
-  }
-  &:visited {
-    color: $midnight-blue;
-  }
-}
-
-.top-bar {
-  position: relative;
-   &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    z-index: 0;
-  }
-}
-
-.caption-overlay {
-  position: absolute;
-  background-color: rgba(10, 45, 80, 0.85);
-  bottom: 0;
-  left: auto;
-  right: auto;
-  width: 100%;
-  padding: 1.25rem 1.5rem;
-}
-
-.icon-before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  margin-right: 0.375rem;
-}
-
+// extended in academicnote, viewhide
 .note-container {
   margin-bottom: $component-margin-bottom;
-  & > a::before, & > button::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 0.375rem;
-    content: '\f070';
+  & > h3, & > h4, & > h5, & > h6 {
+    @extend .h4;
+  }
+  & > a,
+  & > button {
+    margin-bottom: 0 !important;
+    &::before {
+      @extend .icon-before;
+      content: '\f070';
+    }
   }
   & > div {
     & > .card-body {
       border-left: 4px solid $pearl-grey;
-      padding: 0 0 0 1.5rem;
-      margin-top: 1.5rem;
+      padding: 0 0 0 $component-margin;
+      max-width: 100%;
       .card-author {
         display: flex;
         align-items: center;
@@ -106,8 +153,24 @@
           border-radius: 50%;
           height: 75px;
           width: 75px;
-          margin-right: 1rem;
+          margin-right: $component-margin-sm;
         }
+        .card-title,
+        h3, h4, h5, h6 {
+          @extend .h4;
+          margin: 0;
+        }
+      }
+      .card-text {
+        & > *:last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      .card-subheading {
+        @extend .h5;
+      }
+      & > *:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -119,4 +182,109 @@
       display: none;
     }
   }
+}
+
+// 5. Navigation within activities
+
+// Tab format 
+// extended in turnitin, database
+.first-tab-nav{
+  margin:0;
+  li{
+    margin-bottom:0!important;
+    margin-right:10px;
+    border-radius: 0.25rem 0.25rem 0 0;
+    height:42px;
+    a{
+      // font-family: 'KingsBureauGrot';
+      @extend .h5;
+      padding: 8px 18px;
+      color:$midnight-blue;
+    }
+    &.active{
+      background:$midnight-blue;
+      a{
+        color:$white;
+      }
+    }
+    &:not(.active){
+      background:transparent;
+      a{
+        background:transparent;
+      }
+      &:hover{
+        background: $block-background;
+      }
+    }
+  }
+}
+.second-tab-nav{
+  background: $block-background !important;
+  margin:0;
+  margin-bottom:$component-margin !important;
+  border-radius:0;
+  border:none;
+  padding:10px 10px 0 10px;
+  li{
+    background:transparent;
+    height:35px;
+    margin:0 10px 10px 0;
+    a{
+      font-family: 'KingsBureauGrot';
+      color:$midnight-blue;
+      font-size:0.9rem; 
+      background:transparent;
+    }
+    &.ui-state-active, 
+    &.active{
+      background:$white;
+      border-bottom: 2px solid $midnight-blue !important;
+      border-radius:0;
+    }
+    &:hover{
+      border-bottom: 2px solid $midnight-blue !important;
+    }
+  }
+}
+
+// Pagination
+// extended in turnitin, database
+.activity-pagination-container{
+  margin:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+}
+.activity-pagination-button{
+  border:none;
+  background:transparent;
+  font-size:1rem;
+  font-family:"Open Sans";
+}
+.a-p-b-active{
+  border-radius: 6px;
+  width:30px;
+  height:30px;
+  padding: 4px 12px;
+  background:$block-background;
+  background-color:$block-background;
+  font-weight: bold;
+  border:none;
+  color:#555;
+}
+.a-p-b-next{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content:'\f101';
+  color:$rules-and-outlines;
+  width:14px;
+  height:auto;
+}
+.a-p-b-previous{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content:'\f100';
+  color:$rules-and-outlines;
+  width:14px;
+  height:auto;
 }

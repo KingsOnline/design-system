@@ -1,0 +1,513 @@
+/* Quiz
+   ======================== */
+
+.quiz-table {
+  border: none;
+  border-right: 1px solid $table-border;
+  border-bottom: 1px solid $table-border;
+  border-collapse: separate;
+  margin-bottom: $component-margin-bottom;
+  thead th {
+    background-color: #f8fafa !important;
+  }
+  tr {
+    th, td {
+      background-color: transparent;
+      border: none;
+      border-top: 1px solid $table-border;
+      border-left: 1px solid $table-border;
+      padding: calc(#{$component-margin-xs} / 2) $component-margin-xs;
+      text-align: left !important;
+      vertical-align: top;
+    }
+    th {
+      font-family: 'KingsBureauGrot';
+      color: $headings;
+    }
+    td {
+      color: $body-text;
+    }
+    &:nth-child(even) > th,
+    &:nth-child(even) > td {
+      background-color: #f8fafa;
+    }
+  }
+}
+
+// summary page
+#page-mod-quiz-view {
+  .box.quizinfo p {
+    font-family: 'KingsBureauGrotFiveOne';
+    text-align: left;
+    &:first-child::before {
+      @extend .icon-before;
+      content: '\f017';
+    }
+    &:nth-child(2)::before {
+      @extend .icon-before;
+      content: '\f091';
+    }
+  } 
+  .quizattemptsummary {
+    @extend .quiz-table;
+    th.lastcol,
+    td.lastcol {
+      // display: none;
+    }
+  }
+  .generalbox#feedback {
+     margin: 0;
+     padding: 0;
+  }
+  .quizstartbuttondiv form {
+    text-align: left;
+    div {
+      margin-left: 0;
+    }
+  }
+}
+
+// review page
+#page-mod-quiz-review {
+  .quizreviewsummary {
+    @extend .quiz-table;
+  }
+}
+
+//quiz attempt page
+#page-mod-quiz-attempt,
+#page-mod-quiz-review {
+  .submitbtns {
+    display: flex;
+    margin-bottom: $component-margin-bottom;
+    .mod_quiz-prev-nav {
+      @extend .btn, .btn-secondary;
+      float: none !important;
+    }
+  }
+}
+// quiz navigation block
+#mod_quiz_navblock .content {
+  #user-picture {
+    margin: 0 0 $component-margin-bottom 0;
+  }
+  .qn_buttons {
+    margin-bottom: $component-margin-bottom;
+    h3.mod_quiz-section-heading {
+      font-family: 'KingsBureauGrot';
+      margin-bottom: $component-margin-bottom-xs;
+    }
+    h3.mod_quiz-section-heading:not(:first-child) {
+      padding: $component-margin-sm 0 0 0;
+    }
+    a.qnbutton {
+      height: 1.25rem;
+      width: 1.25rem;
+      font-size: 1rem !important;
+      padding: 0 !important;
+      margin: 0 0.625rem 0.625rem 0;
+      background-color: transparent !important;
+      color: $headings !important;
+      &:hover {
+        text-decoration: none !important;
+      }
+      .thispageholder {
+        border: 1px solid $rules-and-outlines;
+        border-radius: 4px !important;
+      }
+      &.flagged .thispageholder {
+        background: transparent url(https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg) 15px 0 no-repeat;
+      }
+      .trafficlight {
+        display: none;
+      }
+      &.correct {
+        // transparent bg colour for correct questions
+        background-color: transparent !important;
+        span.thispageholder {
+          border: 1px solid $pea-green;
+        }
+      }
+      &.incorrect {
+        @include bg-colour-opacity($kings-red, 0.3);
+        span.thispageholder {
+          border: 1px solid $kings-red;
+        }
+      }
+      &.partiallycorrect {
+        background-color: #FCEAB7 !important;
+        span.thispageholder {
+          border: 1px solid $yellow;
+        }
+      }
+      &.notyetanswered {
+      }
+      &.notanswered {
+        color: $rules-and-outlines !important;
+      }
+    }
+  }
+  .othernav {
+    text-align: right;
+    margin: 0 !important;
+    a.endtestlink {
+      @extend .btn, .btn-primary;
+      display: inline;
+      margin-right: 0 !important;
+    }
+    #quiz-timer {
+     font-family: 'KingsBureauGrotFiveOne';
+     font-size: 1.125rem;
+      #quiz-time-left {
+        font-family: 'KingsBureauGrot';
+      }
+      &::before {
+        @extend .icon-before;
+        content: '\f017';
+        margin-right: 4px;
+      }
+    }
+    .singlebutton {
+      button {
+        margin: $component-margin-sm 0 0 0 !important;
+      }
+    }
+  }
+}
+
+// quiz question
+.que {
+  margin: 0 0 $component-margin-bottom-lg;
+  &.description {
+    .state, .questionflag {
+      display: none;
+    }
+  }
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: $component-margin-bottom;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    .no {
+      width: 100%;
+    }.no, .qno {
+      @extend .h5;
+      margin-bottom: $component-margin-bottom-xs;
+    }
+    div {
+      margin: 0;
+      line-height: 1.5;
+      font-size: 1rem !important;
+      font-family: 'KingsBureauGrot';
+      border-radius: 0.125rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      height: 1.5rem;
+      border-radius: 15px;
+      background-color: $block-background;
+      padding: 0 0.5rem;
+      color: $headings;
+    }
+    div.state, div.grade {
+      margin-right: $component-margin-xs;
+    }
+    div.state {
+      text-transform: uppercase;
+    }
+    div.grade {
+      background-color: #e6ebed;
+      color: $headings;
+    }
+    .questionflag {
+      padding: 0 0.5rem;
+      border-radius: 3px;;
+      content: '';
+      background: #e6ebed url("https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg ") right top no-repeat;
+      background-size: 8px;
+      @media only screen and (min-width: $neo-breakpoint) {
+        margin-left: auto;
+      }
+      margin-right: 0;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+      .questionflagimage {
+        display: none;
+      }
+    }
+    .editquestion {
+      background-color: transparent;
+      a {
+        img {
+          padding-left: 0;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  // quiz question and feedback box
+  .content {
+    .formulation {
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      .qtext {
+        margin-bottom: $component-margin-bottom;
+        p {
+          margin-bottom: $component-margin-bottom-sm;
+       }
+      }
+      select {
+        border-radius: 4px;
+        margin: 0;
+        background-color: transparent;
+        color: $body-text;
+        &.correct {
+          border-color: $pea-green;
+        }
+        &.incorrect {
+          border-color: $kings-red;
+        }
+      }
+      .ablock {
+        margin: 0 0 $component-margin-bottom 0;
+        .prompt, .readonly, .readonly p {
+          margin-bottom: $component-margin-bottom-sm;
+        }
+        .label {
+          margin: 0;
+        }
+        .answer {
+          padding: 0 !important;
+          label {
+            margin-bottom: 0;
+          }
+          input[type="text"] {
+            margin-left: $component-margin-bottom-xs; 
+            background-color: transparent;
+            border-color: $rules-and-outlines;
+            color: $headings;
+          }
+          & > .icon {
+            display: none;
+          }
+          .r0, .r1 {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-bottom: $component-margin-bottom-xs !important;
+            label {
+              font-size: 1rem;
+              line-height: 1.5;
+              p {
+                margin: 0;
+              }
+            }
+            img.icon {
+              display: none;
+            }
+          }
+          > div.correct {
+            @include bg-colour-opacity($pea-green, 0.2);
+          }
+          > div.incorrect {
+            @include bg-colour-opacity($kings-red, 0.2);
+          }
+          ul.sortablelist {
+            li {
+              position: relative;
+              border-radius: 4px;
+              padding: 4px 8px;
+              .icon {
+                display: none;
+              }
+              &::before {
+                @extend .icon-before;
+                margin-right: $component-margin-xs;
+              }
+              &.correct {
+                @include bg-colour-opacity($pea-green, 0.2);
+                border-color: $pea-green !important;
+                &::before {
+                  color: $pea-green;
+                  content: '\f058';
+                }
+              }
+              &.incorrect {
+                @include bg-colour-opacity($kings-red, 0.2);
+                border-color: $kings-red !important;
+                &::before {
+                  color: $kings-red;
+                  content: '\f057';
+                }
+              }
+            }
+          }
+        }
+      }
+      input[type="submit"].btn {
+        @extend .btn-primary;
+      }
+    }
+    .outcome {
+      @extend .info-box;
+      @include bg-colour-opacity($yellow, 0.2);
+      & > .feedback::before {
+        content: '\f27a';
+        color: $yellow;
+        padding: 0 4px;
+      }
+      .feedback {
+        @extend .info-box-inner;  
+        margin-bottom: 0;
+        .specificfeedback, .specificfeedback p {
+          @extend .info-box-title;
+          margin-bottom: 1rem;
+        }
+        .rightanswer {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &.correct {
+    .formulation input.correct {
+      @include bg-colour-opacity($pea-green, 0.2);
+      border-color: $pea-green !important;
+      border-radius: 4px;
+    }
+    .outcome {
+      @include bg-colour-opacity($pea-green, 0.2);
+      & > .feedback::before {
+        color: $pea-green;
+        padding: 0 4px;
+        content: '\f058';
+      }
+    }
+  }
+  &.incorrect {
+    .formulation input.incorrect {
+      @include bg-colour-opacity($kings-red, 0.2);
+      border-color: $kings-red !important;   
+      border-radius: 4px;
+    }
+    .outcome {
+      @include bg-colour-opacity($kings-red, 0.2);
+      & > .feedback::before {
+        color: $kings-red;
+        content: '\f057';
+        padding: 0 4px;
+      }
+    }
+  }
+}
+
+// submit button
+#page-mod-quiz-attempt, #page-mod-quiz-review {
+  .submitbtns {
+    padding: 0;
+  }
+  .mod_quiz-next-nav {
+    // margin-bottom: $component-margin-bottom-xl;
+    display: inline;
+    @extend .btn, .btn-primary;
+  }
+}
+
+// confirmation modal
+.path-mod-quiz .moodle-dialogue {
+  @media only screen and (min-width: $neo-breakpoint) {
+    width: 450px !important;
+  }
+  .moodle-dialogue-bd {
+    .confirmation-buttons {
+      .btn {
+        margin: 0;
+        &:not(:first-of-type) {
+          margin-left: $component-margin-sm;
+        }
+      }
+    }
+  }
+}
+// summary of attempt page (on submission of answers)
+#page-mod-quiz-summary {
+  .quizsummaryofattempt {
+    @extend .quiz-table;
+    img.questionflag.icon-post {
+      display: none;
+    }
+  }
+}
+
+// more question types
+// Coderunner
+#page-mod-quiz-attempt,
+#page-mod-quiz-review{
+  .coderunner {
+    .ui_wrapper {
+      margin-bottom: $component-margin-bottom-sm;
+    }
+    .feedback {
+      .coderunner-test-results {
+        &.good,
+        &.bad {
+          background-color: transparent;
+          img.icon {
+            display: none;
+          }
+          table.coderunner-test-results {
+            .lastcol {
+              display: none;
+            }
+            td.c0:not(.header) {
+              &::before {
+                @extend .icon-before;
+                font-size: 1.25rem;
+                // for good
+                color: $pea-green;
+                content: '\f00c';
+              }
+            }
+          }
+        }
+        &.bad {
+          table.coderunner-test-results {
+            td.c0:not(.header) {
+              &::before{
+                // for bad
+                color: $kings-red;
+                content: '\f00d';
+              }
+            }
+          }
+          input[value="Show differences"],
+          input[value="Hide differences"] {
+            // usually we would set this on the bottom of the previous element,
+            // but the html has nexted this button within a <p> so it's impossible
+            margin-top: $component-margin-bottom !important;
+          }
+        }
+      }
+      .generalfeedback {
+        margin-bottom: $component-margin-bottom;
+        // putting top border on general because we don't want border if editor
+        // chooses not to include general feedback
+        border-top: 1px solid $rules-and-outlines;
+        padding-top: $component-margin-bottom;
+      }
+    }
+    .im-feedback {
+      display: none;
+    }
+  }
+}
+
+// identified in embedded question for v2.5 but if spotted elsewhere
+// can be moved somewhere above!
+.filter_embedquestion-fill-link {
+  button {
+    padding: 0 !important;
+  }
+}

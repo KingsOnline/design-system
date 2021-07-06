@@ -1,0 +1,39 @@
+/* embedded quiz question within book activity
+   called in within the question content
+   see guidance:
+   // GUIDANCE NOT YET CREATED, ONCE ADDED, UPDATE LINK BELOW!
+   https://iddkingsonline.com/design-system/guidance/book-embedded-question.html */
+
+/* add icon and custom message for print */
+.embedded-question {
+  top: -24px;
+  margin-bottom: 60px;
+  position: relative;
+}
+.embedded-question::before {
+  content: '\f109';
+  color: #333333;
+  position: absolute;
+  top: -36px;
+  left: 0;
+  font-size: 20px;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.embedded-question::after {
+  content: 'This is a quiz question that is marked online. Return to the webpage to complete the question and view feedback.';
+  position: absolute;
+  top: -36px;
+  left: 36px; 
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
+}
+/* hide question info */
+.embedded-question ~ .que .info {
+  display: none;
+}
+/* decrease font size to print default */
+.embedded-question ~ .que *:not(h1, h2, h3, h4, h5, h6) {
+  font-size: 14px;
+}

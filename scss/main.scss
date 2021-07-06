@@ -1,21 +1,16 @@
+@import '../css/normalize.css';
+
 @import 'utilities/variables';
-//@import 'utilities/functions';
-@import 'utilities/mixins';
 
-//@import 'vendors/bootstrap';
-//@import 'vendors/jquery-ui';
-
-//@import 'base/reset';
 @import 'base/fonts';
 @import 'base/typography';
 @import 'base/common';
 
 @import 'layout/navigation';
-@import 'layout/grid';
+// @import 'layout/grid';
 @import 'layout/header';
-//@import 'layout/footer';
+@import 'layout/pagelayout';
 @import 'layout/sidebar';
-@import 'layout/forms';
 
 @import 'components/academicnote';
 @import 'components/activitylabel';
@@ -23,9 +18,10 @@
 @import 'components/button';
 @import 'components/card';
 @import 'components/carousel';
+@import 'components/newcarousel';
 @import 'components/collapse';
-@import 'components/download';
 @import 'components/embed';
+@import 'components/footnotes';
 @import 'components/form';
 @import 'components/hero';
 @import 'components/images';
@@ -37,29 +33,27 @@
 @import 'components/scrollbar';
 @import 'components/table';
 @import 'components/timeline';
-@import 'components/viewanswer';
+@import 'components/viewhide';
 
-@import 'pages/all';
-@import 'pages/book';
-@import 'pages/choice';
-@import 'pages/contentbank';
-@import 'pages/database';
+@import 'activities/blog';
+@import 'activities/book';
+@import 'activities/choice';
+@import 'activities/contentbank';
+@import 'activities/database';
+@import 'activities/feedback';
+@import 'activities/file';
+@import 'activities/forum';
+@import 'activities/kalvidassign';
+@import 'activities/lesson';
+@import 'activities/lti';
+@import 'activities/questionnaire';
+@import 'activities/quiz';
+@import 'activities/tab';
+@import 'activities/turnitin';
+@import 'activities/url';
+@import 'activities/webinar';
+
 @import 'pages/editor';
-@import 'pages/feedback';
-@import 'pages/forum';
+@import 'pages/filemanager';
 @import 'pages/home';
-@import 'pages/kalvidassign';
-@import 'pages/kitchensink';
-@import 'pages/lesson';
-@import 'pages/link';
 @import 'pages/logs';
-@import 'pages/modinfo';
-@import 'pages/questionnaire';
-@import 'pages/quiz';
-@import 'pages/tab';
-@import 'pages/url';
-@import 'pages/versioning';
-@import 'pages/webinar';
-
-//@import 'themes/theme';
-//@import 'themes/admin';
