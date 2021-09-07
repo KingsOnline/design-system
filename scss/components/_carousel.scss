@@ -26,7 +26,7 @@
     }
   }
   .carousel-caption {
-    @extend .caption-overlay;
+    @extend %caption-overlay;
     // from common
     text-align: left;
     padding: 2.4% 11%;
@@ -49,7 +49,7 @@
   }
   &.text-only {
     .carousel-item {
-      @include bg-colour-opacity($midnight-blue, 0.85);
+      background-color: tint($midnight-blue, 15%);
       padding-top: 33.3333%;
     }
     .carousel-caption {
@@ -65,7 +65,7 @@
     bottom: 0;
     margin: 0 !important;
     width: 100%;
-    @include bg-colour-opacity($midnight-blue, 1);
+    background-color: $midnight-blue;
     li {
       width: 12px;
       height: 12px;
@@ -93,7 +93,7 @@
     height: auto !important;
     opacity: 1;
     &:hover {
-      @include bg-colour-opacity($midnight-blue, 1);
+      background-color: $midnight-blue;
     }
     i {
       font-size: 60px;

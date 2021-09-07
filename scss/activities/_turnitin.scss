@@ -5,11 +5,11 @@
   #region-main {
     ul.nav-tabs {
       // from common
-      @extend .first-tab-nav;
+      @extend %first-tab-nav;
     }
     ul.ui-tabs-nav {
       // from common
-      @extend .second-tab-nav;
+      @extend %second-tab-nav;
     }
     .ui-tabs {
       padding: 0!important;
@@ -35,7 +35,7 @@
             color: transparent;
             background-color: transparent;
             &::before {
-              content: "\f107";
+              @include fa-content($fa-angle-down);
               color: $midnight-blue;
             }
           }
@@ -43,7 +43,7 @@
             color: transparent;
             background-color: transparent;
             &:before {
-              content: "\f106";
+              @include fa-content($fa-angle-up);
               color: $midnight-blue;
             }
           }
@@ -65,12 +65,11 @@
             display: none;
           }
           &::after {
+            @extend %icon-before;
+            @include fa-content($fa-pencil);
             color: $midnight-blue !important;
-            font-weight: 900;
             margin: 0;
-            font-family: "Font Awesome 5 Free";
             font-size: 1.33333em !important;
-            content: "\f040";
             display: block;
             margin-left: 0.375rem;
           }
@@ -79,6 +78,21 @@
           #export_options {
             & > div {
               display: block;
+              &.row_export_xls {
+                i::before {
+                  @include fa-content($fa-file-excel);
+                }
+              }
+              &.downloadpdf_box {
+                i::before {
+                  @include fa-content($fa-file-pdf);
+                }
+              }
+              &.row_export_orig {
+                i::before {
+                  @include fa-content($fa-file);
+                }
+              }
             }
           }
         }
@@ -96,8 +110,8 @@
             a {
               i.icon-rubric {
                 &::before {
-                  @extend .icon-before;
-                  content: '\f1b3';
+                  @extend %icon-before;
+                  @include fa-content($fa-cubes);
                 }
                 &::after {
                   content: "Rubric manager";
@@ -113,8 +127,8 @@
             a {
               i.icon-quickmarks {
                 &::before {
-                  @extend .icon-before;
-                  content: '\f328';
+                  @extend %icon-before;
+                  @include fa-content($fa-clipboard);
                 }
                 &::after {
                   content: "Quickmark manager";
@@ -185,25 +199,23 @@
           }
           .mod_turnitintooltwo_messages_inbox {
             i.fa-envelope-o::before {
-              @extend .icon-before;
-              content: '\f0e0';
+              @extend %icon-before;
+              @include fa-content($fa-envelope);
             }
           }
           .mod_turnitintooltwo_nonsubmitters_link {
             i.fa-reply-all::before {
-              @extend .icon-before;
-              content: '\f0f3';
+              @extend %icon-before;
+              @include fa-content($fa-bell);
             }
           }
           .mod_turnitintooltwo_zip_downloads {
             margin-top: -$component-margin-xs;
             button.btn.dropdown-toggle {
-              @extend .btn, .btn-primary;
+              @extend %btn-primary;
               &::before {
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                margin-right: 0.375rem;
-                content: '\f019';
+                @extend %icon-before;
+                @include fa-content($fa-download);
               }
             }
           }
@@ -212,6 +224,9 @@
       .mod_turnitintooltwo_submissions_data_table {
         border:1px solid $rules-and-outlines;
         border-collapse: collapse;
+        // word break is required when student uses
+        // course title as submission title
+        word-break: break-word;
         tr, th, td {
           border: 1px solid $rules-and-outlines;
           margin: 0;
@@ -238,12 +253,29 @@
             background-image: none;
             background-color: $block-background;
             &::after {
-              font-family: "Font Awesome 5 Free";
-              font-weight: 900;
-              content: '\f0dc';
+              @extend %icon-after;
+              @include fa-content($fa-sort);
               color: $slate-grey;
-              margin-left: 0.375rem;
               display: inline-block;
+            }
+          }
+        }
+        tbody {
+          td {
+            .submit_nothing {
+              i::before {
+                @include fa-content($fa-pencil);
+              }
+            }
+            .upload_box {
+              i::before {
+                @include fa-content($fa-cloud-upload-alt);
+              }
+            }
+            .delete_paper {
+              i::before {
+                @include fa-content($fa-trash-alt);
+              }
             }
           }
         }
@@ -253,15 +285,20 @@
       }
       .dt_pagination {
         .dataTables_paginate {
-          @extend .activity-pagination-container;
+          @extend %activity-pagination-container;
           .paginate_button {
-            @extend .activity-pagination-button;
+            @extend %activity-pagination-button;
             &.current {
-              @extend .a-p-b-active;
+              @extend %a-p-b-active;
             }
           }
         }
       }
     }
+  }
+  // override incorrect FontAwesome called in
+  // from lambda
+  .fa {
+    font-family: "Font Awesome 5 Free";
   }
 }

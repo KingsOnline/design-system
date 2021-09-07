@@ -21,7 +21,7 @@ $table-bg-colors: (
 
 // mixin to add borders around and bg to individual row/col
 @mixin table-single-row-col-border {
-  @for $i from 1 through 50 {
+  @for $i from 1 through 25 {
     &.row-#{$i}-border {
       tr:nth-child(#{$i}) td {
         border-top: 1px solid $table-border !important;
@@ -116,7 +116,7 @@ $table-bg-colors: (
 }
 // mixin to add borders to mimic divider for row/col
 @mixin table-divider {
-  @for $i from 1 through 50 {
+  @for $i from 1 through 25 {
     &.row-#{$i}-divider {
       tr:nth-child(#{$i}) td {
         border-bottom: 1px solid $table-border !important;
@@ -152,7 +152,7 @@ table, .table {
       border: 1px solid $table-border !important;
     }
   }
-  &.table-fixed{
+  &.table-fixed {
     table-layout:fixed;
   }
   
@@ -188,10 +188,9 @@ table, .table {
     width: auto;
   }
   caption {
-    @extend .caption;
+    @extend %caption;
     font-weight: normal;
     caption-side: bottom !important;
-    margin-top: $component-margin-xs;
   }
   th, td {
     padding: 0.75rem 1.25rem;
@@ -205,7 +204,7 @@ table, .table {
   }
   th {
     background-color: $block-background;
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     font-size: 1.125rem;
     line-height: 1.4;
     color: $headings;
@@ -281,6 +280,11 @@ table, .table {
         &.background-#{$index} {
           background-color: $background-color;
         }
+      }
+      code {
+        // maintain contrast so text is legible against highlighted
+        // background
+        background: $white !important;
       }
     }
   }

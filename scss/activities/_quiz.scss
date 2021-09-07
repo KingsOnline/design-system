@@ -1,7 +1,7 @@
 /* Quiz
    ======================== */
 
-.quiz-table {
+%quiz-table {
   border: none;
   border-right: 1px solid $table-border;
   border-bottom: 1px solid $table-border;
@@ -21,7 +21,7 @@
       vertical-align: top;
     }
     th {
-      font-family: 'KingsBureauGrot';
+      font-family: "KingsBureauGrot";
       color: $headings;
     }
     td {
@@ -37,23 +37,19 @@
 // summary page
 #page-mod-quiz-view {
   .box.quizinfo p {
-    font-family: 'KingsBureauGrotFiveOne';
+    font-family: "KingsBureauGrotFiveOne";
     text-align: left;
     &:first-child::before {
-      @extend .icon-before;
-      content: '\f017';
+      @extend %icon-before;
+      @include fa-content($fa-angle-down);
     }
     &:nth-child(2)::before {
-      @extend .icon-before;
-      content: '\f091';
+      @extend %icon-before;
+      @include fa-content($fa-trophy);
     }
   } 
   .quizattemptsummary {
-    @extend .quiz-table;
-    th.lastcol,
-    td.lastcol {
-      // display: none;
-    }
+    @extend %quiz-table;
   }
   .generalbox#feedback {
      margin: 0;
@@ -70,7 +66,7 @@
 // review page
 #page-mod-quiz-review {
   .quizreviewsummary {
-    @extend .quiz-table;
+    @extend %quiz-table;
   }
 }
 
@@ -81,7 +77,7 @@
     display: flex;
     margin-bottom: $component-margin-bottom;
     .mod_quiz-prev-nav {
-      @extend .btn, .btn-secondary;
+      @extend %btn-secondary;
       float: none !important;
     }
   }
@@ -94,7 +90,7 @@
   .qn_buttons {
     margin-bottom: $component-margin-bottom;
     h3.mod_quiz-section-heading {
-      font-family: 'KingsBureauGrot';
+      font-family: "KingsBureauGrot";
       margin-bottom: $component-margin-bottom-xs;
     }
     h3.mod_quiz-section-heading:not(:first-child) {
@@ -106,14 +102,19 @@
       font-size: 1rem !important;
       padding: 0 !important;
       margin: 0 0.625rem 0.625rem 0;
-      background-color: transparent !important;
+      background-color: transparent;
       color: $headings !important;
       &:hover {
         text-decoration: none !important;
+        background-color: revert !important;
+        transform: scale(1.1);
       }
       .thispageholder {
         border: 1px solid $rules-and-outlines;
         border-radius: 4px !important;
+      }
+      &.thispage .thispageholder {
+        border: 2px solid $headings;
       }
       &.flagged .thispageholder {
         background: transparent url(https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg) 15px 0 no-repeat;
@@ -123,22 +124,25 @@
       }
       &.correct {
         // transparent bg colour for correct questions
-        background-color: transparent !important;
+        background-color: transparent;
         span.thispageholder {
           border: 1px solid $pea-green;
         }
       }
       &.incorrect {
-        @include bg-colour-opacity($kings-red, 0.3);
+        background-color: tint($kings-red, 70%);
         span.thispageholder {
           border: 1px solid $kings-red;
         }
       }
       &.partiallycorrect {
-        background-color: #FCEAB7 !important;
+        background-color: tint($yellow, 70%);
         span.thispageholder {
           border: 1px solid $yellow;
         }
+      }
+      &.answersaved{
+        background-color: $pearl-grey !important;
       }
       &.notyetanswered {
       }
@@ -151,19 +155,19 @@
     text-align: right;
     margin: 0 !important;
     a.endtestlink {
-      @extend .btn, .btn-primary;
+      @extend %btn-primary;
       display: inline;
       margin-right: 0 !important;
     }
     #quiz-timer {
-     font-family: 'KingsBureauGrotFiveOne';
+     font-family: "KingsBureauGrotFiveOne";
      font-size: 1.125rem;
       #quiz-time-left {
-        font-family: 'KingsBureauGrot';
+        font-family: "KingsBureauGrot";
       }
       &::before {
-        @extend .icon-before;
-        content: '\f017';
+        @extend %icon-before;
+        @include fa-content($fa-clock);
         margin-right: 4px;
       }
     }
@@ -193,14 +197,14 @@
     .no {
       width: 100%;
     }.no, .qno {
-      @extend .h5;
+      @extend %h5;
       margin-bottom: $component-margin-bottom-xs;
     }
     div {
       margin: 0;
       line-height: 1.5;
       font-size: 1rem !important;
-      font-family: 'KingsBureauGrot';
+      font-family: "KingsBureauGrot";
       border-radius: 0.125rem;
       letter-spacing: 0.5px;
       text-align: center;
@@ -223,7 +227,7 @@
     .questionflag {
       padding: 0 0.5rem;
       border-radius: 3px;;
-      content: '';
+      content: "";
       background: #e6ebed url("https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg ") right top no-repeat;
       background-size: 8px;
       @media only screen and (min-width: $neo-breakpoint) {
@@ -254,6 +258,7 @@
       margin: 0;
       padding: 0;
       .qtext {
+        font-size: 1rem;
         margin-bottom: $component-margin-bottom;
         p {
           margin-bottom: $component-margin-bottom-sm;
@@ -309,10 +314,10 @@
             }
           }
           > div.correct {
-            @include bg-colour-opacity($pea-green, 0.2);
+            background-color: tint($pea-green, 80%);
           }
           > div.incorrect {
-            @include bg-colour-opacity($kings-red, 0.2);
+            background-color: tint($kings-red, 80%);
           }
           ul.sortablelist {
             li {
@@ -323,23 +328,23 @@
                 display: none;
               }
               &::before {
-                @extend .icon-before;
+                @extend %icon-before;
                 margin-right: $component-margin-xs;
               }
               &.correct {
-                @include bg-colour-opacity($pea-green, 0.2);
+                background-color: tint($pea-green, 80%);
                 border-color: $pea-green !important;
                 &::before {
+                  @include fa-content($fa-check-circle);
                   color: $pea-green;
-                  content: '\f058';
                 }
               }
               &.incorrect {
-                @include bg-colour-opacity($kings-red, 0.2);
+                background-color: tint($kings-red, 80%);
                 border-color: $kings-red !important;
                 &::before {
+                  @include fa-content($fa-times-circle);
                   color: $kings-red;
-                  content: '\f057';
                 }
               }
             }
@@ -347,22 +352,23 @@
         }
       }
       input[type="submit"].btn {
-        @extend .btn-primary;
+        @extend %btn-primary;
       }
     }
     .outcome {
-      @extend .info-box;
-      @include bg-colour-opacity($yellow, 0.2);
+      @extend %info-box;
+      background-color: tint($yellow, 80%);
       & > .feedback::before {
-        content: '\f27a';
+        @include fa-content($fa-comments-alt);
         color: $yellow;
         padding: 0 4px;
       }
       .feedback {
-        @extend .info-box-inner;  
+        @extend %info-box-inner;
         margin-bottom: 0;
+        color: $body-text;
         .specificfeedback, .specificfeedback p {
-          @extend .info-box-title;
+          @extend %info-box-title;
           margin-bottom: 1rem;
         }
         .rightanswer {
@@ -373,30 +379,30 @@
   }
   &.correct {
     .formulation input.correct {
-      @include bg-colour-opacity($pea-green, 0.2);
+      background-color: tint($pea-green, 80%);
       border-color: $pea-green !important;
       border-radius: 4px;
     }
     .outcome {
-      @include bg-colour-opacity($pea-green, 0.2);
+      background-color: tint($pea-green, 80%);
       & > .feedback::before {
+        @include fa-content($fa-check-circle);
         color: $pea-green;
         padding: 0 4px;
-        content: '\f058';
       }
     }
   }
   &.incorrect {
     .formulation input.incorrect {
-      @include bg-colour-opacity($kings-red, 0.2);
+      background-color: tint($kings-red, 80%);
       border-color: $kings-red !important;   
       border-radius: 4px;
     }
     .outcome {
-      @include bg-colour-opacity($kings-red, 0.2);
+      background-color: tint($kings-red, 80%);
       & > .feedback::before {
+        @include fa-content($fa-times-circle);
         color: $kings-red;
-        content: '\f057';
         padding: 0 4px;
       }
     }
@@ -411,7 +417,7 @@
   .mod_quiz-next-nav {
     // margin-bottom: $component-margin-bottom-xl;
     display: inline;
-    @extend .btn, .btn-primary;
+    @extend %btn-primary;
   }
 }
 
@@ -434,7 +440,7 @@
 // summary of attempt page (on submission of answers)
 #page-mod-quiz-summary {
   .quizsummaryofattempt {
-    @extend .quiz-table;
+    @extend %quiz-table;
     img.questionflag.icon-post {
       display: none;
     }
@@ -463,11 +469,11 @@
             }
             td.c0:not(.header) {
               &::before {
-                @extend .icon-before;
+                @extend %icon-before;
                 font-size: 1.25rem;
                 // for good
+                @include fa-content($fa-check);
                 color: $pea-green;
-                content: '\f00c';
               }
             }
           }
@@ -477,8 +483,8 @@
             td.c0:not(.header) {
               &::before{
                 // for bad
+                @include fa-content($fa-times);
                 color: $kings-red;
-                content: '\f00d';
               }
             }
           }

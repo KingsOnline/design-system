@@ -1,7 +1,7 @@
 /* Modal
    =========================*/
 
-.close-button {
+%close-button {
   padding: 0 !important ;
   margin: 0 !important;
   box-shadow: none;
@@ -9,11 +9,11 @@
   background: none;
   opacity: 1;
   &::before {
-    content: '\f410';
+    @extend %icon-before;
+    @include fa-content($fa-window-close);
     color: $midnight-blue;
-    font-family: 'Font Awesome 5 Free';
+    margin-right: 0;
     font-size: 32px;
-    font-weight: 900;
     background: none;
     height: auto;
     width: auto;
@@ -39,18 +39,18 @@
       margin-bottom: $component-margin-bottom !important;
       border-bottom: none !important;
       color: $headings !important;
-      font-family: 'KingsBureauGrot';
+      font-family: "KingsBureauGrot";
       font-size: 1.25rem !important;
       padding: 0 3rem !important;
       position: relative;
       h1 {
-        @extend .h4;
+        @extend %h4;
         // from typography
       }
       span {
         padding: 0 !important;
         .closebutton {
-          @extend .close-button;
+          @extend %close-button;
           // from within this file
         }
       }
@@ -59,7 +59,7 @@
   .moodle-dialogue-bd {
     padding: 0 !important;
     .confirmation-message {
-      font-family: 'KingsBureauGrotFiveOne';
+      font-family: "KingsBureauGrotFiveOne";
       font-size: 1rem;
       margin: 0 0 $component-margin-bottom 0;
     }
@@ -85,14 +85,14 @@
       padding: 0;
       border: none;
       h4 {
-        @extend .h1;
+        @extend %h1;
         // from typography
       }
     }
     .modal-body {
       padding: 0;
       p {
-        font-family: 'KingsBureauGrotFiveOne';
+        font-family: "KingsBureauGrotFiveOne";
         font-size: 1.25rem;
       }
     } 
@@ -103,7 +103,7 @@
       .buttons {
         text-align: center;
         .singlebutton > form > div > input[type="submit"]:first-child {
-          @extend .btn, .btn-primary;
+          @extend %btn-primary;
           // from button
         }
       }
@@ -128,7 +128,7 @@
           margin-bottom: 0;
         }
         .close {
-          @extend .close-button;
+          @extend %close-button;
           // from within this file
           width: 32px;
           height: 32px;

@@ -1,6 +1,8 @@
 /* blocks */
 // hide administration block from students or teachers without editing rights
 $("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
+// move book TOC block to the left
+$("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Table of contents')))))").children(".block").prependTo("#block-region-side-pre");
 // move add a block block to the left
 $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
 // if there are no visible blocks in aside hide it and make main region full width
@@ -29,10 +31,6 @@ const blockHide = "#block-region-side-pre .block .title h2, #block-region-side-p
 $(document).on("click", blockHide, function(event) {
   $(this).parents(".block").toggleClass('hidden');
 });
-
-/* grid format */
-// return 'accesshide' class to sectionname post 3.9.3
-$(".gtopics .content .sectionname").addClass("accesshide");
 
 /* external links in paragraphs */
 // if external links are present
@@ -169,9 +167,9 @@ $(".new-carousel").on("click", ".nc-previous", function(event) {
 });
 
 $(".nc-gallery").scroll(function() {
-  // Get component width
+  // get component width
   var slideWidth = $(this).width();
-  // Get how far we scrolled left
+  // get how far we scrolled left
   var leftNumber = $(this).scrollLeft();
   // divide our scroll distance by component width to calculate which slide we're on (accounting for + 1 error)
   var currSlideNum = (leftNumber / slideWidth) + 1;
@@ -196,8 +194,7 @@ $(".nc-gallery").scroll(function() {
   // If slide number is 1, make previous button inactive
   if (currSlideNum === 1) {
     $(ncPreviousButton).attr('disabled','disabled')
-  }
-  else {
+  } else {
     $(ncPreviousButton).removeAttr('disabled')
   }
 });
@@ -407,6 +404,7 @@ strip keywords from elsewhere:
 section view activity title, activity page title
 print page title, print book info title
 breadcrumb
+activity instance error alert (student does not have access to activity)
 activity restriction info
 previous/next activity buttons
 webinar title
@@ -417,26 +415,28 @@ question bank question page dropdown, question category page and export page
 question editing page
 */
 $(`#region-main h2:first-of-type:contains('activity-label'),
- #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'),
- #page-mod-book-print #page-content .book_info td:contains('activity-label'),
- .breadcrumb li a span:contains('activity-label'),
- .breadcrumb li a:contains('activity-label'),
- .availabilityinfo.isrestricted strong a:contains('activity-label'),
- .activity-navigation .col-md-4 a:contains('activity-label'),
- .chosted-info .chosted-info-value p:contains('activity-label'),
- .alert p:contains('activity-label'),
- .block_course_modulenavigation .activityname:contains('activity-label'),
- #page-report-log-index td a:contains('activity-label'),
- #page-report-outline-index td a:contains('activity-label'),
- #page-question-edit select option:contains('activitiy-label'),
- #page-question-category h3:contains('activity-label'),
- #page-question-category ul li b a:contains('activity-label'),
- #page-question-category ul li .text_to_html:contains('activity-label'),
- #page-question-category select option:contains('activity-label'),
- #page-question-export select option:contains('activity-label'),
- .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')`).text(function(i, currentText) {
-  return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+  #page-mod-book-print #page-content h1:first-of-type:contains('activity-label'),
+  #page-mod-book-print #page-content .book_info td:contains('activity-label'),
+  .breadcrumb li a span:contains('activity-label'),
+  .breadcrumb li a:contains('activity-label'),
+  .activityinstance-error .instancename:contains('activity-label'),
+  .availabilityinfo.isrestricted strong a:contains('activity-label'),
+  .activity-navigation .col-md-4 a:contains('activity-label'),
+  .chosted-info .chosted-info-value p:contains('activity-label'),
+  .alert p:contains('activity-label'),
+  .block_course_modulenavigation .activityname:contains('activity-label'),
+  #page-report-log-index td a:contains('activity-label'),
+  #page-report-outline-index td a:contains('activity-label'),
+  #page-question-edit select option:contains('activitiy-label'),
+  #page-question-category h3:contains('activity-label'),
+  #page-question-category ul li b a:contains('activity-label'),
+  #page-question-category ul li .text_to_html:contains('activity-label'),
+  #page-question-category select option:contains('activity-label'),
+  #page-question-export select option:contains('activity-label'),
+  .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')`).text(function(i, currentText) {
+   return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 })
+
 
 // completion progress activity title
 $(".course-content ul.section li.activity .actions button img.icon, .course-content ul.section li.activity .actions .autocompletion img.icon").attr("title", function(i, currentText) {
@@ -452,6 +452,13 @@ if ($('#fgroup_id_currentgrp fieldset').length) {
     return this.nodeType == 3;
   })[0];
   currentCategory.nodeValue = currentCategory.nodeValue.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+}
+// turnitin title in details table
+if ($('.path-mod-turnitintooltwo .mod_turnitintooltwo_part_details td').length) {
+  var turnitinTitle = $(".path-mod-turnitintooltwo .mod_turnitintooltwo_part_details td").contents().filter(function(){
+    return this.nodeType == 3;
+  })[0];
+  turnitinTitle.nodeValue = turnitinTitle.nodeValue.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 }
 // activity restrict access dropdown
 setTimeout(function (){

@@ -17,7 +17,7 @@
         text-align: left;
         .collapse-title,
         h3, h4, h5, h6 {
-          @extend .h4;
+          @extend %h4;
           position: relative;
           margin-bottom: 0;
           margin-left: 1.75rem;
@@ -25,8 +25,8 @@
           color: $midnight-blue;
           width: calc(100% - 1.75rem);
           &::before {
-            @extend .icon-before;
-            content: '\f107';
+            @extend %icon-before;
+            @include fa-content($fa-angle-down);
             margin: 0;
             font-size: 1.5rem;
             position: absolute;
@@ -50,7 +50,7 @@
         background-color: $block-background;
       }
       .collapse-subheading {
-        @extend .h5;
+        @extend %h5;
         margin-bottom: 1rem;
       }
       p {
@@ -66,7 +66,7 @@
           .collapse-title,
           h3, h4, h5, h6 {
             &::before {
-              content: '\f105';
+              @include fa-content($fa-angle-right);
             }
           }
         }
@@ -81,6 +81,7 @@
 // display in block in atto editor
 .editor_atto_content {
   .collapse-container {
+    pointer-events:none;
     .collapse-card.collapsed {
       .collapse-body {
         display: block !important;

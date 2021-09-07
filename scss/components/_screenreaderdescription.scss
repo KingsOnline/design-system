@@ -3,7 +3,7 @@
 
 @mixin label-inner-top-left ($label-text, $bg-color){
   &::before{
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     font-size: 1.125rem;
     color: $white;
     height: 27px;
@@ -24,22 +24,22 @@
     #id_content_editoreditable .sr-only {
       width: auto;
       height: auto;
-      @include bg-colour-opacity($teal-blue, 0.2);
+      background-color: tint($teal-blue, 80%);
       position: initial;
       margin: $component-margin-xs 0 !important;
       padding: 0.5rem;
       border: 1px dashed $body-text;
-      @include label-inner-top-left ('Description for screen readers', $teal-blue)
+      @include label-inner-top-left ("Description for screen readers", $teal-blue)
     }
     .sr-only p:first-child{
       margin-top: 20px;
     }
     #id_content_editoreditable .complex-image {
-      @include bg-colour-opacity($orange, 0.2);
+      background-color: tint($orange, 80%);
       padding: 0.5rem;
       margin: 0.5rem 0rem !important;
       border: 1px solid $body-text;
-      @include label-inner-top-left ('Complex image', $orange);
+      @include label-inner-top-left ("Complex image", $orange);
     }
   }
 }

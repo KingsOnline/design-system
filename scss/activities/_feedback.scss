@@ -18,11 +18,11 @@
           padding: 0 !important;
           // section heading
           .feedback-section {
-            @extend .h3;
+            @extend %h3;
             margin-bottom: $component-margin-bottom !important;
           }
           label {
-            @extend .h5;
+            @extend %h5;
             margin: 0 !important;
             margin-bottom: $component-margin-bottom-sm !important;
             & > *:last-child {

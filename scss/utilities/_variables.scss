@@ -53,6 +53,15 @@ $activity-label-orange: #EB5600;
   background-color: rgba($color, $opacity) !important;
 }
 
+// mixes color with white to lighten
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+// mixes color with black to darken
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
 // Layout
 
 // Breakpoints
@@ -74,7 +83,7 @@ $component-margin-bottom-lg: $component-margin-lg;
 $component-margin-bottom-xl: $component-margin-xl;
 $component-padding-xs: $component-margin-xs;
 $component-padding-sm: $component-margin-sm;
-$component-padding-: $component-margin;
+$component-padding: $component-margin;
 $component-padding-lg: $component-margin-lg;
 $component-padding-xl: $component-margin-xl;
 $section-margin-bottom-sm: 3rem;

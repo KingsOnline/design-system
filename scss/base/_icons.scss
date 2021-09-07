@@ -1,0 +1,63 @@
+// Font Awesome icons
+// ===========================
+
+// formats the unicode character correctly following sass compilation
+@mixin fa-content($icon-unicode) {
+  content: #{"\"\\"}#{$icon-unicode + "\""};
+}
+
+// solid
+$fa-volume-off: 2026;
+$fa-check: f00c;
+$fa-times: f00d;
+$fa-clock: f017;
+$fa-download: f019;
+$fa-bookmark: f02e;
+$fa-print: f02f;
+$fa-video: f03d;
+$fa-image: f03e;
+$fa-edit: f044; // journal in infobox
+$fa-times-circle: f057;
+$fa-check-circle: f058;
+$fa-question-circle: f059;
+$fa-arrow-up: f062;
+$fa-arrow-down: f063;
+$fa-plus: f067;
+$fa-minus: f068;
+$fa-exclamation-circle: f06a;
+$fa-eye: f06e;
+$fa-eye-slash: f070;
+$fa-exclamation-triangle: f071;
+$fa-folder-open: f07c; // social annotation files in infobox
+$fa-comments: f086;
+$fa-trophy: f091;
+$fa-arrows-alt: f0b2; // move section / activity
+$fa-users: f0c0; // shared resources in infobox
+$fa-link: f0c1;
+$fa-sort: f0dc;
+$fa-envelope: f0e0;
+$fa-bell: f0f3;
+$fa-angle-double-left: f100;
+$fa-angle-double-right: f101;
+$fa-angle-left: f104;
+$fa-angle-right: f105;
+$fa-angle-up: f106;
+$fa-angle-down: f107;
+$fa-file: f15b; // turnitin export to original format
+$fa-info: f129;
+$fa-play-circle: f144;
+$fa-thumbs-up: f164;
+$fa-cubes: f1b3;
+$fa-file-pdf: f1c1; // turnitin export pdf
+$fa-file-excel: f1c3; // turnitin export xls
+$fa-comments-alt: f27a; // square comment bubble
+$fa-trash-alt: f2ed;
+$fa-pencil: f303;
+$fa-expand-arrows-alt: f31e; // view only section X in CT format
+$fa-clipboard: f328;
+$fa-arrows-alt-h: f337; // to indicate wide table
+$fa-cloud-upload-alt: f382;
+$fa-microphone-alt: f3c9;
+$fa-window-close: f410;
+$fa-user-friends: f500;
+$fa-book-reader: f5da;

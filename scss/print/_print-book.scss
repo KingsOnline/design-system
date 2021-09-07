@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
-@import '../utilities/variables';
+@import "../utilities/variables";
+@import "../base/icons";
+@import "../base/typography";
+@import "../base/common";
 
 // primary font used for headings
 @font-face {
-  font-family: 'KingsBureauGrot';
-  src: url('https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf') format('truetype');
+  font-family: "KingsBureauGrot";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -13,23 +16,23 @@
 // secondary fonts
 // Open Sans support font used for body text within sidebar blocks
 @font-face {
-  font-family: 'KingsBureauGrotFiveOne';
-  src: url('https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf') format('truetype');
+  font-family: "KingsBureauGrotFiveOne";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
   font-style: normal;
 }
 // King's Caslon Display regular support font used for quotations
 @font-face {
-  font-family: 'KingsCaslonDisplay';
-  src: url('https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf') format('truetype');
+  font-family: "KingsCaslonDisplay";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
   font-style: normal;
 }
 
 // print common
-.print-icon-before {
+%print-icon-before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
-.print-component-border {
+%print-component-border {
   border: 2px solid $slate-grey;
 }
 $print-component-border: 2px solid $slate-grey;
@@ -46,7 +49,7 @@ html {
 #page-mod-book-print {
   font-size: 14px;
   color: $body-text;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   margin: 0;
   #page-content {
     max-width: 85%;
@@ -85,15 +88,15 @@ html {
             line-height: 22.5px;
           }
           &::before {
-            @extend .print-icon-before;
-            content: '\f02f';
+            @extend %print-icon-before;
+            @include fa-content($fa-print);
             padding: 10px 8px 10px 12px;
             border-radius: 4px 0 0 4px;
             border-right: none;
           }
           &::after {
-            content: 'Print';
-            font-family: 'KingsBureauGrot';
+            content: "Print";
+            font-family: "KingsBureauGrot";
             padding: 10px 12px 10px 0;
             border-radius: 0 4px 4px 0;
             left: 38px;
@@ -185,7 +188,7 @@ html {
   h6, .h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     color: $headings;
     margin-top: 0;
     margin-bottom: $print-component-margin;
@@ -211,7 +214,7 @@ html {
     line-height: 1.4;
   }
   h6, .h6 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 700 !important;
     font-size: 1rem;
     line-height: 1.4;
@@ -236,9 +239,9 @@ html {
       display: none;
     }
     &::after {
-      @extend .print-icon-before;
+      @extend %print-icon-before;
+      @include fa-content($fa-sort);
       position: absolute;
-      content: '\f0c1';
       font-size: 8px;
       margin-left: 1px;
     }
@@ -250,8 +253,10 @@ html {
       margin-bottom: 0.625rem;
     }
   }
-  .caption {
+  .caption,
+  figcaption {
     font-size: 0.875rem;
+    margin-top: $print-component-margin-sm;
   }
   .alert {
     color: $body-text;
@@ -267,7 +272,7 @@ html {
       &::before {
         content: '“';
         color: $footer-dark;
-        font-family: 'KingsCaslonDisplay';
+        font-family: "KingsCaslonDisplay";
         font-size: 4.5rem;
         font-weight: 900;
         top: 2.5rem;
@@ -278,13 +283,15 @@ html {
     .quote-attribution {
       margin: 0;
       font-size: 1.2rem;
-      font-family: 'KingsBureauGrot';
+      font-family: "KingsBureauGrot";
     }
     .quote-body {
-      font-family: 'Open Sans';
+      font-size: 1rem;
+      font-family: "Open Sans";
     }
   }
   figure {
+    margin: 0 0 $print-component-margin 0;
     &.quote-box {
       padding-left: 4rem;
       blockquote.quote-body {
@@ -293,6 +300,7 @@ html {
       }
     }
     figcaption {
+      font-size: 0.875rem;
       line-height: 1.5;
     }
   }
@@ -349,7 +357,7 @@ html {
 
   // Card
   .card {
-    @extend .print-component-border;
+    @extend %print-component-border;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -410,29 +418,16 @@ html {
       }
     }
   }
-  // Float box
+  // Float box (2.5.2+)
   .float-box {
     display: flex;
     flex-direction: row;
     margin-bottom: $print-component-margin;
-    & > .filter-ally-wrapper,
-    & > img {
-      margin: 0 $print-component-margin 0 0;
-      flex-shrink: 0;
-      align-self: flex-start;
-    }
-    & > .filter-ally-wrapper > img {
-      margin: 0;
-    }
-    &.small-image img {
-      width: 100px;
-    }
-    h3, h4, h5, h6 {
-      margin-bottom: 0.625rem;
-    }
     &.img-right {
       & > .filter-ally-wrapper,
-      & > img {
+      & > img,
+      & > figure,
+      & > .img-container {
         order: 2;
         margin: 0 0 0 $print-component-margin;
       }
@@ -440,6 +435,52 @@ html {
         margin: 0;
         height: auto;
       }
+      &.small-image,
+      &.img-small,
+      &.small-img {
+        & > .filter-ally-wrapper,
+        & > img {
+          margin: 0 0 0 $print-component-margin-sm;
+        }
+      }
+    }
+    & > .filter-ally-wrapper,
+    & > img,
+    & > figure,
+    & > .img-container {
+      margin: 0 $print-component-margin 0 0;
+      flex-shrink: 0;
+      align-self: flex-start;
+      // for firefox
+      @-moz-document url-prefix() {
+        flex: max-content;
+      }
+    }
+    figure,
+    // to maintain old .img-container class
+    .img-container {
+      width: min-content;
+    }
+    & > .filter-ally-wrapper > img {
+      margin: 0;
+    }
+    &.small-image,
+    &.img-small,
+    &.small-img {
+      & > .filter-ally-wrapper,
+      & > img {
+        margin: 0 $print-component-margin-sm 0 0;
+      }
+      img {
+        width: 100px;
+      }
+    }
+    // override theme max-width 100%;
+    img {
+      max-width: 310px !important;
+    }
+    h3, h4, h5, h6 {
+      margin-bottom: 0.625rem;
     }
   }
 
@@ -459,7 +500,7 @@ html {
         max-width: 100%;
       }
       .carousel-caption {
-        @extend .print-component-border;
+        @extend %print-component-border;
         position: static;
         max-width: calc(100% - 2.5rem - 4px);
         padding: $print-component-padding;
@@ -548,8 +589,8 @@ html {
             position: relative;
             text-align: left;
             &::before {
-              @extend .print-icon-before;
-              content: '\f107';
+              @extend %print-icon-before;
+              @include fa-content($fa-angle-down);
               color: $slate-grey;
               position: absolute;
               left: -2.5rem;
@@ -621,17 +662,17 @@ html {
     }
     &:not(.embed-responsive-audio) {
       &::before {
-        content: '\f144';
+        @include fa-content($fa-play-circle);
         left: calc(50% - 18px);
         font-size: 24px;
       }
       &::after {
-        content: 'Video transcript';
+        content: "Video transcript";
       }
     }
     &::before {
-      @extend .print-icon-before;
-      content: '\f3c9';
+      @extend %print-icon-before;
+      @include fa-content($fa-microphone-alt);
       color: $body-text;
       position: absolute;
       top: 6px;
@@ -639,7 +680,7 @@ html {
       font-size: 28px;
     }
     &::after {
-      content: 'Audio transcript';
+      content: "Audio transcript";
       position: absolute;
       left: calc(42px + 1.25rem);
       width: 200px;
@@ -668,35 +709,30 @@ html {
   }
 
   // Images
-  .full-width-img,
-  .img-full-width,
-  .center-img,
-  .img-center,
-  .circular-img,
-  .img-circular,
-  .image-scroll {
+  figure {
     margin-bottom: $print-component-margin;
+    figcaption, .caption {
+      max-width: none;
+    }
+    & > :not(figcaption),
+    & > .img-scroll, & > .image-scroll {
+      margin-bottom: 0 !important;
+    }
   }
-  .full-width-img,
-  .img-full-width,
-  .image-scroll {
+  .full-width-img, .img-full-width,
+  .center-img, .img-center,
+  .circular-img, .img-circular,
+  .img-scroll, .image-scroll {
+    margin-bottom: $print-component-margin;
+    figcaption, .caption {
+      max-width: none;
+    }
+  }
+  .full-width-img, .img-full-width,
+  .img-scroll, .image-scroll {
     img {
       width: 100%;
       height: auto;
-    }
-  }
-  .full-width-img,
-  .img-full-width,
-  .center-img,
-  .img-center {
-     img:not(:last-child) {
-      margin-bottom: 0.75rem;
-    }
-  }
-  .full-width-img,
-  .img-full-width {
-    .caption {
-      margin-bottom: 0;
     }
   }
   .center-img,
@@ -708,12 +744,13 @@ html {
     border-radius: 50%;
     max-width: 100%;
   }
-  .image-scroll {
+  .image-scroll,
+  .img-scroll {
     margin-top: 54px;
     position: relative;
     &::before {
-      @extend .print-icon-before;
-      content: '\f03e';
+      @extend %print-icon-before;
+      @include fa-content($fa-image);
       color: $body-text;
       position: absolute;
       top: -36px;
@@ -721,12 +758,16 @@ html {
       font-size: 28px;
     }
     &::after {
-      content: 'This is a wide image, please return to the webpage to check more details.';
+      content: "This is a wide image. Return to the webpage to view further details.";
       position: absolute;
       top: -36px;
       left: 36px;
     }
   }
+  .screenshot {
+    border: $print-component-border-thin;
+  }
+
   // Info box
   .editing-help-box {
     display: none;
@@ -736,9 +777,13 @@ html {
   .alert-instructional,
   .feedback-box,
   .learning-outcome-box,
-  .reading-box {
+  .media-box,
+  .reading-box,
+  .journal-box,
+  .shared-box,
+  .files-box {
     & > :first-child::before {
-      @extend .print-icon-before;
+      @extend %print-icon-before;
       font-size: 1.2rem;
       position: absolute;
       top: $print-component-margin;
@@ -747,31 +792,47 @@ html {
     }
   }
   .definition-box > :first-child::before {
-    content: '\f02e';
+    @include fa-content($fa-bookmark);
     padding: 0 7px;
     top: 1.2rem;
   }
   .alert-caution > :first-child::before {
-    content: '\f071';
+    @include fa-content($fa-exclamation-triangle);
     padding: 0 2px;
     top: 1.1rem;
   }
   .alert-instructional > :first-child::before {
-    content: '\f086';
+    @include fa-content($fa-comments);
     padding: 0 2px;
     top: 1.1rem;
   }
   .feedback-box > :first-child::before {
-    content: '\f27a';
+    @include fa-content($fa-comments-alt);
     padding: 0 4px;
   }
   .learning-outcome-box > :first-child::before {
-    content: '\f091';
+    @include fa-content($fa-trophy);
     padding: 0 3px;
     top: 1.15rem;
   }
+  .media-box > :first-child::before {
+    @include fa-content($fa-play-circle);
+    padding: 0 4px;
+  }
   .reading-box > :first-child::before {
-    content: '\f5da';
+    @include fa-content($fa-book-reader);
+    padding: 0 4px;
+  }
+  .journal-box > :first-child::before {
+    @include fa-content($fa-edit);
+    padding: 0 4px;
+  }
+  .shared-box > :first-child::before {
+    @include fa-content($fa-users);
+    padding: 0 4px;
+  }
+  .files-box > :first-child::before {
+    @include fa-content($fa-folder-open);
     padding: 0 4px;
   }
   .definition-box,
@@ -780,7 +841,11 @@ html {
   .feedback-box,
   .key-concept-box,
   .learning-outcome-box,
-  .reading-box {
+  .media-box,
+  .reading-box,
+  .journal-box,
+  .shared-box,
+  .files-box {
     border: 2px solid $table-border;
     padding: $print-component-padding;
     padding-left: 4rem;
@@ -798,7 +863,7 @@ html {
     background-color: $block-header;
   }
   .key-concept-box {
-    @extend .print-component-border;
+    @extend %print-component-border;
     padding: $print-component-padding;
     font-weight: bold;
     background-color: $block-header;
@@ -822,13 +887,13 @@ html {
       margin-bottom: $print-component-margin;
       .icon.arrow-down::before,
       .icon.arrow-up::after {
-        @extend .print-icon-before;
-        content: '\f063';
+        @extend %print-icon-before;
+        @include fa-content($fa-arrow-down);
         font-size: 30px;
         margin: 10px;
       }
       .icon.arrow-up::after {
-        content: '\f062';
+        @include fa-content($fa-arrow-up);
       }
       .icon.relate {
         border-right: 3px solid $black !important;
@@ -1118,8 +1183,8 @@ html {
     position: relative;
     margin-top: 84px;
     &::before {
-      @extend .print-icon-before;
-      content: '\f03e';
+      @extend %print-icon-before;
+      @include fa-content($fa-arrows-alt-h);
       color: $body-text;
       position: absolute;
       top: -66px;
@@ -1127,7 +1192,7 @@ html {
       font-size: 28px;
     }
     &::after {
-      content: 'This is a wide table and some information may be excluded in print.\00000a Please return to the webpage to check for more details.';
+      content: "This is a wide table and some information may be excluded in print.\00000a Please return to the webpage to check for more details.";
       position: absolute;
       top: -66px;
       left: 36px;
@@ -1160,7 +1225,7 @@ html {
       background-color: transparent;
       position: relative;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         top: 50%;
@@ -1185,7 +1250,7 @@ html {
         left: -2px;
         padding: 0 $print-component-padding;
         border-radius: 6px 6px 0 0;
-        font-family: 'KingsBureauGrot';
+        font-family: "KingsBureauGrot";
         line-height: 1.4;
         color: $headings;
         border: $print-component-border;
@@ -1242,7 +1307,7 @@ html {
       &:not(:first-child) {
         &::before {
           position: absolute;
-          content: '';
+          content: "";
           border: 0.25rem solid $slate-grey;
           height: 2rem;
           top: -2.5rem;
@@ -1346,6 +1411,7 @@ html {
       & .card-text:only-child,
       & > p {
         margin-left: calc(150px + #{$print-component-margin});
+        max-width: calc(100% - 150px - #{$print-component-margin});
         border-left: $print-component-border;
         padding-left: $print-component-padding;
       }
@@ -1358,23 +1424,31 @@ html {
     .view-feedback-container,
     .view-model-answer-container,
     .academic-note-container {
+      margin-top: $print-component-margin-sm;
       border-left: $print-component-border;
       padding-left: $print-component-padding;
+      & > h3, & > h4, & > h5, & > h6 {
+        margin-left: 0;
+        border: none;
+        padding-left: 0;
+      }
       [class*="-card"] > .card-body {
         display: block;
-      }
-      .card-author {
-        width: 150px;
-      }
-      & > h3, & > h4, & > h5, & > h6,
-      & > img,
-      & > .filter-ally-wrapper > img,
-      .card-author,
-      .card-text,
-      & > p {
-        margin-left: 0 !important;
-        border: none !important;
-        padding-left: 0 !important;
+        .card-author {
+          width: 150px;
+        }
+        & > h3, & > h4, & > h5, & > h6,
+        & > h3, & > h4, & > h5, & > h6,
+        & > img,
+        & > .filter-ally-wrapper > img,
+        .card-author,
+        .card-text,
+        & > p {
+          margin-left: 0 !important;
+          border: none !important;
+          padding-left: 0 !important;
+          max-width: 100% !important;
+        }
       }
     }
   }
@@ -1382,8 +1456,6 @@ html {
 
 /* print */
 @media print {
-  #page-content {
-  }
   .book {
     .book_title {
       margin-top: 0 !important;

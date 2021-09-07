@@ -2,7 +2,7 @@
    =========================*/
 
 .hero {
-  @extend .top-bar;
+  @extend %top-bar;
   // from common
   margin-bottom: $component-margin-bottom-lg;
   &::before {
@@ -12,7 +12,7 @@
     width: 100%;
   }
   .hero-caption {
-    @extend .caption-overlay;
+    @extend %caption-overlay;
     // from common
     @media only screen and (max-width: $neo-breakpoint) {
       position: static;

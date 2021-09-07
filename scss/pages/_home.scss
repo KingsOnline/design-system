@@ -46,7 +46,7 @@
           // hide activity labels on module information, forums and webinars, and
           // assessment pages
           &.section-hide-activity-labels {
-            @extend .hide-activity-labels;
+            @extend %hide-activity-labels;
           }
           .content {
             margin: 0 !important;
@@ -107,12 +107,12 @@
               }
               &.type-study .activityinstance a {
                 .activity-label-container {
-                  @extend .activity-label-container-default.study;
+                  @extend %type-study;
                 }
               }
               &.type-assessed .activityinstance a {
                 .activity-label-container  {
-                  @extend .activity-label-container-default.assessed;
+                  @extend %type-assessed;
                 }
               }
               &.modtype_folder {
@@ -135,6 +135,8 @@
               }
               .activityinstance {
                 width: 100%;
+                //DJ set height to auto to prevent overlapping activity text
+                height:auto;
                 min-height: initial !important;
                 padding: 0;
                 order: 2;
@@ -178,7 +180,7 @@
                     }
                   }
                   .activity-label-container {
-                    @extend .activity-label-container-default;
+                    @extend %activity-label-container-default;
                   }
                 }
                 a.quickeditlink {
@@ -272,7 +274,6 @@
                     width: 1.25rem;
                     padding: 0;
                     border-radius: 4px;
-                    @include bg-colour-opacity($white, 0.8);
                   }
                 }
                 .filler {
@@ -310,9 +311,9 @@
                     text-decoration: none;
                    }
                   &:after {
-                    font-family: 'Font Awesome 5 Free';
+                    @include fa-content($fa-question-circle);
+                    font-family: "Font Awesome 5 Free";
                     font-size: 1.25rem;
-                    content: '\f059';
                     color: $midnight-blue;
                     margin-left: $component-margin-lg;
                     position: absolute;
@@ -320,7 +321,7 @@
                   }
                 }
                 &:before {
-                  content: '';
+                  content: "";
                   background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
                   background-size: 20px 20px;
                   width: 20px;
@@ -359,9 +360,9 @@
                       }
                       // question mark icon
                       &:after {
-                        font-family: 'Font Awesome 5 Free';
+                        @include fa-content($fa-question-circle);
+                        font-family: "Font Awesome 5 Free";
                         font-size: 1.25rem;
-                        content: '\f059';
                         color: $midnight-blue;
                         margin-left: 36px;
                         position: absolute;
@@ -370,7 +371,7 @@
                     }
                     // checkbox image
                     &:before {
-                      content: '';
+                      content: "";
                       background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
                       background-size: 20px 20px;
                       width: 20px;
@@ -449,7 +450,6 @@
             .right {
               .section_action_menu {
                 // edit section menu button
-                top: -4px;
                 .menubar {
                   .dropdown {
                     line-height: 0.8;
@@ -459,16 +459,15 @@
                       border-radius: 4px;
                       padding: 0.25rem;
                       height: auto;
-                      &.dropdown-toggle:after {
-                        content: ' section';
-                        margin-right: 0.75rem;
-                      }
-                      b.caret {
+                      .caret {
+                        margin: 5px 0 0 58px;
                         border-top-color: $midnight-blue !important;
-                        position: absolute;
-                        right: 4px;
-                        top: 10px;
-                        margin: 0;
+                         &::before {
+                          content: " section";
+                          position: absolute;
+                          top: 5px;
+                          right: 16px;
+                        }
                       }
                     }
                   }
@@ -628,21 +627,21 @@
       ul.gridicons > li > span:first-child {
         position: relative;
         .icon_content {
-          @extend .caption-overlay;
+          @extend %caption-overlay;
           color: $white;
           text-align: left;
           z-index: 1;
           padding: 1rem;
           width: calc(310px - 2rem);
           height: 100px!important;
-          font-family: 'KingsBureauGrot';
+          font-family: "KingsBureauGrot";
           font-size: 1.25rem;
           line-height: 1.4;
           white-space: normal;
           opacity: 1;
         }
         .image_holder {
-          @extend .top-bar;
+          @extend %top-bar;
           border: none;
           width: 310px;
           height: 310px;
@@ -657,7 +656,7 @@
             filter: none;
             opacity: initial;
             &:before {
-              content: 'Available soon';
+              content: "Available soon";
               position: absolute;
               background-color: $yellow!important;
               color: $body-text;
@@ -670,16 +669,16 @@
               height: 30px;
               display: flex;
               align-items: center;
-              font-family: 'KingsBureauGrot';
+              font-family: "KingsBureauGrot";
             }
             .icon_content {
               @include bg-colour-opacity($slate-grey, 0.85);
             }
             img {
               filter: grayscale(1);
-              &:hover {
-                transform: none;
-              }
+              transform: none;
+              top: 0;
+              left: 0;
             }
           }
         }
@@ -708,7 +707,7 @@
           border: none;
           .content {
             // apply background to each section
-            @include bg-colour-opacity($block-background, 0.3);
+            background-color: tint($block-background, 70%);
             margin: 0 0 $component-margin-sm 0 !important;
             padding: 0 $component-margin-xs $component-margin-xs $component-margin-xs !important;
             .sectionname {
@@ -797,9 +796,8 @@
           text-decoration: underline !important;
         }
         &::before {
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-          content: '\f129';
+          @extend %icon-before;
+          @include fa-content($fa-question-circle);
           position: absolute;
           left: 0;
           line-height: 16px;
@@ -851,9 +849,8 @@
                 margin: 0 !important;
                 margin-left: $component-margin-lg !important;
                 &::before {
-                  font-family: 'Font Awesome 5 Free';
-                  font-weight: 900;
-                  content: '\f105';
+                  @extend %icon-before;
+                  @include fa-content($fa-angle-right);
                   position: absolute;
                   left: 1.25rem;
                 }
@@ -883,7 +880,7 @@
               .sectionname {
                 color: $white !important;
                 &::before {
-                  content: '\f107';
+                  @include fa-content($fa-angle-down);
                 }
                 span {
                   color: $white !important;
@@ -964,7 +961,7 @@
             display: none;
           }
           .section-title {
-            @extend .h1;
+            @extend %h1;
             margin-bottom: $component-margin-bottom;
             &::after {
               display: none;
@@ -996,16 +993,16 @@
             #toggles-all-opened:hover::before,
             #toggles-all-closed::before,
             #toggles-all-closed:hover::before{
-              font-family: 'Font Awesome 5 Free';
-              font-weight: 900;
-              content: '\f105';
+              @extend %icon-before;
+              @include fa-content($fa-angle-right);
               position: absolute;
               left: 0;
+              margin-right: 0;
               top: 1px;
               font-size: 1.125rem;
             }
             #toggles-all-opened:hover::before, #toggles-all-closed::before {
-              content: '\f107';
+              @include fa-content($fa-angle-down);
               left: -2px;
             }
           }
@@ -1039,9 +1036,9 @@
             margin: 0 !important;
             font-size: 1.25rem;
             &:before {
-              content: '\f31e';
-              font-family: 'Font Awesome 5 Free';
-              font-weight: 900;
+              @extend %icon-before;
+              @include fa-content($fa-expand-arrows-alt);
+              margin-right: 0;
               color: $midnight-blue;
             }
             img {
@@ -1057,6 +1054,9 @@
               background-color: $white;
               border-radius: 4px;
               padding: 0.25rem;
+              .action-menu-trigger {
+                z-index: auto;
+              }
             }
           }
         }
@@ -1068,7 +1068,7 @@
       padding: 0;
       .sectionname {
         text-align: left;
-        @extend .h2;
+        @extend %h2;
         margin-bottom: $component-margin-bottom-lg;
         &:after {
           // hide line underneath
@@ -1093,8 +1093,13 @@
         // width
         width: 100% !important;
         // hide view only section icon
-        .right >.tceditsection::before {
-          display: none;
+        .right {
+          .section_action_menu {
+            top: -4px;
+          }
+          & > .tceditsection::before {
+            display: none;
+          }
         }
         .content {
           // hide edit summary cog
@@ -1172,7 +1177,7 @@ a.activity-link {
     text-decoration: underline;  
   }
   .activity-label-container {
-    @extend .activity-label-container-default;
+    @extend %activity-label-container-default;
     .activity-label.assessed {
       background-color: #60bbba !important;
       color: $white;
@@ -1183,7 +1188,7 @@ a.activity-link {
 
 // section-0 title
 #section-0 .content > h3.sectionname {
-  @extend .h1;
+  @extend %h1;
   background: none;
   margin-bottom: $component-margin-bottom;
   padding: 0;

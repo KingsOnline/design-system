@@ -36,11 +36,11 @@
     .card-title,
     h3, h4, h5, h6 {
       // from typography
-      @extend .h4;
+      @extend %h4;
       margin-bottom: 0.75rem;
     }
     .card-subheading {
-      @extend .h5;
+      @extend %h5;
       margin-bottom: 0.75rem;
     }
     & > :last-child {
@@ -73,76 +73,132 @@
   }
 }
 
+// v2.5.2+
 .float-box {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   margin-bottom: $component-margin-bottom;
-  &.img-right .filter-ally-wrapper,
-  &.img-right > img,
-  & > img.img-right,
-  &.img-right > .img-container {
-    order: 2;
-    margin-left: $component-margin-sm;
-    margin-right: 0;
-    @media only screen and (max-width: $neo-breakpoint) {
-      margin-left: 0;
+  figure,
+  // to maintain old .img-container class
+  .img-container {
+    order: 1;
+    width: min-content;
+    margin: 0 $component-margin-sm 0 0;
+    // firefox only
+    @-moz-document url-prefix() {
+      max-width: min-content;
     }
   }
-  &.img-right .filter-ally-wrapper {
-    & > img {
-      margin: 0;
+  figure figcaption,
+  .img-container {
+    & > .view-description-container {
+      margin-top: $component-margin;
     }
-  }
-  // blackboard ally
-  & > .filter-ally-wrapper {
-    flex-shrink: 0;
+    & > :last-child {
+      margin-bottom: 0;
+    }
   }
   & > img,
-  & > .filter-ally-wrapper > img {
+  & > .filter-ally-wrapper {
     margin: 0 $component-margin-sm 0 0;
   }
   & > img {
-    position: relative;
+    height: 100%;
   }
-  & > .filter-ally-wrapper > img {
-    height: auto;
-    flex-shrink: 0;
-    .caption {
-      margin-top: $component-margin-xs;
-      margin-bottom: 0;
-      max-width: fit-content;
+  &.img-right {
+    & > div:not(.img-container),
+    .float-box-body {
+      order: 1;
+    }
+    figure {
+      order: 2;
+      margin: 0 0 0 $component-margin-sm;
+    }
+    // to maintain old .img-container class
+    .img-container {
+      order: 2;
+      margin: 0 0 0 $component-margin-sm;
+    }
+    & > img,
+    & > .filter-ally-wrapper {
+      order: 2;
+      margin: 0 0 0 $component-margin-sm;
     }
   }
-  &:not(.small-image) {
+  &:not(.img-small):not(.image-small):not(.small-image) {
     @media only screen and (max-width: $neo-breakpoint) {
-      display: block;
-      & > img, & > .filter-ally-wrapper > img {
-        margin-right: 0;
-        margin-bottom: $component-margin-bottom-sm;
+      flex-wrap: wrap;
+      figure,
+      // to maintain old .img-container class
+      .img-container,
+      & > .filter-ally-wrapper {
+        order: 2;
+        margin: $component-margin-sm 0 0 0;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      & > img {
+        order: 2;
+        margin: $component-margin-sm 0 0 0;
         width: 100%;
       }
+      figure figcaption,
+      // to maintain old .img-container class
+      .img-container {
+        & > .view-description-container {
+          margin: $component-margin-xs 0 0 0;
+          .card-body {
+            margin-top: $component-margin-sm;
+            padding: 0 0 0 $component-padding-sm;
+          }
+        }
+      }
     }
-  }  
-  &.small-image {
+  }
+  &.img-small, &.image-small, &.small-image {
     & > img,
     & > .filter-ally-wrapper > img {
       width: 100px;
       height: 100px;
     }
-  }
-  .img-container {
-    margin-right: $component-margin-sm;
-    width: max-content;
-    .caption {
-      margin-top: $component-margin-xs;
+    & > img,
+    & > .filter-ally-wrapper {
+      @media only screen and (max-width: $neo-breakpoint) {
+        margin: 0 $component-margin-xs 0 0;
+      }
+    }
+    &.img-right {
+      & > img,
+      & > .filter-ally-wrapper {
+        @media only screen and (max-width: $neo-breakpoint) {
+          margin: 0 0 0 $component-margin-xs;
+        }
+      }
     }
   }
-  & > div,
+  // card body
+  & > div {
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  & > div:not(.img-container),
   .float-box-body {
+    order: 2;
     width: 100%;
     & > :last-child {
       margin-bottom: 0;
+    }
+  }
+}
+
+// editor
+.editor_atto_content {
+  .float-box {
+    img {
+      resize: none;
+      overflow: initial;
     }
   }
 }

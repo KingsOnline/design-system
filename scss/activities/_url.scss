@@ -4,6 +4,6 @@
 #page-mod-url-view {
   .urlworkaround {
     // from Common
-    @extend .bold-link;
+    @extend %bold-link;
   }
 }

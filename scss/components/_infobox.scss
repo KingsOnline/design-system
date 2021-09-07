@@ -3,31 +3,34 @@
 
 // Alert-type info boxes are covered in alerts
 
-//definition box
+// Table of contents
+// =================
+// 1. Definition
+// 2. Editing help
+// 3. Feedback
+//   - correct-answer
+//   - model-answer
+//   - incorrect-answer
+// 4. Key concept
+// 5. Learning outcome
+// 6. Media
+// 6. My Journal (journal)
+// 7. Reading
+// 8. Shared resources
+// 9. Social annotation files (files)
+
+// definition box
 .definition-box {
-  @extend .info-box;
+  @extend %info-box;
   // from common
-  background-color: $block-background;
   &::before {
-    content: '\f02e';
+    @include fa-content($fa-bookmark);
     padding: 0 5px;
     color: $purple70;
   }
 }
 
-//media box
-.media-box {
-  @extend .info-box;
-  // from common
-  background-color: $block-background;
-  &::before {
-    content: '\f03d';
-    padding: 0 5px;
-    color: $midnight-blue;
-  }
-}
-
-//editing help box
+// editing help box
 body {
   &:not(.editing) {
     .editing-help-box {
@@ -35,52 +38,52 @@ body {
     }
   }
   .editing-help-box {
-    @extend .info-box;
-    @include bg-colour-opacity($lime-green, 0.2);
+    @extend %info-box;
+    background-color: tint($lime-green, 80%);
     border-radius: 1.5rem;
     &::before {
       font-size: 1.5rem;
-      content: '\f059';
+      @include fa-content($fa-question-circle);
       padding: 0 2.5px;
       color: $teal-blue;
     }
   }
 }
 
-//feedback box
+// feedback box
 .feedback-box {
-  @extend .info-box;
+  @extend %info-box;
   &.correct-answer {
-    @include bg-colour-opacity($pea-green, 0.2);
+    background-color: tint($pea-green, 80%);
     &::before {
+      @include fa-content($fa-check-circle);
       color: $pea-green;
       padding: 0 4px;
-      content: '\f058';
     }
   }
   &.model-answer {
-    @include bg-colour-opacity($yellow, 0.2);
+    background-color: tint($yellow, 80%);
     &::before {
-      content: '\f27a';
+      @include fa-content($fa-comments-alt);
       color: $yellow;
       padding: 0 4px;
     }
   }
   &.incorrect-answer {
-    @include bg-colour-opacity($kings-red, 0.2);
+    background-color: tint($kings-red, 80%);
     &::before {
+      @include fa-content($fa-times-circle);
       color: $kings-red;
-      content: '\f057';
       padding: 0 4px;
     }
   }
 }
 
-//key concept box
+// key concept box
 .key-concept-box {
   background-color: $block-background;
   margin-bottom: $component-margin-bottom;
-  padding: 1.5rem;
+  padding: $component-padding;
   div > :last-child {
     margin-bottom: 0 !important;
   }
@@ -90,33 +93,72 @@ body {
   }
 }
 
-//learning outcome box
-#region-main .learning-outcome-box {
-  @extend .info-box;
-  background-color: $block-background;
-  &::before {
-    content: '\f091';
-    color: $teal-blue;
-    padding: 0 4px;
+// learning outcome box
+#region-main {
+  .learning-outcome-box {
+    @extend %info-box;
+    &::before {
+      @include fa-content($fa-trophy);
+      color: $teal-blue;
+      padding: 0 4px;
+    }
+    ol, ul {
+      margin: 0 0 $component-margin-bottom 1.25rem;
+      li:last-child {
+        margin-bottom: 0;
+      }
+      &:last-child {
+        margin: 0 0 0 1.25rem;
+      }
+    }
   }
-  ol, ul {
-    margin: 0 0 $component-margin-bottom 1.25rem;
-    li:last-child {
-      margin-bottom: 0;
-    }
-    &:last-child {
-      margin: 0 0 0 1.25rem;
-    }
+}
+
+// media box
+.media-box {
+  @extend %info-box;
+  // from common
+  &::before {
+    @include fa-content($fa-play-circle);
+    padding: 0 5px;
+  }
+}
+
+// journal box
+.journal-box {
+  @extend %info-box;
+  // from common
+  &::before {
+    @include fa-content($fa-edit);
+    padding: 0 1px 0 2px;
   }
 }
 
 // reading box
 .reading-box {
-  @extend .info-box;
-  background-color: $block-background;
+  @extend %info-box;
+  // from common
   &::before {
-    content: '\f5da';
+    @include fa-content($fa-book-reader);
     padding: 0 2px 0 3px;
-    color: $midnight-blue;
+  }
+}
+
+// shared resources box
+.shared-box {
+  @extend %info-box;
+  // from common
+  &::before {
+    @include fa-content($fa-users);
+  }
+}
+
+// social annotation files box
+.files-box {
+  @extend %info-box;
+  // from common
+  &::before {
+    @include fa-content($fa-folder-open);
+    padding: 0 1px 0 2px;
   }
 }

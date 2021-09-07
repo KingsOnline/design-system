@@ -3,7 +3,7 @@
 
 // pre Rumdoodle 2.3
 div.quote-box {
-  @extend .info-box;
+  @extend %info-box;
   // from common
   background-color: $block-background;
   & > :first-child {
@@ -11,7 +11,7 @@ div.quote-box {
       content: '“';
       padding: 0;
       color: $orange;
-      font-family: 'KingsCaslonDisplay';
+      font-family: "KingsCaslonDisplay";
       font-size: 4.5rem;
       position: absolute;
       left: 18px;
@@ -27,18 +27,18 @@ div.quote-box {
 }
 // Rumdoodle 2.3
 figure.quote-box {
-  margin-bottom: $component-margin-bottom;
   background-color: $block-background;
   position: relative;
   padding: 1.25rem 1.75rem 1.25rem 4.625rem;
   blockquote {
     border: none;
+    margin-bottom: $component-margin-bottom;
     padding: 0;
     &::before {
       content: '“';
       padding: 0;
       color: $orange;
-      font-family: 'KingsCaslonDisplay';
+      font-family: "KingsCaslonDisplay";
       font-size: 4.5rem;
       font-style: normal;
       font-weight: normal;
@@ -49,7 +49,7 @@ figure.quote-box {
     }
   }
   figcaption:last-child {
-    @extend .h4;
+    @extend %h4;
     margin-bottom: 0;
   }
 }

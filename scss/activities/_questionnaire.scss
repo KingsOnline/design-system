@@ -1,7 +1,6 @@
 /* Questionnaire
    ======================== */
 
-
 // pre questionnaire intro page
 #page-mod-questionnaire-view {
 }
@@ -14,14 +13,12 @@
     .singlebutton {
       // continue button
       button {
-        @extend .btn-primary;
+        @extend %btn-primary;
         margin-bottom: 0 !important;
       }
     }
   }
 }
-
-/* =========== */
 
 #page-mod-questionnaire-preview fieldset,
 #page-mod-questionnaire-complete fieldset {
@@ -37,7 +34,7 @@
     .message {
       margin-bottom: $component-margin-bottom;
       & > a {
-        @extend .btn, .btn-primary;
+        @extend %btn-primary;
       }
     }
   }
@@ -50,7 +47,7 @@
       border: none;
       padding: 0;
       & > a {
-        @extend .btn, .btn-primary;
+        @extend %btn-primary;
       }
     }
     .c1, .c0 {
@@ -73,8 +70,9 @@
   .floatprinticon {
     width: 100%;
     margin: 0;
-    // couldn't add bottom-margin to title as this overrides styles of title on other pages, so had to apply it to the print 
-    margin-top:-1.5rem;
+    // couldn't add bottom-margin to title as this overrides
+    // styles of title on other pages, so had to apply it to the print
+    margin-top: -$component-margin;
     float: none;
     text-align: right !important;
     display: block;
@@ -84,7 +82,7 @@
       position: relative;
     }
     &:first-of-type:before {
-      content: 'Indicates required field';
+      content: "Indicates required field";
       font-family: "Open Sans";
       font-size: 1rem;
       font-weight: normal;
@@ -95,11 +93,10 @@
       cursor: text;
     }
     &:first-of-type:after {
-      content: '\f06a';
+      @include fa-content($fa-exclamation-circle);
       font-family: "Font Awesome 5 Free";
       font-weight: bold;
       position: absolute;
-      //top: 3.125rem;
       top: 0;
       color: #CA3120;
       left: 0;

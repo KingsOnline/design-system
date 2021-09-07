@@ -3,7 +3,7 @@
 
 // default activity label display
 // extended in Home
-.activity-label-container-default {
+%activity-label-container-default {
   display: inline-flex;
   // safari renders the kings font slightly out of whack with all other
   // browsers
@@ -14,7 +14,7 @@
   }
   .activity-label {
     display: inline-block;
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.5px;
@@ -26,20 +26,6 @@
     border-radius: 15px;
     margin-left: 1rem;
     background-color: $block-background;
-  }
-  // hide label completely for study type activity
-  &.study {
-    .activity-label {
-      display: none !important;
-    }
-  }
-  // adjust colours for assessed label
-  &.assessed {
-    .activity-label {
-      background-color: $teal-blue;
-      color: $white;
-      width: 5.5rem !important;
-    }
   }
   .group-icon {
     color: $activity-label-orange;
@@ -62,10 +48,24 @@
     }
   }
 }
+// hide label completely for study type activity
+%type-study {
+  .activity-label {
+    display: none !important;
+  }
+}
+// adjust colours for assessed label
+%type-assessed {
+  .activity-label {
+    background-color: $teal-blue !important;
+    color: $white !important;
+    width: 5.5rem !important;
+  }
+}
 
 // hide activity labels on specific section pages
 // extended in Home
-.hide-activity-labels {
+%hide-activity-labels {
   li.activity {
     &.type-assessed .activity-label-container {
       .group-icon, .media-icon {

@@ -4,6 +4,6 @@
 #page-mod-resource-view {
   .resourceworkaround {
     // from Common
-    @extend .bold-link;
+    @extend %bold-link;
   }
 }

@@ -6,38 +6,38 @@
   display: none;
 }
 
-.navcontainer {
+%navcontainer {
   display: flex;
   margin-top: $component-margin-lg;
   margin-bottom: $component-margin-bottom-lg !important;
   padding: 0;
-  .navtextcontainer {
+  %navtextcontainer {
     flex: 1;
     top: 0;
     transform: none;
     max-width: 50%;
     position: initial;
   }
-  .navtext {
+  %navtext {
     position: relative;
     display:inline-block;
     float: none;
     margin: 0;
     padding-top: 0.5rem !important;
     padding-bottom: 0 !important;
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     font-size: 1.25rem !important;
     line-height: 1.2;
     color: $midnight-blue !important;
     background-color: transparent !important;
     box-shadow: none;
-    &.prev {
+    &%navtext-prev {
       left: 0;
       padding-right: 0.75rem !important;
       padding-left: 3.25rem !important;
       text-align: left;
     }
-    &.next {
+    &%navtext-next {
       right: 0;
       padding-right: 3.25rem !important;
       padding-left: 0.75rem !important;
@@ -48,8 +48,8 @@
     }
   }
 }
-.navbutton {
-  @extend .icon-before;
+%navbutton {
+  @extend %icon-before;
   padding: 5px 16.5px;
   font-size: 1.5625rem;
   color: $white;
@@ -58,28 +58,28 @@
   top: 0;
   margin: 0;
   background-color: $midnight-blue;
-  box-shadow: 0 2px 0 0 #05192e;
+  box-shadow: 0 2px 0 0 shade($midnight-blue, 50%);
   &:hover {
-    @include bg-colour-opacity($midnight-blue, 0.85);
-    box-shadow: 0 2px 0 0 #43566B;
+    background-color: tint($midnight-blue, 15%);
+    box-shadow: 0 2px 0 0 tint($midnight-blue, 20%);
   }
   @media only screen and (min-width: $neo-breakpoint) {
     font-size: 1.25rem;
     padding: 4px 12px;
   }
   &::before {
+    @include fa-content($fa-angle-left);
     left: 0;
-    content: '\f104';
   }
   &::after {
+    @include fa-content($fa-angle-right);
     right: 0;
-    content: '\f105';
   }
 }
 
 // activity navigation
 .activity-navigation {
-  @extend .navcontainer;
+  @extend %navcontainer;
   .row {
     width: 100%;
     justify-content: space-between;
@@ -87,19 +87,19 @@
     margin: 0 !important;
     .col-md-4 {
       padding: 0;
-      @extend .navtextcontainer;
+      @extend %navtextcontainer;
       // hide the jump to activity dropdown
       &:nth-child(2) {
         display: none;
       }
       a#prev-activity-link,
       a#next-activity-link {
-        @extend .navtext;
+        @extend %navtext;
       }
       a#prev-activity-link {
-        @extend .navtext, .prev;
+        @extend %navtext, %navtext-prev;
         &::before {
-          @extend .navbutton;
+          @extend %navbutton;
         }
       }
       // right align next activity link
@@ -107,9 +107,9 @@
         display: flex;
         justify-content: flex-end;
         a#next-activity-link {
-          @extend .navtext, .next;
+          @extend %navtext, %navtext-next;
           &::after {
-            @extend .navbutton;
+            @extend %navbutton;
           }
         }
       }
@@ -119,19 +119,19 @@
 
 // section navigation
 .course-content .single-section .section-navigation.mdl-bottom {
-  @extend .navcontainer;
+  @extend %navcontainer;
   .mdl-left,
   .mdl-right {
-    @extend .navtextcontainer;
+    @extend %navtextcontainer;
     a {
-      @extend .navtext;
+      @extend %navtext;
     }
   }
   .mdl-left {
     a {
       padding-left:3rem;
       &::before {
-        @extend .navbutton;
+        @extend %navbutton;
           left: 0;
       }
     }
@@ -141,7 +141,7 @@
       text-align: right;
       padding-right:3rem;
       &::after {
-        @extend .navbutton;
+        @extend %navbutton;
           right: 0;
       }
     }

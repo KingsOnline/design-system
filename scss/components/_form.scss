@@ -8,9 +8,7 @@
   }
 }
 
-.singleselect form,
-.singleselect select,
-.singleselect select option {
-  font-family: 'KingsBureauGrotFiveOne';
+// override theme font size of 11px
+.singleselect {
   font-size: 1rem;
 }

@@ -12,9 +12,9 @@
     }
     form {
       input {
-        @extend .btn;
+        @extend %btn;
         &#id_add_video {
-          @extend .btn-primary;
+          @extend %btn-primary;
         } 
       }
     }

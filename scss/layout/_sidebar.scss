@@ -73,8 +73,8 @@ aside {
 #block-region-side-pre .block,
 #block-region-side-post .block {
   &:not(.block_fake) .title h2::after {
-    content: '\f068';
-    font-family: 'Font Awesome 5 Free';
+    @include fa-content($fa-minus);
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     position: absolute;
     right: 0;
@@ -82,7 +82,7 @@ aside {
     pointer-events: all;
   }
   &.hidden:not(.block_fake) .title h2::after {
-    content: '\f067';
+    @include fa-content($fa-plus);
   }
   .header {
     background-color: $block-header;
@@ -98,7 +98,7 @@ aside {
       border: 1px solid $table-border;
       border-bottom: 0;
       .headline {
-        @extend .sidebar-header;
+        @extend %sidebar-header;
       }
     }
     .title {
@@ -107,7 +107,7 @@ aside {
       background: transparent;
       box-shadow: none;
       h2 {
-        @extend .sidebar-header;
+        @extend %sidebar-header;
         pointer-events: none;
         max-width: calc(100% - 1.5rem);
       }
@@ -133,12 +133,12 @@ aside {
          }
        }
        li {
-         font-family: 'KingsBureauGrotFiveOne';
+         font-family: "KingsBureauGrotFiveOne";
          margin: 0;
          a,
          p,
          span {
-           font-family: 'KingsBureauGrotFiveOne';
+           font-family: "KingsBureauGrotFiveOne";
            color: $midnight-blue;
            font-size: 1rem;
            line-height: 1.5;
@@ -160,7 +160,7 @@ aside {
           margin-bottom: 0.75rem;
         }
         strong {
-          font-family: 'KingsBureauGrot';
+          font-family: "KingsBureauGrot";
           color: $midnight-blue;
         }
       }
@@ -178,14 +178,14 @@ aside {
       border: 1px solid $table-border;
       border-top: 0;
       padding: 0.75rem;
-      font-family: 'KingsBureauGrotFiveOne';
+      font-family: "KingsBureauGrotFiveOne";
       font-size: 1rem;
       margin-bottom: 0;
     }
     #block_course_discuss_form_message_feedback {
       margin-top: 0.5rem;
       margin-bottom: 1rem;
-      font-family: 'KingsBureauGrotFiveOne';
+      font-family: "KingsBureauGrotFiveOne";
       font-size: 0.833rem;
       line-height: 1.5;
       color: $body-text;
@@ -213,11 +213,11 @@ aside {
       span {
         display: block;
         &.name {
-          font-family: 'KingsBureauGrot';
+          font-family: "KingsBureauGrot";
           color: $body-text;
         }
         &.role {
-          font-family: 'KingsBureauGrotFiveOne';
+          font-family: "KingsBureauGrotFiveOne";
           color: $body-text;
         }
       }
@@ -249,8 +249,15 @@ aside {
 
 // quick access block
 #block-region-side-pre, #block-region-side-post {
-  .block_html .content ul.fa-ul {
-    color: $midnight-blue;
+  .block_html {
+    .content {
+      ul.fa-ul {
+        color: $midnight-blue;
+      }
+      .footer {
+        margin: 0;
+      }
+    }
   }
 }
 

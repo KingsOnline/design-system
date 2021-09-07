@@ -14,10 +14,10 @@ section#region-main {
     text-decoration: underline;
     cursor: pointer;
     &:hover {
-      @include bg-colour-opacity($yellow, 0.3);
+      background-color: tint($yellow, 70%);
     }
     &:focus {
-      @include bg-colour-opacity($yellow, 0.3);
+      background-color: tint($yellow, 70%);
     }
     .sr-only.ref-label {
       border: none;
@@ -34,13 +34,16 @@ section#region-main {
     padding: $component-margin-bottom 0 0 0;
     margin: $component-margin 0 0 0;
     :target {
-      @include bg-colour-opacity($yellow, 0.3);
+      background-color: tint($yellow, 70%);
     }
     ol {
       margin-bottom: 0;
       li {
         font-size: 0.875rem;
         line-height: 1.5;
+        a {
+          word-break: break-all;
+        }
       }
     }
   }

@@ -2,24 +2,27 @@
    ======================== */
 
 // standard button
-button, .btn {
-  font-family: 'KingsBureauGrot';
+button, .btn,
+%btn {
+  font-family: "KingsBureauGrot";
   @include font-scale(btn);
   padding: 0.625rem 0.75rem !important;
   margin: 0 0.75rem 0.5rem 0 !important;
   border-radius: 4px !important;
   box-shadow: none;
   text-decoration: none !important;
-  &.btn-primary, &.btn-default, &.course-discuss-reply-button {
+}
+button, .btn {
+  &.btn-primary {
     background-color: $midnight-blue !important;
     color: $white !important;
     &:hover {
-      background-color: #536c84 !important;
+      background-color: tint($midnight-blue, 30%) !important;
       text-decoration: none !important;
     }
     &:focus {
         outline: thin dotted $sky-blue !important;
-        outline-color:$sky-blue !important;
+        outline-color: $sky-blue !important;
         outline-style: dotted;
         outline-width: thin;
         outline-offset: -2px;
@@ -31,27 +34,27 @@ button, .btn {
     padding: 0.5rem 0.625rem !important;
     border: 2px solid $midnight-blue;
     &:hover {
-      border-color: #536c84;
-      background-color: #536c84 !important;
-      color: white !important;
+      border-color: tint($midnight-blue, 30%);
+      background-color: tint($midnight-blue, 30%) !important;
+      color: $white !important;
     }
   }
   &.btn-lg {
     @include font-scale(btn-lg);
     padding: 0.5625rem 1.5rem;
     min-width: 9.6875rem;
-    box-shadow: 0 5px 0 0 #05192e;
+    box-shadow: 0 5px 0 0 shade($midnight-blue, 50%);
     &:hover {
-      background-color: #526C84;
-      box-shadow: 0 5px 0 0 #43566B;
+      background-color: tint($midnight-blue, 30%);
+      box-shadow: 0 5px 0 0 tint($midnight-blue, 20%);
     }
   }
   &[disabled] {
-    background-color: #cdd7dc !important;
-    color: #5a6469 !important;
+    background-color: $pearl-grey !important;
+    color: $slate-grey !important;
     opacity: 1;
     &:hover {
-      background-color: #cdd7dc !important;
+      background-color: $pearl-grey !important;
     }
   }
   &:last-child {
@@ -70,16 +73,31 @@ button, .btn {
     text-decoration: none;
     color: inherit;
   }
-  &.btn-link:hover, &.btn-link:focus {
+  &.btn-link:hover,
+  &.btn-link:focus {
     text-decoration: none;
   }
 }
-
-input[type="submit"] {
+%btn-primary {
   @extend .btn, .btn-primary;
+}
+%btn-secondary {
+  @extend .btn, .btn-secondary;
+}
+
+.btn-default,
+.course-discuss-reply-button {
+  @extend %btn, %btn-primary;
+}
+input[type="submit"] {
+  @extend %btn, %btn-primary;
   &.btn-secondary {
-    @extend .btn-primary;
+    @extend %btn-primary;
   }
+}
+
+.btn#id_cancel {
+ @extend %btn-secondary;
 }
 
 .singlebutton > form > div {
@@ -100,22 +118,19 @@ input[type="submit"] {
 }
 
 // override white visited button text
-button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondary:visited {
-  color: $midnight-blue !important;
-}
-
-.btn#id_cancel {
- @extend .btn-secondary;
+button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
+  &:visited {
+    color: $midnight-blue !important;
+  }
 }
 
 // download button container
 // download link in base/_typography
 .download-container {
   .btn-download::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    @extend %icon-before;
     margin-right: 0.375rem;
-    content: '\f019';
+    @include fa-content($fa-download);
   }
   .download-info {
     font-size: 0.833rem;
@@ -124,13 +139,12 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
 }
 
 // go to forum button
-.btn-forum{
-  margin-bottom: $component-margin-bottom-lg!important;
+.btn-forum {
+  margin-bottom: $component-margin-bottom-lg! important;
   &::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    @extend %icon-before;
     margin-right: $component-margin-xs;
-    content: '\f500';
+    @include fa-content($fa-user-friends);
   }
 }
 

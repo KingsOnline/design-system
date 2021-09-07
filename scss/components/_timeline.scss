@@ -22,7 +22,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
     }
     // horizontal line between pill and card
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       display: block;
       top: calc(50% - 1.5px);
@@ -69,7 +69,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
         padding: 4px 8px;
         border-radius: 6px 6px 0 0;
         color: white;
-        font-family: 'KingsBureauGrot';
+        font-family: "KingsBureauGrot";
         line-height: 1.4;
       }
       img:not(.icon) {
@@ -83,7 +83,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
         }
       }
       h3, h4, h5, h6 {
-        @extend .h4;
+        @extend %h4;
         margin-top: 0;
       }
       .img-reference {
@@ -134,7 +134,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
     &:not(:first-child) {
       &::before {
         position: absolute;
-        content: '';
+        content: "";
         /* teal darken 15% */
         border: 0.25rem solid darken($teal-blue, 15%);
         height: 2.25rem;
@@ -181,8 +181,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
     .card-image {
       order: 2;
       max-width: 130px;
-      margin-left: 1.25rem;
-      margin-bottom: 0;
+      margin: 0 0 0 1.25rem;
       img {
         max-width: 100%;
         margin-bottom: $component-margin-bottom-xs;

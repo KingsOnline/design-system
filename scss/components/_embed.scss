@@ -56,9 +56,9 @@
   position: relative;
   background: $white;
   &:before {
-    content: 'audio';
+    content: "audio";
     text-transform: uppercase;
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
     font-size: 1.125rem;
     position: absolute;
     right: 0.5rem;
@@ -96,7 +96,7 @@
       }
       .audio-title,
       h3, h4, h5, h6 {
-        @extend .h5;
+        @extend %h5;
         margin-top: 0;
         margin-bottom: 0;
       }
@@ -113,8 +113,12 @@
 .transcript-container {
   margin-bottom: $component-margin-bottom;
   .transcript-button-group {
-    .view-close-transcript:focus, .download-transcript:focus {
-      outline: $pearl-grey auto 1px !important;
+    .view-close-transcript,
+    .download-transcript {
+      margin: 0 !important;
+      &:focus {
+        outline: $pearl-grey auto 1px !important;
+      }
     }
     & > ::before {
       font-family: "Font Awesome 5 Free";
@@ -122,10 +126,10 @@
       margin-right: 0.375rem
     }
     .view-close-transcript::before {
-      content: '\f070';
+      @include fa-content($fa-eye-slash);
     }
     .download-transcript::before {
-      content: '\f019';
+      @include fa-content($fa-download);
     }
   }
   .transcript-card .card-body {
@@ -135,7 +139,7 @@
   }
   &.collapsed {
     .transcript-button-group .view-close-transcript::before {
-        content: '\f06e';
+      @include fa-content($fa-eye);
     }
     .transcript-card {
       display: none;
@@ -145,9 +149,17 @@
 
 // display in block in atto editor
 .editor_atto_content {
-  .transcript-container.collapsed {
-    .transcript-card {
-      display: block !important;
+  .transcript-container {
+    // disabled button
+    button {
+      background-color: $block-background !important;
+      color: $slate-grey !important;
+      pointer-events: none;
+    }
+    &.collapsed {
+      .transcript-card {
+        display: block !important;
+      }
     }
   }
 }

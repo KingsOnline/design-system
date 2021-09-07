@@ -13,6 +13,13 @@
     }
   }
 }
+.navbar {
+  // 60px margin-left on .container-fluid from lambda
+  // clashes with 100% width from boostrap.css file
+  .lambda-custom-menu {
+    width: auto;
+  }
+}
 #page {
   #page-header-nav {
     // breadcrumb
@@ -21,7 +28,7 @@
         font-family: 'KingsBureauGrotFiveOne';
         font-size: 1rem;
         a {
-          @include colour-opacity($midnight-blue, 0.85);
+          color: tint($midnight-blue, 15%);
         }
         &::after {
           color: $rules-and-outlines;
@@ -29,6 +36,7 @@
       }
     }
     .breadcrumb-button {
+      // turn editing on/off button
       .singlebutton {
         margin: 0;
         // only add margin if beside action menu
@@ -36,19 +44,24 @@
           margin-right: $component-margin-xs;
         }
       }
+      // edit button (cog)
       .moodle-actionmenu {
-        @extend .btn, .btn-primary;
+        @extend %btn-primary;
+      }
+      .moodle-actionmenu {
         .dropdown {
-          display: flex;
-          align-items: center;
-          // standard button height
-          height: 22px;
-          a {
-            display: flex !important;
-            justify-content: center;
-            &:before {
+          // centrally align cog icon
+          & > a {
+            text-align: center;
+            vertical-align: middle;
+            &::before {
               padding: 0;
             }
+          }
+          .dropdown-menu {
+            font-family: "Open Sans";
+            font-size: 1rem;
+            color: $body-text;
           }
         }
       }

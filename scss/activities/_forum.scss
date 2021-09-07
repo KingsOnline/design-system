@@ -84,7 +84,7 @@
   div {
     margin: 0;
     input[type="submit"]:first-child {
-      @extend .btn, .btn-primary;
+      @extend %btn-primary;
       margin: 0;
     }
   }
@@ -111,7 +111,7 @@
         border-radius: 5px;
       }
       button#searchforums {
-        @extend .btn, .btn-primary;
+        @extend %btn-primary;
         margin: 0;
         height: auto;
       }
@@ -120,20 +120,20 @@
   .discussion-list {
     thead {
       th {
-        font-family: 'KingsBureauGrot';
+        font-family: "KingsBureauGrot";
         color: $headings;
         border-top: 1px solid $table-border !important;
       }
     }
     tbody {
       tr {
-        font-family: 'KingsBureauGrotFiveOne';
+        font-family: "KingsBureauGrotFiveOne";
         border-top: 1px solid $table-border;
         &:last-child {
           border-bottom: 1px solid $table-border;
         }
         th, td {
-          font-family: 'KingsBureauGrotFiveOne';
+          font-family: "KingsBureauGrotFiveOne";
           font-size: 1rem;
           font-weight: 400;
           background-color: transparent !important;
@@ -151,7 +151,7 @@
     }
   }
   .discussion-nav {
-    font-family: 'KingsBureauGrot';
+    font-family: "KingsBureauGrot";
   }
 }
 
@@ -162,14 +162,14 @@
         display: none;
       }
       p:first-of-type {
-        @extend .h5;
+        @extend %h5;
         margin: 0.5rem 0.25rem 1rem 3.125rem;
         &::before {
-          content: '\f164';
-          font-family: 'Font Awesome 5 Free';
+          @extend %icon-before;
+          @include fa-content($fa-thumbs-up);
           color: #28C382;
+          margin-right: 0;
           padding: 0 4px;
-          font-weight: 900;
           position: absolute;
           top: 1.25rem;
           left: 1.5rem;
@@ -177,7 +177,7 @@
       }
       p {
         margin: 0 0.25rem 1rem 3.125rem;
-        font-family: 'KingsBureauGrotFiveOne';
+        font-family: "KingsBureauGrotFiveOne";
       }
     }
   }
@@ -222,15 +222,15 @@
       .topic {
         margin-left: 3.75rem;
         .subject {
-          font-family: 'KingsBureauGrot';
+          font-family: "KingsBureauGrot";
           color: $headings;
           margin-bottom: $component-margin-bottom-sm;
         }
         .author {
-          font-family: 'KingsBureauGrotFiveOne';
+          font-family: "KingsBureauGrotFiveOne";
           margin-bottom: $component-margin-bottom;
           a {
-            font-family: 'KingsBureauGrot';
+            font-family: "KingsBureauGrot";
           }
           &::before {
             display: none;
@@ -250,7 +250,7 @@
         .commands {
           text-align: left;
           a {
-            font-family: 'KingsBureauGrot';
+            font-family: "KingsBureauGrot";
           }
         }
       }
@@ -279,7 +279,7 @@
             display: none;
           }
           .author {
-            @extend .h6;
+            @extend %h6;
             color: $slate-grey;
           }
         }
@@ -304,19 +304,19 @@
   #fgroup_id_buttonar {
     background-color: transparent;
     .fgroup input {
-      @extend .btn, .btn-primary;
+      @extend %btn-primary;
     }
   }
   #notice.modal {
     .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
     input[type="submit"]:first-child {
-      @extend .btn-secondary;
+      @extend %btn-secondary;
     }
   }
 }
 
 #id_advancedadddiscussion {
-  @extend .btn-secondary;
+  @extend %btn-secondary;
 }
 
 // ensure only the discussion table is scrollable on mobile

@@ -1,36 +1,52 @@
-/* Common
-   ======================== */
+// Common
+// ==========================
 
 // Table of contents
 // =================
 // 1. Font Awesome psuedoelement
-//   - .icon-before / Button, etc.
+//   - %icon-before / Button, etc.
+//   - %icon-after / Turnitin
 // 2. Image psuedoelements
-//    - .top-bar / Hero
+//    - %top-bar / Hero
 // 3. Links
-//    - .ds-link / Choice, Typography
-//    - .bold-link / File, LTI, URL
+//    - %ds-link / Choice, Typography
+//    - %bold-link / File, LTI, URL
 // 4. Component templates and subcomponents
-//    - .caption-overlay / Carousel, Hero
-//    - .infobox / Alert, Infobox
-//    - .note-contaienr / Academic note, Viewhide
+//    - %caption-overlay / Carousel, Hero
+//    - %info-box / Alert, Infobox
+//    - %note-contaienr / Academic note, Viewhide
 // 5. Navigation within non-book activities
-//    - tab navigation
-//    - pagination
+//    - tab navigation / Database, Turnitin
+//    - pagination / Database, Turnitin
 
 // 1. Font Awesome psuedoelement
 // extended in Button, etc
 
-.icon-before {
-  font-family: 'Font Awesome 5 Free';
+@mixin icon-before($direction...) {
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 0.375rem;
 }
+%icon-before {
+  @include icon-before;
+}
+@mixin fa-icon-before($fa-icon-unicode) {
+  @include icon-before;
+  content: #{"\"\\"}#{$icon-unicode + "\""};
+}
+@mixin icon-after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 0.375rem;
+}
+%icon-after {
+  @include icon-after;
+}
 
 // 2. Image psuedoelements
-// extended in Hero
 
-.top-bar {
+// extended in Hero
+%top-bar {
   position: relative;
    &::before {
     content: "";
@@ -45,9 +61,9 @@
 }
 
 // 3. Links
-// extended in Choice
 
-.ds-link {
+// extended in Choice, Typography
+%ds-link {
   text-decoration: underline;
   color: $reflex-blue;
   overflow-wrap: break-word;
@@ -60,7 +76,7 @@
 }
 
 // extended in File, LTI, URL
-.bold-link {
+%bold-link {
   margin-bottom: $component-margin-bottom-lg;
   a:link {
     font-weight: bold;
@@ -69,10 +85,9 @@
 }
 
 // 4. Component templates and subcomponents
-// extended in Alert, Infobox
-// extended in Carousel, Hero
 
-.caption-overlay {
+// extended in Carousel, Hero
+%caption-overlay {
   position: absolute;
   @include bg-colour-opacity($midnight-blue, 0.85);
   bottom: 0;
@@ -82,23 +97,25 @@
   padding: 1.25rem 1.5rem;
 }
 
-.info-box {
+// extended in Alert, Infobox
+%info-box {
   margin-bottom: $component-margin-bottom;
   border-radius: 0;
   border: none;
   padding: 0.75rem 1.25rem;
   position: relative;
+  background-color: $block-background;
   & > :first-child,
-  .info-box-inner {
+  %info-box-inner {
     padding: 0.5rem 0.25rem 0.5rem 3.125rem;
     & > :last-child {
       margin-bottom: 0;
     }
   }
   & > :first-child {
-    .info-box-title,
+    %info-box-title,
     h3, h4, h5, h6 {
-      @extend .h4;
+      @extend %h4;
       margin-top: 0;
       margin-bottom: $component-margin-bottom-sm;
     }
@@ -109,34 +126,38 @@
       margin-bottom: 0;
     }
   }
-  ul li, ol li {
-    color: $body-text !important;
-    &:last-child {
-      margin-bottom: 0;
+  ul, ol {
+    li {
+      color: $body-text !important;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
-  &::before, .info-box-inner::before {
-    font-family: 'Font Awesome 5 Free';
+  &::before,
+  %info-box-inner::before {
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 1.25rem;
     position: absolute;
     top: 1.25rem;
     left: 1.5rem;
+    color: $midnight-blue;
   }
 }
 
-// extended in academicnote, viewhide
-.note-container {
+// extended in Academic Note, View/hide
+%note-container {
   margin-bottom: $component-margin-bottom;
   & > h3, & > h4, & > h5, & > h6 {
-    @extend .h4;
+    @extend %h4;
   }
   & > a,
   & > button {
     margin-bottom: 0 !important;
     &::before {
-      @extend .icon-before;
-      content: '\f070';
+      @extend %icon-before;
+      @include fa-content($fa-eye-slash);
     }
   }
   & > div {
@@ -157,7 +178,7 @@
         }
         .card-title,
         h3, h4, h5, h6 {
-          @extend .h4;
+          @extend %h4;
           margin: 0;
         }
       }
@@ -167,7 +188,7 @@
         }
       }
       .card-subheading {
-        @extend .h5;
+        @extend %h5;
       }
       & > *:last-child {
         margin-bottom: 0;
@@ -176,7 +197,7 @@
   }
   &.collapsed {
     & > a::before, & > button::before {
-        content: '\f06e';
+      @include fa-content($fa-eye);
     }
     & > div {
       display: none;
@@ -187,104 +208,99 @@
 // 5. Navigation within activities
 
 // Tab format 
-// extended in turnitin, database
-.first-tab-nav{
-  margin:0;
-  li{
-    margin-bottom:0!important;
-    margin-right:10px;
+// extended in Database, Turnitin
+%first-tab-nav {
+  margin: 0 !important;
+  li {
+    margin-bottom: 0 !important;
     border-radius: 0.25rem 0.25rem 0 0;
-    height:42px;
-    a{
-      // font-family: 'KingsBureauGrot';
-      @extend .h5;
-      padding: 8px 18px;
-      color:$midnight-blue;
+    height: 2.25rem;
+    a {
+      @extend %h5;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      color: $midnight-blue;
     }
-    &.active{
-      background:$midnight-blue;
-      a{
-        color:$white;
+    &.active {
+      background: $midnight-blue;
+      a {
+        color: $white;
       }
     }
     &:not(.active){
-      background:transparent;
-      a{
-        background:transparent;
+      background: transparent;
+      a {
+        background: transparent;
       }
-      &:hover{
+      &:hover {
         background: $block-background;
       }
     }
   }
 }
-.second-tab-nav{
+%second-tab-nav {
   background: $block-background !important;
-  margin:0;
-  margin-bottom:$component-margin !important;
-  border-radius:0;
-  border:none;
-  padding:10px 10px 0 10px;
-  li{
-    background:transparent;
-    height:35px;
-    margin:0 10px 10px 0;
-    a{
-      font-family: 'KingsBureauGrot';
-      color:$midnight-blue;
-      font-size:0.9rem; 
-      background:transparent;
+  margin: 0;
+  margin-bottom: $component-margin !important;
+  border-radius: 0;
+  border: none;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  li {
+    background: transparent;
+    height: 2.25rem;
+    margin: 0 0.5rem 0.5rem 0;
+    a {
+      font-family: "KingsBureauGrot";
+      color: $midnight-blue;
+      font-size: 0.9rem;
+      background: transparent;
     }
     &.ui-state-active, 
-    &.active{
-      background:$white;
+    &.active {
+      background: $white;
       border-bottom: 2px solid $midnight-blue !important;
-      border-radius:0;
+      border-radius: 0;
     }
-    &:hover{
+    &:hover {
       border-bottom: 2px solid $midnight-blue !important;
     }
   }
 }
 
 // Pagination
-// extended in turnitin, database
-.activity-pagination-container{
-  margin:0;
-  background:transparent;
-  border:none;
-  box-shadow:none;
+// extended in Database, Turnitin
+%activity-pagination-container{
+  margin: 0 !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
-.activity-pagination-button{
-  border:none;
-  background:transparent;
-  font-size:1rem;
-  font-family:"Open Sans";
+%activity-pagination-button {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-family: "Open Sans";
 }
-.a-p-b-active{
+%a-p-b-active {
   border-radius: 6px;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   padding: 4px 12px;
-  background:$block-background;
-  background-color:$block-background;
+  background: $block-background;
+  background-color: $block-background;
   font-weight: bold;
-  border:none;
-  color:#555;
+  border: none;
+  color: #555;
 }
-.a-p-b-next{
-  font-family: 'Font Awesome 5 Free';
+%a-p-b-previous,
+%a-p-b-next {
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  content:'\f101';
-  color:$rules-and-outlines;
-  width:14px;
-  height:auto;
+  @include fa-content($fa-angle-double-left);
+  color: $rules-and-outlines;
+  width: 14px;
+  height: auto;
 }
-.a-p-b-previous{
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content:'\f100';
-  color:$rules-and-outlines;
-  width:14px;
-  height:auto;
+%a-p-b-next {
+  @include fa-content($fa-angle-double-right);
 }

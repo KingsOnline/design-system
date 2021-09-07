@@ -1,7 +1,22 @@
 /* Images
    =========================*/
 
-// icons
+// Table of contents
+// =================
+// 1. Icons
+// 2. Figure / image container options
+//    - figure
+//    - centered images
+//    - full width images
+//    - horizontal scroll
+// 3. Image
+//    - circular
+//    - responsive
+//    - screenshot
+// 4. Overrides
+
+// 1. Icons
+
 img.icon {
   box-sizing: content-box;
 }
@@ -10,63 +25,79 @@ img.iconsmall {
   padding: 0;
 }
 
-// full width images
+// 2. Figure / image container options
+
+// replaced div as standard image container
+// in v2.6
+figure {
+  margin: 0 0 $component-margin-bottom 0;
+  figcaption {
+    @extend %caption;
+  }
+  // image, table etc.
+  & > :not(figcaption),
+  & > .img-scroll, & > .image-scroll {
+    margin-bottom: 0 !important;
+  }
+}
+
+.center-img, .img-center,
 .full-width-img, .img-full-width {
   margin-bottom: $component-margin-bottom;
-  img {
-    width: 100%;
-    height: auto;
-    &:not(:last-child) {
-      margin-bottom: $component-margin-bottom-xs;
-    }
-  }
-  .caption {
-    margin-bottom: 0;
+  figcaption, .caption {
+    max-width: none;
   }
 }
 
 // centered images
 .center-img, .img-center {
   text-align: center;
+}
+
+// full width images
+.full-width-img, .img-full-width {
   margin-bottom: $component-margin-bottom;
-  img:not(:last-child) {
-    margin-bottom: $component-margin-bottom-xs;
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 
-//circular imges
-.circular-img, .img-circular {
-  border-radius: 50%;
+// image-scroll container
+// class goes on container div which can be used inside figure
+// to prevent figcaption from also scrolling
+.img-scroll, .image-scroll {
+  margin-bottom: $component-margin-bottom;
+  overflow-x: auto;
+}
+
+// 3. Image options
+// can be nested inside figure / container
+
+// responsive images styles copied from theme
+// useful for custom width (not full-width) images
+.img-responsive,
+.circular-img, .img-circular,
+.screenshot {
   margin-bottom: $component-margin-bottom;
   max-width: 100%;
+  height: auto;
 }
 
-//override theme image margin
-.atto_image_button_text-bottom {
-  margin: 0;
-  max-width: 100% !important;
-}
-
-// figures and captions
-figure {
-  margin: 0 0 $component-margin-bottom 0;
-  table {
-    margin-bottom: $component-margin-bottom-xs !important;
-  }
-  figcaption {
-    @include font-scale(caption, $font-os);
-    color: $body-text;
-  }
+// circular imges
+.circular-img, .img-circular {
+  border-radius: 50%;
 }
 
 // screenshots
 .screenshot {
   border: 1px solid $rules-and-outlines;
-  margin-bottom: $component-margin-bottom;
 }
 
-// image-scroll container
-.image-scroll {
-  overflow-x: auto;
-  margin-bottom: $component-margin-bottom;
+// 4. Overrides
+
+// override theme image margin
+.atto_image_button_text-bottom {
+  margin: 0;
+  max-width: 100% !important;
 }
