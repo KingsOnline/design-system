@@ -3,9 +3,17 @@
 
 // see Modal for .modchooser and .filepicker
 
-// hide activity icon from add a new activity page
-.editing #region-main h2:first-of-type > img.icon {
-  display: none;
+.editing {
+  #region-main {
+    // hide activity icon from add a new activity page
+    h2:first-of-type > img.icon {
+      display: none;
+    }
+    // add an activity or resource button
+    .section-modchooser-link {
+      border-radius: 0 !important;
+    }
+  }
 }
 
 // remove standard button styles from editor buttons

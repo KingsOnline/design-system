@@ -2,22 +2,65 @@
    =========================*/
 
 #page-header {
-  // usermenu
-  .usermenu {
-    // show user name on larger screens only
-    .userbutton .usertext {
-      display: none;
-      @media only screen and (min-width: $neo-breakpoint) {
-        display: inline-block;
+  // KCL logo
+  .logo-header {
+    a.logo {
+      &:focus {
+        outline: none;
+        img {
+          outline: 1px dashed $white;
+          outline-offset: -1px;
+        }
       }
+    }
+  }
+  .login-header {
+    .popover-region {
+      .popover-region-toggle {
+        // notification icons
+        @include focus-outline;
+      }
+    }
+    // usermenu
+    .usermenu {
+      // user name dropdown
+      #action-menu-toggle-0 {
+        background: none;
+        height: auto;
+        @include focus-outline;  
+      }
+      // show user name on larger screens only
+      .userbutton .usertext {
+        display: none;
+        @media only screen and (min-width: $neo-breakpoint) {
+          display: inline-block;
+        }
+      }
+    }
+    // user profile picture
+    .usermenu + a {
+      @include focus-outline;
     }
   }
 }
 .navbar {
+  // font-size is overridden so reset to 14px to keep the navbar and footer
+  // the same as kcl.ac.uk
+  font-size: 14px;
   // 60px margin-left on .container-fluid from lambda
   // clashes with 100% width from boostrap.css file
   .lambda-custom-menu {
     width: auto;
+    padding: 0;
+    form#search {
+      // override standard button padding
+      button {
+        padding: 6px 18px !important;
+      }
+      &:hover input#coursesearchbox {
+        font-size: inherit;
+      }
+    }
   }
 }
 #page {
@@ -29,6 +72,7 @@
         font-size: 1rem;
         a {
           color: tint($midnight-blue, 15%);
+          @include focus-outline;
         }
         &::after {
           color: $rules-and-outlines;
@@ -46,7 +90,14 @@
       }
       // edit button (cog)
       .moodle-actionmenu {
-        @extend %btn-primary;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        a.dropdown-toggle {
+          @extend %btn-primary-no-margin;
+          margin: 0 !important;
+          height: 42px; 
+        }
       }
       .moodle-actionmenu {
         .dropdown {

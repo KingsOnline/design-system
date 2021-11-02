@@ -10,12 +10,41 @@
         @extend %ds-link;
       }
     }
+    .groupselector {
+      margin: 0;
+      margin-bottom: $component-margin-bottom;
+    }
+    .reportlink {
+      margin-bottom: $component-margin-bottom;
+    }
     .clearer {
       height: auto;
+    }
+    // question or description
+    #intro {
+      .no-overflow {
+        & > :last-child {
+          margin-bottom: 0;
+        }
+      }
     }
     .generalbox {
       padding: 0 !important;
       margin-bottom: $component-margin-bottom !important;
+    }
+    form {
+      margin-bottom: $component-margin-bottom;
+      // remove my choice button
+      input + a.ml-1 {
+        @extend %btn-secondary;
+      }
+    }
+    // responses table
+    .chart-output-htmltable {
+      tr:first-child td:first-child {
+        // top left cell to have header styles
+        background-color: $block-background !important;
+      }
     }
     // hide chart image and display data table
     .chart-area {

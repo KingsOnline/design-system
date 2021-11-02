@@ -24,6 +24,7 @@
 #page-course-view-topcoll {
   #region-main {
     .course-content {
+      padding: 0;
       // hide topcoll completion progress info
       & > #completionprogressid {
         display: none !important;
@@ -34,6 +35,10 @@
       ul {
         & > li.section.main {
           margin: 0 !important;
+          &:only-child {
+            // override theme padding
+            padding-bottom: 0 !important;
+          }
           &#section-0 {
             position: relative;
             .summary a > :last-child {
@@ -83,8 +88,13 @@
             // Moodle activity title link
             li.activity {
               display: flex;
-              margin-bottom: $component-margin-bottom-sm !important;
               padding: 0 !important;
+              &:not(:last-child) {
+                margin-bottom: $component-margin-bottom-sm;
+              }
+              &:last-child {
+                margin-bottom: 0;
+              }
               & > div {
                 width: 100%;
                 .mod-indent-outer {
@@ -150,7 +160,9 @@
                 & > .inplaceeditable > .filter-ally-wrapper > :not(.quickeditlink),
                 & > .filter-ally-wrapper > :not(.quickeditlink),
                 & > :not(.quickeditlink) {
+                  @include focus-outline;
                   display: flex;
+                  width: fit-content;
                   max-width: 100%;
                   & > img.activityicon {
                     display: none;
@@ -626,6 +638,8 @@
       .gridicon_link,
       ul.gridicons > li > span:first-child {
         position: relative;
+        display: flex;
+        @include focus-outline;
         .icon_content {
           @extend %caption-overlay;
           color: $white;
@@ -692,8 +706,11 @@
       }
       .gtopics {
         margin: 0 !important;
-        .section.main .right {
-          display: none;
+        padding: 0 !important;
+        .section.main {
+          .right {
+            display: none;
+          }
         }
       }
     }
@@ -1194,5 +1211,12 @@ a.activity-link {
   padding: 0;
   &::after {
     display: none;
+  }
+}
+
+// override margin from theme
+@media only screen and (max-width: calc(#{$neo-breakpoint} - 1px)) {
+  div[role=main] {
+    margin: 0;
   }
 }

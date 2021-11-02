@@ -3,52 +3,55 @@
 
 // standard button
 button, .btn,
-%btn {
+%btn-no-margin {
+  @include focus-outline;
+  &:focus {
+    transition: none;
+  }
+  display: inline-block;
+  vertical-align: middle;
   font-family: "KingsBureauGrot";
   @include font-scale(btn);
   padding: 0.625rem 0.75rem !important;
-  margin: 0 0.75rem 0.5rem 0 !important;
   border-radius: 4px !important;
   box-shadow: none;
   text-decoration: none !important;
 }
-button, .btn {
-  &.btn-primary {
-    background-color: $midnight-blue !important;
+button, .btn,
+%btn {
+  @extend %btn-no-margin;
+  margin: 0 0.75rem 0.5rem 0 !important;
+}
+%btn-primary-option {
+  background-color: $midnight-blue !important;
+  color: $white !important;
+  &:hover {
+    background-color: tint($midnight-blue, 30%) !important;
+    text-decoration: none !important;
+  }
+}
+%btn-secondary-option {
+  background-color: $white !important;
+  color: $midnight-blue !important;
+  padding: 0.5rem 0.625rem !important;
+  border: 2px solid $midnight-blue;
+  &:hover {
+    border-color: tint($midnight-blue, 30%);
+    background-color: tint($midnight-blue, 30%) !important;
     color: $white !important;
-    &:hover {
-      background-color: tint($midnight-blue, 30%) !important;
-      text-decoration: none !important;
-    }
-    &:focus {
-        outline: thin dotted $sky-blue !important;
-        outline-color: $sky-blue !important;
-        outline-style: dotted;
-        outline-width: thin;
-        outline-offset: -2px;
-    }
   }
-  &.btn-secondary {
-    background-color: $white !important;
-    color: $midnight-blue !important;
-    padding: 0.5rem 0.625rem !important;
-    border: 2px solid $midnight-blue;
-    &:hover {
-      border-color: tint($midnight-blue, 30%);
-      background-color: tint($midnight-blue, 30%) !important;
-      color: $white !important;
-    }
+}
+.btn-lg {
+  @include font-scale(btn-lg);
+  padding: 0.5625rem 1.5rem;
+  min-width: 9.6875rem;
+  box-shadow: 0 5px 0 0 shade($midnight-blue, 50%);
+  &:hover {
+    background-color: tint($midnight-blue, 30%);
+    box-shadow: 0 5px 0 0 tint($midnight-blue, 20%);
   }
-  &.btn-lg {
-    @include font-scale(btn-lg);
-    padding: 0.5625rem 1.5rem;
-    min-width: 9.6875rem;
-    box-shadow: 0 5px 0 0 shade($midnight-blue, 50%);
-    &:hover {
-      background-color: tint($midnight-blue, 30%);
-      box-shadow: 0 5px 0 0 tint($midnight-blue, 20%);
-    }
-  }
+}
+button, .btn {
   &[disabled] {
     background-color: $pearl-grey !important;
     color: $slate-grey !important;
@@ -79,15 +82,24 @@ button, .btn {
   }
 }
 %btn-primary {
-  @extend .btn, .btn-primary;
+  @extend %btn, %btn-primary-option;
+}
+.btn-primary {
+  @extend %btn-primary;
+}
+%btn-primary-no-margin {
+  @extend %btn-no-margin, %btn-primary-option;
 }
 %btn-secondary {
-  @extend .btn, .btn-secondary;
+  @extend %btn, %btn-secondary-option;
+}
+.btn-secondary {
+  @extend %btn-secondary;
 }
 
 .btn-default,
 .course-discuss-reply-button {
-  @extend %btn, %btn-primary;
+  @extend %btn-primary;
 }
 input[type="submit"] {
   @extend %btn, %btn-primary;
@@ -121,6 +133,16 @@ input[type="submit"] {
 button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
   &:visited {
     color: $midnight-blue !important;
+  }
+}
+
+// back-to-top button
+.back-to-top {
+  z-index: 100;
+  bottom: 28px;
+  right: 48px;
+  .fa-3x {
+    font-size: 42px;
   }
 }
 

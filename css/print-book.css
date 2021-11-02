@@ -1,303 +1,25 @@
 @charset "UTF-8";
-html, body {
-  font-size: 16px;
-  color: #333333;
-}
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.quote-attribution {
-  font-family: "KingsBureauGrot";
-  color: #171717;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-h6, .h6 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700 !important;
-}
-
-h1, .h1 {
-  font-size: 1.75rem;
-  line-height: 1.2;
-}
-
-h2, .h2 {
-  font-size: 1.5rem;
-  line-height: 1.25;
-}
-
-h3, .h3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-}
-
-h4, .h4 {
-  font-size: 1.125rem;
-  line-height: 1.4;
-  letter-spacing: 0.25px;
-}
-
-h5, .h5 {
-  font-size: 1rem;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
-}
-
-h6, .h6 {
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-#region-main .no-overflow > h3:not(:first-child), #region-main .no-overflow > h4:not(:first-child), #region-main .no-overflow > h5:not(:first-child), #region-main .no-overflow > h6:not(:first-child) {
-  margin-top: 0.75rem;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-  font-family: Open Sans, sans-serif;
-  margin-bottom: 1.5rem;
-  color: #333333;
-}
-
-.caption {
-  font-size: 0.833rem;
-  line-height: 1.5;
-  font-family: Open Sans, sans-serif;
-  max-width: fit-content;
-  margin: 0.5rem 0 0 0;
-}
-
-.quote-box .quote-body {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  font-family: KingsCaslonDisplay;
-  margin-bottom: 1.75rem;
-}
-
-select, option {
-  font-family: "Open Sans", sans-serif;
-}
-
-@media only screen and (min-width: 768px) {
-  h1, .h1 {
-    font-size: 2.375rem;
-    line-height: 1.1;
-  }
-  h2, .h2 {
-    font-size: 1.875rem;
-    line-height: 1.25;
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  h4, .h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h5, .h5 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-  h6, .h6 {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  .quote-box .quote-body {
-    font-size: 1.5rem;
-    line-height: 1.25;
-    font-family: KingsCaslonDisplay;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.path-mod-book .generalbox.book_content > h3 {
-  background: none;
-}
-
-.path-mod-book .generalbox.book_content > h3:after {
-  display: none;
-}
-
-li {
-  line-height: inherit;
-}
-
-li > p {
-  margin-bottom: 0;
-}
-
-.instancename {
-  color: #0A2D50;
-}
-
-.instancename:hover {
-  color: #041423;
-}
-
-#region-main p a i.open-icon,
-#region-main li p a i.open-icon,
-#region-main figcaption a i.open-icon {
-  display: inline-block;
-  margin: 0.375rem;
-  vertical-align: baseline;
-  transform: translateY(-10%);
-}
-
-#region-main p a .sr-link-message,
-#region-main li p a .sr-link-message,
-#region-main figcaption a .sr-link-message {
-  display: inline-block;
-}
-
-#region-main a:link {
-  text-decoration: none;
-}
-
-#region-main a.link-download {
-  background-color: #fdf1cf;
-  padding: 2px 4px;
-}
-
-#region-main ol, #region-main ul {
-  margin: 0 0 1.5rem 2.25rem;
-}
-
-#region-main ol > li:not(:last-child), #region-main ul > li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-#region-main ol > li ol > li, #region-main ol > li ul > li, #region-main ul > li ol > li, #region-main ul > li ul > li {
-  margin-bottom: 0;
-}
-
-#region-main .summary ol > span > li:not(:last-child),
-#region-main .summary ol > li:not(:last-child), #region-main .summary ul > span > li:not(:last-child),
-#region-main .summary ul > li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-#region-main .summary ol > span > li ol > span > li,
-#region-main .summary ol > span > li ol > li, #region-main .summary ol > span > li ul > span > li,
-#region-main .summary ol > span > li ul > li,
-#region-main .summary ol > li ol > span > li,
-#region-main .summary ol > li ol > li,
-#region-main .summary ol > li ul > span > li,
-#region-main .summary ol > li ul > li, #region-main .summary ul > span > li ol > span > li,
-#region-main .summary ul > span > li ol > li, #region-main .summary ul > span > li ul > span > li,
-#region-main .summary ul > span > li ul > li,
-#region-main .summary ul > li ol > span > li,
-#region-main .summary ul > li ol > li,
-#region-main .summary ul > li ul > span > li,
-#region-main .summary ul > li ul > li {
-  margin-bottom: 0 !important;
-}
-
-#region-main hr {
-  margin: 1.5rem 0;
-  border: 1px solid #8B9296;
-  border-width: 0 0 1px 0;
-}
-
-.break-all {
-  word-break: break-all;
-}
-
-.editing #region-main #id_content_editoreditable p a .sr-link-message,
-.editing #region-main #id_content_editoreditable li p a .sr-link-message {
-  display: none;
-}
-
-pre {
-  margin-bottom: 1.5rem;
-  background-color: transparent;
-  border: 1px solid #DCE3E6;
-  border-radius: 0;
-  padding: 1rem;
-  white-space: pre-wrap;
-}
-
-pre code {
-  border: none;
-}
-
-code {
-  border: 1px solid #DCE3E6;
-  background-color: #fbfcfc;
-  color: #E2231A;
-  border-radius: 4px;
-}
-
-table code {
-  background: #F7F7F9 !important;
-}
-
-.path-mod-page #region-main > div > h2 {
-  background: none;
-}
-
-.path-mod-page #region-main > div > h2::after {
-  display: none;
-}
-
-header.navbar {
-  font-size: 14px;
-}
-
-header.navbar .container-fluid {
-  padding: 0;
-}
-
-header.navbar form#search button {
-  font-family: "Open Sans",sans-serif;
-  font-size: 1.08rem !important;
-  padding: 6px 18px !important;
-}
-
-header.navbar form#search:hover input#coursesearchbox {
-  font-size: 13.65px !important;
-}
-
-footer#page-footer {
-  font-size: 14px;
-}
-
-footer#page-footer p {
-  color: #FFFFFF;
-  font-size: 14px;
-  line-height: 15px;
-  margin-bottom: 10px;
-}
-
-.back-to-top {
-  z-index: 100;
-  bottom: 28px;
-  right: 48px;
-}
-
-.back-to-top .fa-3x {
-  font-size: 42px;
-}
-
-#region-main p a,
-#region-main li p a,
-#region-main figcaption a {
+#page-mod-book-print p a,
+#page-mod-book-print li p a,
+#page-mod-book-print figcaption a {
   text-decoration: underline;
   color: #002395;
   overflow-wrap: break-word;
 }
 
-#region-main p a:hover,
-#region-main figcaption a:hover {
+#page-mod-book-print p a:hover,
+#page-mod-book-print figcaption a:hover {
   color: #005AD2;
 }
 
-#region-main p a:visited,
-#region-main figcaption a:visited {
+#page-mod-book-print p a:visited,
+#page-mod-book-print figcaption a:visited {
   color: #0A2D50;
+}
+
+#page-mod-book-print mark.text-highlight, #page-mod-book-print a.link-download, #page-mod-book-print a.link-to-video {
+  background-color: #fdf1cf;
+  padding: 2px 4px;
 }
 
 @font-face {
@@ -317,6 +39,191 @@ footer#page-footer p {
   font-family: "KingsCaslonDisplay";
   src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
   font-style: normal;
+}
+
+html, body {
+  font-size: 14px;
+  color: #333333;
+}
+
+#page-mod-book-print {
+  /*
+  ol {
+    counter-reset: nested-list-item;
+    margin: 0 0 $component-margin-bottom calc(1.5rem / 2);
+    // remove marker to replace with counter
+    list-style-type: none;
+    & > li {
+      display: table;
+      &::before {
+        content: counter(nested-list-item) ".";
+        display: table-cell;
+        padding-right: $component-margin-xs;
+      }
+      & > ol {
+        & > li {
+          &::before {
+            content: counters(nested-list-item, ".");
+          }
+        }
+      }
+    }
+  }
+  ul {
+    margin: 0 0 $component-margin-bottom $component-margin-lg;
+    ol {
+      & > li {
+        &::before {
+          content: counters(nested-list-item, ".");
+        }
+      }
+    }
+  }
+*/
+}
+
+#page-mod-book-print h1, #page-mod-book-print h2, #page-mod-book-print h3, #page-mod-book-print h4, #page-mod-book-print h5, #page-mod-book-print h6,
+#page-mod-book-print .h1, #page-mod-book-print .h2, #page-mod-book-print .h3, #page-mod-book-print .h4, #page-mod-book-print .h5, #page-mod-book-print .h6, #page-mod-book-print .media-box .transcript-card::before,
+#page-mod-book-print .quote-attribution {
+  font-family: "KingsBureauGrot";
+  color: #171717;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+#page-mod-book-print h6, #page-mod-book-print .h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700 !important;
+}
+
+#page-mod-book-print h1, #page-mod-book-print .h1 {
+  font-size: 2.375rem;
+  line-height: 1.1;
+}
+
+#page-mod-book-print h2, #page-mod-book-print .h2 {
+  font-size: 1.875rem;
+  line-height: 1.25;
+}
+
+#page-mod-book-print h3, #page-mod-book-print .h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+#page-mod-book-print h4, #page-mod-book-print .h4 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.25px;
+}
+
+#page-mod-book-print h5, #page-mod-book-print .h5, #page-mod-book-print .media-box .transcript-card::before {
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+#page-mod-book-print h6, #page-mod-book-print .h6 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+#page-mod-book-print p {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: Open Sans, sans-serif;
+  color: #333333;
+}
+
+#page-mod-book-print p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print p :last-child {
+  margin-bottom: 0;
+}
+
+#page-mod-book-print .quote-box .quote-body,
+#page-mod-book-print .blockquote .quote-body {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-family: KingsCaslonDisplay;
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print .caption,
+#page-mod-book-print figcaption {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: Open Sans, sans-serif;
+  max-width: fit-content;
+  margin: 0.5rem 0 0 0;
+}
+
+#page-mod-book-print p a i.open-icon,
+#page-mod-book-print li p a i.open-icon,
+#page-mod-book-print figcaption a i.open-icon {
+  display: inline-block;
+  margin: 0.375rem 0 0.375rem 0.375rem;
+  vertical-align: baseline;
+  transform: translateY(-10%);
+}
+
+#page-mod-book-print p a .sr-link-message,
+#page-mod-book-print li p a .sr-link-message,
+#page-mod-book-print figcaption a .sr-link-message {
+  display: inline-block;
+}
+
+#page-mod-book-print a.link-download, #page-mod-book-print a.link-to-video {
+  background-color: transparent;
+}
+
+#page-mod-book-print ol > li, #page-mod-book-print ul > li {
+  counter-increment: nested-list-item;
+}
+
+#page-mod-book-print ol > li:not(:last-child), #page-mod-book-print ul > li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print ol ol, #page-mod-book-print ol ul, #page-mod-book-print ul ol, #page-mod-book-print ul ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+#page-mod-book-print ol ol > li:not(:last-child), #page-mod-book-print ol ul > li:not(:last-child), #page-mod-book-print ul ol > li:not(:last-child), #page-mod-book-print ul ul > li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+#page-mod-book-print pre {
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+  border: 1px solid #DCE3E6;
+  border-radius: 0;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+#page-mod-book-print pre code {
+  border: none;
+}
+
+#page-mod-book-print code {
+  border: 1px solid #DCE3E6;
+  background-color: #fbfcfc;
+  color: #E2231A;
+  border-radius: 4px;
+}
+
+#page-mod-book-print .break-all {
+  word-break: break-all;
+}
+
+#page-mod-book-print hr {
+  margin: 1.5rem 0;
+  border: 1px solid #8B9296;
+  border-width: 0 0 1px 0;
 }
 
 #page-mod-book-print #page-content .book .text-right a.hidden-print::before, #page-mod-book-print p a::after,
@@ -340,16 +247,23 @@ footer#page-footer p {
   border: 2px solid #5A6469;
 }
 
+#page-mod-book-print a.link-to-video, #page-mod-book-print mark.text-highlight {
+  border: 1px solid #5A6469;
+  padding: 0 2px;
+}
+
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* print preview */
 #page-mod-book-print {
-  font-size: 14px;
-  color: #333333;
+  /*
+  font-size: 1rem;
+  color: $body-text;
   font-family: "Open Sans";
   margin: 0;
+*/
 }
 
 #page-mod-book-print #page-content {
@@ -357,8 +271,9 @@ html {
   margin: 0 auto;
 }
 
+#page-mod-book-print #page-content.single-chapter-book .toc-container,
 #page-mod-book-print #page-content.single-chapter-book [class^="book_toc_"],
-#page-mod-book-print #page-content.single-chapter-book.single-chapter-book .book_chapter h2:first-of-type {
+#page-mod-book-print #page-content.single-chapter-book .book_chapter h2:first-of-type {
   display: none;
 }
 
@@ -379,7 +294,7 @@ html {
   color: #0A2D50;
   background-color: #FFFFFF;
   border: 2px solid #0A2D50;
-  font-size: 1.125rem;
+  font-size: 18px;
   position: absolute;
   top: 0;
   left: 0;
@@ -431,7 +346,7 @@ html {
 }
 
 #page-mod-book-print #page-content .book .book_info table tr td:nth-child(2) {
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
 }
 
 #page-mod-book-print #page-content .book .book_description .book_summary {
@@ -482,61 +397,12 @@ html {
 #page-mod-book-print h6, #page-mod-book-print .h6 {
   page-break-after: avoid;
   page-break-inside: avoid;
-  font-family: "KingsBureauGrot";
-  color: #171717;
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-}
-
-#page-mod-book-print h1, #page-mod-book-print .h1 {
-  font-size: 2.375rem;
-  line-height: 1.1;
-}
-
-#page-mod-book-print h2, #page-mod-book-print .h2 {
-  font-size: 1.875rem;
-  line-height: 1.125;
-}
-
-#page-mod-book-print h3, #page-mod-book-print .h3 {
-  font-size: 1.5rem;
-  line-height: 1.25;
-}
-
-#page-mod-book-print h4, #page-mod-book-print .h4 {
-  font-size: 1.25rem;
-  line-height: 1.4;
-}
-
-#page-mod-book-print h5, #page-mod-book-print .h5 {
-  font-size: 1.125rem;
-  line-height: 1.4;
-}
-
-#page-mod-book-print h6, #page-mod-book-print .h6 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700 !important;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-#page-mod-book-print p,
-#page-mod-book-print li {
-  font-family: "Open Sans" !important;
-  color: #333333;
-}
-
-#page-mod-book-print p {
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
 }
 
 #page-mod-book-print p a,
 #page-mod-book-print li p a {
-  text-decoration: underline;
-  word-break: break-word;
   position: relative;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 #page-mod-book-print p a i.open-icon,
@@ -546,38 +412,28 @@ html {
 
 #page-mod-book-print p a::after,
 #page-mod-book-print li p a::after {
-  content: "\f0dc";
+  content: "\f0c1";
   position: absolute;
   font-size: 8px;
   margin-left: 1px;
 }
 
-#page-mod-book-print ol,
-#page-mod-book-print ul {
-  margin: 0 0 1.25rem 1.25rem;
+#page-mod-book-print a.link-to-video {
+  margin-right: 0;
+  padding-right: 0.75rem;
 }
 
-#page-mod-book-print ol li:not(:last-child),
-#page-mod-book-print ul li:not(:last-child) {
-  margin-bottom: 0.625rem;
-}
-
-#page-mod-book-print .caption,
-#page-mod-book-print figcaption {
-  font-size: 0.875rem;
-  margin-top: calc(1.25rem / 2);
-}
-
-#page-mod-book-print .alert {
-  color: #333333;
+#page-mod-book-print mark.text-highlight {
+  background-color: transparent;
+  line-height: 22px;
 }
 
 #page-mod-book-print .quote-box {
   border: 2px solid #464E52;
   margin: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   position: relative;
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 #page-mod-book-print .quote-box > :first-child {
@@ -607,30 +463,34 @@ html {
 }
 
 #page-mod-book-print figure {
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
-#page-mod-book-print figure.quote-box {
+#page-mod-book-print figure.quote-box, #page-mod-book-print figure.blockquote {
   padding-left: 4rem;
 }
 
-#page-mod-book-print figure.quote-box blockquote.quote-body {
+#page-mod-book-print figure.quote-box blockquote.quote-body, #page-mod-book-print figure.blockquote blockquote.quote-body {
   border: none;
+  margin-bottom: 1.5rem !important;
   padding: 0;
 }
 
-#page-mod-book-print figure figcaption {
-  font-size: 0.875rem;
-  line-height: 1.5;
+#page-mod-book-print figure.quote-box blockquote.quote-body::before, #page-mod-book-print figure.blockquote blockquote.quote-body::before {
+  top: 0.5rem;
 }
 
-#page-mod-book-print pre {
-  white-space: pre-line;
-  margin-bottom: 1.25rem;
-  background-color: transparent;
-  border: 1px solid #DCE3E6;
-  border-radius: 0;
-  padding: 1rem;
+#page-mod-book-print figure.quote-box blockquote.quote-body p, #page-mod-book-print figure.blockquote blockquote.quote-body p {
+  padding: 0;
+  font-size: 1rem;
+}
+
+#page-mod-book-print figure.quote-box blockquote.quote-body > :last-child, #page-mod-book-print figure.blockquote blockquote.quote-body > :last-child {
+  margin-bottom: 0;
+}
+
+#page-mod-book-print figure figcaption {
+  line-height: 1.5;
 }
 
 #page-mod-book-print .container {
@@ -687,8 +547,8 @@ html {
   flex-direction: row;
   justify-content: space-between;
   border-radius: 0;
-  margin-bottom: 1.25rem;
-  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
 }
 
 #page-mod-book-print .card .card-body {
@@ -707,14 +567,14 @@ html {
 }
 
 #page-mod-book-print .card img {
-  margin: 0 1.25rem 0 0;
+  margin: 0 1.5rem 0 0;
   width: 330px;
 }
 
 #page-mod-book-print .card img.img-top {
   width: 100%;
   height: 100%;
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 #page-mod-book-print .card > img {
@@ -724,7 +584,7 @@ html {
 #page-mod-book-print .card.img-right > .filter-ally-wrapper,
 #page-mod-book-print .card.img-right > img {
   order: 2;
-  margin: 0 0 0 1.25rem;
+  margin: 0 0 0 1.5rem;
 }
 
 #page-mod-book-print .card.img-right > .filter-ally-wrapper > img {
@@ -741,11 +601,11 @@ html {
 #page-mod-book-print .card-deck .card {
   display: block;
   flex: 1 0 0%;
-  margin: 0 calc(1.25rem / 2) 1.25rem 0 !important;
+  margin: 0 1rem 1.5rem 0 !important;
 }
 
 #page-mod-book-print .card-deck .card:last-child {
-  margin: 0 0 1.25rem calc(1.25rem / 2) !important;
+  margin: 0 0 1.5rem 1rem !important;
 }
 
 #page-mod-book-print .card-deck .card img {
@@ -756,7 +616,7 @@ html {
 #page-mod-book-print .float-box {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .float-box.img-right > .filter-ally-wrapper,
@@ -764,7 +624,7 @@ html {
 #page-mod-book-print .float-box.img-right > figure,
 #page-mod-book-print .float-box.img-right > .img-container {
   order: 2;
-  margin: 0 0 0 1.25rem;
+  margin: 0 0 0 1.5rem;
 }
 
 #page-mod-book-print .float-box.img-right > .filter-ally-wrapper > img {
@@ -776,14 +636,14 @@ html {
 #page-mod-book-print .float-box.img-right.small-image > img, #page-mod-book-print .float-box.img-right.img-small > .filter-ally-wrapper,
 #page-mod-book-print .float-box.img-right.img-small > img, #page-mod-book-print .float-box.img-right.small-img > .filter-ally-wrapper,
 #page-mod-book-print .float-box.img-right.small-img > img {
-  margin: 0 0 0 calc(1.25rem / 2);
+  margin: 0 0 0 1rem;
 }
 
 #page-mod-book-print .float-box > .filter-ally-wrapper,
 #page-mod-book-print .float-box > img,
 #page-mod-book-print .float-box > figure,
 #page-mod-book-print .float-box > .img-container {
-  margin: 0 1.25rem 0 0;
+  margin: 0 1.5rem 0 0;
   flex-shrink: 0;
   align-self: flex-start;
 }
@@ -810,7 +670,7 @@ html {
 #page-mod-book-print .float-box.small-image > img, #page-mod-book-print .float-box.img-small > .filter-ally-wrapper,
 #page-mod-book-print .float-box.img-small > img, #page-mod-book-print .float-box.small-img > .filter-ally-wrapper,
 #page-mod-book-print .float-box.small-img > img {
-  margin: 0 calc(1.25rem / 2) 0 0;
+  margin: 0 1rem 0 0;
 }
 
 #page-mod-book-print .float-box.small-image img, #page-mod-book-print .float-box.img-small img, #page-mod-book-print .float-box.small-img img {
@@ -835,7 +695,7 @@ html {
 
 #page-mod-book-print .carousel .carousel-item {
   display: block;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   padding: 0;
 }
 
@@ -846,7 +706,7 @@ html {
 #page-mod-book-print .carousel .carousel-item .carousel-caption {
   position: static;
   max-width: calc(100% - 2.5rem - 4px);
-  padding: 1.25rem;
+  padding: 1.5rem;
   background-color: transparent !important;
 }
 
@@ -857,7 +717,7 @@ html {
 
 #page-mod-book-print .carousel .carousel-item .carousel-caption > * {
   color: #333333;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .carousel .carousel-item .carousel-caption > *:last-child {
@@ -870,7 +730,6 @@ html {
 }
 
 #page-mod-book-print .new-carousel {
-  margin-bottom: 1.25rem;
   width: 100% !important;
 }
 
@@ -879,17 +738,16 @@ html {
   counter-reset: newcarousel;
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
-  margin-right: -0.625rem !important;
+  margin: 0 calc(-1.5rem / 2) 0 calc(-1.5rem / 2) !important;
 }
 
 #page-mod-book-print .new-carousel .nc-gallery > li {
   list-style-type: none;
   border: 1px solid #5A6469;
-  margin: 0 calc(1.25rem / 2) calc(1.25rem / 2) 0;
-  padding: 1.25rem 0;
+  margin: 0 calc(1.5rem / 2) 1.5rem calc(1.5rem / 2);
+  padding: 1.5rem 0;
   display: inline-block;
-  width: calc(50% - 0.75rem);
+  width: calc(50% - 1.5rem - 2px);
   counter-increment: newcarousel;
 }
 
@@ -898,12 +756,12 @@ html {
   color: #333333;
   font-weight: bold;
   vertical-align: top;
-  margin-left: 1.25rem;
+  margin-left: 1.5rem;
 }
 
 #page-mod-book-print .new-carousel .nc-gallery > li figure {
   margin: 0;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 }
 
 #page-mod-book-print .new-carousel .nc-gallery > li figure figcaption :last-child {
@@ -920,12 +778,12 @@ html {
 }
 
 #page-mod-book-print .collapse-container {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .collapse-container .collapse-card {
   border-bottom: 2px solid #CDD7DC;
-  padding: 1.25rem;
+  padding: 1.5rem;
   padding-left: 4rem;
 }
 
@@ -964,7 +822,7 @@ html {
 #page-mod-book-print .audio-container {
   position: absolute;
   display: inline-block;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .audio-container .audio-top {
@@ -974,7 +832,7 @@ html {
 #page-mod-book-print .audio-container .audio-top .audio-image {
   width: 80px;
   height: 80px;
-  margin-right: 1.25rem;
+  margin-right: 1.5rem;
   border-radius: 6px;
   border: 1px solid #8B9296;
 }
@@ -992,7 +850,7 @@ html {
 }
 
 #page-mod-book-print .audio-container .audio-top .audio-info .audio-speaker {
-  margin-bottom: calc(1.25rem / 2);
+  margin-bottom: 1rem;
 }
 
 #page-mod-book-print .audio-container .audio-top .audio-info .audio-title {
@@ -1000,7 +858,7 @@ html {
 }
 
 #page-mod-book-print .audio-container .embed-responsive-audio {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 #page-mod-book-print .audio-container + .transcript-container {
@@ -1068,11 +926,123 @@ html {
 
 #page-mod-book-print aside.footnotes {
   border-top: 1px solid #5A6469;
-  padding-top: 1.25rem;
+  padding-top: 1.5rem;
+}
+
+#page-mod-book-print .footnotes-article {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print .footnotes-article.lst-decimal .footnotes-body .quote::after {
+  content: counter(quote, decimal);
+}
+
+#page-mod-book-print .footnotes-article.lst-decimal .footnotes-footer ol {
+  list-style: decimal;
+}
+
+#page-mod-book-print .footnotes-article.lst-disc .footnotes-body .quote::after {
+  content: counter(quote, decimal);
+}
+
+#page-mod-book-print .footnotes-article.lst-disc .footnotes-footer ol {
+  list-style: disc;
+}
+
+#page-mod-book-print .footnotes-article.lst-lower-latin .footnotes-body .quote::after {
+  content: counter(quote, lower-latin);
+}
+
+#page-mod-book-print .footnotes-article.lst-lower-latin .footnotes-footer ol {
+  list-style: lower-latin;
+}
+
+#page-mod-book-print .footnotes-article.lst-lower-roman .footnotes-body .quote::after {
+  content: counter(quote, lower-roman);
+}
+
+#page-mod-book-print .footnotes-article.lst-lower-roman .footnotes-footer ol {
+  list-style: lower-roman;
+}
+
+#page-mod-book-print .footnotes-article.lst-none .footnotes-body .quote::after {
+  content: counter(quote, decimal);
+}
+
+#page-mod-book-print .footnotes-article.lst-none .footnotes-footer ol {
+  list-style: none;
+}
+
+#page-mod-book-print .footnotes-article.lst-upper-latin .footnotes-body .quote::after {
+  content: counter(quote, upper-latin);
+}
+
+#page-mod-book-print .footnotes-article.lst-upper-latin .footnotes-footer ol {
+  list-style: upper-latin;
+}
+
+#page-mod-book-print .footnotes-article.lst-upper-roman .footnotes-body .quote::after {
+  content: counter(quote, upper-roman);
+}
+
+#page-mod-book-print .footnotes-article.lst-upper-roman .footnotes-footer ol {
+  list-style: upper-roman;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body {
+  counter-reset: quote;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body .quote {
+  counter-increment: quote;
+  text-decoration: underline;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body .quote .ref {
+  color: #5A6469;
+  font-style: italic;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body .quote .ref::before {
+  content: " [";
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body .quote .ref::after {
+  content: "]";
+}
+
+#page-mod-book-print .footnotes-article .footnotes-body .quote::after {
+  content: counter(quote);
+  text-decoration: underline;
+  font-size: 0.875rem;
+  vertical-align: top;
+  position: relative;
+  top: -4px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-footer {
+  border-top: 1px solid #8B9296;
+  padding: 1.5rem 0 0 0;
+  margin: 1.5rem 0 0 0;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-footer ol {
+  margin-bottom: 0 !important;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-footer ol li .ref {
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+#page-mod-book-print .footnotes-article .footnotes-footer ol li::marker {
+  font-size: 14px;
 }
 
 #page-mod-book-print figure {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print figure figcaption, #page-mod-book-print figure .caption {
@@ -1088,7 +1058,7 @@ html {
 #page-mod-book-print .center-img, #page-mod-book-print .img-center,
 #page-mod-book-print .circular-img, #page-mod-book-print .img-circular,
 #page-mod-book-print .img-scroll, #page-mod-book-print .image-scroll {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .full-width-img figcaption, #page-mod-book-print .full-width-img .caption, #page-mod-book-print .img-full-width figcaption, #page-mod-book-print .img-full-width .caption,
@@ -1162,38 +1132,40 @@ html {
 #page-mod-book-print .files-box > :first-child::before {
   font-size: 1.2rem;
   position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
+  top: 1.4rem;
+  left: 1.5rem;
   color: #5A6469;
 }
 
 #page-mod-book-print .definition-box > :first-child::before {
   content: "\f02e";
-  padding: 0 7px;
-  top: 1.2rem;
+  padding: 0 6px;
+}
+
+#page-mod-book-print .alert {
+  color: #333333;
 }
 
 #page-mod-book-print .alert-caution > :first-child::before {
   content: "\f071";
-  padding: 0 2px;
-  top: 1.1rem;
+  padding: 0 3px;
 }
 
 #page-mod-book-print .alert-instructional > :first-child::before {
   content: "\f086";
-  padding: 0 2px;
-  top: 1.1rem;
+  padding: 0 3px;
 }
 
 #page-mod-book-print .feedback-box > :first-child::before {
   content: "\f27a";
   padding: 0 4px;
+  top: 1.5rem;
 }
 
 #page-mod-book-print .learning-outcome-box > :first-child::before {
   content: "\f091";
   padding: 0 3px;
-  top: 1.15rem;
+  top: 1.45rem;
 }
 
 #page-mod-book-print .media-box > :first-child::before {
@@ -1201,13 +1173,13 @@ html {
   padding: 0 4px;
 }
 
-#page-mod-book-print .reading-box > :first-child::before {
-  content: "\f5da";
-  padding: 0 4px;
-}
-
 #page-mod-book-print .journal-box > :first-child::before {
   content: "\f044";
+  padding: 0 3px;
+}
+
+#page-mod-book-print .reading-box > :first-child::before {
+  content: "\f5da";
   padding: 0 4px;
 }
 
@@ -1218,7 +1190,7 @@ html {
 
 #page-mod-book-print .files-box > :first-child::before {
   content: "\f07c";
-  padding: 0 4px;
+  padding: 0 3px;
 }
 
 #page-mod-book-print .definition-box,
@@ -1233,9 +1205,9 @@ html {
 #page-mod-book-print .shared-box,
 #page-mod-book-print .files-box {
   border: 2px solid #8B9296;
-  padding: 1.25rem;
+  padding: 1.5rem;
   padding-left: 4rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -1303,7 +1275,7 @@ html {
 }
 
 #page-mod-book-print .key-concept-box {
-  padding: 1.25rem;
+  padding: 1.5rem;
   font-weight: bold;
   background-color: #DCE3E6;
 }
@@ -1311,6 +1283,17 @@ html {
 #page-mod-book-print .learning-outcome-box ol,
 #page-mod-book-print .learning-outcome-box ul {
   margin-bottom: 0;
+}
+
+#page-mod-book-print .media-box .transcript-container {
+  position: relative;
+}
+
+#page-mod-book-print .media-box .transcript-card::before {
+  content: "Transcript";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
 }
 
 #page-mod-book-print .process-container .process-card img {
@@ -1321,7 +1304,7 @@ html {
 
 #page-mod-book-print .process-container .connector-container {
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .process-container .connector-container .icon.arrow-down::before,
@@ -1343,7 +1326,7 @@ html {
 }
 
 #page-mod-book-print table {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
@@ -7185,7 +7168,7 @@ html {
 }
 
 #page-mod-book-print table caption {
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: normal;
   font-weight: normal;
   caption-side: bottom !important;
@@ -7254,7 +7237,7 @@ html {
 }
 
 #page-mod-book-print .timeline-row:last-child .timeline-content .timeline-card {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .timeline-content {
@@ -7270,7 +7253,7 @@ html {
   position: absolute;
   top: -23px;
   left: -2px;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
   border-radius: 6px 6px 0 0;
   font-family: "KingsBureauGrot";
   line-height: 1.4;
@@ -7303,12 +7286,11 @@ html {
 }
 
 #page-mod-book-print .timeline-content .timeline-card .card-body .row .col-md:not(:first-child) {
-  margin-left: 1.25rem;
+  margin-left: 1.5rem;
 }
 
 #page-mod-book-print .timeline-content .timeline-card .card-body .img-reference {
   text-align: right;
-  font-size: 0.875rem;
 }
 
 #page-mod-book-print.highlighted .timeline-badge-pill,
@@ -7319,7 +7301,7 @@ html {
 
 #page-mod-book-print .timeline-2021-container {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .timeline-2021-container .timeline-card {
@@ -7329,14 +7311,15 @@ html {
   border: 2px solid #5A6469;
   border-style: dashed;
   margin-bottom: 2.25rem;
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 #page-mod-book-print .timeline-2021-container .timeline-card:not(:first-child)::before {
   position: absolute;
   content: "";
-  border: 0.25rem solid #5A6469;
-  height: 2rem;
+  border: 2px solid #5A6469;
+  border-width: 0 2px;
+  height: 2.5rem;
   top: -2.5rem;
   left: 4.5rem;
 }
@@ -7349,13 +7332,17 @@ html {
   border: 4px solid #5A6469;
 }
 
+#page-mod-book-print .timeline-2021-container .timeline-card.highlighted:not(:first-child)::before {
+  top: calc(-2.5rem - 2px);
+}
+
 #page-mod-book-print .timeline-2021-container .timeline-card .date-label {
   line-height: 1;
   font-family: OpenSans, sans-serif;
   font-size: 1rem;
   font-weight: bold !important;
-  color: #FFFFFF;
-  background-color: #5A6469;
+  color: #FFFFFF !important;
+  background-color: #5A6469 !important;
   padding: 0.5rem;
   width: fit-content;
 }
@@ -7369,7 +7356,7 @@ html {
 }
 
 #page-mod-book-print .timeline-2021-container .timeline-card .card-image {
-  margin: 0 0 0 1.25rem;
+  margin: 0 0 0 1.5rem;
   order: 2;
   max-width: 130px;
 }
@@ -7382,7 +7369,7 @@ html {
 #page-mod-book-print .transcript-container {
   display: inline-block;
   width: calc(100% - 40px);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 #page-mod-book-print .transcript-container .transcript-button-group {
@@ -7391,37 +7378,51 @@ html {
 
 #page-mod-book-print .transcript-container .transcript-card .card-body {
   border-left: 2px solid #5A6469;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   padding-top: 3rem;
 }
 
-#page-mod-book-print .view-generic-container > h3, #page-mod-book-print .view-generic-container > h4, #page-mod-book-print .view-generic-container > h5, #page-mod-book-print .view-generic-container > h6,
+#page-mod-book-print .view-generic-container,
+#page-mod-book-print .view-answer-container,
+#page-mod-book-print .view-description-container,
+#page-mod-book-print .view-feedback-container,
+#page-mod-book-print .view-model-answer-container,
+#page-mod-book-print .academic-note-container {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print .view-generic-container > h3, #page-mod-book-print .view-generic-container > h4, #page-mod-book-print .view-generic-container > h5, #page-mod-book-print .view-generic-container > h6, #page-mod-book-print .view-generic-container > p,
 #page-mod-book-print .view-answer-container > h3,
 #page-mod-book-print .view-answer-container > h4,
 #page-mod-book-print .view-answer-container > h5,
 #page-mod-book-print .view-answer-container > h6,
+#page-mod-book-print .view-answer-container > p,
 #page-mod-book-print .view-description-container > h3,
 #page-mod-book-print .view-description-container > h4,
 #page-mod-book-print .view-description-container > h5,
 #page-mod-book-print .view-description-container > h6,
+#page-mod-book-print .view-description-container > p,
 #page-mod-book-print .view-feedback-container > h3,
 #page-mod-book-print .view-feedback-container > h4,
 #page-mod-book-print .view-feedback-container > h5,
 #page-mod-book-print .view-feedback-container > h6,
+#page-mod-book-print .view-feedback-container > p,
 #page-mod-book-print .view-model-answer-container > h3,
 #page-mod-book-print .view-model-answer-container > h4,
 #page-mod-book-print .view-model-answer-container > h5,
 #page-mod-book-print .view-model-answer-container > h6,
+#page-mod-book-print .view-model-answer-container > p,
 #page-mod-book-print .academic-note-container > h3,
 #page-mod-book-print .academic-note-container > h4,
 #page-mod-book-print .academic-note-container > h5,
-#page-mod-book-print .academic-note-container > h6 {
+#page-mod-book-print .academic-note-container > h6,
+#page-mod-book-print .academic-note-container > p {
   font-size: 1.2rem;
-  margin-left: calc(150px + 1.25rem);
+  margin-left: calc(150px + 1.5rem);
   border-left: 2px solid #5A6469;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   margin-bottom: 0;
-  padding-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
 }
 
 #page-mod-book-print .view-generic-container [class*="view-hide-"],
@@ -7451,7 +7452,7 @@ html {
 #page-mod-book-print .academic-note-container [class*="-card"] > .card-body .card-author {
   text-align: center;
   border-right: 2px solid #5A6469;
-  padding-right: 1.25rem;
+  padding-right: 1.5rem;
 }
 
 #page-mod-book-print .view-generic-container [class*="-card"] > .card-body .card-author > img,
@@ -7468,6 +7469,7 @@ html {
 #page-mod-book-print .academic-note-container [class*="-card"] > .card-body .card-author > .filter-ally-wrapper > img {
   border-radius: 50%;
   width: 150px;
+  max-width: 150px !important;
   height: auto;
   margin: 0 0 0.625rem 0;
 }
@@ -7481,13 +7483,13 @@ html {
   max-width: 150px;
 }
 
-#page-mod-book-print .view-generic-container [class*="-card"] > .card-body > .card-text,
-#page-mod-book-print .view-answer-container [class*="-card"] > .card-body > .card-text,
-#page-mod-book-print .view-description-container [class*="-card"] > .card-body > .card-text,
-#page-mod-book-print .view-feedback-container [class*="-card"] > .card-body > .card-text,
-#page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > .card-text,
-#page-mod-book-print .academic-note-container [class*="-card"] > .card-body > .card-text {
-  margin-left: 1.25rem;
+#page-mod-book-print .view-generic-container [class*="-card"] > .card-body > .card-text > :last-child,
+#page-mod-book-print .view-answer-container [class*="-card"] > .card-body > .card-text > :last-child,
+#page-mod-book-print .view-description-container [class*="-card"] > .card-body > .card-text > :last-child,
+#page-mod-book-print .view-feedback-container [class*="-card"] > .card-body > .card-text > :last-child,
+#page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > .card-text > :last-child,
+#page-mod-book-print .academic-note-container [class*="-card"] > .card-body > .card-text > :last-child {
+  margin-bottom: 0;
 }
 
 #page-mod-book-print .view-generic-container [class*="-card"] > .card-body .card-text:only-child,
@@ -7502,10 +7504,30 @@ html {
 #page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > p,
 #page-mod-book-print .academic-note-container [class*="-card"] > .card-body .card-text:only-child,
 #page-mod-book-print .academic-note-container [class*="-card"] > .card-body > p {
-  margin-left: calc(150px + 1.25rem);
-  max-width: calc(100% - 150px - 1.25rem);
   border-left: 2px solid #5A6469;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+#page-mod-book-print .view-generic-container [class*="-card"] > .card-body > .card-text,
+#page-mod-book-print .view-answer-container [class*="-card"] > .card-body > .card-text,
+#page-mod-book-print .view-feedback-container [class*="-card"] > .card-body > .card-text,
+#page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > .card-text,
+#page-mod-book-print .academic-note-container [class*="-card"] > .card-body > .card-text {
+  margin-left: 1.5rem;
+}
+
+#page-mod-book-print .view-generic-container [class*="-card"] > .card-body .card-text:only-child,
+#page-mod-book-print .view-generic-container [class*="-card"] > .card-body > p,
+#page-mod-book-print .view-answer-container [class*="-card"] > .card-body .card-text:only-child,
+#page-mod-book-print .view-answer-container [class*="-card"] > .card-body > p,
+#page-mod-book-print .view-feedback-container [class*="-card"] > .card-body .card-text:only-child,
+#page-mod-book-print .view-feedback-container [class*="-card"] > .card-body > p,
+#page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body .card-text:only-child,
+#page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > p,
+#page-mod-book-print .academic-note-container [class*="-card"] > .card-body .card-text:only-child,
+#page-mod-book-print .academic-note-container [class*="-card"] > .card-body > p {
+  margin-left: calc(150px + 1.5rem);
+  max-width: calc(100% - 150px - 1.5rem);
 }
 
 #page-mod-book-print .float-box .view-generic-container,
@@ -7514,9 +7536,9 @@ html {
 #page-mod-book-print .float-box .view-feedback-container,
 #page-mod-book-print .float-box .view-model-answer-container,
 #page-mod-book-print .float-box .academic-note-container {
-  margin-top: calc(1.25rem / 2);
+  margin-top: 1rem;
   border-left: 2px solid #5A6469;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
 }
 
 #page-mod-book-print .float-box .view-generic-container > h3, #page-mod-book-print .float-box .view-generic-container > h4, #page-mod-book-print .float-box .view-generic-container > h5, #page-mod-book-print .float-box .view-generic-container > h6,

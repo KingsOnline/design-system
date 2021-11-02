@@ -2,33 +2,10 @@
 
 @import "../utilities/variables";
 @import "../base/icons";
-@import "../base/typography";
 @import "../base/common";
+@import "../base/print/print-typography";
 
-// primary font used for headings
-@font-face {
-  font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-// secondary fonts
-// Open Sans support font used for body text within sidebar blocks
-@font-face {
-  font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-// King's Caslon Display regular support font used for quotations
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
-  font-style: normal;
-}
-
-html {
-  font-size: 16px;
-}
+$print-component-border: 2px solid $slate-grey;
 
 /* print */
 @media print {
@@ -71,54 +48,14 @@ html {
   .h1, .h2, .h3, .h4, .h5, .h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
-    font-family: "KingsBureauGrot";
-    color: #171717;
-    margin-top: 0;
-    margin-bottom: 1.25rem;
   }
-  h1::after, h2::after, h3::after, h4::after, h5::after, h6::after,
-  .h1::after, .h2::after, .h3::after, .h4::after, .h5::after, .h6::after {
-    content: "";
-    display: inline-block;
-    padding-top: 40px;
-    margin-bottom: -40px;
-    vertical-align: top;
-  }
-  h1, .h1 {
-    font-size: 2.375rem;
-    line-height: 1.1;
-  }
-  h2, .h2 {
-    font-size: 1.875rem;
-    line-height: 1.125;
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  h4, .h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h5, .h5 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-   h6, .h6 {
-    font-family: "Open Sans";
-    font-size: 1rem;
-    line-height: 1.4;
-  }
+  /*
   p, li {
     font-family: "Open Sans" !important;
     color: #333333;
   }
-  p {
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-  }
+  */
   p a, li p a {
-    text-decoration: underline;
     position: relative;
     margin-right: 8px;
   }
@@ -129,21 +66,9 @@ html {
     font-size: 8px;
     margin-left: 1px;
   }
-  ol, ul {
-    margin: 0 0 1.25rem 1.25rem;
-  }
-  li:not(:last-child) {
-    margin-bottom: 0.625rem;
-  }
-  .caption {
-    font-size: 0.875rem;
-  }
-  .alert {
-    color: #333333;
-  }
   .quote-box {
     page-break-inside: avoid;
-    border: 2px solid #464e52;
+    border: $print-component-border;
     margin-bottom: 1.25rem;
     position: relative;
     & > :first-child {
@@ -151,7 +76,7 @@ html {
       padding-left: 4rem;
        &::before {
         content: '“';
-        color: #464E52;
+        color: $footer-dark;
         font-family: "KingsCaslonDisplay";
         font-size: 4.5rem;
         top: 2.5rem;
@@ -162,9 +87,6 @@ html {
     .quote-attribution {
       margin: 0;
       font-size: 1.2rem;
-    }
-    .quote-body {
-      font-family: "KingsCaslonDisplay";
     }
   }
 
@@ -237,7 +159,7 @@ html {
     page-break-inside: avoid;
     display: flex;
     flex-direction: row;
-    border: 2px solid #5a6469;
+    border: $print-component-border;
     border-radius: 0;
     margin-bottom: 1.25rem;
     padding: 1.25rem;
@@ -318,7 +240,7 @@ html {
       max-width: 75%;
       padding: 1.25rem;
       background-color: transparent !important;
-      border: 2px solid #5a6469;
+      border: $print-component-border;
       h4, h5, h6 {
         font-size: 1.125rem;
         color: #333333;
@@ -520,6 +442,9 @@ html {
     @include fa-content($fa-bookmark);
     padding: 0 7px;
   }
+  .alert {
+    color: $body-text;
+  }
   .alert-instructional {
     background-color: #dce3e6 !important;
     > :first-child::before {
@@ -570,6 +495,15 @@ html {
   .files-box > :first-child::before {
     @include fa-content($fa-folder-open);
     padding: 0 4px;
+  }
+
+  .media-box .transcript-card::before {
+    content: "Transcript";
+    position: absolute;
+    font-size: 18px;
+    font-family: 'KingsBureauGrot';
+    top: 0;
+    left: $component-margin;
   }
 
   /* table */
@@ -716,7 +650,6 @@ html {
             }
             .img-reference {
               text-align: right;
-              font-size: 0.875rem;
             }
           }
         }
@@ -737,6 +670,14 @@ html {
       }
     }
   }
+  .timeline-2021-container {
+    .timeline-card {
+      .date-label {
+        background-color: $slate-grey !important;
+      }
+    }
+  }
+    
 
   /* view answer */
   .view-answer-container,
@@ -745,7 +686,7 @@ html {
   .view-generic-container,
   .view-model-answer-container {
     page-break-inside: avoid;
-    & > h3, h4, h5, h6 {
+    & > h3, h4, h5, h6, p {
       font-size: 1.2rem;
       margin-left: calc(150px + 1.25rem);
       border-left: 2px solid #5a6469;

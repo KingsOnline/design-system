@@ -1,6 +1,7 @@
 /* Footnotes
    ======================== */
 
+/* v2.6- */
 section#region-main {
   // style counter
   a[aria-describedby="footnote-label"] {
@@ -14,10 +15,10 @@ section#region-main {
     text-decoration: underline;
     cursor: pointer;
     &:hover {
-      background-color: tint($yellow, 70%);
+      @include bg-colour-opacity($yellow, 0.3);
     }
     &:focus {
-      background-color: tint($yellow, 70%);
+      @include bg-colour-opacity($yellow, 0.3);
     }
     .sr-only.ref-label {
       border: none;
@@ -34,20 +35,156 @@ section#region-main {
     padding: $component-margin-bottom 0 0 0;
     margin: $component-margin 0 0 0;
     :target {
-      background-color: tint($yellow, 70%);
+      @include bg-colour-opacity($yellow, 0.3);
     }
     ol {
       margin-bottom: 0;
       li {
         font-size: 0.875rem;
         line-height: 1.5;
-        a {
-          word-break: break-all;
+      }
+    }
+  }
+}
+// hide the screenreader only note in editor view of books
+.editing {
+  #region-main {
+    #id_content_editoreditable {
+      a {
+        .ref-label {
+          display: none;
         }
       }
     }
   }
 }
+
+/* v2.7+ */
+// supported list style types
+// disc and none ref links will display as decimal
+$list-style-types: [
+  decimal, // a number (default)
+  disc, // a filled circle
+  lower-latin, // a, b, c, d, etc.
+  lower-roman, // i, ii, iii, iv, etc.
+  none, // no marker shown
+  upper-latin, // A, B, C, D, etc.
+  upper-roman // I, II, III, IV, etc.
+];
+
+@mixin list-style-types {
+  @each $type in $list-style-types {
+    &.lst-#{$type} {
+      .footnotes-body {
+        .quote::after {
+          @if $type == disc or $type == none {
+            content: counter(quote, decimal);
+          } @else {
+            content: counter(quote, $type);
+          }
+        }
+      }
+      .footnotes-footer {
+        ol {
+          list-style: $type !important;
+        }
+      }
+    }
+  }
+}
+
+.footnotes-article {
+  @include list-style-types;
+  margin-bottom: $component-margin-bottom;
+  // reference list
+  .footnotes-body {
+    counter-reset: quote;
+    .quote {
+      color: $body-text !important;
+      counter-increment: quote;
+      text-decoration: none !important;
+      // ref styled just incase JS fails to move to footer
+      .ref {
+        color: $slate-grey;
+        font-style: italic;
+        &::before {
+          content: " [";
+        }
+        &::after {
+          content: "]";
+        }
+      }
+      &::after {
+        content: counter(quote);
+        text-decoration: underline;
+        font-size: 0.875rem;
+        vertical-align: top;
+        position: relative;
+        top: -4px;
+        padding: 4px;
+        border-radius: 4px
+      }
+      &:hover,
+      &:target,
+      &:focus {
+        text-decoration: underline !important;
+        outline: none;
+      }
+    }
+  }
+  .footnotes-footer {
+    border-top: 1px solid $rules-and-outlines;
+    padding: $component-margin-bottom 0 0 0;
+    margin: $component-margin 0 0 0;
+    ol {
+      margin: 0 0 0 $component-margin-lg !important;
+      li {
+        display: list-item !important;
+        .ref {
+          font-size: 0.875rem;
+          line-height: 1.5;
+          word-break: break-all;
+        }
+        &::marker {
+          font-size: 14px;
+        }
+        &::before {
+          display: none !important;
+        }
+        &.selected {
+          position: relative;
+          padding: 0 calc(20px + 1rem) 0 4px;
+          .ref {
+            font-weight: bold;
+            a {
+              position: absolute;
+              top: 0;
+              right: 4px;
+              bottom: 0;
+              margin: auto 0;
+              display: flex;
+              align-items: center;
+              color: transparent !important;
+              // chevron circle up icon
+              i {
+                @include icon-before;
+                margin: 2px 0 0 0;
+                font-size: 20px;
+                &::before {
+                  color: $midnight-blue;
+                }
+              }
+            }
+          }
+          &::marker {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
 // hide the screenreader only note in editor view of books
 .editing {
   #region-main {

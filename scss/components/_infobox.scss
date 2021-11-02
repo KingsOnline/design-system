@@ -102,7 +102,7 @@ body {
       color: $teal-blue;
       padding: 0 4px;
     }
-    ol, ul {
+    & > ol, & > ul {
       margin: 0 0 $component-margin-bottom 1.25rem;
       li:last-child {
         margin-bottom: 0;
@@ -141,6 +141,11 @@ body {
   &::before {
     @include fa-content($fa-book-reader);
     padding: 0 2px 0 3px;
+  }
+  // this variation often features url references
+  // so force word-break
+  p {
+    word-break: break-word;
   }
 }
 

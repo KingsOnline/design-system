@@ -1,5 +1,47 @@
-// Typography
+// Print typography
 //  ==========================
+
+// Table of contents
+// =================
+// 1. Fonts
+//   - KingsBureauGrot
+//   - Open Sans
+//   - KingsCaslonDisplay
+// 2. Headings
+// 3. Paragraphs
+// 4. Blockquotes
+// 5. Captions
+// 6. Highlighting
+// 7. Hyperlinks
+// 8. Preformatted text and code
+// 9. Other
+//    - .break-all
+//    - hr
+
+
+// 1. Fonts
+
+// primary font used for headings
+@font-face {
+  font-family: "KingsBureauGrot";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+// secondary fonts
+// Open Sans support font used for body text within sidebar blocks
+@font-face {
+  font-family: "KingsBureauGrotFiveOne";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
+  font-style: normal;
+}
+// King's Caslon Display regular support font used for quotations
+@font-face {
+  font-family: "KingsCaslonDisplay";
+  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
+  font-style: normal;
+}
 
 $font-kbg: (
   family: "KingsBureauGrot",
@@ -20,12 +62,13 @@ $font-kbg: (
 $font-os: (
   family: "Open Sans, sans-serif",
   p: ( font-size: 1rem, line-height: 1.5 ),
-  caption: ( font-size: 0.833rem, line-height: 1.5 ),
+  caption: ( font-size: 1rem, line-height: 1.5 ),
   key-concept: ( font-size: 1rem, line-height: 1.5 )
 );
 $font-kcd: (
   family:  "KingsCaslonDisplay",
-  quote-body: ( font-size: 1.125rem, line-height: 1.4 )
+  quote-body: ( font-size: 1.5rem, line-height: 1.25 ),
+  quote-body-sm: ( font-size: 1.25rem, line-height: 1.25 )
 );
 
 $font-default: $font-kbg;
@@ -52,113 +95,80 @@ $line-height:$font-size) {
   }
 }
 
-%sidebar-header {
-  padding: 0;
-  margin: 0;
-  color: $midnight-blue;
-  font-family: "KingsBureauGrot" !important;
-  font-size: 1.125rem;
-  line-height: 1.4;
-}
-
 html, body {
-  font-size: 16px;
+  font-size: 14px;
   color: $body-text;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-%h1, %h2, %h3, %h4, %h5, %h6,
-.quote-attribution {
-  font-family: "KingsBureauGrot";
-  color: $headings;
-  margin-top: 0;
-  margin-bottom: $component-margin-bottom-sm;
-}
-h6, .h6, %h6 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700 !important;
-}
-h1, .h1, %h1 { @include font-scale(h1-sm) ;}
-h2, .h2, %h2 { @include font-scale(h2-sm) ;}
-h3, .h3, %h3 { @include font-scale(h3-sm) ;}
-h4, .h4, %h4 {
-  @include font-scale(h4-sm);
-  letter-spacing: 0.25px;
-}
-h5, .h5, %h5 {
-  @include font-scale(h56-sm);
-  letter-spacing: 0.5px;
-}
-h6, .h6, %h6 { @include font-scale(h56-sm) ;}
+#page-mod-book-print {
 
-// allow margin above headers in main region to increase to 36px
-#region-main .no-overflow {
-  & > h3, & > h4, & > h5, & > h6 {
-    &:not(:first-child) {
-      margin-top: 0.75rem;
-    }
+  // 2. Headings
+
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  %h1, %h2, %h3, %h4, %h5, %h6,
+  .quote-attribution {
+    font-family: "KingsBureauGrot";
+    color: $headings;
+    margin-top: 0;
+    margin-bottom: $component-margin-bottom-sm;
   }
-}
-
-p {
-  @include font-scale(p, $font-os);
-  margin-bottom: $component-margin-bottom;
-  color: $body-text;
-}
-%caption {
-  @include font-scale(caption, $font-os);
-  max-width: fit-content;
-  margin: $component-margin-bottom-xs 0 0 0;
-}
-.caption {
-  @extend %caption;
-}
-.quote-box,
-.blockquote {
-  .quote-body {
-    @include font-scale(quote-body, $font-kcd);
+  h6, .h6, %h6 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700 !important;
   }
-}
-select, option {
-  font-family: "Open Sans", sans-serif;
-}
-
-// large screen fonts
-@media only screen and (min-width: $neo-breakpoint) {
   h1, .h1, %h1 { @include font-scale(h1) ;}
   h2, .h2, %h2 { @include font-scale(h2) ;}
   h3, .h3, %h3 { @include font-scale(h3) ;}
-  h4, .h4, %h4 { @include font-scale(h4) ;}
-  h5, .h5, %h5 { @include font-scale(h5) ;}
+  h4, .h4, %h4 {
+    @include font-scale(h4);
+    letter-spacing: 0.25px;
+  }
+  h5, .h5, %h5 {
+    @include font-scale(h5);
+    letter-spacing: 0.5px;
+  }
   h6, .h6, %h6 { @include font-scale(h6) ;}
-}
 
-// theme overrides
-// hide page title underline
-.path-mod-book .generalbox.book_content > h3 {
-  background: none;
-  &:after {
-    display: none;
-  }
-}
-// override theme list font style
-li {
-  line-height: inherit;
-  & > p {
-    margin-bottom: 0;
-  }
-}
-// override module week page link
-.instancename {
-  color: $midnight-blue;
-  &:hover {
-    color: darken($midnight-blue, 10%);
-  }
-}
+  // 3. Paragraphs
 
-#region-main {
-  // link hover styles
+  p {
+    @include font-scale(p, $font-os);
+    color: $body-text;
+    &:not(:last-child) {
+      margin-bottom: $component-margin-bottom;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // 4. Blockquotes
+  .quote-box,
+  .blockquote {
+    .quote-body {
+      @include font-scale(quote-body, $font-kcd);
+      margin-bottom: 1.5rem;
+    }
+  }
+  // 5. Captions
+  %caption {
+    @include font-scale(caption, $font-os);
+    max-width: fit-content;
+    margin: $component-margin-bottom-xs 0 0 0;
+  }
+  .caption,
+  figcaption {
+    @extend %caption;
+  }
+
+  // 6. Highlighting
+    mark.text-highlight {
+      @extend %text-highlight;
+    }
+
+  // 7. Hyperlinks
+
   p a,
   li p a,
   figcaption a {
@@ -175,22 +185,21 @@ li {
     } 
   }
   a {
-    // override theme permanent underline
-    &:link {
-      text-decoration: none;
-    }
     // link download
     // download button in components/_button
     &.link-download,
     // link to video
     &.link-to-video {
       @extend %text-highlight;
+      background-color: transparent;
     }
-    @include focus-outline;
   }
+    
+  // 7. Lists
+
   ol, ul {
-    margin: 0 0 $component-margin-bottom $component-margin-lg;
     & > li {
+      counter-increment: nested-list-item;
       &:not(:last-child) {
         margin-bottom: $component-margin-bottom;
       }
@@ -203,14 +212,13 @@ li {
       }
     }
   }
-  /*
+/*
   ol {
     counter-reset: nested-list-item;
     margin: 0 0 $component-margin-bottom calc(#{$component-margin} / 2);
     // remove marker to replace with counter
     list-style-type: none;
     & > li {
-      counter-increment: nested-list-item;
       display: table;
       &::before {
         content: counter(nested-list-item) ".";
@@ -226,7 +234,7 @@ li {
       }
     }
   }
-  ul:not(.gtopics) {
+  ul {
     margin: 0 0 $component-margin-bottom $component-margin-lg;
     ol {
       & > li {
@@ -236,63 +244,38 @@ li {
       }
     }
   }
-  */
-  mark.text-highlight {
-    @extend %text-highlight;
-  }
-  .summary {
-    ol, ul {
-      // Moodle adds a span around li on section pages
-      & > span > li,
-      & > li  {
-        &:not(:last-child) {
-          margin-bottom: $component-margin-bottom-sm;
-        }
-        ol, ul {
-          & > span > li,
-          & > li {
-            margin-bottom: 0 !important;
-          }
-        }
-      }
+*/
+
+  // 8. Preformatted text and code
+
+  pre {
+    margin-bottom: $component-margin-bottom;
+    background-color: transparent;
+    border: 1px solid $block-header;
+    border-radius: 0;
+    padding: $component-margin-sm;
+    white-space: pre-wrap;
+    code {
+      border: none;
     }
   }
-  hr {
-    margin: $component-margin 0;
-    border: 1px solid $rules-and-outlines;
-    border-width: 0 0 1px 0;
+  code {
+    border: 1px solid $block-header;
+    background-color: tint($block-background, 80%);
+    color: $kings-red;
+    border-radius: 4px;
   }
+
+  // 9. Other
+
   // custom class for urls to wrap
   .break-all {
     word-break: break-all;
   }
-}
-pre {
-  margin-bottom: $component-margin-bottom;
-  background-color: transparent;
-  border: 1px solid $block-header;
-  border-radius: 0;
-  padding: $component-margin-sm;
-  white-space: pre-wrap;
-  code {
-    border: none;
-  }
-}
-code {
-  border: 1px solid $block-header;
-  background-color: tint($block-background, 80%);
-  color: $kings-red;
-  border-radius: 4px;
-}
 
-// hide screenreader only note on external links in text editor
-.editing {
-  #id_content_editoreditable {
-    p a,
-    li p a {
-      .sr-link-message {
-        display: none;
-      }
-    }
+  hr {
+    margin: $component-margin 0;
+    border: 1px solid $rules-and-outlines;
+    border-width: 0 0 1px 0;
   }
 }

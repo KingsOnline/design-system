@@ -11,13 +11,17 @@
 // 3. Links
 //    - %ds-link / Choice, Typography
 //    - %bold-link / File, LTI, URL
+//    - %text-highlight / Typography
 // 4. Component templates and subcomponents
 //    - %caption-overlay / Carousel, Hero
+//    - %horizontal-scroll / Image, LaTeX, Table
 //    - %info-box / Alert, Infobox
 //    - %note-contaienr / Academic note, Viewhide
 // 5. Navigation within non-book activities
 //    - tab navigation / Database, Turnitin
 //    - pagination / Database, Turnitin
+// 6. Focus
+//    - %focus-outline
 
 // 1. Font Awesome psuedoelement
 // extended in Button, etc
@@ -63,7 +67,7 @@
 // 3. Links
 
 // extended in Choice, Typography
-%ds-link {
+@mixin ds-link {
   text-decoration: underline;
   color: $reflex-blue;
   overflow-wrap: break-word;
@@ -74,6 +78,9 @@
     color: $midnight-blue;
   }
 }
+%ds-link {
+  @include ds-link;
+}
 
 // extended in File, LTI, URL
 %bold-link {
@@ -82,6 +89,15 @@
     font-weight: bold;
     text-decoration: underline !important;
   }
+}
+
+// extended in Typography
+@mixin text-highlight {
+  background-color: tint($yellow, 80%);
+  padding: 2px 4px;
+}
+%text-highlight {
+  @include text-highlight;
 }
 
 // 4. Component templates and subcomponents
@@ -95,6 +111,12 @@
   right: auto;
   width: 100%;
   padding: 1.25rem 1.5rem;
+}
+
+// extended in Image, LaTeX, Table
+%horizontal-scroll {
+  margin-bottom: $component-margin-bottom;
+  overflow-x: auto;
 }
 
 // extended in Alert, Infobox
@@ -303,4 +325,13 @@
 }
 %a-p-b-next {
   @include fa-content($fa-angle-double-right);
+}
+
+// 6. Focus
+
+@mixin focus-outline {
+  &:focus {
+    outline: 1px dashed $sea-blue;
+    outline-offset: 2px;
+  }
 }

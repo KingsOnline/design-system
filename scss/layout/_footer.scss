@@ -1,0 +1,14 @@
+/* Footer
+   =========================*/
+
+// font-size is overridden so reset to 14px to keep the navbar and footer
+// the same as kcl.ac.uk
+#page-footer {
+  font-size: 14px;
+  p {
+    color: $white;
+    font-size: 14px;
+    line-height: 15px;
+    margin-bottom: 10px;
+  }
+}

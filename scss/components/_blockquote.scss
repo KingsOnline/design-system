@@ -1,0 +1,69 @@
+/* Blockquote
+   =========================*/
+
+// Rumdoodle v2.2-
+
+div.quote-box {
+  @extend %info-box;
+  // from common
+  background-color: $block-background;
+  & > :first-child {
+    &::before {
+      content: '“';
+      padding: 0;
+      color: $orange;
+      font-family: "KingsCaslonDisplay";
+      font-size: 4.5rem;
+      position: absolute;
+      left: 18px;
+      top: 40px;
+    }
+    .quote-attribution,
+    h3, h4, h5, h6 {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+// Rumdoodle v2.3+
+// old 'quote-box' class - to be retired
+figure.quote-box,
+// 'blockquote' class introduced to match guidance in v2.7
+figure.blockquote {
+  background-color: $block-background;
+  position: relative;
+  padding: 1.25rem 1.75rem 1.25rem 4.625rem;
+  blockquote {
+    border: none;
+    margin-bottom: $component-margin-bottom !important;
+    padding: 0;
+    &::before {
+      content: '\201c';
+      padding: 0;
+      color: $orange;
+      font-family: "KingsCaslonDisplay";
+      font-size: 4.5rem;
+      font-style: normal;
+      font-weight: normal;
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      margin: 0;
+    }
+    p, li {
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: $component-margin-bottom;
+      }
+    }
+  }
+  figcaption {
+    @extend %h4;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

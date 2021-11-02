@@ -4,10 +4,11 @@
 
 @import "base/fonts";
 @import "base/icons";
-@import "base/typography";
 @import "base/common";
+@import "base/typography";
 
 // @import "layout/grid";
+@import "layout/footer";
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/pagelayout";
@@ -16,6 +17,8 @@
 @import "components/academicnote";
 @import "components/activitylabel";
 @import "components/alert";
+@import "components/bba";
+@import "components/blockquote";
 @import "components/button";
 @import "components/card";
 @import "components/carousel";
@@ -27,15 +30,16 @@
 @import "components/hero";
 @import "components/images";
 @import "components/infobox";
+@import "components/latex";
 @import "components/modal";
 @import "components/process";
-@import "components/quotation";
 @import "components/screenreaderdescription";
 @import "components/scrollbar";
 @import "components/table";
 @import "components/timeline";
 @import "components/viewhide";
 
+@import "activities/assignment";
 @import "activities/blog";
 @import "activities/book";
 @import "activities/choice";
@@ -43,6 +47,7 @@
 @import "activities/database";
 @import "activities/feedback";
 @import "activities/file";
+@import "activities/folder";
 @import "activities/forum";
 @import "activities/kalvidassign";
 @import "activities/lesson";

@@ -1,0 +1,70 @@
+/* Folder
+   ======================== */
+
+.activity.modtype_folder {
+  .foldertree {
+    .filemanager {
+      font-size: 1rem !important;
+      .ygtvblankdepthcell {
+        width: 32px;
+      }
+      .ygtvln, .ygtvtn {
+        display: none;
+      }
+      .ygtvdepthcell {
+        background: none;
+        width: 32px;
+      }
+      .ygtvcontent {
+        .fp-filename-icon {
+          margin: 0 !important;
+          padding: 4px 0 !important;
+          .fp-icon {
+            display: none;
+          }
+        }
+      }
+      // folder
+      .ygtvtm, .ygtvtmh, .ygtvlm, .ygtvlmh,
+      .ygtvtp, .ygtvtph, .ygtvlp, .ygtvlph {
+        background: none;
+        &::before {
+          @extend %icon-before;
+          font-size: 20px;
+          margin-right: 12px;
+        }
+        & + .ygtvcontent {
+          font-weight: bold;
+        }
+      }
+      .ygtvspacer {
+        display: none;
+      }
+      // expanded folder
+      .ygtvtm, .ygtvtmh, .ygtvlm, .ygtvlmh {
+        &::before {
+          @include fa-content($fa-folder-open);
+          margin-right: 10px;
+        }
+      }
+      // collapsed folder
+      .ygtvtp, .ygtvtph, .ygtvlp, .ygtvlph {
+        &::before {
+          @include fa-content($fa-folder);
+        }
+      }
+    }
+  }
+  .folderbuttons {
+    margin-top: 4px;
+    padding: 0 !important;
+    // download folder button
+    button {
+      margin-bottom: 0 !important;
+      &::before {
+        @extend %icon-before;
+        @include fa-content($fa-download);
+      }
+    }
+  }
+}

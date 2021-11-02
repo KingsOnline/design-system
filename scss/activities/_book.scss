@@ -39,6 +39,12 @@
         & > div > *:last-child {
           margin-bottom: 0;
         }
+        .no-overflow {
+          // to allow focus outline to be visible when overlapping
+          // outer edges of main content area
+          margin: -4px;
+          padding: 4px;
+        }
       }
     }
     aside {
@@ -81,35 +87,36 @@
 #page-mod-book-view {
   .navtop,
   .navbottom {
-    padding: 0 0 $component-margin-bottom-lg 0 !important;
-    margin: $component-margin-lg 0;
+    padding: 0 !important;
+    margin-top: $component-margin-lg 0;
     text-align: center;
-    border-top: none;
-    border-bottom: 1px solid $rules-and-outlines;
+    border: none !important;
     a {
+      @include focus-outline;
       margin: 0;
       max-width: none;
       float: none;
       &.bookprev,
       &.booknext {
         text-align: center;
-        width: 1.5rem;
-        height: 2.25rem;
+        line-height: 1;
+        border-radius: 50%;
+        width: 2.25rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         &:hover {
           text-decoration: none;
-        }
-        @media only screen and (max-width: $neo-breakpoint) {
-          display: inline-block;
         }
       }
       &.bookprev::before,
       &.booknext::after,
       &.bookexit::after {
         font-size: 1.5rem;
+        line-height: inherit;
         color: $midnight-blue;
         background-color: transparent;
         margin: 0;
-        padding: 0;
       }
       &.bookprev:hover::before,
       &.booknext:hover::after,
@@ -153,7 +160,13 @@
           }
         }
         a {
+          @include focus-outline;
           min-width: 2.25rem;
+          height: 2.25rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
           &:hover {
             text-decoration: none;
             color: tint($midnight-blue, 15%);
@@ -224,7 +237,13 @@
       }
     }
   }
-  // for books with sub-chapters, hide the nav
+  .navbottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // for books with sub-chapters, hide the pagination
+  // show prev and next chapter buttons only
   &.has-sub-chaps {
     .navbottom {
       ul {
@@ -236,11 +255,13 @@
       a {
         font-family: "KingsBureauGrot";
         color: $midnight-blue;
-        display: flex;
-        align-items: center;
-        &::before,
+        width: auto;
+        border-radius: 0;
+        &::before {
+          padding: 0 $component-margin-xs 0 0;
+        }
         &::after {
-          padding: $component-margin-xs;
+          padding: 0 0 0 $component-margin-xs;
         }
       }
     }

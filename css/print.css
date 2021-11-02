@@ -1,305 +1,4 @@
 @charset "UTF-8";
-html, body {
-  font-size: 16px;
-  color: #333333;
-}
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.quote-attribution {
-  font-family: "KingsBureauGrot";
-  color: #171717;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-h6, .h6 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700 !important;
-}
-
-h1, .h1 {
-  font-size: 1.75rem;
-  line-height: 1.2;
-}
-
-h2, .h2 {
-  font-size: 1.5rem;
-  line-height: 1.25;
-}
-
-h3, .h3 {
-  font-size: 1.25rem;
-  line-height: 1.25;
-}
-
-h4, .h4 {
-  font-size: 1.125rem;
-  line-height: 1.4;
-  letter-spacing: 0.25px;
-}
-
-h5, .h5 {
-  font-size: 1rem;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
-}
-
-h6, .h6 {
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-#region-main .no-overflow > h3:not(:first-child), #region-main .no-overflow > h4:not(:first-child), #region-main .no-overflow > h5:not(:first-child), #region-main .no-overflow > h6:not(:first-child) {
-  margin-top: 0.75rem;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-  font-family: Open Sans, sans-serif;
-  margin-bottom: 1.5rem;
-  color: #333333;
-}
-
-.caption {
-  font-size: 0.833rem;
-  line-height: 1.5;
-  font-family: Open Sans, sans-serif;
-  max-width: fit-content;
-  margin: 0.5rem 0 0 0;
-}
-
-.quote-box .quote-body {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  font-family: KingsCaslonDisplay;
-  margin-bottom: 1.75rem;
-}
-
-select, option {
-  font-family: "Open Sans", sans-serif;
-}
-
-@media only screen and (min-width: 768px) {
-  h1, .h1 {
-    font-size: 2.375rem;
-    line-height: 1.1;
-  }
-  h2, .h2 {
-    font-size: 1.875rem;
-    line-height: 1.25;
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  h4, .h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h5, .h5 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-  h6, .h6 {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  .quote-box .quote-body {
-    font-size: 1.5rem;
-    line-height: 1.25;
-    font-family: KingsCaslonDisplay;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.path-mod-book .generalbox.book_content > h3 {
-  background: none;
-}
-
-.path-mod-book .generalbox.book_content > h3:after {
-  display: none;
-}
-
-li {
-  line-height: inherit;
-}
-
-li > p {
-  margin-bottom: 0;
-}
-
-.instancename {
-  color: #0A2D50;
-}
-
-.instancename:hover {
-  color: #041423;
-}
-
-#region-main p a i.open-icon,
-#region-main li p a i.open-icon,
-#region-main figcaption a i.open-icon {
-  display: inline-block;
-  margin: 0.375rem;
-  vertical-align: baseline;
-  transform: translateY(-10%);
-}
-
-#region-main p a .sr-link-message,
-#region-main li p a .sr-link-message,
-#region-main figcaption a .sr-link-message {
-  display: inline-block;
-}
-
-#region-main a:link {
-  text-decoration: none;
-}
-
-#region-main a.link-download {
-  background-color: #fdf1cf;
-  padding: 2px 4px;
-}
-
-#region-main ol, #region-main ul {
-  margin: 0 0 1.5rem 2.25rem;
-}
-
-#region-main ol > li:not(:last-child), #region-main ul > li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-#region-main ol > li ol > li, #region-main ol > li ul > li, #region-main ul > li ol > li, #region-main ul > li ul > li {
-  margin-bottom: 0;
-}
-
-#region-main .summary ol > span > li:not(:last-child),
-#region-main .summary ol > li:not(:last-child), #region-main .summary ul > span > li:not(:last-child),
-#region-main .summary ul > li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-#region-main .summary ol > span > li ol > span > li,
-#region-main .summary ol > span > li ol > li, #region-main .summary ol > span > li ul > span > li,
-#region-main .summary ol > span > li ul > li,
-#region-main .summary ol > li ol > span > li,
-#region-main .summary ol > li ol > li,
-#region-main .summary ol > li ul > span > li,
-#region-main .summary ol > li ul > li, #region-main .summary ul > span > li ol > span > li,
-#region-main .summary ul > span > li ol > li, #region-main .summary ul > span > li ul > span > li,
-#region-main .summary ul > span > li ul > li,
-#region-main .summary ul > li ol > span > li,
-#region-main .summary ul > li ol > li,
-#region-main .summary ul > li ul > span > li,
-#region-main .summary ul > li ul > li {
-  margin-bottom: 0 !important;
-}
-
-#region-main hr {
-  margin: 1.5rem 0;
-  border: 1px solid #8B9296;
-  border-width: 0 0 1px 0;
-}
-
-.break-all {
-  word-break: break-all;
-}
-
-.editing #region-main #id_content_editoreditable p a .sr-link-message,
-.editing #region-main #id_content_editoreditable li p a .sr-link-message {
-  display: none;
-}
-
-pre {
-  margin-bottom: 1.5rem;
-  background-color: transparent;
-  border: 1px solid #DCE3E6;
-  border-radius: 0;
-  padding: 1rem;
-  white-space: pre-wrap;
-}
-
-pre code {
-  border: none;
-}
-
-code {
-  border: 1px solid #DCE3E6;
-  background-color: #fbfcfc;
-  color: #E2231A;
-  border-radius: 4px;
-}
-
-table code {
-  background: #F7F7F9 !important;
-}
-
-.path-mod-page #region-main > div > h2 {
-  background: none;
-}
-
-.path-mod-page #region-main > div > h2::after {
-  display: none;
-}
-
-header.navbar {
-  font-size: 14px;
-}
-
-header.navbar .container-fluid {
-  padding: 0;
-}
-
-header.navbar form#search button {
-  font-family: "Open Sans",sans-serif;
-  font-size: 1.08rem !important;
-  padding: 6px 18px !important;
-}
-
-header.navbar form#search:hover input#coursesearchbox {
-  font-size: 13.65px !important;
-}
-
-footer#page-footer {
-  font-size: 14px;
-}
-
-footer#page-footer p {
-  color: #FFFFFF;
-  font-size: 14px;
-  line-height: 15px;
-  margin-bottom: 10px;
-}
-
-.back-to-top {
-  z-index: 100;
-  bottom: 28px;
-  right: 48px;
-}
-
-.back-to-top .fa-3x {
-  font-size: 42px;
-}
-
-#region-main p a,
-#region-main li p a,
-#region-main figcaption a {
-  text-decoration: underline;
-  color: #002395;
-  overflow-wrap: break-word;
-}
-
-#region-main p a:hover,
-#region-main figcaption a:hover {
-  color: #005AD2;
-}
-
-#region-main p a:visited,
-#region-main figcaption a:visited {
-  color: #0A2D50;
-}
-
 @font-face {
   font-family: "KingsBureauGrot";
   src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
@@ -319,8 +18,146 @@ footer#page-footer p {
   font-style: normal;
 }
 
-html {
-  font-size: 16px;
+@media print {
+  html, body {
+    font-size: 14px;
+    color: #333333;
+  }
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  .quote-attribution {
+    font-family: "KingsBureauGrot";
+    color: #171717;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  h6, .h6 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700 !important;
+  }
+  h1, .h1 {
+    font-size: 2.375rem;
+    line-height: 1.1;
+  }
+  h2, .h2 {
+    font-size: 1.875rem;
+    line-height: 1.25;
+  }
+  h3, .h3 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  h4, .h4 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+  }
+  h5, .h5 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+  h6, .h6 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Open Sans, sans-serif;
+    margin-bottom: 1.5rem;
+    color: #333333;
+  }
+  .quote-box .quote-body,
+  .blockquote .quote-body {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-family: KingsCaslonDisplay;
+    margin-bottom: 1.5rem;
+  }
+  .caption {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Open Sans, sans-serif;
+    max-width: fit-content;
+    margin: 0.5rem 0 0 0;
+  }
+  mark.text-highlight {
+    background-color: #fdf1cf;
+    padding: 2px 4px;
+  }
+  p a,
+  li p a,
+  figcaption a {
+    text-decoration: underline;
+    color: #002395;
+    overflow-wrap: break-word;
+  }
+  p a:hover,
+  li p a:hover,
+  figcaption a:hover {
+    color: #005AD2;
+  }
+  p a:visited,
+  li p a:visited,
+  figcaption a:visited {
+    color: #0A2D50;
+  }
+  p a i.open-icon,
+  li p a i.open-icon,
+  figcaption a i.open-icon {
+    display: inline-block;
+    margin: 0.375rem 0 0.375rem 0.375rem;
+    vertical-align: baseline;
+    transform: translateY(-10%);
+  }
+  p a .sr-link-message,
+  li p a .sr-link-message,
+  figcaption a .sr-link-message {
+    display: inline-block;
+  }
+  a.link-download, a.link-to-video {
+    background-color: #fdf1cf;
+    padding: 2px 4px;
+  }
+  ol, ul {
+    margin: 0 0 1.5rem 2.25rem;
+  }
+  ol > li:not(:last-child), ul > li:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  ol ol, ol ul, ul ol, ul ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  ol ol > li:not(:last-child), ol ul > li:not(:last-child), ul ol > li:not(:last-child), ul ul > li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  pre {
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+    border: 1px solid #DCE3E6;
+    border-radius: 0;
+    padding: 1rem;
+    white-space: pre-wrap;
+  }
+  pre code {
+    border: none;
+  }
+  code {
+    border: 1px solid #DCE3E6;
+    background-color: #fbfcfc;
+    color: #E2231A;
+    border-radius: 4px;
+  }
+  .break-all {
+    word-break: break-all;
+  }
+  hr {
+    margin: 1.5rem 0;
+    border: 1px solid #8B9296;
+    border-width: 0 0 1px 0;
+  }
 }
 
 /* print */
@@ -361,54 +198,14 @@ html {
   .h1, .h2, .h3, .h4, .h5, .h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
-    font-family: "KingsBureauGrot";
-    color: #171717;
-    margin-top: 0;
-    margin-bottom: 1.25rem;
   }
-  h1::after, h2::after, h3::after, h4::after, h5::after, h6::after,
-  .h1::after, .h2::after, .h3::after, .h4::after, .h5::after, .h6::after {
-    content: "";
-    display: inline-block;
-    padding-top: 40px;
-    margin-bottom: -40px;
-    vertical-align: top;
-  }
-  h1, .h1 {
-    font-size: 2.375rem;
-    line-height: 1.1;
-  }
-  h2, .h2 {
-    font-size: 1.875rem;
-    line-height: 1.125;
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  h4, .h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h5, .h5 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-  h6, .h6 {
-    font-family: "Open Sans";
-    font-size: 1rem;
-    line-height: 1.4;
-  }
+  /*
   p, li {
     font-family: "Open Sans" !important;
     color: #333333;
   }
-  p {
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-  }
+  */
   p a, li p a {
-    text-decoration: underline;
     position: relative;
     margin-right: 8px;
   }
@@ -421,21 +218,9 @@ html {
     font-size: 8px;
     margin-left: 1px;
   }
-  ol, ul {
-    margin: 0 0 1.25rem 1.25rem;
-  }
-  li:not(:last-child) {
-    margin-bottom: 0.625rem;
-  }
-  .caption {
-    font-size: 0.875rem;
-  }
-  .alert {
-    color: #333333;
-  }
   .quote-box {
     page-break-inside: avoid;
-    border: 2px solid #464e52;
+    border: 2px solid #5A6469;
     margin-bottom: 1.25rem;
     position: relative;
   }
@@ -455,9 +240,6 @@ html {
   .quote-box .quote-attribution {
     margin: 0;
     font-size: 1.2rem;
-  }
-  .quote-box .quote-body {
-    font-family: "KingsCaslonDisplay";
   }
   /* bootstrap */
   .row {
@@ -524,7 +306,7 @@ html {
     page-break-inside: avoid;
     display: flex;
     flex-direction: row;
-    border: 2px solid #5a6469;
+    border: 2px solid #5A6469;
     border-radius: 0;
     margin-bottom: 1.25rem;
     padding: 1.25rem;
@@ -603,7 +385,7 @@ html {
     max-width: 75%;
     padding: 1.25rem;
     background-color: transparent !important;
-    border: 2px solid #5a6469;
+    border: 2px solid #5A6469;
   }
   .carousel .carousel-caption h4, .carousel .carousel-caption h5, .carousel .carousel-caption h6 {
     font-size: 1.125rem;
@@ -845,6 +627,9 @@ html {
     content: "\f02e";
     padding: 0 7px;
   }
+  .alert {
+    color: #333333;
+  }
   .alert-instructional {
     background-color: #dce3e6 !important;
   }
@@ -893,6 +678,14 @@ html {
   .files-box > :first-child::before {
     content: "\f07c";
     padding: 0 4px;
+  }
+  .media-box .transcript-card::before {
+    content: "Transcript";
+    position: absolute;
+    font-size: 18px;
+    font-family: 'KingsBureauGrot';
+    top: 0;
+    left: 1.5rem;
   }
   /* table */
   .table-bordered {
@@ -1032,7 +825,6 @@ html {
   }
   .timeline-container .timeline-row .timeline-content .timeline-card .card-body .img-reference {
     text-align: right;
-    font-size: 0.875rem;
   }
   .timeline-container .timeline-row:last-child .timeline-content .timeline-card {
     margin-bottom: 1.25rem;
@@ -1042,6 +834,9 @@ html {
   .timeline-container .timeline-row.highlighted .timeline-content .timeline-card {
     background-color: #ffe1d2 !important;
   }
+  .timeline-2021-container .timeline-card .date-label {
+    background-color: #5A6469 !important;
+  }
   /* view answer */
   .view-answer-container,
   .view-description-container,
@@ -1050,23 +845,27 @@ html {
   .view-model-answer-container {
     page-break-inside: avoid;
   }
-  .view-answer-container > h3, .view-answer-container h4, .view-answer-container h5, .view-answer-container h6,
+  .view-answer-container > h3, .view-answer-container h4, .view-answer-container h5, .view-answer-container h6, .view-answer-container p,
   .view-description-container > h3,
   .view-description-container h4,
   .view-description-container h5,
   .view-description-container h6,
+  .view-description-container p,
   .view-feedback-container > h3,
   .view-feedback-container h4,
   .view-feedback-container h5,
   .view-feedback-container h6,
+  .view-feedback-container p,
   .view-generic-container > h3,
   .view-generic-container h4,
   .view-generic-container h5,
   .view-generic-container h6,
+  .view-generic-container p,
   .view-model-answer-container > h3,
   .view-model-answer-container h4,
   .view-model-answer-container h5,
-  .view-model-answer-container h6 {
+  .view-model-answer-container h6,
+  .view-model-answer-container p {
     font-size: 1.2rem;
     margin-left: calc(150px + 1.25rem);
     border-left: 2px solid #5a6469;

@@ -150,6 +150,9 @@ aside {
            color: $link-hover;
          }
        }
+       a {
+         @include focus-outline;
+       }
      }
   }
   // book table of contents current page

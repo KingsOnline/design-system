@@ -2,7 +2,7 @@
 // hide administration block from students or teachers without editing rights
 $("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
 // move book TOC block to the left
-$("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Table of contents')))))").children(".block").prependTo("#block-region-side-pre");
+$("#block-region-side-post .block:has(h5.card-title:contains('Table of contents'))").prependTo("#block-region-side-pre");
 // move add a block block to the left
 $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
 // if there are no visible blocks in aside hide it and make main region full width
@@ -218,6 +218,37 @@ $(document).on("click", ".collapse-card .collapse-header", function(event) {
   // toggle aria that tells if expanded
   $(this).find("button").attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
+  });
+});
+
+/* footnotes */
+// create footer for reference list
+$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div');
+// for each citation
+$(".footnotes-article .footnotes-body span.quote").each(function(i) {
+  const footnotesArticle = $(this).parents(".footnotes-article");
+  i++;
+  // add link to ref from quote
+  $(this).attr("class", "quote-text").wrap(`
+    <a id="quote${i}" class="quote" role="doc-noteref" title="Jump to reference" href="#ref${i}"></a>
+  `);
+  // move each ref into ref list
+  $(this).find(".ref").appendTo((footnotesArticle).find(".footnotes-footer ol")).wrap(`<li id="ref${i}"></li>`);
+  $(this).parents("a").on("click", function() {
+    const footnotesArticle = $(this).parents(".footnotes-article");
+    $(".footnotes-footer li").removeClass("selected");
+    footnotesArticle.find(`.footnotes-footer li#ref${i}`).addClass("selected");
+    $(".footnotes-footer li a.back-to-quote").remove();
+    // create back to quote link and icon for selected ref
+    footnotesArticle.find(".footnotes-footer li.selected .ref").append(`
+      <a class="back-to-quote" title="Back to quote" href="#quote${i}">
+        <i class="fas fa-chevron-circle-up"></i>
+      </a>
+    `);
+    $("a.back-to-quote").on("click", function() {
+      $(this).parents("li").removeClass("selected");
+      $(this).remove();
+    });
   });
 });
 

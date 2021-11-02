@@ -133,8 +133,7 @@ $table-bg-colors: (
 }
 
 .table-scroll {
-  overflow: auto;
-  margin-bottom: $component-margin-bottom;
+  @extend %horizontal-scroll;
   table {
     margin-bottom: 0;
     display: inline;
@@ -328,5 +327,9 @@ table, .table {
     td {
       background-color: transparent !important;
     }
+  }
+  code {
+    // so that the code is still visible when cells are highlighted
+    background: #F7F7F9! important;
   }
 }

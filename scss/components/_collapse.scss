@@ -11,8 +11,11 @@
     }
     .collapse-header {
       button {
+        @include focus-outline;
         margin: 0 !important;
         padding: 0 !important;
+        // override default button border-radius
+        border-radius: 0 !important;
         width: 100%;
         text-align: left;
         .collapse-title,
@@ -34,12 +37,6 @@
             top: -2px;
           }
         }
-      }
-      &:focus-within {
-        outline: 4px auto -webkit-focus-ring-color;
-      }
-      .btn:focus {
-        outline: none;
       }
     }
     .collapse-body {

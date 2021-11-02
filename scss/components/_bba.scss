@@ -1,0 +1,72 @@
+/* Blackboard A11y (BBA)
+   ======================== */
+
+.filter-ally-wrapper {
+  .ally-actions {
+    display: inline-flex;
+    // feedback gauge for images
+    .ally-feedback:only-child {
+      &:hover {
+        transform: none;
+      }
+      & > span {
+        bottom: -13px;
+      }
+      .ally-scoreindicator-container {
+        button {
+          margin: 0 !important;
+          padding: 0 !important;
+          &:focus,
+          &:hover {
+            background-color: transparent !important;
+            img {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+    // feedback gauge for files
+    .ally-feedback:not(:only-child) {
+      .ally-scoreindicator-container {
+        display: flex !important;
+        button {
+          margin: 0 4px 0 0 !important;
+          padding: 0 !important;
+          height: 24px;
+          width: 24px;
+          background-color: $block-header;
+          // override background change on hover
+          &:hover {
+            background-color: $block-header !important;
+          }
+        }
+      }
+    }
+    // download button for files
+    .ally-download {
+      display: flex;
+      align-items: center;
+      height: 24px;
+      width: 24px;
+      border-radius: 4px;
+      background-color: transparent;
+      &:hover {
+        transform: scale(1.2);
+      }
+      a {
+        background-color: $block-background;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        width: 100%;
+        height: 24px;
+        border-radius: 4px;
+        // override transform on hover
+        &:hover {
+          transform: none !important;
+        }
+      }
+    }
+  }
+}

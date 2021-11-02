@@ -65,10 +65,15 @@ figure {
 
 // image-scroll container
 // class goes on container div which can be used inside figure
-// to prevent figcaption from also scrolling
+// to prevent figcaption from also scrolling e.g.
+//
+// <figure>
+//   <div class="img-scroll"><img></div>
+//   <figcaption></figcaption>
+// </figure>
+//
 .img-scroll, .image-scroll {
-  margin-bottom: $component-margin-bottom;
-  overflow-x: auto;
+  @extend %horizontal-scroll;
 }
 
 // 3. Image options
@@ -82,6 +87,13 @@ figure {
   margin-bottom: $component-margin-bottom;
   max-width: 100%;
   height: auto;
+}
+figure {
+  .img-responsive,
+  .circular-img, .img-circular,
+  .screenshot {
+    margin-bottom: 0;
+  }
 }
 
 // circular imges

@@ -2,30 +2,8 @@
 
 @import "../utilities/variables";
 @import "../base/icons";
-@import "../base/typography";
 @import "../base/common";
-
-// primary font used for headings
-@font-face {
-  font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-// secondary fonts
-// Open Sans support font used for body text within sidebar blocks
-@font-face {
-  font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-// King's Caslon Display regular support font used for quotations
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
-  font-style: normal;
-}
+@import "../base/print/print-book-typography";
 
 // print common
 %print-icon-before {
@@ -40,24 +18,31 @@ $print-component-border-thin: 1px solid $slate-grey;
 $print-component-margin: 1.25rem;
 $print-component-margin-sm: calc(#{$print-component-margin} / 2);
 $print-component-padding: 1.25rem;
+%print-text-highlight {
+  border: 1px solid $slate-grey;
+  padding: 0 2px;
+}
 
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* print preview */
 #page-mod-book-print {
-  font-size: 14px;
+/*
+  font-size: 1rem;
   color: $body-text;
   font-family: "Open Sans";
   margin: 0;
+*/
   #page-content {
     max-width: 85%;
     margin: 0 auto;
     // single chapter book hide toc and first chapter title for print preview
     &.single-chapter-book {
+      .toc-container,
       [class^="book_toc_"],
-      &.single-chapter-book .book_chapter h2:first-of-type {
+      .book_chapter h2:first-of-type {
         display: none;
       }
     }
@@ -81,7 +66,7 @@ html {
             color: $midnight-blue;
             background-color: $white;
             border: 2px solid $midnight-blue;
-            font-size: 1.125rem;
+            font-size: 18px;
             position: absolute;
             top: 0;
             left: 0;
@@ -134,7 +119,7 @@ html {
             }
           }
           tr td:nth-child(2) {
-            padding-left: $print-component-padding;
+            padding-left: $component-padding;
           }
         }
       }
@@ -188,85 +173,41 @@ html {
   h6, .h6 {
     page-break-after: avoid;
     page-break-inside: avoid;
-    font-family: "KingsBureauGrot";
-    color: $headings;
-    margin-top: 0;
-    margin-bottom: $print-component-margin;
-  }
-  h1, .h1 {
-    font-size: 2.375rem;
-    line-height: 1.1;
-  }
-  h2, .h2 {
-    font-size: 1.875rem;
-    line-height: 1.125;
-  }
-  h3, .h3 {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-  h4, .h4 {
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-  h5, .h5 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-  h6, .h6 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 700 !important;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  p,
-  li {
-    font-family: "Open Sans" !important;
-    color: $body-text;
-  }
-  p {
-    line-height: 1.5;
-    margin-bottom: $print-component-margin;
   }
   p a,
   li p a {
-    text-decoration: underline;
-    // prevent weblinks from being cut off
-    word-break: break-word;
     position: relative;
-    margin-right: 8px;
+    margin-right: $component-margin-xs;
     i.open-icon {
       display: none;
     }
     &::after {
       @extend %print-icon-before;
-      @include fa-content($fa-sort);
+      @include fa-content($fa-link);
       position: absolute;
       font-size: 8px;
       margin-left: 1px;
     }
   }
-  ol,
-  ul {
-    margin: 0 0 $print-component-margin $print-component-margin;
-    li:not(:last-child) {
-      margin-bottom: 0.625rem;
+  a {
+    &.link-to-video {
+      @extend %print-text-highlight;
+      margin-right: 0;
+      // to allow for link icon
+      padding-right: 0.75rem;
     }
   }
-  .caption,
-  figcaption {
-    font-size: 0.875rem;
-    margin-top: $print-component-margin-sm;
-  }
-  .alert {
-    color: $body-text;
+  mark.text-highlight {
+    @extend %print-text-highlight;
+    background-color: transparent;
+    line-height: 22px;
   }
   .quote-box {
     border: 2px solid $footer-dark;
     margin:0;
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     position: relative;
-    padding: $print-component-padding;;
+    padding: $component-padding;;
     & > :first-child {
       padding-left: 2.75rem;
       &::before {
@@ -291,26 +232,30 @@ html {
     }
   }
   figure {
-    margin: 0 0 $print-component-margin 0;
-    &.quote-box {
+    margin: 0 0 $component-margin 0;
+    &.quote-box,
+    &.blockquote {
       padding-left: 4rem;
       blockquote.quote-body {
+        &::before {
+          top: $component-margin-xs;
+        }
         border: none;
+        margin-bottom: $component-margin !important;
         padding: 0;
+        // override theme styles
+        p {
+          padding: 0;
+          font-size: 1rem;
+        }
+        & > :last-child {
+          margin-bottom: 0;
+        }
       }
     }
     figcaption {
-      font-size: 0.875rem;
       line-height: 1.5;
     }
-  }
-  pre {
-    white-space: pre-line;
-    margin-bottom: $print-component-margin;
-    background-color: transparent;
-    border: 1px solid $block-header;
-    border-radius: 0;
-    padding: $component-padding-sm;
   }
 
   // Bootstrap
@@ -362,8 +307,8 @@ html {
     flex-direction: row;
     justify-content: space-between;
     border-radius: 0;
-    margin-bottom: $print-component-margin;
-    padding: $print-component-padding;
+    margin-bottom: $component-margin;
+    padding: $component-padding;
     .card-body {
       background-color: transparent;
       padding: 0;
@@ -377,12 +322,12 @@ html {
       }
     }
     img {
-      margin: 0 $print-component-margin 0 0;
+      margin: 0 $component-margin 0 0;
       width: 330px;
       &.img-top {
         width: 100%;
         height: 100%;
-        margin: 0 0 $print-component-margin 0;
+        margin: 0 0 $component-margin 0;
       }
     }
     & > img {
@@ -392,7 +337,7 @@ html {
       & > .filter-ally-wrapper,
       & > img {
         order: 2;
-        margin: 0 0 0 $print-component-margin;
+        margin: 0 0 0 $component-margin;
       }
       & > .filter-ally-wrapper > img {
         margin: 0;
@@ -408,9 +353,9 @@ html {
     .card {
       display: block;
       flex: 1 0 0%;
-      margin: 0 $print-component-margin-sm $print-component-margin 0 !important;
+      margin: 0 $component-margin-sm $component-margin 0 !important;
       &:last-child {
-        margin: 0 0 $print-component-margin $print-component-margin-sm !important;
+        margin: 0 0 $component-margin $component-margin-sm !important;
       }
       img {
         width: 100%;
@@ -422,14 +367,14 @@ html {
   .float-box {
     display: flex;
     flex-direction: row;
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     &.img-right {
       & > .filter-ally-wrapper,
       & > img,
       & > figure,
       & > .img-container {
         order: 2;
-        margin: 0 0 0 $print-component-margin;
+        margin: 0 0 0 $component-margin;
       }
       & > .filter-ally-wrapper > img {
         margin: 0;
@@ -440,7 +385,7 @@ html {
       &.small-img {
         & > .filter-ally-wrapper,
         & > img {
-          margin: 0 0 0 $print-component-margin-sm;
+          margin: 0 0 0 $component-margin-sm;
         }
       }
     }
@@ -448,7 +393,7 @@ html {
     & > img,
     & > figure,
     & > .img-container {
-      margin: 0 $print-component-margin 0 0;
+      margin: 0 $component-margin 0 0;
       flex-shrink: 0;
       align-self: flex-start;
       // for firefox
@@ -469,7 +414,7 @@ html {
     &.small-img {
       & > .filter-ally-wrapper,
       & > img {
-        margin: 0 $print-component-margin-sm 0 0;
+        margin: 0 $component-margin-sm 0 0;
       }
       img {
         width: 100px;
@@ -494,7 +439,7 @@ html {
     }
     .carousel-item {
       display: block;
-      margin-bottom: $print-component-margin;
+      margin-bottom: $component-margin;
       padding: 0;
       img {
         max-width: 100%;
@@ -503,7 +448,7 @@ html {
         @extend %print-component-border;
         position: static;
         max-width: calc(100% - 2.5rem - 4px);
-        padding: $print-component-padding;
+        padding: $component-padding;
         background-color: transparent !important;
         h3, h4, h5, h6 {
           font-size: 1.125rem;
@@ -511,7 +456,7 @@ html {
         }
         & > * {
           color: $body-text;
-          margin-bottom: $print-component-margin;
+          margin-bottom: $component-margin;
           &:last-child {
             margin-bottom: 0;
           }
@@ -525,33 +470,31 @@ html {
   }
   // New Carousel (2.4+)
   .new-carousel {
-    margin-bottom: $print-component-margin;
     width: 100% !important;
     .nc-gallery {
       list-style-type: none;
       counter-reset: newcarousel;
       display: flex;
       flex-wrap: wrap;
-      margin: 0;
-      margin-right: -0.625rem !important;
+      margin: 0 calc(-#{$component-margin} / 2) 0 calc(-#{$component-margin} / 2) !important;
       & > li {
         list-style-type: none;
         border: $print-component-border-thin;
-        margin: 0 $print-component-margin-sm $print-component-margin-sm 0;
-        padding: $print-component-padding 0;
+        margin: 0 calc(#{$component-margin} / 2) $component-margin calc(#{$component-margin} / 2);
+        padding: $component-padding 0;
         display: inline-block;
-        width: calc(50% - 0.75rem);
+        width: calc(50% - #{$component-margin} - 2px);
         counter-increment: newcarousel;
         &::before {
           content: counter(newcarousel);
           color: $body-text;
           font-weight: bold;
           vertical-align: top;
-          margin-left: $print-component-margin;
+          margin-left: $component-margin;
         }
         figure {
           margin: 0;
-          padding: 0 $print-component-padding;
+          padding: 0 $component-padding;
           figcaption :last-child {
             margin-bottom: 0;
           }
@@ -569,10 +512,10 @@ html {
 
   // Collapse
   .collapse-container {
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     .collapse-card {
       border-bottom: 2px solid $pearl-grey;
-      padding: $print-component-padding;
+      padding: $component-padding;
       padding-left: 4rem;
       &:first-child {
         border-top: 2px solid $pearl-grey;
@@ -612,13 +555,13 @@ html {
   .audio-container {
     position: absolute;
     display: inline-block;
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     .audio-top {
       display: flex;
       .audio-image {
         width: 80px;
         height: 80px;
-        margin-right: $print-component-margin;
+        margin-right: $component-margin;
         border-radius: 6px;
         border: 1px solid $rules-and-outlines;
       }
@@ -632,7 +575,7 @@ html {
           line-height: normal;
         }
         .audio-speaker {
-          margin-bottom: $print-component-margin-sm;
+          margin-bottom: $component-margin-sm;
         }
         .audio-title {
           margin: 0;
@@ -640,7 +583,7 @@ html {
       }
     }
     .embed-responsive-audio {
-      margin-top: $print-component-margin;
+      margin-top: $component-margin;
     }
   }
   .audio-container + .transcript-container {
@@ -689,6 +632,7 @@ html {
   }
 
   // Footnotes
+  // v2.6-
   .book-content {
     counter-reset: footnotes;
   }
@@ -705,12 +649,94 @@ html {
   }
   aside.footnotes {
     border-top: $print-component-border-thin;
-    padding-top: $print-component-padding;
+    padding-top: $component-padding;
+  }
+  // v2.7+
+  // supported list style types
+  // disc and none ref links will display as decimal
+  $list-style-types: [
+    decimal, // a number (default)
+    disc, // a filled circle
+    lower-latin, // a, b, c, d, etc.
+    lower-roman, // i, ii, iii, iv, etc.
+    none, // no marker shown
+    upper-latin, // A, B, C, D, etc.
+    upper-roman // I, II, III, IV, etc.
+  ];
+  @mixin list-style-types {
+    @each $type in $list-style-types {
+      &.lst-#{$type} {
+        .footnotes-body {
+          .quote::after {
+            @if $type == disc or $type == none {
+              content: counter(quote, decimal);
+            } @else {
+              content: counter(quote, $type);
+            }
+          }
+        }
+        .footnotes-footer {
+          ol {
+            list-style: $type;
+          }
+        }
+      }
+    }
+  }
+  .footnotes-article {
+    @include list-style-types;
+    margin-bottom: $component-margin;
+    // reference list
+    .footnotes-body {
+      counter-reset: quote;
+      .quote {
+        counter-increment: quote;
+        text-decoration: underline;
+        // ref styled just incase JS fails to move to footer
+        .ref {
+          color: $slate-grey;
+          font-style: italic;
+          &::before {
+            content: " [";
+          }
+          &::after {
+           content: "]";
+          }
+        }
+        &::after {
+          content: counter(quote);
+          text-decoration: underline;
+          font-size: 0.875rem;
+          vertical-align: top;
+          position: relative;
+          top: -4px;
+          padding: 4px;
+          border-radius: 4px
+        }
+      }
+    }
+    .footnotes-footer {
+      border-top: 1px solid $rules-and-outlines;
+      padding: $component-margin 0 0 0;
+      margin: $component-margin 0 0 0;
+      ol {
+        margin-bottom: 0 !important;
+        li {
+          .ref {
+            line-height: 1.5;
+            word-break: break-all;
+          }
+          &::marker {
+            font-size: 14px;
+          }
+        }
+      }
+    }
   }
 
   // Images
   figure {
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     figcaption, .caption {
       max-width: none;
     }
@@ -723,7 +749,7 @@ html {
   .center-img, .img-center,
   .circular-img, .img-circular,
   .img-scroll, .image-scroll {
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     figcaption, .caption {
       max-width: none;
     }
@@ -786,45 +812,46 @@ html {
       @extend %print-icon-before;
       font-size: 1.2rem;
       position: absolute;
-      top: $print-component-margin;
-      left: $print-component-margin;
+      top: 1.4rem;
+      left: $component-margin;
       color: $slate-grey;
     }
   }
   .definition-box > :first-child::before {
     @include fa-content($fa-bookmark);
-    padding: 0 7px;
-    top: 1.2rem;
+    padding: 0 6px;
+  }
+  .alert {
+    color: $body-text;
   }
   .alert-caution > :first-child::before {
     @include fa-content($fa-exclamation-triangle);
-    padding: 0 2px;
-    top: 1.1rem;
+    padding: 0 3px;
   }
   .alert-instructional > :first-child::before {
     @include fa-content($fa-comments);
-    padding: 0 2px;
-    top: 1.1rem;
+    padding: 0 3px;
   }
   .feedback-box > :first-child::before {
     @include fa-content($fa-comments-alt);
     padding: 0 4px;
+    top: 1.5rem;
   }
   .learning-outcome-box > :first-child::before {
     @include fa-content($fa-trophy);
     padding: 0 3px;
-    top: 1.15rem;
+    top: 1.45rem;
   }
   .media-box > :first-child::before {
     @include fa-content($fa-play-circle);
     padding: 0 4px;
   }
-  .reading-box > :first-child::before {
-    @include fa-content($fa-book-reader);
-    padding: 0 4px;
-  }
   .journal-box > :first-child::before {
     @include fa-content($fa-edit);
+    padding: 0 3px;
+  }
+  .reading-box > :first-child::before {
+    @include fa-content($fa-book-reader);
     padding: 0 4px;
   }
   .shared-box > :first-child::before {
@@ -833,7 +860,7 @@ html {
   }
   .files-box > :first-child::before {
     @include fa-content($fa-folder-open);
-    padding: 0 4px;
+    padding: 0 3px;
   }
   .definition-box,
   .alert-caution,
@@ -847,9 +874,9 @@ html {
   .shared-box,
   .files-box {
     border: 2px solid $table-border;
-    padding: $print-component-padding;
+    padding: $component-padding;
     padding-left: 4rem;
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     position: relative;
     h3, h4, h5, h6 {
       font-size: 1.2rem;
@@ -864,13 +891,24 @@ html {
   }
   .key-concept-box {
     @extend %print-component-border;
-    padding: $print-component-padding;
+    padding: $component-padding;
     font-weight: bold;
     background-color: $block-header;
   }
   .learning-outcome-box ol,
   .learning-outcome-box ul {
      margin-bottom: 0;
+  }
+
+  .media-box .transcript-container {
+    position: relative;
+  }
+  .media-box .transcript-card::before {
+    content: "Transcript";
+    position: absolute;
+    @extend %h5;
+    top: 0;
+    left: $component-margin;
   }
 
   // Process
@@ -884,7 +922,7 @@ html {
     }
     .connector-container {
       text-align: center;
-      margin-bottom: $print-component-margin;
+      margin-bottom: $component-margin;
       .icon.arrow-down::before,
       .icon.arrow-up::after {
         @extend %print-icon-before;
@@ -1029,7 +1067,7 @@ html {
   );
 
   table {
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     border-collapse: collapse;
     border-spacing: 0;
     border-radius: 0;
@@ -1172,7 +1210,7 @@ html {
       }
     }
     caption {
-      font-size: 0.75rem;
+      font-size: 1rem;
       line-height: normal;
       font-weight: normal;
       caption-side: bottom !important;
@@ -1236,7 +1274,7 @@ html {
       }
     }
     &:last-child .timeline-content .timeline-card {
-      margin-bottom: $print-component-margin;
+      margin-bottom: $component-margin;
     }
   }
   .timeline-content {
@@ -1248,7 +1286,7 @@ html {
         position: absolute;
         top: -23px;
         left: -2px;
-        padding: 0 $print-component-padding;
+        padding: 0 $component-padding;
         border-radius: 6px 6px 0 0;
         font-family: "KingsBureauGrot";
         line-height: 1.4;
@@ -1274,13 +1312,12 @@ html {
               font-size: 1.125rem;
             }
             &:not(:first-child) {
-              margin-left: $print-component-margin;
+              margin-left: $component-margin;
             }
           }
         }
         .img-reference {
           text-align: right;
-          font-size: 0.875rem;
         }
       }
     }
@@ -1295,7 +1332,7 @@ html {
   // Timeline (v2.5+)
   .timeline-2021-container {
     margin-top: 0;
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     .timeline-card {
       display: flex;
       justify-content: space-between;
@@ -1303,13 +1340,14 @@ html {
       border: $print-component-border;
       border-style: dashed;
       margin-bottom: 2.25rem;
-      padding: $print-component-padding;
+      padding: $component-padding;
       &:not(:first-child) {
         &::before {
           position: absolute;
           content: "";
-          border: 0.25rem solid $slate-grey;
-          height: 2rem;
+          border: 2px solid $slate-grey;
+          border-width: 0 2px;
+          height: 2.5rem;
           top: -2.5rem;
           left: 4.5rem;
         }
@@ -1319,14 +1357,17 @@ html {
       }
       &.highlighted {
         border: 4px solid $slate-grey;
+        &:not(:first-child)::before {
+          top: calc(-2.5rem - 2px);
+        }
       }
       .date-label {
         line-height: 1;
         font-family: OpenSans, sans-serif;
         font-size: 1rem;
         font-weight: bold !important;
-        color: $white;
-        background-color: $slate-grey;
+        color: $white !important;
+        background-color: $slate-grey !important;
         padding: 0.5rem;
         width: fit-content;
       }
@@ -1339,7 +1380,7 @@ html {
         }
       }
       .card-image {
-        margin: 0 0 0 $print-component-margin;
+        margin: 0 0 0 $component-margin;
         order: 2;
         max-width: 130px;
         img {
@@ -1355,14 +1396,14 @@ html {
     display: inline-block;
     // icon width
     width: calc(100% - 40px);
-    margin-bottom: $print-component-margin;
+    margin-bottom: $component-margin;
     .transcript-button-group {
       display: none;
     }
     .transcript-card {
       .card-body {
         border-left: $print-component-border;
-        padding-left: $print-component-padding;
+        padding-left: $component-padding;
         padding-top: 3rem;
       }
     }
@@ -1375,13 +1416,14 @@ html {
   .view-feedback-container,
   .view-model-answer-container,
   .academic-note-container {
-    & > h3, & > h4, & > h5, & > h6 {
+    margin-bottom: $component-margin-bottom;
+    & > h3, & > h4, & > h5, & > h6, & > p {
       font-size: 1.2rem;
-      margin-left: calc(150px + #{$print-component-margin});
+      margin-left: calc(150px + #{$component-margin});
       border-left: $print-component-border;
-      padding-left: $print-component-padding;
+      padding-left: $component-padding;
       margin-bottom:  0;
-      padding-bottom: $print-component-margin;
+      padding-bottom: $component-margin;
     }
     // hide button
     [class*="view-hide-"] {
@@ -1393,11 +1435,12 @@ html {
       .card-author {
         text-align: center;
         border-right: $print-component-border;
-        padding-right: $print-component-padding;
+        padding-right: $component-padding;
         & > img,
         & > .filter-ally-wrapper > img {
           border-radius: 50%;
           width: 150px;
+          max-width: 150px !important;
           height: auto;
           margin: 0 0 0.625rem 0;
         }
@@ -1406,14 +1449,31 @@ html {
         }
       }
       & > .card-text {
-        margin-left: $print-component-margin;
+        & > :last-child {
+          margin-bottom: 0;
+        }
       }
       & .card-text:only-child,
       & > p {
-        margin-left: calc(150px + #{$print-component-margin});
-        max-width: calc(100% - 150px - #{$print-component-margin});
         border-left: $print-component-border;
-        padding-left: $print-component-padding;
+        padding-left: $component-padding;
+      }
+    }
+  }
+  // large margin left for all but view description card text
+  .view-generic-container,
+  .view-answer-container,
+  .view-feedback-container,
+  .view-model-answer-container,
+  .academic-note-container {
+    [class*="-card"] > .card-body {
+      & > .card-text {
+        margin-left: $component-margin;
+      }
+      & .card-text:only-child,
+      & > p {
+        margin-left: calc(150px + #{$component-margin});
+        max-width: calc(100% - 150px - #{$component-margin});
       }
     }
   }
@@ -1424,9 +1484,9 @@ html {
     .view-feedback-container,
     .view-model-answer-container,
     .academic-note-container {
-      margin-top: $print-component-margin-sm;
+      margin-top: $component-margin-sm;
       border-left: $print-component-border;
-      padding-left: $print-component-padding;
+      padding-left: $component-padding;
       & > h3, & > h4, & > h5, & > h6 {
         margin-left: 0;
         border: none;
