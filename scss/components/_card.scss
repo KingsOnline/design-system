@@ -185,7 +185,11 @@
   }
   & > div:not(.img-container),
   .float-box-body {
-    order: 2;
+    // images to display second in mobile view
+    order: 1;
+    @media only screen and (min-width: $neo-breakpoint) {
+      order: 2;
+    }
     width: 100%;
     & > :last-child {
       margin-bottom: 0;

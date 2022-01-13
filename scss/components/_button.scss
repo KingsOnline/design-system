@@ -144,6 +144,11 @@ button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
   .fa-3x {
     font-size: 42px;
   }
+  &::before {
+    // enable button to contrast from kcl footer
+    background-color: $white;
+    border-radius: 50%;
+  }
 }
 
 // download button container

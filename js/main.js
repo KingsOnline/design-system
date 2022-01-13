@@ -3,7 +3,7 @@
 $("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
 // move book TOC block to the left
 $("#block-region-side-post .block:has(h5.card-title:contains('Table of contents'))").prependTo("#block-region-side-pre");
-// move add a block block to the left
+// move 'add a block' block to the left
 $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
 // if there are no visible blocks in aside hide it and make main region full width
 $("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
@@ -55,7 +55,7 @@ function addNewWindowMessage() {
     // add span if not already present
     if ($(this).find(".sr-link-message").length == 0) {
       $(this).append('<span class="sr-only sr-link-message">(opens in a new tab)</span>');
-      $("this").attr('rel','noopener');
+      $(this).attr('rel','noopener');
     }
   });
 }
@@ -113,7 +113,7 @@ $(document).on("click", ".carousel-control-prev, .carousel-control-next, .carous
   carouselContainer.find(".carousel-item:nth-child(" + newSlide + "), .carousel-indicators li:nth-child(" + newSlide + ")").addClass("active");
   // hide prev control on first slide
   if (newSlide === 1) carouselContainer.addClass("start");
-  // hide next control on first slide
+  // hide next control on last slide
   if (newSlide === maxSlides) carouselContainer.addClass("finish");
   // override moodleism causing the second carousel indicator to not be active on the first cycle
   carouselContainer.find(".carousel-indicators li:nth-child(2)").css("background-color", newSlide === 2 ? "white" : "rgba(255, 255, 255, 0.5)");
@@ -132,12 +132,11 @@ function resetCarWidth() {
   // resize to make integer width so scroll will work
   // remove the in-line attribute if it has been set in the editor
   $(".new-carousel").removeAttr("style");
-  var loadWidth= $(".new-carousel").width();
+  var loadWidth = $(".new-carousel").width();
   var carWidth = Math.floor(loadWidth);
   $(".new-carousel").each(function() {
     $(this).width(carWidth);
   });
-  var newWidth= $(".new-carousel").width();
 };
 
 $(".new-carousel").on("click", ".nc-next", function(event) {
@@ -160,9 +159,9 @@ $(".new-carousel").on("click", ".nc-previous", function(event) {
   $(window).resize(function() {
   slideWidth = $(".nc-gallery").width();
   });
-  // scroll
   var newCarousel = $(this).parents()[2];
   var ncGallery = $(newCarousel).find(".nc-gallery")[0];
+  // scroll
   $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '-=' + slideWidth }, 2).animate({opacity:"1"},300);
 });
 
@@ -172,13 +171,12 @@ $(".nc-gallery").scroll(function() {
   // get how far we scrolled left
   var leftNumber = $(this).scrollLeft();
   // divide our scroll distance by component width to calculate which slide we're on (accounting for + 1 error)
-  var currSlideNum = (leftNumber / slideWidth) + 1;
+  var currSlideNum = Math.ceil((leftNumber / slideWidth) + 1);
   // find the indicator dot with the same index and make that dot active, removing active from others
   var newCarousel = $(this).parents()[0];
   var indicDots = $(newCarousel).find(".indic-dots")[0];
   var liveDot = $(indicDots).find(".active")[0];
   $(liveDot).removeClass("active");
-  console.log(currSlideNum);
   var activeDot = $(indicDots).find("li:nth-child(" + (currSlideNum) + ")")[0]
   $(activeDot).addClass("active");
   // For buttons
@@ -221,7 +219,7 @@ $(document).on("click", ".collapse-card .collapse-header", function(event) {
 
 /* footnotes */
 // create footer for reference list
-$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div');
+$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div>');
 // for each citation
 $(".footnotes-article .footnotes-body span.quote").each(function(i) {
   const footnotesArticle = $(this).parents(".footnotes-article");
@@ -328,29 +326,6 @@ if ($(".block_book_toc .book_toc > ul > li").find("ul").length > 0) {
   $(".chapter.mob-prev").prevAll(":lt(2)").addClass("prev");
   $(".chapter.current").next("li").addClass("mob-next");
   $(".chapter.mob-next").nextAll(":lt(2)").addClass("next");
-  /*
-  // show one more page if first or last page on mobile
-  if ($(".navbottom a.bookprev").length == 0) {
-    $("li.chapter:nth-child(3), li.chapter:nth-child(4), li.chapter:nth-child(5)").addClass("mob-next");
-  } else if ($(".navbottom a.booknext").length == 0) {
-    $("li.chapter:nth-last-child(3), li.chapter:nth-last-child(4), li.chapter:nth-last-child(5)").addClass("mob-prev");
-  } else {
-    $(".chapter.prev").prev("li").addClass("mob-prev");
-    $(".chapter.next").next("li").addClass("mob-next");
-  }
-  */
-  // 2.4 long-book nav removed
-  /*
-  if ($(".book_toc ul").length !== 0) {
-    // add large-book-pagination class if more than 10 chapters
-    if ($(".book_toc ul").get(0).childElementCount > 10) {
-      $(".navbottom ul").addClass("large-book-pagination");
-    // add mob-large-book-pagination class if more than 5 chapters
-    } else if ($(".book_toc ul").get(0).childElementCount > 5) {
-      $(".navbottom ul").addClass("mob-large-book-pagination");
-    };
-  };
-  */
 }
 // remove stupid arrows from prev and next activity links
 $(".activity-navigation a#prev-activity-link").text(function(i, text) {
@@ -386,6 +361,9 @@ $("li.activity").each(function() {
   // activity type no icon
   if ($(this).is('.attendance, .attendanceregister, .choice, .chat, .checklist, .feedback, .hvp, .kalvidassign, .oublog, .questionnaire, .quiz, .scheduler, .survey')) {
     $(this).addClass("type-activity");
+  // no activity label with media icon
+  } else if ($(this).is(".kalvidres")) {
+    $(this).addClass("type-study i-media");
   // activity type with group icon
   } else if ($(this).is(".data, .forum, .choicegroup, .ouwiki, .connecthosted, .wiki")) {
     $(this).addClass("type-activity i-group");

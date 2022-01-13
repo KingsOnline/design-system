@@ -83,7 +83,7 @@ html, body {
 }
 
 #page-mod-book-print h1, #page-mod-book-print h2, #page-mod-book-print h3, #page-mod-book-print h4, #page-mod-book-print h5, #page-mod-book-print h6,
-#page-mod-book-print .h1, #page-mod-book-print .h2, #page-mod-book-print .h3, #page-mod-book-print .h4, #page-mod-book-print .h5, #page-mod-book-print .h6, #page-mod-book-print .media-box .transcript-card::before,
+#page-mod-book-print .h1, #page-mod-book-print .h2, #page-mod-book-print .h3, #page-mod-book-print .h4, #page-mod-book-print .h5, #page-mod-book-print .h6, #page-mod-book-print .transcript-container::before,
 #page-mod-book-print .quote-attribution {
   font-family: "KingsBureauGrot";
   color: #171717;
@@ -117,7 +117,7 @@ html, body {
   letter-spacing: 0.25px;
 }
 
-#page-mod-book-print h5, #page-mod-book-print .h5, #page-mod-book-print .media-box .transcript-card::before {
+#page-mod-book-print h5, #page-mod-book-print .h5, #page-mod-book-print .transcript-container::before {
   font-size: 1.125rem;
   line-height: 1.4;
   letter-spacing: 0.5px;
@@ -227,7 +227,7 @@ html, body {
 }
 
 #page-mod-book-print #page-content .book .text-right a.hidden-print::before, #page-mod-book-print p a::after,
-#page-mod-book-print li p a::after, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h3::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h4::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h5::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h6::before, #page-mod-book-print .embed-responsive::before, #page-mod-book-print .image-scroll::before,
+#page-mod-book-print li p a::after, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h3::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h4::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h5::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h6::before, #page-mod-book-print .image-scroll::before,
 #page-mod-book-print .img-scroll::before, #page-mod-book-print .definition-box > :first-child::before,
 #page-mod-book-print .alert-caution > :first-child::before,
 #page-mod-book-print .alert-instructional > :first-child::before,
@@ -238,7 +238,7 @@ html, body {
 #page-mod-book-print .journal-box > :first-child::before,
 #page-mod-book-print .shared-box > :first-child::before,
 #page-mod-book-print .files-box > :first-child::before, #page-mod-book-print .process-container .connector-container .icon.arrow-down::before,
-#page-mod-book-print .process-container .connector-container .icon.arrow-up::after, #page-mod-book-print .table-scroll::before {
+#page-mod-book-print .process-container .connector-container .icon.arrow-up::after, #page-mod-book-print .table-scroll::before, #page-mod-book-print .embed-responsive + .transcript-container::before, #page-mod-book-print .audio-container + .transcript-container::before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -428,6 +428,7 @@ html {
   line-height: 22px;
 }
 
+#page-mod-book-print .blockquote,
 #page-mod-book-print .quote-box {
   border: 2px solid #464E52;
   margin: 0;
@@ -436,10 +437,12 @@ html {
   padding: 1.5rem;
 }
 
+#page-mod-book-print .blockquote > :first-child,
 #page-mod-book-print .quote-box > :first-child {
   padding-left: 2.75rem;
 }
 
+#page-mod-book-print .blockquote > :first-child::before,
 #page-mod-book-print .quote-box > :first-child::before {
   content: '“';
   color: #464E52;
@@ -451,12 +454,14 @@ html {
   left: 1rem;
 }
 
+#page-mod-book-print .blockquote .quote-attribution,
 #page-mod-book-print .quote-box .quote-attribution {
   margin: 0;
   font-size: 1.2rem;
   font-family: "KingsBureauGrot";
 }
 
+#page-mod-book-print .blockquote .quote-body,
 #page-mod-book-print .quote-box .quote-body {
   font-size: 1rem;
   font-family: "Open Sans";
@@ -857,54 +862,16 @@ html {
   margin: 0;
 }
 
-#page-mod-book-print .audio-container .embed-responsive-audio {
-  margin-top: 1.5rem;
+#page-mod-book-print .audio-container + * {
+  margin-top: 98px;
 }
 
-#page-mod-book-print .audio-container + .transcript-container {
-  margin-top: 102px;
-  margin-left: 40px;
+#page-mod-book-print .audio-container + *:not(.transcript-container) {
+  margin-top: 122px;
 }
 
 #page-mod-book-print .embed-responsive {
-  height: 36px;
-  width: 40px;
-  display: inline-block;
-  vertical-align: top;
-  border-right: none;
-  margin-right: -5px;
-  position: relative;
-}
-
-#page-mod-book-print .embed-responsive iframe {
   display: none;
-}
-
-#page-mod-book-print .embed-responsive:not(.embed-responsive-audio)::before {
-  content: "\f144";
-  left: calc(50% - 18px);
-  font-size: 24px;
-}
-
-#page-mod-book-print .embed-responsive:not(.embed-responsive-audio)::after {
-  content: "Video transcript";
-}
-
-#page-mod-book-print .embed-responsive::before {
-  content: "\f3c9";
-  color: #333333;
-  position: absolute;
-  top: 6px;
-  left: calc(50% - 12.25px);
-  font-size: 28px;
-}
-
-#page-mod-book-print .embed-responsive::after {
-  content: "Audio transcript";
-  position: absolute;
-  left: calc(42px + 1.25rem);
-  width: 200px;
-  top: 4px;
 }
 
 #page-mod-book-print .book-content {
@@ -1283,17 +1250,6 @@ html {
 #page-mod-book-print .learning-outcome-box ol,
 #page-mod-book-print .learning-outcome-box ul {
   margin-bottom: 0;
-}
-
-#page-mod-book-print .media-box .transcript-container {
-  position: relative;
-}
-
-#page-mod-book-print .media-box .transcript-card::before {
-  content: "Transcript";
-  position: absolute;
-  top: 0;
-  left: 1.5rem;
 }
 
 #page-mod-book-print .process-container .process-card img {
@@ -7368,8 +7324,21 @@ html {
 
 #page-mod-book-print .transcript-container {
   display: inline-block;
-  width: calc(100% - 40px);
   margin-bottom: 1.5rem;
+  position: relative;
+}
+
+#page-mod-book-print .transcript-container::before {
+  content: "Transcript";
+  position: absolute;
+  top: 4px;
+  left: 1.5rem;
+}
+
+#page-mod-book-print .transcript-container::after {
+  position: absolute;
+  top: 4px;
+  left: 1.5rem;
 }
 
 #page-mod-book-print .transcript-container .transcript-button-group {
@@ -7379,7 +7348,37 @@ html {
 #page-mod-book-print .transcript-container .transcript-card .card-body {
   border-left: 2px solid #5A6469;
   padding-left: 1.5rem;
-  padding-top: 3rem;
+  padding-top: 46px;
+}
+
+#page-mod-book-print .embed-responsive + .transcript-container, #page-mod-book-print .audio-container + .transcript-container {
+  margin-left: 40px;
+}
+
+#page-mod-book-print .embed-responsive + .transcript-container::before, #page-mod-book-print .audio-container + .transcript-container::before {
+  position: absolute;
+  left: -40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#page-mod-book-print .embed-responsive + .transcript-container::before {
+  content: "\f144";
+  font-size: 24px;
+}
+
+#page-mod-book-print .embed-responsive + .transcript-container::after {
+  content: "Video transcript";
+}
+
+#page-mod-book-print .audio-container + .transcript-container::before {
+  content: "\f3c9";
+  font-size: 28px;
+}
+
+#page-mod-book-print .audio-container + .transcript-container::after {
+  content: "Audio transcript";
 }
 
 #page-mod-book-print .view-generic-container,

@@ -513,7 +513,7 @@ p {
 .blockquote .quote-body {
   font-size: 1.125rem;
   line-height: 1.4;
-  font-family: KingsCaslonDisplay;
+  font-family: Open Sans, sans-serif;
 }
 
 select, option {
@@ -717,6 +717,7 @@ pre {
 
 pre code {
   border: none;
+  white-space: inherit;
 }
 
 code {
@@ -1076,8 +1077,14 @@ code {
   margin-bottom: 1.5rem;
 }
 
-#wrapper #page #page-content #region-bs-main-and-pre #region-main .container > .row:last-child > [class^="col"] > :last-child {
+#wrapper #page #page-content #region-bs-main-and-pre #region-main .container > .row:last-child > [class*="col-sm"] > :last-child {
   margin-bottom: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+  #wrapper #page #page-content #region-bs-main-and-pre #region-main .container > .row:last-child > [class^="col"] > :last-child {
+    margin-bottom: 0 !important;
+  }
 }
 
 #wrapper #page #page-content #region-bs-main-and-pre #region-main .row:before, #wrapper #page #page-content #region-bs-main-and-pre #region-main .row:after {
@@ -1344,16 +1351,16 @@ aside section.block .card-body .card-text .book_toc ul {
   border-radius: 50%;
 }
 
-#block-region-side-pre .block_html .content ul.module-academic-team li span, #block-region-side-post .block_html .content ul.module-academic-team li span {
+#block-region-side-pre .block_html .content ul.module-academic-team li > span:not(.filter-ally-wrapper), #block-region-side-post .block_html .content ul.module-academic-team li > span:not(.filter-ally-wrapper) {
   display: block;
 }
 
-#block-region-side-pre .block_html .content ul.module-academic-team li span.name, #block-region-side-post .block_html .content ul.module-academic-team li span.name {
+#block-region-side-pre .block_html .content ul.module-academic-team li > span.name, #block-region-side-post .block_html .content ul.module-academic-team li > span.name {
   font-family: "KingsBureauGrot";
   color: #333333;
 }
 
-#block-region-side-pre .block_html .content ul.module-academic-team li span.role, #block-region-side-post .block_html .content ul.module-academic-team li span.role {
+#block-region-side-pre .block_html .content ul.module-academic-team li > span.role, #block-region-side-post .block_html .content ul.module-academic-team li > span.role {
   font-family: "KingsBureauGrotFiveOne";
   color: #333333;
 }
@@ -1563,6 +1570,10 @@ aside section.block .card-body .card-text .book_toc ul {
 
 /* Blackboard A11y (BBA)
    ======================== */
+.filter-ally-wrapper .ally-image-cover + .ally-actions {
+  display: flex;
+}
+
 .filter-ally-wrapper .ally-actions {
   display: inline-flex;
 }
@@ -1600,15 +1611,15 @@ aside section.block .card-body .card-text .book_toc ul {
   background-color: #DCE3E6;
 }
 
-.filter-ally-wrapper .ally-actions .ally-feedback:not(:only-child) .ally-scoreindicator-container button:hover {
+.filter-ally-wrapper .ally-actions .ally-feedback:not(:only-child) .ally-scoreindicator-container button:hover, .filter-ally-wrapper .ally-actions .ally-feedback:not(:only-child) .ally-scoreindicator-container button:active {
   background-color: #DCE3E6 !important;
 }
 
 .filter-ally-wrapper .ally-actions .ally-download {
   display: flex;
   align-items: center;
-  height: 24px;
-  width: 24px;
+  height: auto;
+  width: auto;
   border-radius: 4px;
   background-color: transparent;
 }
@@ -1618,11 +1629,11 @@ aside section.block .card-body .card-text .book_toc ul {
 }
 
 .filter-ally-wrapper .ally-actions .ally-download a {
-  background-color: #EDF1F2;
+  background-color: #DCE3E6;
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
-  width: 100%;
+  width: 24px;
   height: 24px;
   border-radius: 4px;
 }
@@ -1687,6 +1698,7 @@ figure.blockquote blockquote p,
 figure.blockquote blockquote li {
   font-family: inherit;
   font-size: inherit;
+  font-weight: 400;
   padding: 0;
 }
 
@@ -1995,6 +2007,11 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   font-size: 42px;
 }
 
+.back-to-top::before {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
 .download-container .btn-download::before {
   margin-right: 0.375rem;
   content: "\f019";
@@ -2231,8 +2248,15 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
 
 .float-box > div:not(.img-container),
 .float-box .float-box-body {
-  order: 2;
+  order: 1;
   width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .float-box > div:not(.img-container),
+  .float-box .float-box-body {
+    order: 2;
+  }
 }
 
 .float-box > div:not(.img-container) > :last-child,
@@ -3150,7 +3174,8 @@ figure .screenshot {
   border-radius: 50%;
 }
 
-.screenshot {
+.screenshot,
+.img-bordered {
   border: 1px solid #8B9296;
 }
 
@@ -3665,49 +3690,59 @@ body .editing-help-box::before {
 
 /* Screenreader-only description
    ============================= */
-.path-mod-book.editing #region-main #id_content_editoreditable .sr-only {
+.editor_atto_content_wrap .sr-only,
+.editor_atto_content_wrap .complex-image {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.editor_atto_content_wrap .sr-only {
+  background-color: #ccecec;
+  display: inline-block;
+  vertical-align: middle;
+  position: initial;
+  margin-right: 0.5rem;
   width: auto;
   height: auto;
-  background-color: #ccecec;
-  position: initial;
-  margin: 0.5rem 0 !important;
-  padding: 0.5rem;
   border: 1px dashed #333333;
 }
 
-.path-mod-book.editing #region-main #id_content_editoreditable .sr-only::before {
+.editor_atto_content_wrap .sr-only::before {
   font-family: "KingsBureauGrot";
   font-size: 1.125rem;
   color: #FFFFFF;
-  height: 27px;
-  justify-content: center;
   padding: 4px;
   margin-right: 4px;
   content: "Description for screen readers";
   background-color: #009EA0;
 }
 
-.path-mod-book.editing #region-main .sr-only p:first-child {
-  margin-top: 20px;
+.editor_atto_content_wrap .sr-only > :first-child {
+  margin-top: 1.5rem;
 }
 
-.path-mod-book.editing #region-main #id_content_editoreditable .complex-image {
+.editor_atto_content_wrap .sr-only > :last-child {
+  margin-bottom: 0;
+}
+
+.editor_atto_content_wrap .complex-image {
   background-color: #ffdfcd;
-  padding: 0.5rem;
-  margin: 0.5rem 0rem !important;
   border: 1px solid #333333;
 }
 
-.path-mod-book.editing #region-main #id_content_editoreditable .complex-image::before {
+.editor_atto_content_wrap .complex-image::before {
   font-family: "KingsBureauGrot";
   font-size: 1.125rem;
   color: #FFFFFF;
-  height: 27px;
-  justify-content: center;
   padding: 4px;
   margin-right: 4px;
   content: "Complex image";
   background-color: #FF5F05;
+}
+
+.editor_atto_content_wrap .complex-image + .sr-only,
+.editor_atto_content_wrap .sr-only + .complex-image {
+  margin-top: 0.5rem;
 }
 
 /* Scrollbar
@@ -9950,6 +9985,10 @@ body[id*="page-mod-data-"] img {
   margin-left: 0;
 }
 
+#page-mod-quiz-review .que p {
+  margin-bottom: 1.5rem;
+}
+
 #page-mod-quiz-attempt .submitbtns,
 #page-mod-quiz-review .submitbtns {
   display: flex;
@@ -11149,59 +11188,6 @@ body[id*="page-mod-data-"] img {
   font-size: 14px;
 }
 
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  margin-left: 0.5rem;
-  background-color: #EDF1F2;
-  border-radius: 4px;
-}
-
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback button,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback a,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download button,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download a,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback button,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback a,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download button,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download a {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback button:hover,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback a:hover,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download button:hover,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download a:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback button:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback a:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download button:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download a:hover {
-  background-color: transparent !important;
-  transform: none;
-}
-
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback:hover,
-#page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-feedback:hover,
-#page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .ally-actions .ally-download:hover {
-  transform: scale(1.2);
-  transform-origin: center;
-}
-
 #page-course-view-grid #region-main .course-content ul > li.section.main ul.section li.activity .availabilityinfo,
 #page-course-view-topcoll #region-main .course-content ul > li.section.main ul.section li.activity .availabilityinfo {
   order: 3;
@@ -11434,17 +11420,6 @@ body[id*="page-mod-data-"] img {
   #page-course-view-topcoll #region-main .course-content ul > li.section.main.completion-progress-section .activity .availabilityinfo .activityinstance {
     margin-left: 38px;
   }
-}
-
-#page-course-view-grid .ally-actions .ally-feedback,
-#page-course-view-topcoll .ally-actions .ally-feedback {
-  top: unset !important;
-  bottom: -15px;
-}
-
-#page-course-view-grid .ally-actions .ally-feedback button,
-#page-course-view-topcoll .ally-actions .ally-feedback button {
-  background-color: transparent !important;
 }
 
 #page-course-view-grid.editing #region-main .course-content ul > .section.main ul.section li.activity .activityinstance > .inplaceeditable > :not(.quickeditlink) > img.activityicon,
@@ -11954,15 +11929,15 @@ body[id*="page-mod-data-"] img {
   background-color: #0A2D50 !important;
 }
 
-#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname {
+#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open h3 {
   color: #FFFFFF !important;
 }
 
-#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname::before {
+#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open h3::before {
   content: "\f107";
 }
 
-#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open .sectionname span {
+#page-course-view-topcoll .course-content ul.ctopics > .section .content .sectionhead .toggle_open h3 span {
   color: #FFFFFF !important;
 }
 

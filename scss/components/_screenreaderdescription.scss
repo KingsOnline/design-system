@@ -2,12 +2,11 @@
    ============================= */
 
 @mixin label-inner-top-left ($label-text, $bg-color){
-  &::before{
+  background-color: tint($bg-color, 80%);
+  &::before {
     font-family: "KingsBureauGrot";
     font-size: 1.125rem;
     color: $white;
-    height: 27px;
-    justify-content: center;
     padding: 4px;
     margin-right: 4px;
     content: $label-text;
@@ -19,27 +18,35 @@
 // The .sr-only class is defined in the fontawesome library and the Lambda theme
 
 // Editor view
-.path-mod-book.editing {
-  #region-main {
-    #id_content_editoreditable .sr-only {
-      width: auto;
-      height: auto;
-      background-color: tint($teal-blue, 80%);
-      position: initial;
-      margin: $component-margin-xs 0 !important;
-      padding: 0.5rem;
-      border: 1px dashed $body-text;
-      @include label-inner-top-left ("Description for screen readers", $teal-blue)
+.editor_atto_content_wrap {
+  .sr-only,
+  .complex-image {
+    margin: 0;
+    padding: $component-padding-xs;
+  }
+  .sr-only {
+    @include label-inner-top-left ("Description for screen readers", $teal-blue)
+    display: inline-block;
+    vertical-align: middle;
+    position: initial;
+    margin-right: $component-margin-xs;
+    width: auto;
+    height: auto;
+    border: 1px dashed $body-text;
+    & > :first-child {
+      margin-top: $component-margin;
     }
-    .sr-only p:first-child{
-      margin-top: 20px;
+    & > :last-child {
+      margin-bottom: 0;
     }
-    #id_content_editoreditable .complex-image {
-      background-color: tint($orange, 80%);
-      padding: 0.5rem;
-      margin: 0.5rem 0rem !important;
-      border: 1px solid $body-text;
-      @include label-inner-top-left ("Complex image", $orange);
-    }
+  }
+  .complex-image {
+    @include label-inner-top-left ("Complex image", $orange);
+    border: 1px solid $body-text;
+  }
+  // when both are present, add margin inbetween
+  .complex-image + .sr-only,
+  .sr-only + .complex-image {
+    margin-top: $component-margin-xs;
   }
 }

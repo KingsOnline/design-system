@@ -102,7 +102,9 @@ figure {
 }
 
 // screenshots
-.screenshot {
+.screenshot,
+// internal workaround for images with white backgrounds
+.img-bordered {
   border: 1px solid $rules-and-outlines;
 }
 

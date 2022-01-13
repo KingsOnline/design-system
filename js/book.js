@@ -27,7 +27,7 @@ $("#page-content").has('[class^="book_toc"] ul li:only-child').addClass("single-
 
 /* footnotes */
 // create footer for reference list
-$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div');
+$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div>');
 // for each citation
 $(".footnotes-article .footnotes-body span.quote").each(function(i) {
   const footnotesArticle = $(this).parents(".footnotes-article");

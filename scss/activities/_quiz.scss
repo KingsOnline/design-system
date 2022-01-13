@@ -68,6 +68,9 @@
   .quizreviewsummary {
     @extend %quiz-table;
   }
+  .que p {
+    margin-bottom: $component-margin-bottom;
+  }
 }
 
 //quiz attempt page

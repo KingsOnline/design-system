@@ -202,6 +202,7 @@ html {
     background-color: transparent;
     line-height: 22px;
   }
+  .blockquote,
   .quote-box {
     border: 2px solid $footer-dark;
     margin:0;
@@ -582,53 +583,16 @@ html {
         }
       }
     }
-    .embed-responsive-audio {
-      margin-top: $component-margin;
+    & + * {
+      margin-top: 98px;
+      // add default component marign if no transcript container is present
+      &:not(.transcript-container) {
+        margin-top: 122px
+      }
     }
-  }
-  .audio-container + .transcript-container {
-    margin-top: 102px;
-    // icon width
-    margin-left: 40px;
   }
   .embed-responsive {
-    height: 36px;
-    width: 40px;
-    display: inline-block;
-    vertical-align: top;
-    border-right: none;
-    margin-right: -5px;
-    position: relative;
-    // hide embed content
-    iframe {
-      display: none;
-    }
-    &:not(.embed-responsive-audio) {
-      &::before {
-        @include fa-content($fa-play-circle);
-        left: calc(50% - 18px);
-        font-size: 24px;
-      }
-      &::after {
-        content: "Video transcript";
-      }
-    }
-    &::before {
-      @extend %print-icon-before;
-      @include fa-content($fa-microphone-alt);
-      color: $body-text;
-      position: absolute;
-      top: 6px;
-      left: calc(50% - 12.25px);
-      font-size: 28px;
-    }
-    &::after {
-      content: "Audio transcript";
-      position: absolute;
-      left: calc(42px + 1.25rem);
-      width: 200px;
-      top: 4px;
-    }
+    display: none;
   }
 
   // Footnotes
@@ -898,17 +862,6 @@ html {
   .learning-outcome-box ol,
   .learning-outcome-box ul {
      margin-bottom: 0;
-  }
-
-  .media-box .transcript-container {
-    position: relative;
-  }
-  .media-box .transcript-card::before {
-    content: "Transcript";
-    position: absolute;
-    @extend %h5;
-    top: 0;
-    left: $component-margin;
   }
 
   // Process
@@ -1394,9 +1347,22 @@ html {
   // Transcript
   .transcript-container {
     display: inline-block;
-    // icon width
-    width: calc(100% - 40px);
     margin-bottom: $component-margin;
+    position: relative;
+    // transcript not associated with audio/video embed
+    // such as within media-box info-box
+    &::before {
+      @extend %h5;
+      content: "Transcript";
+      position: absolute;
+      top: 4px;
+      left: $component-margin;
+    }
+    &::after {
+      position: absolute;
+      top: 4px;
+      left: $component-margin;
+    }
     .transcript-button-group {
       display: none;
     }
@@ -1404,8 +1370,44 @@ html {
       .card-body {
         border-left: $print-component-border;
         padding-left: $component-padding;
-        padding-top: 3rem;
+        // heading height + mimic bottom margin
+        padding-top: 46px;
       }
+    }
+  }
+  // video/audio embed with transcript
+  .embed-responsive, .audio-container {
+    & + .transcript-container {
+      // icon width
+      margin-left: 40px;
+      &::before {
+        @extend %print-icon-before;
+        position: absolute;
+        left: -40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  // video
+  .embed-responsive + .transcript-container {
+    &::before {
+      @include fa-content($fa-play-circle);
+      font-size: 24px;
+    }
+    &::after {
+      content: "Video transcript";
+    }
+  }
+  // audio
+  .audio-container + .transcript-container {
+    &::before {
+      @include fa-content($fa-microphone-alt);
+      font-size: 28px;
+    }
+    &::after {
+      content: "Audio transcript";
     }
   }
 

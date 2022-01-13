@@ -21,7 +21,8 @@ $font-os: (
   family: "Open Sans, sans-serif",
   p: ( font-size: 1rem, line-height: 1.5 ),
   caption: ( font-size: 0.833rem, line-height: 1.5 ),
-  key-concept: ( font-size: 1rem, line-height: 1.5 )
+  key-concept: ( font-size: 1rem, line-height: 1.5 ),
+  quote-body: ( font-size: 1.125rem, line-height: 1.4 )
 );
 $font-kcd: (
   family:  "KingsCaslonDisplay",
@@ -117,7 +118,7 @@ p {
 .quote-box,
 .blockquote {
   .quote-body {
-    @include font-scale(quote-body, $font-kcd);
+    @include font-scale(quote-body, $font-os);
   }
 }
 select, option {
@@ -276,6 +277,7 @@ pre {
   white-space: pre-wrap;
   code {
     border: none;
+    white-space: inherit;
   }
 }
 code {

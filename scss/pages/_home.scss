@@ -5,10 +5,7 @@
 // =================
 // 1. Grid and Collapsed Topics course formats
 //    - A) all views
-//    - B) Blackboard Ally icons
-//         - i) within activity links on section page
-//         - ii) outside of activity links on section page
-//    - C) in editing mode
+//    - B) in editing mode
 // 2. Grid course format only
 //    - A) all views
 //    - B) in editing mode
@@ -206,39 +203,6 @@
                   font-size: 14px;
                 }  
               }
-              // 1Bi Blackboard Ally icons for activity links on section
-              // pages
-              .ally-actions {
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                // gauge icon
-                .ally-feedback,
-                // alt formats icons
-                .ally-download {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 24px;
-                  height: 24px;
-                  margin-left: $component-margin-xs;
-                  background-color: $block-background;
-                  border-radius: 4px;
-                  button,
-                  a {
-                    padding: 0 !important;
-                    margin: 0 !important;
-                    &:hover {
-                      background-color: transparent !important;
-                      transform: none;
-                    }
-                  }
-                  &:hover {
-                    transform: scale(1.2);
-                    transform-origin: center;
-                  }
-                }
-              }
               .availabilityinfo {
                 order: 3;
                 flex: 0 0 100%;
@@ -425,17 +389,7 @@
       }
     }
   }
-  // 1Bii Blackboard Ally icons outside of activity links on section page
-  .ally-actions {
-    .ally-feedback {
-      top: unset !important;
-      bottom: -15px;
-      button {
-        background-color: transparent !important;
-      }
-    }
-  }
-  // 1C. Grid and Collapsed Topics course formats in editing mode
+  // 1B. Grid and Collapsed Topics course formats in editing mode
   &.editing {
     #region-main {
       .course-content {
@@ -894,7 +848,8 @@
             }
             .toggle_open {
               background-color: $midnight-blue !important;
-              .sectionname {
+              // section title
+              h3 {
                 color: $white !important;
                 &::before {
                   @include fa-content($fa-angle-down);
