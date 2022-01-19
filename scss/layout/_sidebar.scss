@@ -1,6 +1,20 @@
 /* Layout
    =========================*/
 
+// Table of contents
+// =================
+// 1. Editing
+// 2. General block styles
+// 3. Book TOC
+// 4. Calendar
+// 5. Discussion
+// 6. HTML
+//   - A) Generic
+//   - B) Module team academic
+//   - C) Networking
+// 7. Course module navigation
+
+// 1. Editing
 // allow enough space for move
 // and menu icons in ediitng mode
 .editing {
@@ -8,13 +22,14 @@
     .block {
       .card-body {
         .card-title {
-          padding: 0.5rem 1.5rem !important;
+          padding: $component-padding-xs $component-padding !important;
         }
       }
     }
   }
 }
 
+// 2. General block styles
 aside {
   section.block {
     padding: 0;
@@ -27,7 +42,7 @@ aside {
       position: relative;
       .card-title {
         background-color: $block-header !important;
-        padding: 0.5rem 0.75rem !important;
+        padding: $component-padding-xs 0.75rem !important;
         margin: 0 !important;
         color: $midnight-blue;
         font-size: 1.125rem;
@@ -35,7 +50,7 @@ aside {
       }
       .block-controls {
         margin: 0 0.25rem;
-        padding: 0.5rem !important;
+        padding: $component-padding-xs !important;
         width: 100%;
         position: absolute;
         top: 0;
@@ -59,7 +74,7 @@ aside {
       }
       .card-text {
         margin: 0 !important;
-        padding: 1.5rem;
+        padding: $component-padding;
         .settingsnav {
           padding: 0 !important;
         }
@@ -70,107 +85,124 @@ aside {
     }
   }
 }
-#block-region-side-pre .block,
-#block-region-side-post .block {
-  &:not(.block_fake) .title h2::after {
-    @include fa-content($fa-minus);
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    pointer-events: all;
-  }
-  &.hidden:not(.block_fake) .title h2::after {
-    @include fa-content($fa-plus);
-  }
-  .header {
-    background-color: $block-header;
-    padding: 0.5rem 0.75rem;
-    height: auto;
-    margin: 0;
-    box-shadow: none;
-    .block-control-actions {
-      float: none;
-      padding: 0;
+
+#block-region-side-pre,
+#block-region-side-post {
+  .block {
+    &:not(.block_fake) .title h2::after {
+      @include fa-content($fa-minus);
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      pointer-events: all;
     }
-    &.block_course_discuss_header_section {
-      border: 1px solid $table-border;
-      border-bottom: 0;
-      .headline {
-        @extend %sidebar-header;
-      }
+    &.hidden:not(.block_fake) .title h2::after {
+      @include fa-content($fa-plus);
     }
-    .title {
-      position: relative;
-      padding: 0;
-      background: transparent;
+    .header {
+      background-color: $block-header;
+      padding: $component-padding-xs 0.75rem;
+      height: auto;
+      margin: 0;
       box-shadow: none;
-      h2 {
-        @extend %sidebar-header;
-        pointer-events: none;
-        max-width: calc(100% - 1.5rem);
+      .block-control-actions {
+        float: none;
+        padding: 0;
       }
-      // hide block action buttons
-      .block_action {
-        display: none;
+      &.block_course_discuss_header_section {
+        border: 1px solid $table-border;
+        border-bottom: 0;
+        .headline {
+          @extend %sidebar-header;
+        }
+      }
+      .title {
+        position: relative;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        h2 {
+          @extend %sidebar-header;
+          pointer-events: none;
+          max-width: calc(100% - 1.5rem);
+        }
+        // hide block action buttons
+        .block_action {
+          display: none;
+        }
       }
     }
-  }
-  .content {
-     background-color: $block-background;
-     padding: $component-margin;
-     margin: 0 !important;
-     .no-overflow > :last-child {
-       margin-bottom: 0;
-     }
-     ul {
-       &.fa-ul {
-         margin: 0 0 0 $component-margin-lg;
-         .fa-li {
-           top: 0;
-           left: -$component-margin-lg;
-         }
-       }
-       li {
-         font-family: "KingsBureauGrotFiveOne";
-         margin: 0;
-         a,
-         p,
-         span {
-           font-family: "KingsBureauGrotFiveOne";
-           color: $midnight-blue;
-           font-size: 1rem;
-           line-height: 1.5;
-           margin: 0;
-         }
-         strong,
-         a:hover,
-         p:hover {
-           color: $link-hover;
-         }
-       }
-       a {
-         @include focus-outline;
-       }
-     }
-  }
-  // book table of contents current page
-  &.block_book_toc {
     .content {
-      li {
-        &:not(:last-child) {
-          margin-bottom: 0.75rem;
-        }
-        strong {
-          font-family: "KingsBureauGrot";
-          color: $midnight-blue;
+       background-color: $block-background;
+       padding: $component-margin;
+       margin: 0 !important;
+       .no-overflow > :last-child {
+         margin-bottom: 0;
+       }
+       ul {
+         &.fa-ul {
+           margin: 0 0 0 $component-margin-lg;
+           .fa-li {
+             top: 0;
+             left: -$component-margin-lg;
+           }
+         }
+         li {
+           font-family: "KingsBureauGrotFiveOne";
+           margin: 0;
+           a,
+           p,
+           span {
+             font-family: "KingsBureauGrotFiveOne";
+             color: $midnight-blue;
+             font-size: 1rem;
+             line-height: 1.5;
+             margin: 0;
+           }
+           strong,
+           a:hover,
+           p:hover {
+             color: $link-hover;
+           }
+         }
+         a {
+           @include focus-outline;
+         }
+       }
+    }
+    // 3. Book TOC
+    &.block_book_toc {
+      .content {
+        li {
+          &:not(:last-child) {
+            margin-bottom: 0.75rem;
+          }
+          // current page
+          strong {
+            font-family: "KingsBureauGrot";
+            color: $midnight-blue;
+          }
         }
       }
     }
   }
 }
 
+// 4. Calendar
+// calendar block
+.calendarwrapper {
+  margin-bottom: $component-margin !important;
+  margin-top: 0 !important;
+  .minicalendar {
+    th, td {
+      padding: 0 !important;
+    }
+  }
+}
+
+// 5. Discussion
 // discussion block
 #block_course_discuss_posts_container {
   padding: 0.75rem;
@@ -186,8 +218,8 @@ aside {
       margin-bottom: 0;
     }
     #block_course_discuss_form_message_feedback {
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
+      margin-top: $component-margin-xs;
+      margin-bottom: $component-margin-bottom-sm;
       font-family: "KingsBureauGrotFiveOne";
       font-size: 0.833rem;
       line-height: 1.5;
@@ -199,42 +231,52 @@ aside {
   }
 }
 
-// module academic team html block
+// 6A. HTML
 #block-region-side-pre, #block-region-side-post {
-  .block_html .content ul.module-academic-team {
-    margin: 0;
-    list-style: none;
-    li {
-      & > img,
-      & > span > img,
-      .profile-img {
-        width: 3rem;
-        height: auto;
-        margin-bottom: 0.25rem;
-        border-radius: 50%;
-      }
-      & > span {
-        &:not(.filter-ally-wrapper) {
-          display: block;
+  .block_html {
+    .content {
+      ul {
+        &.fa-ul {
+          color: $midnight-blue;
         }
-        &.name {
-          font-family: "KingsBureauGrot";
-          color: $body-text;
-        }
-        &.role {
-          font-family: "KingsBureauGrotFiveOne";
-          color: $body-text;
+        // 6B. Module academic team
+        &.module-academic-team {
+          margin: 0;
+          list-style: none;
+          li {
+            & > img,
+            & > span > img,
+            .profile-img {
+              width: 3rem;
+              height: auto;
+              margin-bottom: 0.25rem;
+              border-radius: 50%;
+            }
+            & > span {
+              &:not(.filter-ally-wrapper) {
+                display: block;
+              }
+              &.name {
+                font-family: "KingsBureauGrot";
+                color: $body-text;
+              }
+              &.role {
+                font-family: "KingsBureauGrotFiveOne";
+                color: $body-text;
+              }
+            }
+            &:not(:last-child) {
+              margin-bottom: $component-margin-bottom-sm;
+            }
+          }
         }
       }
-      &:not(:last-child) {
-        margin-bottom: $component-margin-bottom-sm;
+      .footer {
+        margin: 0;
       }
-    }    
+    }
   }
-}
-
-// networking html block
-#block-region-side-pre, #block-region-side-post {
+  // 6C. Networking
   // networking-block- class is added with JS
   .block_html[class*="networking-block-"] {
     &.networking-block-kbs {
@@ -252,21 +294,7 @@ aside {
   }
 }
 
-// quick access block
-#block-region-side-pre, #block-region-side-post {
-  .block_html {
-    .content {
-      ul.fa-ul {
-        color: $midnight-blue;
-      }
-      .footer {
-        margin: 0;
-      }
-    }
-  }
-}
-
-// module nav block
+// 7. Course module navigation
 // use flex instead of theme's absolute positioning
 .block.block_course_modulenavigation {
   ul.activities li > a {
@@ -278,17 +306,6 @@ aside {
         position: static;
         margin: 0;
       }
-    }
-  }
-}
-
-// calendar block
-.calendarwrapper {
-  margin-bottom: 1.5rem !important;
-  margin-top: 0 !important;
-  .minicalendar {
-    th, td {
-      padding: 0 !important;
     }
   }
 }

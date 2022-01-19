@@ -2,19 +2,19 @@
    =========================*/
 
 .process-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: $component-margin-bottom;
   .process-card {
     margin-bottom: 0;
     background-color: $block-background;
-    padding: $component-margin;
-    &.highlighted{
+    padding: $component-padding;
+    &.highlighted {
       border: 3px solid $orange;
     }
     &:last-child {
       margin-bottom: $component-margin-bottom;
     }
     @media only screen and (max-width: $neo-breakpoint) {
-      padding: $component-margin-sm;
+      padding: $component-padding-sm;
     }
     .card-body {
       padding: 0;
@@ -35,7 +35,7 @@
       margin-right: $component-margin;
       @media only screen and (max-width: $neo-breakpoint) {
         margin-right: 0;
-        margin-bottom: $component-margin-sm;
+        margin-bottom: $component-margin-bottom-sm;
       }
     }
   }
@@ -43,34 +43,39 @@
     margin: $component-margin-xs 0;
     width: 100%;
     text-align: center;
-    .icon.arrow-down::before,
-    .icon.arrow-up::after {
-      @extend %icon-before;
-      margin: $component-margin-xs;
-      @include fa-content($fa-arrow-down);
-      color: $midnight-blue;
-      font-size: 40px;
-      @media only screen and (max-width: $neo-breakpoint) {
-        font-size: 32px;
-      }
-    }
     .icon {
-      margin-top: $component-margin-sm;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      &.arrow-down::before,
+      &.arrow-up::after {
+        @extend %icon-before;
+        margin: $component-margin-xs;
+        @include fa-content($fa-arrow-down);
+        color: $midnight-blue;
+        font-size: 40px;
+        @media only screen and (max-width: $neo-breakpoint) {
+          font-size: 32px;
+        }
+      }
       &.arrow-up::after {
         @include fa-content($fa-arrow-up);
       }
       &.relate {
         border-right: 5px solid $midnight-blue;
-        margin: $component-margin-xs;
-        height: 40px;
-        width: 50%;
+        margin-bottom: $component-margin-xs;
+        width: calc(50% - 2px);
       }
     }
     .process-label {
       // note that this can be made screenreader-only; the scss for that is in screenreaderdescription
       align-self: center;
       font-weight: bold;
-      &:nth-child(3) {
+      line-height: 1;
+      &:first-child {
+        margin-bottom: $component-margin-xs;
+      }
+      &:last-child {
         margin-top: $component-margin-xs;
       }
     }

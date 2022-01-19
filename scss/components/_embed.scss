@@ -134,8 +134,8 @@
   }
   .transcript-card .card-body {
     border-left: 4px solid $pearl-grey;
-    padding: 0 0 0 1.5rem;
-    margin-top: 1.5rem;
+    padding: 0 0 0 $component-padding;
+    margin-top: $component-margin;
   }
   &.collapsed {
     .transcript-button-group .view-close-transcript::before {

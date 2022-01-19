@@ -31,7 +31,7 @@
 
 .moodle-dialogue {
   .moodle-dialogue-wrap {
-    padding: $component-margin $component-margin-lg $component-margin-lg $component-margin-lg;
+    padding: $component-margin $component-margin-lg $component-margin-bottom-lg $component-margin-lg;
     height: auto;
     .moodle-dialogue-hd {
       background-color: transparent !important;
@@ -80,7 +80,7 @@
   border-radius: 0;
   text-align: center;
   .modal-content {
-    padding: 1rem;
+    padding: $component-padding-sm;
     .modal-header {
       padding: 0;
       border: none;
@@ -117,12 +117,12 @@
       outline: none;
     }
     .modal-content {
-      padding: 0.5rem;
+      padding: $component-padding-xs;
       .modal-header {
         display: flex;
         justify-content: space-between;
         padding: 0;
-        margin-bottom: 1rem;
+        margin-bottom: $component-margin-bottom-sm;
         border: none;
         .modal-title {
           margin-bottom: 0;
@@ -149,7 +149,7 @@
         background: none;
         border: none;
         border-radius: 0;
-        margin-top: 1rem;
+        margin-top: $component-margin-sm;
         .btn {
           margin-right: 0.75rem;
           margin-left: 0;
@@ -176,7 +176,7 @@
       .searchcontainer {
         .input-group-append {
           .input-group-text {
-            padding: 0 0.5rem !important;
+            padding: 0 $component-padding-xs !important;
           }
         }
       }
@@ -217,7 +217,7 @@
           display: flex;
         }
         .btn {
-          margin-bottom: 0.5rem !important;
+          margin-bottom: $component-margin-bottom-xs !important;
           margin-left: 0 !important;
         }
       }

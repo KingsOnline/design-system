@@ -20,7 +20,7 @@ button, .btn,
 button, .btn,
 %btn {
   @extend %btn-no-margin;
-  margin: 0 0.75rem 0.5rem 0 !important;
+  margin: 0 0.75rem $component-margin-bottom-xs 0 !important;
 }
 %btn-primary-option {
   background-color: $midnight-blue !important;
@@ -33,7 +33,7 @@ button, .btn,
 %btn-secondary-option {
   background-color: $white !important;
   color: $midnight-blue !important;
-  padding: 0.5rem 0.625rem !important;
+  padding: $component-padding-xs 0.625rem !important;
   border: 2px solid $midnight-blue;
   &:hover {
     border-color: tint($midnight-blue, 30%);
@@ -43,7 +43,7 @@ button, .btn,
 }
 .btn-lg {
   @include font-scale(btn-lg);
-  padding: 0.5625rem 1.5rem;
+  padding: 0.5625rem $component-padding;
   min-width: 9.6875rem;
   box-shadow: 0 5px 0 0 shade($midnight-blue, 50%);
   &:hover {
@@ -61,7 +61,7 @@ button, .btn {
     }
   }
   &:last-child {
-    margin: 0 0 0.5rem 0 !important;
+    margin: 0 0 $component-margin-bottom-xs 0 !important;
   }
   i {
     font-size: 1.25rem;
@@ -70,7 +70,7 @@ button, .btn {
     }
   }
   @media only screen and (max-width: $neo-breakpoint) {
-    padding: 0.6875rem 1rem;
+    padding: 0.6875rem $component-padding-sm;
   }
   a:hover {
     text-decoration: none;

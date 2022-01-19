@@ -40,18 +40,18 @@
       }
     }
     .collapse-body {
-      margin-top: 1rem;
+      margin-top: $component-margin-sm;
       margin-left: 1.75rem;
       &.highlighted {
-        padding: 1rem;
+        padding: $component-padding-sm;
         background-color: $block-background;
       }
       .collapse-subheading {
         @extend %h5;
-        margin-bottom: 1rem;
+        margin-bottom: $component-margin-bottom-sm;
       }
       p {
-        margin-bottom: 1rem;
+        margin-bottom: $component-margin-bottom-sm;
         &:last-child {
           margin-bottom: 0;
         }

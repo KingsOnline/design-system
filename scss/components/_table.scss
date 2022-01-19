@@ -228,7 +228,7 @@ table, .table {
   }
   &.table-narrow-cell {
      th, td {
-       padding: 0.75rem 0.5rem;
+       padding: 0.75rem $component-padding-xs;
      }
   }
   &.table-diagonal-split {
@@ -291,7 +291,7 @@ table, .table {
     &.with-line-numbers {
       tr {
         pre {
-          padding-left: 1rem;
+          padding-left: $component-padding-sm;
           text-indent: -26px;
         }
       }

@@ -599,7 +599,7 @@ html {
 
 #page-mod-book-print .card-deck {
   display: flex;
-  flex-direction: row-wrap;
+  flex-flow: row wrap;
   margin: 0;
 }
 

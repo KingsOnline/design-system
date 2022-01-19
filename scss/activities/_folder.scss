@@ -3,8 +3,10 @@
 
 .activity.modtype_folder {
   .foldertree {
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
     .filemanager {
-      font-size: 1rem !important;
+      font-size: 1rem;
       .ygtvblankdepthcell {
         width: 32px;
       }
@@ -19,6 +21,9 @@
         .fp-filename-icon {
           margin: 0 !important;
           padding: 4px 0 !important;
+          .filter-ally-wrapper {
+            display: inline-flex;
+          }
           .fp-icon {
             display: none;
           }

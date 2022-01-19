@@ -1,13 +1,13 @@
 /* blocks */
 // hide administration block from students or teachers without editing rights
 $("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
-// move book TOC block to the left
-$("#block-region-side-post .block:has(h5.card-title:contains('Table of contents'))").prependTo("#block-region-side-pre");
-// move add a block block to the left
+// move 'add a block' block to the left
 $("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
 // if there are no visible blocks in aside hide it and make main region full width
 $("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
 $("#block-region-side-post:not(:has(.block:not(.hide)))").addClass("hide").parents("body").addClass("empty-region-side-post used-region-side-pre");
+// if sharing cart is enabled, add class to body
+$(".block-region:has(.block_sharing_cart)").parents("body").addClass("sharing-cart-enabled");
 // add networking-block- class
 $(".block ul[id*=networking-list]").each(function() {
   $(this).parents(".block").addClass($(this).attr("id").replace("-list-", "-block-"));
@@ -80,7 +80,7 @@ function cardDeckEqualise() {
   // if window is larger than neo-breakpoint
   if ($(window).width() > 767) {
     // reset the heights first
-    $(".card-body:not(:only-child)").height('auto');
+    $(".card-deck .card-body:not(:only-child)").height('auto');
     // then get heights of all cards within a single deck
     $(".card-deck:has(.card-body:not(:only-child))").each(function(i) {
       var cardHeight = $(this).find(".card-body:not(:only-child)")
@@ -163,7 +163,7 @@ $(".new-carousel").on("click", ".nc-previous", function(event) {
   });
   var newCarousel = $(this).parents()[2];
   var ncGallery = $(newCarousel).find(".nc-gallery")[0];
-  //scroll
+  // scroll
   $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '-=' + slideWidth }, 2).animate({opacity:"1"},300);
 });
 
@@ -356,10 +356,17 @@ $("li.activity .instancename .accesshide").each(function() {
 });
 
 // week overview page activity label code
-$("li.activity .activityinstance a:not(.quickeditlink)").append('<div class="activity-label-container"><div class="activity-label"><i></i><span class="label-text"></span></div><div class="group-icon"><i></i></div><div class="media-icon"><i></i></div></div>');
+// restricted activities display as '.dimmed' for students
+$("li.activity .activityinstance").find("a:not(.quickeditlink), .dimmed")
+  .append(
+    `<div class="activity-label-container">
+      <div class="activity-label"><span class="label-text"></span></div>
+      <div class="group-icon"><i></i></div>
+      <div class="media-icon"><i></i></div>
+    </div>`);
 
-// set defaults
 $("li.activity").each(function() {
+  // set defaults
   // activity type no icon
   if ($(this).is('.attendance, .attendanceregister, .choice, .chat, .checklist, .feedback, .hvp, .kalvidassign, .oublog, .questionnaire, .quiz, .scheduler, .survey')) {
     $(this).addClass("type-activity");
@@ -387,11 +394,33 @@ $("li.activity").each(function() {
   $(this).find(".instancename:contains('activity-label-act-')").parents("li.activity").removeClass("type-study type-assessed").addClass("type-activity");
   // add assessed label
   $(this).find(".instancename:contains('activity-label-ass-')").parents("li.activity").removeClass("type-study type-activity").addClass("type-assessed");
-  // add icon
+  // add icon class to activity
   $(this).find(".instancename:contains('-gro-')").parents("li.activity").addClass("i-group");
   $(this).find(".instancename:contains('-med ')").parents("li.activity").addClass("i-media");
   $(this).find(".instancename:contains('-ngr-')").parents("li.activity").removeClass("i-group");
   $(this).find(".instancename:contains('-nme ')").parents("li.activity").removeClass("i-media");
+  // add activity label text and icons
+  // add 'assessed' text to assessed type label
+  $(this).is(".type-assessed")
+    ? $(this).find(".activity-label-container .activity-label .label-text").text("assessed")
+    // add 'activity' text to activity type label
+    : $(this).is(".type-activity")
+      ? $(this).find(".activity-label-container .activity-label .label-text").text("activity")
+      // remove activity type label
+      : $(this).find(".activity-label-container .activity-label").remove();
+  // add icons to activity type label
+  $(this).is(".i-group.i-media")
+    ? ($(this).find(".activity-label-container .group-icon i").addClass("fas fa-user-friends"),
+      $(this).find(".activity-label-container .media-icon i").addClass("fas fa-play-circle"))
+    : $(this).is(".i-group")
+      ? ($(this).find(".activity-label-container .group-icon i").addClass("fas fa-user-friends"),
+        $(this).find(".activity-label-container .media-icon").remove())
+      : $(this).is(".i-media")
+        ? ($(this).find(".activity-label-container .media-icon i").addClass("fas fa-play-circle"),
+          $(this).find(".activity-label-container .group-icon").remove())
+        : $(this).find(".activity-label-container .group-icon, .activity-label-container .media-icon").remove();
+  // remove .activity-label-container if empty
+  $(this).find(".activity-label-container:not(:has(*))").remove();
   // strip keywords from activity title
   $(this).find(".instancename:contains('activity-label')").text(function(i, currentText) {
     return currentText.substring(27);
@@ -399,16 +428,6 @@ $("li.activity").each(function() {
   // add indent class and remove keyword
   $(this).find("span:contains('-indent')").hide().parents("li.activity").addClass("indent");
 });
-// add assessed text to assessed type label
-$("li.activity.type-assessed .activityinstance a .activity-label-container .activity-label .label-text").text("assessed");
-// add activity text to activity type label
-$("li.activity.type-activity .activityinstance a .activity-label-container .activity-label .label-text").text("activity");
-// remove activity type label
-$("li.activity.type-study .activityinstance a .activity-label-container .activity-label .label-text").empty();
-// add group icon to activity type label
-$("li.activity.i-group .activityinstance a .activity-label-container .group-icon i").addClass("fas fa-user-friends");
-// add media icon
-$("li.activity.i-media .activityinstance a .activity-label-container .media-icon i").addClass("fas fa-play-circle");
 
 /*
 strip keywords from elsewhere:
@@ -503,7 +522,7 @@ $(".summary span.section-hide-activity-labels").parents("li.section.main").addCl
 
 /* completion progress */
 // completion progress class added to section with tracked activities
-$(".section.main:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)").addClass("completion-progress-section");
+$(".section:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)").addClass("completion-progress-section");
 $(".activity:has(.actions .autocompletion, .actions .togglecompletion)").addClass("completion-progress-activity");
 // clone completion progress tooltip to each section with completion progress activities
 $(".course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section").prepend($("#completionprogressid").clone());

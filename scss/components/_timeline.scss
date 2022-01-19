@@ -9,7 +9,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
   @media only screen and (max-width: $neo-breakpoint) {
     margin-left: 0;
   }
-  padding: 0.5rem 1.25rem 0 1.25rem;
+  padding: $component-padding-xs 1.25rem 0 1.25rem;
   .timeline-badge-pill {
     border-radius: 50%;
     border: 8px solid $teal-blue !important;
@@ -44,8 +44,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
       min-width: 75px;
     }
     .timeline-content {
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin: $component-margin 0;
     }
     .timeline-card {
       position: relative;
@@ -129,7 +128,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
     display: flex;
     background-color: $block-background;
     padding: 1.25rem;
-    margin-bottom: $component-margin-lg;
+    margin-bottom: $component-margin-bottom-lg;
     position: relative;
     &:not(:first-child) {
       &::before {

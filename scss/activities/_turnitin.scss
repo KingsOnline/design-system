@@ -53,7 +53,7 @@
             font-size: 1rem;
             line-height: 1.5;
             font-family: Open Sans, sans-serif;
-            color: #333333;
+            color: $body-text;
             font-weight: bold;
             .no-overflow {
               font-weight: normal;
@@ -169,7 +169,7 @@
     .dataTables_wrapper {
       border:1px solid $rules-and-outlines !important;
       border-radius: 0;
-      padding: $component-margin !important;
+      padding: $component-padding !important;
       margin-bottom: $component-margin-bottom;
       // overflow: auto;
       .mod_turnitintooltwo_listbar-container {
@@ -221,12 +221,16 @@
           }
         }
       }
+      @media only screen and (min-width: $neo-breakpoint){
+        margin-bottom: $component-margin-bottom;
+        overflow-x: auto;
+      }
       .mod_turnitintooltwo_submissions_data_table {
         border:1px solid $rules-and-outlines;
         border-collapse: collapse;
         // word break is required when student uses
         // course title as submission title
-        word-break: break-word;
+        word-break: keep-all;
         tr, th, td {
           border: 1px solid $rules-and-outlines;
           margin: 0;

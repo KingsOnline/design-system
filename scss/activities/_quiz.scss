@@ -214,7 +214,7 @@
       height: 1.5rem;
       border-radius: 15px;
       background-color: $block-background;
-      padding: 0 0.5rem;
+      padding: 0 $component-padding-xs;
       color: $headings;
     }
     div.state, div.grade {
@@ -228,7 +228,7 @@
       color: $headings;
     }
     .questionflag {
-      padding: 0 0.5rem;
+      padding: 0 $component-padding-xs;
       border-radius: 3px;;
       content: "";
       background: #e6ebed url("https://git.iddkingsonline.com/assets/images/ko-designsystem-quiz-flag.svg ") right top no-repeat;
@@ -372,7 +372,7 @@
         color: $body-text;
         .specificfeedback, .specificfeedback p {
           @extend %info-box-title;
-          margin-bottom: 1rem;
+          margin-bottom: $component-margin-bottom-sm;
         }
         .rightanswer {
           margin-bottom: 0;
@@ -494,7 +494,7 @@
           input[value="Show differences"],
           input[value="Hide differences"] {
             // usually we would set this on the bottom of the previous element,
-            // but the html has nexted this button within a <p> so it's impossible
+            // but the html has nested this button within a <p> so it's impossible
             margin-top: $component-margin-bottom !important;
           }
         }

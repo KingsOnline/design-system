@@ -349,7 +349,7 @@ html {
   // Card deck
   .card-deck {
     display: flex;
-    flex-direction: row-wrap;
+    flex-flow: row wrap;
     margin: 0;
     .card {
       display: block;

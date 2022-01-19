@@ -32,7 +32,7 @@ section#region-main {
   // style footnote
   aside.footnotes{
     border-top: 1px solid $rules-and-outlines;
-    padding: $component-margin-bottom 0 0 0;
+    padding: $component-padding 0 0 0;
     margin: $component-margin 0 0 0;
     :target {
       @include bg-colour-opacity($yellow, 0.3);
@@ -65,10 +65,10 @@ section#region-main {
 $list-style-types: [
   decimal, // a number (default)
   disc, // a filled circle
-  lower-latin, // a, b, c, d, etc.
+  lower-alpha, lower-latin, // a, b, c, d, etc.
   lower-roman, // i, ii, iii, iv, etc.
   none, // no marker shown
-  upper-latin, // A, B, C, D, etc.
+  upper-alpha, upper-latin, // A, B, C, D, etc.
   upper-roman // I, II, III, IV, etc.
 ];
 
@@ -134,7 +134,7 @@ $list-style-types: [
   }
   .footnotes-footer {
     border-top: 1px solid $rules-and-outlines;
-    padding: $component-margin-bottom 0 0 0;
+    padding: $component-padding 0 0 0;
     margin: $component-margin 0 0 0;
     ol {
       margin: 0 0 0 $component-margin-lg !important;
@@ -153,7 +153,7 @@ $list-style-types: [
         }
         &.selected {
           position: relative;
-          padding: 0 calc(20px + 1rem) 0 4px;
+          padding: 0 calc(20px + #{$component-padding-sm}) 0 4px;
           .ref {
             font-weight: bold;
             a {

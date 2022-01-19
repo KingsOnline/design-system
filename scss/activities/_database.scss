@@ -89,7 +89,7 @@ body[id*="page-mod-data-"] {
   .entry {
     border: 1px solid $table-border;
     margin-bottom: $component-margin-bottom; 
-    padding: $component-margin;
+    padding: $component-padding;
     a {
       word-break: break-all;
     }
@@ -112,7 +112,7 @@ body[id*="page-mod-data-"] {
     .mod-data-input {
       margin-bottom: $component-margin-bottom; 
       .editor_atto_wrap {
-        margin-bottom: $component-margin-xs;
+        margin-bottom: $component-margin-bottom-xs;
       }
     }
     .mdl-align {
@@ -164,7 +164,7 @@ body[id*="page-mod-data-"] {
       @extend %btn-primary;
     }
     select {
-      margin:0 $component-margin-bottom-sm $component-margin-bottom-sm 0;
+      margin:0 $component-margin-sm $component-margin-bottom-sm 0;
     }
   }
 }

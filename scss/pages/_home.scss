@@ -16,7 +16,7 @@
 
 
 // 1A. G & CT
-// only grid and collapsed topics formtas are supported
+// only grid and collapsed topics formats are supported
 #page-course-view-grid,
 #page-course-view-topcoll {
   #region-main {
@@ -24,46 +24,49 @@
       padding: 0;
       // hide topcoll completion progress info
       & > #completionprogressid {
-        display: none !important;
+        display: none;
       }
       & > .single-section {
         margin: 0;
       }
-      ul {
+      ul[class*="topics"] {
+        margin: 0 !important;
         & > li.section.main {
           margin: 0 !important;
+          &#section-0 {
+            margin: 0 0 $component-margin-bottom-lg 0 !important;
+            position: relative;
+            .content {
+              // section-0 title
+              h3.sectionname {
+                @extend %h1;
+                background: none;
+                margin-bottom: $component-margin-bottom;
+                padding: 0;
+                &::after {
+                  display: none;
+                }
+              }
+              .summary {
+                a > :last-child {
+                  // edit cog for section-0
+                  position: absolute;
+                  top: 0.625rem;
+                  left: -$component-margin;
+                }
+              }
+            }
+          }
           &:only-child {
             // override theme padding
             padding-bottom: 0 !important;
           }
-          &#section-0 {
-            position: relative;
-            .summary a > :last-child {
-              // edit cog for section-0
-              position: absolute;
-              top: 0.625rem;
-              left: -$component-margin;
-            }
-          }
-          // hide activity labels on module information, forums and webinars, and
-          // assessment pages
-          &.section-hide-activity-labels {
-            @extend %hide-activity-labels;
-          }
           .content {
             margin: 0 !important;
             padding: 0 !important;
-             //override theme course name header color
-             h3.sectionname {
+            //override theme course name header color
+            h3.sectionname {
               color: $headings;
-            }
-            .section_availability {
-              .availabilityinfo {
-                .label {
-                  background-color: $sea-blue;
-                  color: $white;
-                }
-              }
             }
             .summary {
               .no-overflow {
@@ -74,314 +77,59 @@
                 }
               }
             }
+            .section_availability {
+              .availabilityinfo {
+                .label {
+                  background-color: $sea-blue;
+                  color: $white;
+                }
+              }
+            }
             // hide completion progress info as it is
             // cloned into each section individually
             & > #completionprogressid {
               display: none !important;
             }
           }
-          ul.section {
-            margin: 0;
-            // Moodle activity title link
-            li.activity {
-              display: flex;
-              padding: 0 !important;
-              &:not(:last-child) {
-                margin-bottom: $component-margin-bottom-sm;
-              }
-              &:last-child {
-                margin-bottom: 0;
-              }
-              & > div {
-                width: 100%;
-                .mod-indent-outer {
-                  display: block;
-                }
-              }
-              .no-overflow {
-                padding: 0;
-              }
-              &.label:not(:first-of-type) h2,
-              &.label:not(:first-of-type) h3,
-              &.label:not(:first-of-type) h4 {
-                margin-top: 0.75rem !important;
-              }
-              &.label h2:last-child,
-              &.label h3:last-child,
-              &.label h4:last-child,
-              &.label p:last-child {
-                margin-bottom: 0;
-              }
-              &.type-study .activityinstance a {
-                .activity-label-container {
-                  @extend %type-study;
-                }
-              }
-              &.type-assessed .activityinstance a {
-                .activity-label-container  {
-                  @extend %type-assessed;
-                }
-              }
-              &.modtype_folder {
-                .foldertree {
-                  margin-bottom: 0;
-                  padding-bottom: 0 !important;
-                  .filemanager {
-                    font-size: 14px;
-                  }
-                }
-                .fp-filename-icon {
-                  .filter-ally-wrapper {
-                    display: inline-flex;
-                  }
-                }
-              }
-              .mod-indent-outer > div:last-child {
-                display: flex;
-                flex-wrap: wrap;
-              }
-              .activityinstance {
-                width: 100%;
-                //DJ set height to auto to prevent overlapping activity text
-                height:auto;
-                min-height: initial !important;
-                padding: 0;
-                order: 2;
-                & ~ .ishidden {
-                  margin: 0;
-                }
-                &:not(:last-child) {
-                  margin-bottom: 0;
-                }
-                & > .inplaceeditable > :not(.quickeditlink),
-                & > .inplaceeditable > .filter-ally-wrapper > :not(.quickeditlink),
-                & > .filter-ally-wrapper > :not(.quickeditlink),
-                & > :not(.quickeditlink) {
-                  @include focus-outline;
-                  display: flex;
-                  width: fit-content;
-                  max-width: 100%;
-                  & > img.activityicon {
-                    display: none;
-                  }
-                  & > .instancename {
-                    max-width: 100vw;
-                    .activity-title {
-                      margin-left: 0.375rem;
-                      @media only screen and (min-width: $neo-breakpoint) {
-                        margin-left: 0.75rem;
-                      }
-                    }
-                  }
-                  // don't underline restricted activities on hover
-                  &:not(.dimmed_text):hover {
-                    text-decoration: none;
-                    .instancename:not(.is-numbered), .instancename.is-numbered .activity-title {
-                      text-decoration: underline;
-                    }
-                  }
-                  & > .stealth {
-                    opacity: 0.9;
-                    .activity-label-container {
-                      .activity-label {
-                        color: $slate-grey;
-                      }
-                    }
-                  }
-                  .activity-label-container {
-                    @extend %activity-label-container-default;
-                  }
-                }
-                a.quickeditlink {
-                  margin-left: 0.5rem;
-                  .quickediticon img {
-                    opacity: 0.8;
-                  }
-                }
-                .resourcelinkdetails {
-                  color: $slate-grey;
-                  font-size: 14px;
-                }  
-              }
-              .availabilityinfo {
-                order: 3;
-                flex: 0 0 100%;
-                margin: $component-margin-xs 0 0 0;
-                .label {
-                  background-color: $sea-blue;
-                  color: $white;
-                }
-              }
-              &.indent .contentwithoutlink,
-              &.book .contentwithoutlink,
-              // activity description
-              .contentafterlink {
-                border-left: 3px solid $pearl-grey;
-                border-radius: 0;
-                padding-left: 0.625rem !important;
-                order: 3;
-                margin-top: $component-margin-sm;
-                // adding 1rem from activity label number spacing
-                margin-left: 34px;
-                @media only screen and (min-width: $neo-breakpoint) {
-                  margin-left: 42px;
-                }
-                p {
-                  margin: 0 0 1rem 0;
-                  &:last-child {
-                    margin-bottom: 0;
-                  }
-                }
-              }
-              .actions {
-                position: static;
-                max-width: max-content;
-                background: none;
-                left: 0;
-                // completion checkbox
-                button, .autocompletion {
-                  padding: 0 !important;
-                  margin: 0 $component-margin-xs 0 0 !important;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin: 0 $component-margin-sm 0 0 !important;
-                  }
-                  img.icon {
-                    height: 1.25rem;
-                    width: 1.25rem;
-                    padding: 0;
-                    border-radius: 4px;
-                  }
-                }
-                .filler {
-                  display: none;
-                }
-              }
-              .contentwithoutlink {
-                min-height: 1.5rem;
-                // for some reason dont occupy same width
-                width: 100%;
-                order: 2;
-                padding: 0;
-                &.dimmed:empty {
-                  display: none !important;
-                }
-              }
-            }  
-          }
           &.completion-progress-section {
+            // 'Your progress' tooltip displayed at the top of each
+            // completion progress section
             .completionprogress {
               margin: 0 0 $component-margin-bottom 0 !important;
               display: flex !important;
               justify-content: flex-start;
+              align-items: center;
               float: none !important;
               text-align: left !important;
               line-height: 1.5;
               height: auto !important;
               z-index: auto;
-              .helptooltip {
-                a {
-                  img {
-                    display: none;
-                  }
-                  &:hover {
-                    text-decoration: none;
-                   }
-                  &:after {
-                    @include fa-content($fa-question-circle);
-                    font-family: "Font Awesome 5 Free";
-                    font-size: 1.25rem;
-                    color: $midnight-blue;
-                    margin-left: $component-margin-lg;
-                    position: absolute;
-                    top: -3px;
-                  }
+              a {
+                margin: 0 !important;
+                padding: 0 !important;
+                img {
+                  display: none;
                 }
-                &:before {
-                  content: "";
-                  background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
-                  background-size: 20px 20px;
-                  width: 20px;
-                  height: 20px;
-                  position: absolute;
-                  top: 2px;
+                &:hover {
+                  text-decoration: none;
+                 }
+                // question mark tooltip
+                &:after {
+                  @include fa-content($fa-question-circle);
+                  font-family: "Font Awesome 5 Free";
+                  font-size: 1.25rem;
+                  color: $midnight-blue;
                   margin-left: $component-margin-xs;
                 }
               }
-            }
-            .activity {
-              .availabilityinfo {
-                margin-left: 30px !important;
-                @media only screen and (min-width: $neo-breakpoint) {
-                  margin-left: 38px !important;
-                }
-              }
-              .actions {
-                // completion progress tooltip
-                .completionprogress {
-                  margin: 0 0 $component-margin-bottom 0 !important;
-                  display: flex !important;
-                  justify-content: flex-start;
-                  float: none !important;
-                  text-align: left !important;
-                  line-height: 1.5;
-                  height: auto !important;
-                  z-index: auto;
-                  .helptooltip {
-                    a {
-                      img {
-                        display: none;
-                      }
-                      &:hover {
-                        text-decoration: none;
-                      }
-                      // question mark icon
-                      &:after {
-                        @include fa-content($fa-question-circle);
-                        font-family: "Font Awesome 5 Free";
-                        font-size: 1.25rem;
-                        color: $midnight-blue;
-                        margin-left: 36px;
-                        position: absolute;
-                        top: -3px;
-                      }
-                    }
-                    // checkbox image
-                    &:before {
-                      content: "";
-                      background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
-                      background-size: 20px 20px;
-                      width: 20px;
-                      height: 20px;
-                      position: absolute;
-                      top: 2px;
-                      margin-left: 8px;
-                    }
-                  }
-                }
-              }
-              // .contentwithoutlink,
-              // .contentafterlink {
-              //   margin-left: 64px !important;
-              //   @media only screen and (min-width: $neo-breakpoint) {
-              //     margin-left: 80px !important;
-              //   }
-              // }
-              &:not(.label).completion-progress-activity {
-                .activityinstance {
-                  max-width: calc(100% - 30px);
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    max-width: calc(100% - 38px);
-                  }
-                }
-              }
-              // non completion progress activity with completion progress section
-              &:not(.label):not(.completion-progress-activity), .availabilityinfo {
-                .activityinstance {
-                  margin-left: 30px;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin-left: 38px;
-                  }
-                }
+              // checkbox icon
+              &:before {
+                content: "";
+                background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
+                background-size: 20px 20px;
+                width: 20px;
+                height: 20px;
+                margin-right: $component-margin-xs;
               }
             }
           }
@@ -395,19 +143,6 @@
       .course-content {
         ul {
           & > .section.main {
-            // moodle default icons visible in editing mode
-            ul.section li.activity .activityinstance {
-              & > .inplaceeditable > :not(.quickeditlink) > img.activityicon,
-              & > .inplaceeditable > .filter-ally-wrapper > :not(.quickeditlink) > img.activityicon,
-              & > .filter-ally-wrapper > :not(.quickeditlink) > img.activityicon,
-              & > :not(.quickeditlink) > img.activityicon,
-              & > .inplaceeditable > :not(.quickeditlink) > img.activityicon,
-              & > .inplaceeditable > .filter-ally-wrapper > :not(.quickeditlink) > img.activityicon,
-              & > .filter-ally-wrapper > :not(.quickeditlink) > img.activityicon,
-              & > :not(.quickeditlink) > img.activityicon {
-                display: inline! important; 
-              }
-            } 
             .left {
               .section-handle img.icon {
                 padding-top: 0;
@@ -446,123 +181,6 @@
                   width: 100%;
                 }
               }
-              .activity {
-                // drag and drop move icon
-                .editing_move {
-                  top: 2px !important;
-                  left: 72px;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    left: 80px;
-                  }
-                  // remove padding from small icons (edit/move)
-                  .iconsmall,
-                  img.icon {
-                    padding: 0;
-                  }
-                }
-                .inplaceeditable {
-                  display: flex;
-                }
-                .actions {
-                  // edit menu
-                  .commands {
-                    position: absolute;
-                    left: 0;
-                    // edit dropdown button
-                    .menubar {
-                      margin: 0 !important;
-                    }
-                    // edit dropdown menu for editing activity
-                    .menu {
-                      left: 0 !important;
-                      width: min-content;
-                    }
-                  }
-                }
-                // activity description
-                .contentafterlink {
-                  margin-left: 64px;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin-left: 80px;
-                  }
-                }
-                // folder and label activity type need extra indenting
-                &.folder,
-                &.label  {
-                  .contentwithoutlink {
-                    margin-left: 64px !important;
-                    @media only screen and (min-width: $neo-breakpoint) {
-                      margin-left: 80px !important;
-                    }
-                    .no-overflow .no-overflow {
-                      @media only screen and (min-width: $neo-breakpoint) {
-                      }
-                    }
-                  }
-                }
-                &:last-child {
-                  margin-bottom: 0 !important;
-                }
-              }
-            }
-            &.completion-progress-section {
-              .activity  {
-                .activityinstance {
-                  width: calc(100% - 100px) !important;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    width: calc(100% - 116px) !important;
-                  }
-                }
-                .availabilityinfo,
-                .contentafterlink {
-                  margin-left: 100px !important;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin-left: 116px !important;
-                  }
-                }
-                &.label  {
-                  .contentwithoutlink {
-                    margin-left: 102px !important;
-                    @media only screen and (min-width: $neo-breakpoint) {
-                      margin-left: 118px !important;
-                    }
-                  }
-                }
-                &.completion-progress-activity {
-                  .actions .autocompletion {
-                    margin: 0 1rem 0 64px !important;
-                    @media only screen and (min-width: $neo-breakpoint) {
-                      margin: 0 1rem 0 80px !important;
-                    }
-                  }
-                }               
-                &:not(.completion-progress-activity) {
-                  .activityinstance {
-                    margin-left: 100px !important;
-                    @media only screen and (min-width: $neo-breakpoint) {
-                      margin-left: 116px !important;
-                    }
-                  }
-                }
-              }
-              // indent and activity description labels
-              &.indent .contentwithoutlink,
-              .contentafterlink {
-                margin-left: 102px !important;
-                @media only screen and (min-width: $neo-breakpoint) {
-                  margin-left: 80px !important;
-                }
-              }
-            }
-            &:not(.completion-progress-section) {
-              .activity {
-                .activityinstance, .availabilityinfo {
-                  margin-left: 64px !important;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin-left: 80px !important;
-                  }
-                }
-              }
             }
           }
         }
@@ -582,8 +200,8 @@
     #gridiconcontainer {
       ul.gridicons {
         width: calc(100% + 2rem);
-        margin-left: -1rem;
-        margin-right: -1rem;
+        margin-left: -$component-margin-sm;
+        margin-right: -$component-margin-sm;
         li {
           padding: 0.75rem;
           background-color: transparent;
@@ -599,7 +217,7 @@
           color: $white;
           text-align: left;
           z-index: 1;
-          padding: 1rem;
+          padding: $component-padding-sm;
           width: calc(310px - 2rem);
           height: 100px!important;
           font-family: "KingsBureauGrot";
@@ -837,7 +455,7 @@
               .section_availability {
                 .availabilityinfo {
                   margin: $component-margin-xs 0 0 0;
-                  padding-left: $component-margin-lg;
+                  padding-left: $component-padding-lg;
                   font-weight: normal;
                   .label {
                     background-color: $sea-blue;
@@ -876,12 +494,12 @@
             }
           }
           .sectionbody.sectionopen {
-            padding: $component-margin $component-margin-xs;
+            padding: $component-padding $component-padding-xs;
             margin-bottom: $component-margin-bottom-xs;
             border: 1px solid $pearl-grey;
             border-top: none;
             @media only screen and (min-width: $neo-breakpoint) {
-              padding: $component-margin-lg $component-margin;
+              padding: $component-padding-lg $component-padding;
             }
             li.activity {
               // additional info i.e. due date, no. answered / submitted
@@ -955,7 +573,7 @@
             #toggles-all-opened, #toggles-all-closed,
             #toggles-all-opened:hover, #toggles-all-closed:hover {
               background: none;
-              padding: 0 0 0 $component-margin-sm !important;
+              padding: 0 0 0 $component-padding-sm !important;
               margin-right: $component-margin-lg !important;
               position: relative;
               font-size: 1rem;
@@ -1123,7 +741,7 @@
             }
           }
           .content {
-            padding: $component-margin-xs !important;
+            padding: $component-padding-xs !important;
             .section_availability {
               margin-bottom: $component-margin-bottom-xs;
             }
@@ -1139,33 +757,6 @@ table li.activity.page {
   margin-bottom: unset !important;
   .activityinstance {
     min-height: unset;
-  }
-}
-
-// activity labels for hyperlinks
-a.activity-link {
-  text-decoration: none !important;
-  .activity-title {
-    text-decoration: underline;  
-  }
-  .activity-label-container {
-    @extend %activity-label-container-default;
-    .activity-label.assessed {
-      background-color: #60bbba !important;
-      color: $white;
-      width: 5.5rem !important;
-    }
-  }
-}
-
-// section-0 title
-#section-0 .content > h3.sectionname {
-  @extend %h1;
-  background: none;
-  margin-bottom: $component-margin-bottom;
-  padding: 0;
-  &::after {
-    display: none;
   }
 }
 

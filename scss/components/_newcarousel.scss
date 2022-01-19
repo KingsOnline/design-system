@@ -5,7 +5,7 @@
   .new-carousel {
     margin-bottom: $component-margin-bottom-xl;
     @media only screen and (max-width: $neo-breakpoint) {
-      margin-bottom: $component-margin-bottom
+      margin-bottom: $component-margin-bottom;
     }
     h3, h4, h5, h6 {
       @extend %h4;
@@ -70,9 +70,9 @@
           }
           figcaption.nc-description {
             background: transparent;
-            padding: $component-margin-lg;
+            padding: $component-padding-lg;
             @media only screen and (max-width: $neo-breakpoint) {
-              padding: $component-margin-sm;
+              padding: $component-padding-sm;
             }
             font-size: 1rem;
             line-height: 1.5;
@@ -81,9 +81,9 @@
       }
     }
     .nc-buttons {
-      padding: 0 $component-margin-lg $component-margin $component-margin-lg;
+      padding: 0 $component-padding-lg $component-padding $component-padding-lg;
       @media only screen and (max-width: $neo-breakpoint) {
-        padding: 0 $component-margin-sm $component-margin-sm $component-margin-sm;
+        padding: 0 $component-padding-sm $component-padding-sm $component-padding-sm;
       }
       margin: 0 !important;
       z-index: 30;
@@ -152,11 +152,11 @@
               justify-self: flex-start;
               width: 310px;
               height: auto;
-              padding: $component-margin-lg;
+              padding: $component-padding-lg;
               padding-right: 0;
               margin-bottom: auto;
               @media only screen and (max-width: $neo-breakpoint) {
-                padding: $component-margin-sm;
+                padding: $component-padding-sm;
                 padding-bottom: 0;
                 width: 100%;
               }

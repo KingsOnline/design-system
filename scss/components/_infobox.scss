@@ -8,18 +8,18 @@
 // 1. Definition
 // 2. Editing help
 // 3. Feedback
-//   - correct-answer
-//   - model-answer
-//   - incorrect-answer
+//   - A) Correct answer
+//   - B) Incorrect answer
+//   - C) Model answer
 // 4. Key concept
 // 5. Learning outcome
 // 6. Media
-// 6. My Journal (journal)
-// 7. Reading
-// 8. Shared resources
-// 9. Social annotation files (files)
+// 7. My Journal (journal)
+// 8. Reading
+// 9. Shared resources
+// 10. Social annotation files (files)
 
-// definition box
+// 1. Definition
 .definition-box {
   @extend %info-box;
   // from common
@@ -30,7 +30,7 @@
   }
 }
 
-// editing help box
+// 2. Editing help
 body {
   &:not(.editing) {
     .editing-help-box {
@@ -50,9 +50,10 @@ body {
   }
 }
 
-// feedback box
+// 3. Feedback
 .feedback-box {
   @extend %info-box;
+  // 3A. Correct answer
   &.correct-answer {
     background-color: tint($pea-green, 80%);
     &::before {
@@ -61,14 +62,7 @@ body {
       padding: 0 4px;
     }
   }
-  &.model-answer {
-    background-color: tint($yellow, 80%);
-    &::before {
-      @include fa-content($fa-comments-alt);
-      color: $yellow;
-      padding: 0 4px;
-    }
-  }
+  // 3B. Incorrect answer
   &.incorrect-answer {
     background-color: tint($kings-red, 80%);
     &::before {
@@ -77,9 +71,18 @@ body {
       padding: 0 4px;
     }
   }
+  // 3C. Model answer
+  &.model-answer {
+    background-color: tint($yellow, 80%);
+    &::before {
+      @include fa-content($fa-comments-alt);
+      color: $yellow;
+      padding: 0 4px;
+    }
+  }
 }
 
-// key concept box
+// 4. Key concept
 .key-concept-box {
   background-color: $block-background;
   margin-bottom: $component-margin-bottom;
@@ -93,7 +96,7 @@ body {
   }
 }
 
-// learning outcome box
+// 5. Learning outcome
 #region-main {
   .learning-outcome-box {
     @extend %info-box;
@@ -114,7 +117,7 @@ body {
   }
 }
 
-// media box
+// 6. Media
 .media-box {
   @extend %info-box;
   // from common
@@ -124,7 +127,7 @@ body {
   }
 }
 
-// journal box
+// 7. My Journal (journal)
 .journal-box {
   @extend %info-box;
   // from common
@@ -134,7 +137,7 @@ body {
   }
 }
 
-// reading box
+// 8. Reading
 .reading-box {
   @extend %info-box;
   // from common
@@ -149,7 +152,7 @@ body {
   }
 }
 
-// shared resources box
+// 9. Shared resources
 .shared-box {
   @extend %info-box;
   // from common
@@ -158,7 +161,7 @@ body {
   }
 }
 
-// social annotation files box
+// 10. Social annotation files (files)
 .files-box {
   @extend %info-box;
   // from common

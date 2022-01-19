@@ -148,7 +148,7 @@ html, body {
   .blockquote {
     .quote-body {
       @include font-scale(quote-body, $font-kcd);
-      margin-bottom: 1.5rem;
+      margin-bottom: $component-margin-bottom;
     }
   }
   // 5. Captions

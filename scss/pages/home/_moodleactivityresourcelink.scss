@@ -1,0 +1,533 @@
+/* Moodle activity or resource link
+   ================================ */
+
+// Table of contents
+// =================
+// (E) denotes visible in editing mode only
+//
+// 1. Editing move icon (E)
+// 2. Activity title and label
+//    - a) Moodle activity type icon (E)
+//    - b) Activity title text
+//    - c) Activity label container
+//    - d) Quick edit title pencil icon (E)
+// 3. Actions
+//    - a) Edit dropdown menu (E)
+//    - b) Completion progress checkbox icon
+//    - c) Copy to Sharing cart button (E)
+// 4. Availability info
+// 5. Activity description
+// -----------------
+
+
+// only Grid and Collapsed topics formtas are supported
+#page-course-view-grid,
+#page-course-view-topcoll {
+  ul[class*="topics"] {
+    ul.section {
+      margin: 0;
+      // hide activity labels on Module information, Forums and Webinars,
+      // and Assessment pages
+      &.section-hide-activity-labels {
+        @extend %hide-activity-labels;
+      }
+      li.activity {
+        padding: 0 !important;
+        &:not(:last-child) {
+          margin-bottom: $component-margin-bottom-sm;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &.label {
+          &:not(:first-of-type) {
+            .no-overflow {
+              & > h2, & > h3, & > h4, & > h5 {
+                margin-top: 0.75rem !important;
+              }
+            }
+          }
+          h2, h3, h4, h5, p {
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+        &.type-study {
+          .activityinstance {
+            a.aalink,
+            .dimmed {
+              .activity-label-container {
+                @extend %type-study;
+              }
+            }
+          }
+        }
+        &.type-assessed {
+          .activityinstance {
+            a.aalink,
+            .dimmed {
+              .activity-label-container  {
+                @extend %type-assessed;
+              }
+            }
+            // grey out restricted activities
+            a.dimmed,
+            // link is removed in student view
+            & > div.dimmed,
+            // and "Available but not shown on course page" activities activity label
+            a.stealth {
+              .activity-label-container {
+                .activity-label {
+                  background-color: $slate-grey !important;
+                }
+              }
+            }
+          }
+        }
+        & > div {
+          width: 100%;
+          .mod-indent-outer {
+            .mod-indent-1 {
+              width: 0;
+            }
+            & > div:last-child {
+              display: flex;
+              flex-wrap: wrap;
+            }
+          }
+        }
+        // 2. Activity title and label
+        .activityinstance {
+          width: 100%;
+          height: auto;
+          padding: 0;
+          order: 2;
+          // 2a. Moodle activity type icon (E)
+          img.activityicon {
+            // hidden when editing mode is off
+            display: none;
+          }
+          &:not(:last-child) {
+            margin-bottom: 0;
+          }
+          a.aalink {
+            // 2b. Activity title text
+            &:hover {
+              text-decoration: none;
+              .instancename:not(.is-numbered),
+              .instancename.is-numbered .activity-title {
+                text-decoration: underline;
+              }
+            }
+            .instancename {
+              max-width: 100%;
+              // new span is created for activity title text
+              // when activities are numbered
+              .activity-title {
+                margin-left: 0.375rem;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 0.75rem;
+                }
+              }
+            }
+          }
+          // restricted activities for students are inactive
+          // and display as '.dimmed'
+          a.aalink,
+          .dimmed {
+            // 2c. Activity label container
+            .activity-label-container {
+              @extend %activity-label-container-default;
+            }
+          }
+        }
+        .actions {
+          position: static;
+          background: none;
+        }
+        // 4. Availability info
+        .availabilityinfo {
+          order: 3;
+          flex: 0 0 100%;
+          margin-top: $component-margin-xs;
+          margin-left: 0;
+          .label {
+            background-color: $sea-blue;
+            color: $white;
+          }
+        }
+        // 5. Activity description
+        .contentafterlink {
+           margin-left: 0;
+          .no-overflow {
+            padding: 0;
+          }
+        }
+        .contentafterlink,
+        // activity description class changes from .contentafterlink
+        // to .contentwithoutlink for restricted activties in student view
+        .contentwithoutlink.dimmed_text:not(:only-child) {
+          @extend %border-left-related-info;
+          border-radius: 0;
+          order: 3;
+          p {
+            margin: 0 0 $component-margin-sm 0;
+          }
+          // restricted activity description
+        }
+        .contentwithoutlink {
+          min-height: 1.5rem;
+          // for some reason dont occupy same width
+          width: 100%;
+          order: 2;
+          padding: 0;
+          &.dimmed_text {
+            opacity: 0.8;
+            &:empty {
+              display: none !important;
+            }
+          }
+        }
+        // Moodle File resource link
+        &.resource {
+          .resourcelinkdetails {
+            color: $slate-grey;
+            font-size: 14px;
+          }
+        }
+      }
+      // additional indentation for sections with activities
+      // that have completion tracking activated
+      &.completion-progress-section {
+        li.activity {
+          .activityinstance {
+            margin-left: 28px;
+            max-width: calc(100% - 28px);
+            @media only screen and (min-width: $neo-breakpoint) {
+              margin-left: 36px;
+              max-width: calc(100% - 36px);
+            }
+            // grey out restricted activities
+            .dimmed,
+            // and "Available but not shown on course page" activities
+            // activity label and icons
+            .stealth {
+              opacity: 0.9;
+              .activity-label-container {
+                .activity-label,
+                .group-icon,
+                .media-icon {
+                  color: $slate-grey;
+                }
+              }
+            }
+          }
+          .actions {
+            // 3b. Completion progress checkbox icon
+            .autocompletion {
+              margin: 0 $component-margin-xs 0 0 !important;
+              @media only screen and (min-width: $neo-breakpoint) {
+                margin: 0 $component-margin-sm 0 0 !important;
+              }
+              img.icon {
+                height: 1.25rem;
+                width: 1.25rem;
+                padding: 0;
+                border-radius: 4px;
+              }
+            }
+            // checkboxes appear as buttons for students
+            form.togglecompletion {
+              & > div {
+              display: flex;
+                button {
+                  display: inline-flex;
+                  margin: 0 $component-margin-sm 0 0 !important;
+                  padding: 0 !important;
+                  width: 20px;
+                  img {
+                    width: 20px;
+                    height: 20px;
+                  }
+                }
+              }
+            }
+          }
+          // availability info and activity description
+          // indented to match .activityistance
+          .availabilityinfo,
+          .contentafterlink,
+          .contentwithoutlink {
+            margin-left: 28px;
+            @media only screen and (min-width: $neo-breakpoint) {
+              margin-left: 36px;
+            }
+          }
+          // folder and label activity type need extra indenting
+          // to match .activityinstance of other activity types
+          &.folder,
+          &.label {
+            .contentwithoutlink {
+              margin-left: 28px;
+              max-width: calc(100% - 28px);
+              @media only screen and (min-width: $neo-breakpoint) {
+                margin-left: 36px;
+                max-width: calc(100% - 36px);
+              }
+            }
+          }
+          &.completion-progress-activity {
+            .activityinstance {
+               margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  // editing mode only
+  &.editing {
+    ul[class*="topics"] {
+      ul.section {
+        li.activity {
+          & > div {
+            // 1. Editing move icon (E)
+            .editing_move {
+              display: flex;
+              align-items: center;
+              height: 24px;
+              left: 72px;
+              @media only screen and (min-width: $neo-breakpoint) {
+                left: 76px;
+              }
+            }
+            .mod-indent-outer {
+              padding: 0;
+            }
+          }
+          // 2. Activity title and label
+          .activityinstance {
+            margin-left: 100px;
+            @media only screen and (min-width: $neo-breakpoint) {
+              margin-left: 106px;
+            }
+            .inplaceeditable {
+              display: flex;
+              a.aalink {
+              // 2a. Moodle activity type icon (E)
+                img.activityicon {
+                  display: inline;
+                }
+              }
+              // 2d. Quick edit title pencil icon (E)
+              a.quickeditlink {
+                margin-left: $component-margin-xs;
+                .quickediticon img {
+                  opacity: 0.8;
+                }
+              }
+            }
+          }
+          .actions {
+            display: flex;
+            // 3a. Edit dropdown menu (E)
+            .action-menu {
+              position: absolute;
+              left: 0;
+              // edit dropdown button
+              .menubar {
+                // edit dropdown menu for editing activity
+                .menu {
+                  left: 0 !important;
+                  width: min-content;
+                }
+              }
+            }
+            .filler {
+              display: none !important;
+            }
+            .autocompletion {
+              order: 3;
+            }
+            // 3c. Copy to Sharing cart button (E)
+            .add-to-sharing-cart {
+              order: 2;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              i {
+                color: $rules-and-outlines;
+                &::before {
+                  margin: 0;
+                }
+              }
+            }
+          }
+          // 4. Availability info
+          .availabilityinfo,
+          // 5. Activity description
+          .contentafterlink {
+            // increase margins to account for edit dropdown menu and
+            // editing move icon
+            margin-left: 98px !important;
+            @media only screen and (min-width: $neo-breakpoint) {
+              margin-left: 108px !important;
+            }
+          }
+          // folder and label activity type need extra indenting
+          // to match .activityinstance of other activity types
+          &.folder,
+          &.label {
+            .contentwithoutlink {
+              margin-left: 100px !important;
+              @media only screen and (min-width: $neo-breakpoint) {
+                margin-left: 108px !important;
+              }
+            }
+          }
+          // add top margin to editing move icon and edit dropdown menu
+          // for label activity to match text top margin
+          &.label {
+            .editing_move,
+            .actions {
+              margin-top: 0.75rem;
+            }
+          }
+        }
+        // additional indentation for sections with activities
+        // that have completion tracking activated
+        &.completion-progress-section {
+          li.activity {
+            padding: 0;
+            .mod-indent-1 {
+              width: 0;
+            }
+            .activityinstance {
+              margin-left: 132px !important;
+              @media only screen and (min-width: $neo-breakpoint) {
+                margin-left: 144px !important;
+              }
+            }
+            .availabilityinfo,
+            .contentafterlink {
+              max-width: calc(100% - 130px) !important;
+              margin-left: 132px !important;
+              @media only screen and (min-width: $neo-breakpoint) {
+                max-width: calc(100% - 144px) !important;
+                margin-left: 144px !important;
+              }
+            }
+            &.folder,
+            &.label {
+              .contentwithoutlink {
+                margin-left: 132px !important;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 144px !important;
+                }
+              }
+            }
+            &.completion-progress-activity {
+              .activityinstance {
+                max-width: calc(100% - 132px) !important;
+                margin-left: 0 !important;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  max-width: calc(100% - 144px) !important;
+                }
+              }
+              .actions {
+                .autocompletion {
+                  margin: 0 12px 0 100px !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin: 0 $component-margin-sm 0 108px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &.sharing-cart-enabled {
+      ul[class*="topics"] {
+        ul.section {
+          li.activity {
+            .activityinstance {
+              margin-left: 16px !important;
+              max-width: calc(100% - 142px);
+            }
+            .actions {
+              .add-to-sharing-cart {
+                margin-left: 108px;
+              }
+            }
+            // availability info and activity description
+            // indented to match .activityistance
+            .availabilityinfo,
+            .contentafterlink,
+            .contentwithoutlink {
+              margin-left: 142px !important;
+              max-width: calc(100% - 142px) !important;
+            }
+            &.folder,
+            &.label {
+              .contentwithoutlink {
+                margin-left: 16px !important;
+              }
+            }
+          }
+          &.completion-progress-section {
+            li.activity {
+              .activityinstance {
+                margin-left: 44px !important;
+                max-width: calc(100% - 170px);
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 52px !important;
+                  max-width: calc(100% - 178px);
+                }
+              }
+              // availability info and activity description
+              // indented to match .activityistance
+              .availabilityinfo,
+              .contentafterlink,
+              .contentwithoutlink {
+                margin-left: 170px !important;
+                max-width: calc(100% - 170px) !important;
+                @media only screen and (min-width: $neo-breakpoint) {
+                  margin-left: 178px !important;
+                  max-width: calc(100% - 178px) !important;
+                }
+              }
+              &.folder,
+              &.label {
+                .contentwithoutlink {
+                  margin-left: 44px !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    margin-left: 52px !important;
+                  }
+                }
+              }
+              &.completion-progress-activity {
+                .activityinstance {
+                  margin-left: 0 !important;
+                  max-width: calc(100% - 170px) !important;
+                  @media only screen and (min-width: $neo-breakpoint) {
+                    max-width: calc(100% - 178px) !important;
+                  }
+                }
+                .actions {
+                  .autocompletion {
+                    margin-left: 12px !important;
+                    @media only screen and (min-width: $neo-breakpoint) {
+                      margin-left: 16px !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

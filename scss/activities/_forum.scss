@@ -62,7 +62,7 @@
         }
         // author images
         img {
-          margin-right: 0.5rem
+          margin-right: $component-margin-xs;
         }
       }
       .discussion .p-0.text-center.align-middle.fit-content.px-2 {
@@ -109,11 +109,13 @@
       input#search {
         height: 2rem;
         border-radius: 5px;
+        margin-right: $component-margin-xs;
       }
       button#searchforums {
         @extend %btn-primary;
         margin: 0;
         height: auto;
+        margin-right: $component-margin-sm !important;
       }
     }
   }
@@ -163,7 +165,7 @@
       }
       p:first-of-type {
         @extend %h5;
-        margin: 0.5rem 0.25rem 1rem 3.125rem;
+        margin: $component-margin-xs 0.25rem $component-margin-bottom-sm 3.125rem;
         &::before {
           @extend %icon-before;
           @include fa-content($fa-thumbs-up);
@@ -176,7 +178,7 @@
         }
       }
       p {
-        margin: 0 0.25rem 1rem 3.125rem;
+        margin: 0 0.25rem $component-margin-bottom-sm 3.125rem;
         font-family: "KingsBureauGrotFiveOne";
       }
     }
@@ -256,7 +258,7 @@
       }
     }
     &.firstpost {
-      padding: 0 $component-margin-sm $component-margin-sm 0;
+      padding: 0 $component-margin-sm $component-margin-bottom-sm 0;
       .header .author::before {
         display: none;
       }

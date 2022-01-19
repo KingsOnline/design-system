@@ -2,20 +2,20 @@
    ======================== */
 
 .card {
-  display: flex;
-  @media only screen and (max-width: $neo-breakpoint) {
-    display: block;
+  display: block;
+  @media only screen and (min-width: $neo-breakpoint) {
+    display: flex;
   }
   flex-direction: row;
   border: none;
   margin-bottom: $component-margin-bottom;
   & > img,
   .filter-ally-wrapper > img {
-    width: 310px;
+    width: 100%;
     flex-shrink: 0;
     border-radius: 0; 
-    @media only screen and (max-width: $neo-breakpoint) {
-      width: 100%;
+    @media only screen and (min-width: $neo-breakpoint) {
+      width: 310px;
     }
     &.img-right, .card-img-right {
       order: 2;
@@ -76,6 +76,7 @@
 // v2.5.2+
 .float-box {
   display: flex;
+  justify-content: space-between;
   margin-bottom: $component-margin-bottom;
   figure,
   // to maintain old .img-container class
@@ -86,6 +87,13 @@
     // firefox only
     @-moz-document url-prefix() {
       max-width: min-content;
+    }
+  }
+  figure {
+    .img-responsive,
+    .circular-img, .img-circular,
+    .screenshot {
+      max-width: unset;
     }
   }
   figure figcaption,
@@ -108,10 +116,16 @@
     & > div:not(.img-container),
     .float-box-body {
       order: 1;
+      @media only screen and (min-width: $neo-breakpoint) {
+        order: 1 !important;
+      }
     }
     figure {
       order: 2;
       margin: 0 0 0 $component-margin-sm;
+      @media only screen and (min-width: $neo-breakpoint) {
+        order: 2 !important;
+      }
     }
     // to maintain old .img-container class
     .img-container {
@@ -155,42 +169,55 @@
         }
       }
     }
+    & > div:not(.img-container),
+    .float-box-body {
+      // images to display second in mobile view
+      order: 1;
+      @media only screen and (min-width: $neo-breakpoint) {
+        order: 2;
+      }
+    }
   }
   &.img-small, &.image-small, &.small-image {
+    & > figure,
+    & > .img-container,
     & > img,
-    & > .filter-ally-wrapper > img {
+    & > .filter-ally-wrapper {
+      margin: 0 $component-margin-xs 0 0;
+      @media only screen and (min-width: $neo-breakpoint) {
+        margin: 0 $component-margin-sm 0 0;
+      }
+    }
+    img {
       width: 100px;
       height: 100px;
     }
-    & > img,
-    & > .filter-ally-wrapper {
-      @media only screen and (max-width: $neo-breakpoint) {
-        margin: 0 $component-margin-xs 0 0;
-      }
-    }
     &.img-right {
+      & > figure,
+      & > .img-container,
       & > img,
       & > .filter-ally-wrapper {
-        @media only screen and (max-width: $neo-breakpoint) {
-          margin: 0 0 0 $component-margin-xs;
+        margin: 0 0 0 $component-margin-xs;
+        @media only screen and (min-width: $neo-breakpoint) {
+          margin: 0 0 0 $component-margin-sm;
         }
+      }
+      & > div:not(.img-container),
+      .float-box-body {
+        order: 1;
+      }
+    }
+    & > div:not(.img-container),
+    .float-box-body {
+      order: 2;
+      width: 100%;
+      & > :last-child {
+        margin-bottom: 0;
       }
     }
   }
   // card body
   & > div {
-    & > :last-child {
-      margin-bottom: 0;
-    }
-  }
-  & > div:not(.img-container),
-  .float-box-body {
-    // images to display second in mobile view
-    order: 1;
-    @media only screen and (min-width: $neo-breakpoint) {
-      order: 2;
-    }
-    width: 100%;
     & > :last-child {
       margin-bottom: 0;
     }

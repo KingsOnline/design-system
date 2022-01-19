@@ -127,7 +127,7 @@ $print-component-border: 2px solid $slate-grey;
       tr {
         td {
           padding: 0;
-          color: #333333;
+          color: $body-text;
           &:nth-child(2) {
             padding-left: 1.25rem;
           }
@@ -243,10 +243,10 @@ $print-component-border: 2px solid $slate-grey;
       border: $print-component-border;
       h4, h5, h6 {
         font-size: 1.125rem;
-        color: #333333;
+        color: $body-text;
       }
       p {
-        color: #333333;
+        color: $body-text;
         margin-bottom: 1.25rem;
         &:last-child {
           margin-bottom: 0;
@@ -269,11 +269,11 @@ $print-component-border: 2px solid $slate-grey;
     page-break-inside: avoid;
     margin-bottom: 1.25rem;
     .collapse-card {
-      border-bottom: 2px solid #cdd7dc;
+      border-bottom: 2px solid $pearl-grey;
       padding: 1.25rem;
       padding-left: 4rem;
       &:first-child {
-        border-top: 2px solid #cdd7dc;
+        border-top: 2px solid $pearl-grey;
       }
       .collapse-header {
         padding: 0;
@@ -287,7 +287,7 @@ $print-component-border: 2px solid $slate-grey;
               @include icon-before;
               @include fa-content($fa-angle-down);
               margin-right: 0;
-              color: #5a6469;
+              color: $slate-grey;
               position: absolute;
               left: -2.5rem;
               top: -6px;
@@ -363,7 +363,7 @@ $print-component-border: 2px solid $slate-grey;
       display: block;
       .card-body {
         page-break-inside: avoid;
-        border-left: 2px solid #5a6469;
+        border-left: 2px solid $slate-grey;
         padding-left: 1.25rem;
         padding-top: 3rem;
         margin-top: 0;
@@ -414,7 +414,7 @@ $print-component-border: 2px solid $slate-grey;
   .shared-box,
   .files-box {
     page-break-inside: avoid;
-    border: 2px solid #8b9296 !important;
+    border: 2px solid $table-border !important;
     padding: 1.25rem !important;
     padding-left: 4rem !important;
     margin-bottom: 1.25rem;
@@ -428,7 +428,7 @@ $print-component-border: 2px solid $slate-grey;
         position: absolute;
         top: 1.25rem;
         left: 1.25rem;
-        color: #5a6469 !important;
+        color: $slate-grey !important;
       }
     }
     h3, h4, h5, h6 {
@@ -446,7 +446,7 @@ $print-component-border: 2px solid $slate-grey;
     color: $body-text;
   }
   .alert-instructional {
-    background-color: #dce3e6 !important;
+    background-color: $block-header !important;
     > :first-child::before {
       @include fa-content($fa-comments);
       padding: 0 2px;
@@ -463,8 +463,8 @@ $print-component-border: 2px solid $slate-grey;
   .key-concept-box {
     padding: 1.25rem;
     font-weight: bold;
-    background-color: #dce3e6 !important;
-    border: 2px solid #5a6469 !important;
+    background-color: $block-header !important;
+    border: 2px solid $slate-grey !important;
     margin-bottom: 1.25rem;
     p:last-child {
       margin-bottom: 0;
@@ -509,20 +509,20 @@ $print-component-border: 2px solid $slate-grey;
   /* table */
   .table-bordered {
     page-break-inside: avoid;
-    border: 2px solid #5a6469 !important;
+    border: 2px solid $slate-grey !important;
     border-radius: 0;
     border-collapse: collapse;
     th, td {
-      border: 2px solid #5a6469;
+      border: 2px solid $slate-grey;
       padding: 0.25rem;
       font-size: 1rem;
     }
     th {
-      background-color: #dce3e6 !important;
-      color: #171717;
+      background-color: $block-header !important;
+      color: $headings;
     }
     td {
-      color: #333333;
+      color: $body-text;
       font-size: 1rem;
     }
   }
@@ -582,14 +582,14 @@ $print-component-border: 2px solid $slate-grey;
         padding: 0 0 0 1.25rem;
       }
       .col.border-left {
-        border-left: 1px solid #5a6469 !important;
+        border-left: 1px solid $slate-grey !important;
       }
       .col.border-right {
-        border-right: 1px solid #5a6469 !important;
+        border-right: 1px solid $slate-grey !important;
       }
       .timeline-badge-pill {
         border-radius: 50%;
-        border: 2px solid #5a6469 !important;
+        border: 2px solid $slate-grey !important;
         height: calc(1.25rem - 2px) !important;
         width: 1.25rem !important;
         padding: 2px 0 0 0 !important;
@@ -601,8 +601,8 @@ $print-component-border: 2px solid $slate-grey;
           display: block;
           top: 50%;
           left: calc(100% + 2px);
-          border-top: 1px solid #5a6469 !important;
-          border-bottom: 1px solid #5a6469 !important;
+          border-top: 1px solid $slate-grey !important;
+          border-bottom: 1px solid $slate-grey !important;
           width: 0.625rem;
         }
       }
@@ -612,7 +612,7 @@ $print-component-border: 2px solid $slate-grey;
         padding: 0 !important;
         .timeline-card {
           margin: 2.5rem 0 0.25rem 0 !important;
-          border: 2px solid #5a6469;
+          border: 2px solid $slate-grey;
           border-radius: 0;
           max-width: calc(100% - 14px);
           padding: 1.25rem !important;
@@ -624,8 +624,8 @@ $print-component-border: 2px solid $slate-grey;
             border-radius: 6px 6px 0 0;
             font-family: "KingsBureauGrot";
             line-height: 1.4;
-            color: #171717;
-            border: 2px solid #5a6469;
+            color: $headings;
+            border: 2px solid $slate-grey;
             border-bottom: none;
           }
           .card-body {
@@ -689,7 +689,7 @@ $print-component-border: 2px solid $slate-grey;
     & > h3, h4, h5, h6, p {
       font-size: 1.2rem;
       margin-left: calc(150px + 1.25rem);
-      border-left: 2px solid #5a6469;
+      border-left: 2px solid $slate-grey;
       padding: 0 1.25rem 1.25rem 1.25rem;
       margin-bottom: 0;
     }
@@ -706,7 +706,7 @@ $print-component-border: 2px solid $slate-grey;
         .card-author {
           display: block !important;
           text-align: center;
-          border-right: 2px solid #5a6469;
+          border-right: 2px solid $slate-grey;
           padding-right: 1.25rem;
           img {
             border-radius: 50%;
@@ -722,7 +722,7 @@ $print-component-border: 2px solid $slate-grey;
           margin-left: 1.25rem;
           &:only-child {
             margin-left: calc(150px + 1.25rem);
-            border-left: 2px solid #5a6469;
+            border-left: 2px solid $slate-grey;
             padding-left: 1.25rem;
             max-width: calc(100% - 150px - 2px) !important;
             overflow: hidden;

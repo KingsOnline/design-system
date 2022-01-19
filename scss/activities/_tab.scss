@@ -17,7 +17,7 @@
     ul {
       margin: 0px !important;
       li {
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem $component-padding-xs;
         &.row {
           margin-left: 0px !important;
           margin-right: 0px !important;
@@ -66,7 +66,7 @@
       }
     }
     .TabbedPanelsContent {
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem $component-padding-xs;
     }
   }
 }

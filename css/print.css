@@ -411,12 +411,12 @@
     margin-bottom: 1.25rem;
   }
   .collapse-container .collapse-card {
-    border-bottom: 2px solid #cdd7dc;
+    border-bottom: 2px solid #CDD7DC;
     padding: 1.25rem;
     padding-left: 4rem;
   }
   .collapse-container .collapse-card:first-child {
-    border-top: 2px solid #cdd7dc;
+    border-top: 2px solid #CDD7DC;
   }
   .collapse-container .collapse-card .collapse-header {
     padding: 0;
@@ -435,7 +435,7 @@
     margin-right: 0.375rem;
     content: "\f107";
     margin-right: 0;
-    color: #5a6469;
+    color: #5A6469;
     position: absolute;
     left: -2.5rem;
     top: -6px;
@@ -507,7 +507,7 @@
   }
   .transcript-container .transcript-card .card-body {
     page-break-inside: avoid;
-    border-left: 2px solid #5a6469;
+    border-left: 2px solid #5A6469;
     padding-left: 1.25rem;
     padding-top: 3rem;
     margin-top: 0;
@@ -548,7 +548,7 @@
   .shared-box,
   .files-box {
     page-break-inside: avoid;
-    border: 2px solid #8b9296 !important;
+    border: 2px solid #8B9296 !important;
     padding: 1.25rem !important;
     padding-left: 4rem !important;
     margin-bottom: 1.25rem;
@@ -580,7 +580,7 @@
     position: absolute;
     top: 1.25rem;
     left: 1.25rem;
-    color: #5a6469 !important;
+    color: #5A6469 !important;
   }
   .definition-box h3, .definition-box h4, .definition-box h5, .definition-box h6,
   .alert-instructional h3,
@@ -631,7 +631,7 @@
     color: #333333;
   }
   .alert-instructional {
-    background-color: #dce3e6 !important;
+    background-color: #DCE3E6 !important;
   }
   .alert-instructional > :first-child::before {
     content: "\f086";
@@ -648,8 +648,8 @@
   .key-concept-box {
     padding: 1.25rem;
     font-weight: bold;
-    background-color: #dce3e6 !important;
-    border: 2px solid #5a6469 !important;
+    background-color: #DCE3E6 !important;
+    border: 2px solid #5A6469 !important;
     margin-bottom: 1.25rem;
   }
   .key-concept-box p:last-child {
@@ -690,17 +690,17 @@
   /* table */
   .table-bordered {
     page-break-inside: avoid;
-    border: 2px solid #5a6469 !important;
+    border: 2px solid #5A6469 !important;
     border-radius: 0;
     border-collapse: collapse;
   }
   .table-bordered th, .table-bordered td {
-    border: 2px solid #5a6469;
+    border: 2px solid #5A6469;
     padding: 0.25rem;
     font-size: 1rem;
   }
   .table-bordered th {
-    background-color: #dce3e6 !important;
+    background-color: #DCE3E6 !important;
     color: #171717;
   }
   .table-bordered td {
@@ -756,14 +756,14 @@
     padding: 0 0 0 1.25rem;
   }
   .timeline-container .timeline-row .col.border-left {
-    border-left: 1px solid #5a6469 !important;
+    border-left: 1px solid #5A6469 !important;
   }
   .timeline-container .timeline-row .col.border-right {
-    border-right: 1px solid #5a6469 !important;
+    border-right: 1px solid #5A6469 !important;
   }
   .timeline-container .timeline-row .timeline-badge-pill {
     border-radius: 50%;
-    border: 2px solid #5a6469 !important;
+    border: 2px solid #5A6469 !important;
     height: calc(1.25rem - 2px) !important;
     width: 1.25rem !important;
     padding: 2px 0 0 0 !important;
@@ -776,8 +776,8 @@
     display: block;
     top: 50%;
     left: calc(100% + 2px);
-    border-top: 1px solid #5a6469 !important;
-    border-bottom: 1px solid #5a6469 !important;
+    border-top: 1px solid #5A6469 !important;
+    border-bottom: 1px solid #5A6469 !important;
     width: 0.625rem;
   }
   .timeline-container .timeline-row .timeline-content {
@@ -787,7 +787,7 @@
   }
   .timeline-container .timeline-row .timeline-content .timeline-card {
     margin: 2.5rem 0 0.25rem 0 !important;
-    border: 2px solid #5a6469;
+    border: 2px solid #5A6469;
     border-radius: 0;
     max-width: calc(100% - 14px);
     padding: 1.25rem !important;
@@ -801,7 +801,7 @@
     font-family: "KingsBureauGrot";
     line-height: 1.4;
     color: #171717;
-    border: 2px solid #5a6469;
+    border: 2px solid #5A6469;
     border-bottom: none;
   }
   .timeline-container .timeline-row .timeline-content .timeline-card .card-body {
@@ -868,7 +868,7 @@
   .view-model-answer-container p {
     font-size: 1.2rem;
     margin-left: calc(150px + 1.25rem);
-    border-left: 2px solid #5a6469;
+    border-left: 2px solid #5A6469;
     padding: 0 1.25rem 1.25rem 1.25rem;
     margin-bottom: 0;
   }
@@ -903,7 +903,7 @@
   .view-model-answer-container div[class^="view-"][class$="-card"] .card-body .card-author {
     display: block !important;
     text-align: center;
-    border-right: 2px solid #5a6469;
+    border-right: 2px solid #5A6469;
     padding-right: 1.25rem;
   }
   .view-answer-container div[class^="view-"][class$="-card"] .card-body .card-author img,
@@ -936,7 +936,7 @@
   .view-generic-container div[class^="view-"][class$="-card"] .card-body .card-text:only-child,
   .view-model-answer-container div[class^="view-"][class$="-card"] .card-body .card-text:only-child {
     margin-left: calc(150px + 1.25rem);
-    border-left: 2px solid #5a6469;
+    border-left: 2px solid #5A6469;
     padding-left: 1.25rem;
     max-width: calc(100% - 150px - 2px) !important;
     overflow: hidden;
