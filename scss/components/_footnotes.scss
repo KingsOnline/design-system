@@ -140,10 +140,18 @@ $list-style-types: [
       margin: 0 0 0 $component-margin-lg !important;
       li {
         display: list-item !important;
+        // to allow for .back-to-quote icon + default margin
+        padding-right: calc(20px + #{$component-padding-sm});
         .ref {
           font-size: 0.875rem;
           line-height: 1.5;
-          word-break: break-all;
+          a {
+            word-break: break-all;
+            // external link icon {
+            i.open-icon {
+              margin-left: 4px;
+            }
+          }
         }
         &::marker {
           font-size: 14px;
@@ -153,10 +161,9 @@ $list-style-types: [
         }
         &.selected {
           position: relative;
-          padding: 0 calc(20px + #{$component-padding-sm}) 0 4px;
           .ref {
             font-weight: bold;
-            a {
+            a.back-to-quote {
               position: absolute;
               top: 0;
               right: 4px;
@@ -166,7 +173,7 @@ $list-style-types: [
               align-items: center;
               color: transparent !important;
               // chevron circle up icon
-              i {
+              i.fa-chevron-circle-up {
                 @include icon-before;
                 margin: 2px 0 0 0;
                 font-size: 20px;

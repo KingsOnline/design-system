@@ -3,99 +3,108 @@
 
 // apply on all different types of pages within the database
 body[id*="page-mod-data-"] {
-  ul {
-    &.nav-tabs:nth-of-type(1) {
-      @extend %first-tab-nav;
+  #region-main {
+    ul {
+      &.nav-tabs:nth-of-type(1) {
+        @extend %first-tab-nav;
+        li {
+          margin-right: 10px;
+          a {
+            padding-bottom: 0.3rem;
+          }
+        }
+      }
+      &.nav-tabs:nth-of-type(2) {
+        @extend %second-tab-nav;
+        margin-left: 0;
+      }
     }
-    &.nav-tabs:nth-of-type(2) {
-      @extend %second-tab-nav;
-    }
-  }
-  nav.pagination {
-    margin-bottom: $component-margin-bottom;
-    display: flex;
-    -webkit-box-pack: right !important;
-    -ms-flex-pack: right !important;
-    justify-content: flex-end !important;
-    ul.pagination {
-      @extend %activity-pagination-container;
-      li.page-item {
-        @extend %activity-pagination-button;
-        a.page-link {
+    nav.pagination {
+      margin-bottom: $component-margin-bottom;
+      display: flex;
+      -webkit-box-pack: right !important;
+      -ms-flex-pack: right !important;
+      justify-content: flex-end !important;
+      ul.pagination {
+        @extend %activity-pagination-container;
+        li.page-item {
           @extend %activity-pagination-button;
-          &[aria-label="Next"] {
-            &::after {
-              @extend %a-p-b-next;
+          a.page-link {
+            @extend %activity-pagination-button;
+            &[aria-label="Next"] {
+              &::after {
+                @extend %a-p-b-next;
+              }
+              span[aria-hidden="true"] {
+                display :none;
+              }
             }
-            span[aria-hidden="true"] {
-              display :none;
+            &[aria-label="Previous"] {
+              &::before{
+                @extend %a-p-b-previous;
+              }
+              span[aria-hidden="true"] {
+                display:none;
+              }
             }
           }
-          &[aria-label="Previous"] {
-            &::before{
-              @extend %a-p-b-previous;
-            }
-            span[aria-hidden="true"] {
-              display:none;
-            }
+          &.active a.page-link {
+            @extend %a-p-b-active;
           }
-        }
-        &.active a.page-link {
-          @extend %a-p-b-active;
         }
       }
     }
-  }
-  // for search/filter
-  .datapreferences {
-    form#options {
-      label {
-        margin-right: $component-margin-xs;
-        margin-bottom: $component-margin-bottom;
-      }
-      #pref_perpage,
-      #reg_search,
-      #pref_sortby,
-      #pref_order,
-      label[for="advancedcheckbox"] {
-        margin-right: $component-margin;
-      }
-      @media only screen and (max-width: $neo-breakpoint) {
-        #reg_search {
-          display: block;
+    // for search/filter
+    .datapreferences {
+      form#options {
+        label {
+          margin-right: $component-margin-xs;
           margin-bottom: $component-margin-bottom;
-          label {
-            margin-bottom: 0;
+        }
+        #pref_perpage,
+        #reg_search,
+        #pref_sortby,
+        #pref_order,
+        label[for="advancedcheckbox"] {
+          margin-right: $component-margin;
+        }
+        @media only screen and (max-width: $neo-breakpoint) {
+          #reg_search {
+            display: block;
+            margin-bottom: $component-margin-bottom;
+            label {
+              margin-bottom: 0;
+            }
           }
         }
-      }
-      input[value="Save settings"] {
-        @extend %btn-primary;
-      }
-    }
-  }     
-  //for advanced search
-  #data_adv_form {
-    table.boxaligncenter {
-      // don't actually want it centred
-      margin-left: 0;
-      td {
-        padding: 0 $component-margin-xs 0 0;
-        text-align: left;
+        input[value="Save settings"] {
+          @extend %btn-primary;
+        }
       }
     }
-  }
-  // for entry templates
-  .entry {
-    border: 1px solid $table-border;
-    margin-bottom: $component-margin-bottom; 
-    padding: $component-padding;
-    a {
-      word-break: break-all;
+    //for advanced search
+    #data_adv_form {
+      table.boxaligncenter {
+        // don't actually want it centred
+        margin-left: 0;
+        td {
+          padding: 0 $component-margin-xs 0 0;
+          text-align: left;
+        }
+      }
     }
-  }
-  img {
-    max-width:100%;
+    // for entry templates
+    .entry {
+      border: 1px solid $table-border;
+      margin-bottom: $component-margin-bottom;
+      padding: $component-padding;
+      a {
+        word-break: break-all;
+      }
+    }
+    img {
+      max-width:100%;
+    }
   }
 }
 // just entry adding/editing view

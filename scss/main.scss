@@ -39,7 +39,7 @@
 @import "components/timeline";
 @import "components/viewhide";
 
-// @import "activities/assignment";
+@import "activities/assignment";
 @import "activities/blog";
 @import "activities/book";
 @import "activities/choice";
@@ -49,9 +49,11 @@
 @import "activities/file";
 @import "activities/folder";
 @import "activities/forum";
+@import "activities/glossary";
 @import "activities/kalvidassign";
 @import "activities/lesson";
 @import "activities/lti";
+@import "activities/ouwiki";
 @import "activities/questionnaire";
 @import "activities/quiz";
 @import "activities/tab";
@@ -59,6 +61,7 @@
 @import "activities/url";
 @import "activities/webinar";
 
+@import "pages/courseview";
 @import "pages/editor";
 @import "pages/filemanager";
 @import "pages/home";

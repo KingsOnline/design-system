@@ -169,6 +169,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
       margin-bottom: 0;
     }
     .card-body {
+      flex: 1;
       padding: 0;
       width: 100%;
       &:not(:only-child) {

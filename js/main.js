@@ -60,6 +60,20 @@ function addNewWindowMessage() {
   });
 }
 
+/* blockquote */
+// figure and figcaption tags are stripped by OU Blog activity
+if ($(".path-mod-oublog #oublog_info_block .quote-body").length) {
+  $(".path-mod-oublog #oublog_info_block .quote-body").each(function() {
+    // get attribution text, wrap in figcaption tags and wrap both quote and
+    // attribution in figure tags
+    var blockquoteAttribution = $(this)[0].nextSibling;
+    var blockquoteAttributionText = blockquoteAttribution.nodeValue;
+    blockquoteAttribution.remove();
+    $(this).wrap(`<figure class="blockquote"></figure>`);
+    $(this).after(`<figcaption class="quote-attribution">${blockquoteAttributionText}</figcaption>`);
+  });
+};
+
 /* card deck */
 // call function on window load (instead of doc ready)
 $(window).on('load', function() {
@@ -132,78 +146,55 @@ function resetCarWidth() {
   // resize to make integer width so scroll will work
   // remove the in-line attribute if it has been set in the editor
   $(".new-carousel").removeAttr("style");
-  var loadWidth = $(".new-carousel").width();
-  var carWidth = Math.floor(loadWidth);
+  var loadWidth = Math.floor($(".new-carousel").width());
   $(".new-carousel").each(function() {
-    $(this).width(carWidth);
+    $(this).width(loadWidth);
   });
 };
 
-$(".new-carousel").on("click", ".nc-next", function(event) {
+// change slide when previous/next buttons or indicators are clicked
+$(".new-carousel").on("click", ".nc-previous, .nc-next, .indic-dots li", function(event) {
   // get component width
-  var slideWidth = $(".nc-gallery").width();
-  // update value upon window resize
-  $(window).resize(function() {
-  slideWidth = $(".nc-gallery").width();
-  });
-  var newCarousel = $(this).parents()[2];
-  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
-  // scroll
-  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '+=' + slideWidth }, 2).animate({opacity:"1"},300);
+  var ncGallery = $(this).parents(".new-carousel").find(".nc-gallery");
+  var slideWidth = Math.floor($(ncGallery).width());
+  // scroll value is -/+ depending on button being previous/next
+  // or slide width * index if indicator
+  scrollDistance = $(this).hasClass("nc-previous")
+    ? '-=' + slideWidth
+    : $(this).hasClass("nc-next")
+      ? '+=' + slideWidth
+      : slideWidth * $(this).index();
+  $(ncGallery).animate({opacity:"0"}, 300).animate({scrollLeft: scrollDistance}, 2).animate({opacity:"1"}, 300);
 });
 
-$(".new-carousel").on("click", ".nc-previous", function(event) {
+// upon slide change - triggered by clicking on previous/next buttons
+// or indicators, update indicators and disable buttons if appropriate
+$(".new-carousel .nc-gallery").scroll(function() {
+  var newCarousel = $(this).parents(".new-carousel");
   // get component width
-  var slideWidth = $(".nc-gallery").width();
-  // update value upon window resize
-  $(window).resize(function() {
-  slideWidth = $(".nc-gallery").width();
-  });
-  var newCarousel = $(this).parents()[2];
-  var ncGallery = $(newCarousel).find(".nc-gallery")[0];
-  // scroll
-  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: '-=' + slideWidth }, 2).animate({opacity:"1"},300);
-});
-
-$(".nc-gallery").scroll(function() {
-  // get component width
-  var slideWidth = $(this).width();
+  var slideWidth = Math.floor($(this).width());
   // get how far we scrolled left
-  var leftNumber = $(this).scrollLeft();
-  // divide our scroll distance by component width to calculate which slide we're on (accounting for + 1 error)
-  var currSlideNum = Math.ceil((leftNumber / slideWidth) + 1);
+  // rounded to the nearest slideWidth multiple
+  var leftNumber = Math.floor($(this).scrollLeft() / slideWidth) * slideWidth;
+  // divide our scroll distance by component width to calculate which slide we're on
+  // (+1 to count first slide)
+  var currSlideNum = (leftNumber / slideWidth) + 1;
+  // total no of slides
+  var totalSlideNum = $(newCarousel).find(".nc-gallery li").length;
   // find the indicator dot with the same index and make that dot active, removing active from others
-  var newCarousel = $(this).parents()[0];
-  var indicDots = $(newCarousel).find(".indic-dots")[0];
-  var liveDot = $(indicDots).find(".active")[0];
-  $(liveDot).removeClass("active");
-  var activeDot = $(indicDots).find("li:nth-child(" + (currSlideNum) + ")")[0]
-  $(activeDot).addClass("active");
-  // For buttons
-  var noOfIndic = $(indicDots).find("li").length;
-  var ncNextButton = $(newCarousel).find(".nc-next")[0];
-  var ncPreviousButton = $(newCarousel).find(".nc-previous")[0];
-  // If slide number is last (equal to number of slides), make next button inactive
-  if (currSlideNum === noOfIndic) {
-    $(ncNextButton).attr('disabled','disabled')
-  } else {
-    $(ncNextButton).removeAttr('disabled')
-  }
-  // If slide number is 1, make previous button inactive
-  if (currSlideNum === 1) {
-    $(ncPreviousButton).attr('disabled','disabled')
-  } else {
-    $(ncPreviousButton).removeAttr('disabled')
-  }
-});
-
-$(".indic-dots li").click(function(numberDot){
-  var newCarousel = $(this).parents()[3];
-  var ncGallery= $(newCarousel).find(".nc-gallery")[0];
-  var slideWidth = $(ncGallery).width();
-  var numberDot = $(this).index();
-  var scrollTargetDistance = slideWidth * (numberDot);
-  $(ncGallery).animate({opacity:"0"},300).animate( { scrollLeft: scrollTargetDistance }, 2).animate({opacity:"1"},300);
+  $(newCarousel).find(".indic-dots .active").removeClass("active");
+  $(newCarousel).find(".indic-dots li:nth-child(" + currSlideNum + ")").addClass("active");
+  // for buttons
+  var ncNextButton = $(newCarousel).find(".nc-next");
+  var ncPreviousButton = $(newCarousel).find(".nc-previous");
+  // if slide number is last (equal to number of slides), make next button inactive
+  currSlideNum === totalSlideNum
+    ? $(ncNextButton).attr('disabled','disabled')
+    : $(ncNextButton).removeAttr('disabled');
+  // if slide number is 1, make previous button inactive
+  currSlideNum === 1
+    ? $(ncPreviousButton).attr('disabled','disabled')
+    : $(ncPreviousButton).removeAttr('disabled');
 });
 
 /* collapse */
@@ -285,9 +276,47 @@ $(document).on("click", "[class*='view-hide-']", function(event) {
       }
     }
   });
+  // resize card deck cards if present
+  if ($(".card-deck .card-body:not(:only-child)").length > 0) {
+    cardDeckEqualise();
+  }
 });
+// restore view/hide button when stripped out by OU Blog and Questionnaire
+// Moodle activities
+var oublogViewHide = $(".path-mod-oublog [class*='view-'][class*='-container']");
+var questionnaireViewHide = $(".path-mod-questionnaire [class*='view-'][class*='-container']");
+if (oublogViewHide.length || questionnaireViewHide.length) {
+  // identify button text as text node so the function only runs when the
+  // button element is stripped
+  var activityViewHide = oublogViewHide.add(questionnaireViewHide).contents().filter(function() {
+    return this.nodeType == 3;
+  });
+  activityViewHide.each(function() {
+    // trim text to remove whitespace
+    var activityViewHideText = $(this).text().toString().trim();
+    // get view/hide type
+    var viewHideType = activityViewHideText.slice(5).replace(" ", "-");
+    if (activityViewHideText.length) {
+      // restore button and update with trimmed text
+      $(this).wrap(`<button class="btn btn-primary view-hide-${viewHideType}" aria-expanded="false"></button>`)
+        .parents("[class*='view-'][class*='-container']").find("button").text(activityViewHideText);
+    };
+  });
+};
 
 /* book activity */
+// numbered TOC only
+var chapterNo = 0;
+$("#page-mod-book-view:not(.editing) .block_book_toc .book_toc_numbered").children("li > strong, li > a").each(function() {
+  if ($(this).hasClass("dimmed_text")) {
+    $(this).text("x." + $(this).text().split('.')[1]);
+  } else {
+    chapterNo++;
+    $(this).text(chapterNo + "." + $(this).text().split('.')[1]);
+  }
+});
+
+// pagination
 if ($("#page-mod-book-view").length) {
   // remove text from previous and next buttons
   $(".navbottom.clearfix > a").empty();
@@ -316,8 +345,18 @@ if ($(".block_book_toc .book_toc > ul > li").find("ul").length > 0) {
     : booknav.insertBefore(".navbottom.clearfix a.booknext");
   //$(".book_toc_indented ul").clone().find(".action-list").remove().end().insertAfter(".navbottom.clearfix.navtext a.bookprev");
   $(".navbottom.clearfix ul li").removeClass("clearfix").addClass("chapter");
-  $(".navbottom.clearfix ul li a, .navbottom.clearfix ul li strong").each(function(i) {
-    $(this).text(i+1);
+  // add numbering except for inactive chapters when editing mode is on
+  let i = 0;
+  $(".navbottom.clearfix ul li a, .navbottom.clearfix ul li strong").each(function() {
+    // replace numbering with 'x' for inactive chapters
+    if ($(this).find(".dimmed_text").length > 0) {
+      $(this).find(".dimmed_text").text("x");
+    } else if ($(this).hasClass("dimmed_text")) {
+      $(this).text("x");
+    } else {
+      i++;
+      $(this).text(i);
+    }
   });
   // add current class to current page
   $(".navbottom.clearfix ul li strong").parents("li").addClass("current");
@@ -328,10 +367,10 @@ if ($(".block_book_toc .book_toc > ul > li").find("ul").length > 0) {
   $(".chapter.mob-next").nextAll(":lt(2)").addClass("next");
 }
 // remove stupid arrows from prev and next activity links
-$(".activity-navigation a#prev-activity-link").text(function(i, text) {
+$(".activity-navigation a#prev-activity-link").html(function(i, text) {
   return text.slice(2);
 });
-$(".activity-navigation a#next-activity-link").text(function(i, text) {
+$(".activity-navigation a#next-activity-link").html(function(i, text) {
   return text.slice(0, -2);
 });
 // add class to subchapter option when editing book
@@ -420,7 +459,7 @@ $("li.activity").each(function() {
   // remove .activity-label-container if empty
   $(this).find(".activity-label-container:not(:has(*))").remove();
   // strip keywords from activity title
-  $(this).find(".instancename:contains('activity-label')").text(function(i, currentText) {
+  $(this).find(".instancename:contains('activity-label')").html(function(i, currentText) {
     return currentText.substring(27);
   });
   // add indent class and remove keyword
@@ -455,26 +494,28 @@ $(`#region-main h2:first-of-type:contains('activity-label'),
   .block_course_modulenavigation .activityname:contains('activity-label'),
   #page-report-log-index td a:contains('activity-label'),
   #page-report-outline-index td a:contains('activity-label'),
-  #page-question-edit select option:contains('activitiy-label'),
+  #page-question-edit select option:contains('activity-label'),
   #page-question-category h3:contains('activity-label'),
   #page-question-category ul li b a:contains('activity-label'),
   #page-question-category ul li .text_to_html:contains('activity-label'),
   #page-question-category select option:contains('activity-label'),
   #page-question-export select option:contains('activity-label'),
-  .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')`).text(function(i, currentText) {
-   return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+  .path-question-type #fitem_id_categorymoveto select optgroup option:contains('activity-label')`).html(function(i, currentText) {
+  return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 })
-
-
-// completion progress activity title
-$(".course-content ul.section li.activity .actions button img.icon, .course-content ul.section li.activity .actions .autocompletion img.icon").attr("title", function(i, currentText) {
-  return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+// completion progress activity, previous/next activity buttons
+// remove prefix and italic tags from title
+$(`.course-content ul.section li.activity .actions button img.icon,
+  .course-content ul.section li.activity .actions .autocompletion img.icon,
+  .activity-navigation .col-md-4 a`).attr("title", function(i, currentText) {
+  return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
 });
 // question bank select optgroup label
-$("#page-question-edit select optgroup, #page-question-category select optgroup, #page-question-export select optgroup").attr("label", function(i, currentText) {
-  return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
+$(`.path-question-type select optgroup,
+   .path-question select optgroup`).attr("label", function(i, currentText) {
+  return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
 });
-// question ediitng page current category
+// question editing page current category
 if ($('#fgroup_id_currentgrp fieldset').length) {
   var currentCategory = $("#fgroup_id_currentgrp fieldset").contents().filter(function(){
     return this.nodeType == 3;
@@ -496,7 +537,7 @@ setTimeout(function (){
 }, 2000);
 
 if (window.matchMedia('print').matches) {
-  $("#page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label')").text(function(i, currentText) {
+  $("#page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label')").html(function(i, currentText) {
     return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
   })
 }
@@ -511,6 +552,7 @@ if (documentTitle.includes('activity-label')) {
 $("li.activity span.instancename").each(function() {
   if ($(this).text().match(/^[1-9]{1}\.[0-9]+\s{1}/g)) $(this).html(function(i, currentText) {
     $(this).addClass('is-numbered');
+    $(this).parents("li.activity").addClass('is-numbered');
     return currentText.replace(/ |&nbsp;/, "</span><span class='activity-title'>");
   });
 });
@@ -524,3 +566,18 @@ $(".section:has(.activity .actions .autocompletion, .activity .actions .toggleco
 $(".activity:has(.actions .autocompletion, .actions .togglecompletion)").addClass("completion-progress-activity");
 // clone completion progress tooltip to each section with completion progress activities
 $(".course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section").prepend($("#completionprogressid").clone());
+
+/* OU Wiki */
+// adding sr-only class to the 'added' and 'deleted' img tags for the OU Wiki history page
+$("#page-mod-ouwiki-diff .ouw_diff.ouwiki_content img").each(function() {
+  var altTextValue = $(this).attr("alt");
+  var addedDeletedAltTextValues = [
+    "[Deleted text follows]",
+    "[End of deleted text]",
+    "[Added text follows]",
+    "[End of added text]"
+  ];
+  if (addedDeletedAltTextValues.includes(altTextValue)) {
+    $(this).addClass("sr-only");
+  }
+});

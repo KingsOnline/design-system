@@ -9,11 +9,12 @@
     display: inline-flex;
     // feedback gauge for images
     .ally-feedback:only-child {
+      overflow: hidden;
       &:hover {
         transform: none;
       }
       & > span {
-        bottom: -13px;
+        bottom: -13px !important;
       }
       .ally-scoreindicator-container {
         button {

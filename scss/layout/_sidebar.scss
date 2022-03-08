@@ -13,6 +13,7 @@
 //   - B) Module team academic
 //   - C) Networking
 // 7. Course module navigation
+// 8. Sharing cart
 
 // 1. Editing
 // allow enough space for move
@@ -305,6 +306,18 @@ aside {
       .completioncheck {
         position: static;
         margin: 0;
+      }
+    }
+  }
+}
+
+// 8. Sharing cart
+.block.block_sharing_cart {
+  ul.list li.activity {
+    .editing_update {
+      .fa-pencil::before {
+        // replace FA pro icon with free alternative
+        @include fa-content($fa-pencil);
       }
     }
   }

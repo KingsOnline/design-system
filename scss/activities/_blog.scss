@@ -1,13 +1,24 @@
 /* OU Blog
    ======================== */
 
+// mixin to override theme font-family, size, color etc.
+@mixin oublogHeadings {
+  @for $i from 1 through 6 {
+    h#{$i}, .h#{$i} {
+      @extend %h#{$i};
+    }
+  }
+}
+
 #page-mod-oublog-view {
   #region-main {
     // info/description section
     #oublog_info_block.main-description {
-      .card-body {
+      // apply styles to OU Blog main content area card only
+      & > .card-body {
         padding: $component-padding !important;
         .card-text {
+          @include oublogHeadings;
           margin: 0;
           padding: 0;
         }
@@ -63,7 +74,7 @@
                 .oublog_statsinfo_bar span.oublogbar {
                   background: transparent;
                 }
-                              }
+              }
               h3 {
                 @extend %h5;
               }

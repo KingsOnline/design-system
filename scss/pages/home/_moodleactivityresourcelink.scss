@@ -120,22 +120,20 @@
                 text-decoration: underline;
               }
             }
-            .instancename {
-              max-width: 100%;
-              // new span is created for activity title text
-              // when activities are numbered
-              .activity-title {
-                margin-left: 0.375rem;
-                @media only screen and (min-width: $neo-breakpoint) {
-                  margin-left: 0.75rem;
-                }
-              }
-            }
           }
           // restricted activities for students are inactive
           // and display as '.dimmed'
           a.aalink,
           .dimmed {
+            max-width: 100%;
+            // new span is created for activity title text
+            // when activities are numbered
+            .activity-title {
+              margin-left: 0.375rem;
+              @media only screen and (min-width: $neo-breakpoint) {
+                margin-left: 0.75rem;
+              }
+            }
             // 2c. Activity label container
             .activity-label-container {
               @extend %activity-label-container-default;

@@ -82,7 +82,7 @@ figure {
 // responsive images styles copied from theme
 // useful for custom width (not full-width) images
 .img-responsive,
-.circular-img, .img-circular,
+.circular-img, .img-circular, %img-circular,
 .screenshot {
   margin-bottom: $component-margin-bottom;
   max-width: 100%;
@@ -90,14 +90,14 @@ figure {
 }
 figure {
   .img-responsive,
-  .circular-img, .img-circular,
+  .circular-img, .img-circular, %img-circular,
   .screenshot {
     margin-bottom: 0;
   }
 }
 
 // circular images
-.circular-img, .img-circular {
+.circular-img, .img-circular, %img-circular {
   border-radius: 50%;
 }
 

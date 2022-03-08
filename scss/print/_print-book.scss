@@ -361,6 +361,7 @@ html {
       img {
         width: 100%;
         height: auto;
+        margin-bottom: $print-component-margin;
       }
     }
   }
@@ -388,6 +389,9 @@ html {
         & > img {
           margin: 0 0 0 $component-margin-sm;
         }
+      }
+      & > div:not(.img-container) {
+        order: 1;
       }
     }
     & > .filter-ally-wrapper,
@@ -424,6 +428,9 @@ html {
     // override theme max-width 100%;
     img {
       max-width: 310px !important;
+    }
+    & > div:not(.img-container) {
+      order: 2;
     }
     h3, h4, h5, h6 {
       margin-bottom: 0.625rem;
@@ -754,7 +761,8 @@ html {
       left: 36px;
     }
   }
-  .screenshot {
+  .screenshot,
+  .img-bordered {
     border: $print-component-border-thin;
   }
 
@@ -1325,6 +1333,7 @@ html {
         width: fit-content;
       }
       .card-body {
+        flex: 1;
         .card-title {
           margin-bottom: 0.75rem;
         }

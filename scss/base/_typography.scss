@@ -102,7 +102,7 @@ h6, .h6, %h6 { @include font-scale(h56-sm) ;}
   }
 }
 
-p {
+p, %p {
   @include font-scale(p, $font-os);
   margin-bottom: $component-margin-bottom;
   color: $body-text;

@@ -672,8 +672,11 @@ $print-component-border: 2px solid $slate-grey;
   }
   .timeline-2021-container {
     .timeline-card {
-      .date-label {
-        background-color: $slate-grey !important;
+      .card-body {
+        flex: 1;
+        .date-label {
+          background-color: $slate-grey !important;
+        }
       }
     }
   }

@@ -58,7 +58,7 @@
         .chart-table-data {
           display: block;
           table {
-            @extend .table, .table-bordered;
+            @extend %table-bordered;
           }
         }
       }

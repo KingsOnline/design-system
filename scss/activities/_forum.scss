@@ -23,8 +23,16 @@
       margin-bottom: $component-margin-bottom !important;
       .ml-2 {
         margin: 0 !important;
-        .custom-select {
-          margin: 0 $component-margin-xs;
+        // 'Move this discussion to...' dropdown
+        // only available in editing mode
+        .movediscussionoption {
+          .custom-select {
+            width: calc(100% - 69px);
+          }
+          // 'Move' button
+          .btn {
+            margin: 0 0 0 $component-margin-xs !important;
+          }
         }
         .btn {
           margin-bottom: 0 !important;
@@ -92,30 +100,49 @@
 
 // forum summary page
 .path-mod-forum {
-  #page-header-nav {
-    .breadcrumb-button {
+  #page-header-nav #page-navbar {
+    padding-top: 10px;
+    nav.breadcrumb-button {
+      align-items: flex-start;
       .forumsearch {
+        .input-group {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
         .input-group-prepend a {
-          padding-right: 0.25rem !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          margin: 0 !important;
+          padding: 0.25rem !important;
+        }
+        form {
+          img.icon, img.iconhelp {
+            padding: 0;
+          }
+          input#search {
+            max-width: calc(100% - 184px);
+            height: 2rem;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+          }
+          button#searchforums {
+            @extend %btn-primary;
+            height: auto;
+            margin: 0 !important;
+            border: 0;
+            margin-right: 0 !important;
+          }
         }
       }
-    }
-  }
-  #page-navbar .breadcrumb-button .forumsearch {
-    form {
-      img.icon, img.iconhelp {
-        padding: 0;
-      }
-      input#search {
-        height: 2rem;
-        border-radius: 5px;
-        margin-right: $component-margin-xs;
-      }
-      button#searchforums {
-        @extend %btn-primary;
-        margin: 0;
-        height: auto;
-        margin-right: $component-margin-sm !important;
+      .action-menu.moodle-actionmenu {
+        margin-left: $component-margin-sm;
+        @media only screen and (max-width: $neo-breakpoint) {
+          position: absolute;
+          top: -40px;
+          right: 12px;
+        }
       }
     }
   }

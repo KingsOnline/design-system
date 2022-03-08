@@ -34,7 +34,7 @@
     background-color: $block-background;
     width: 100%;
     .card-title,
-    h3, h4, h5, h6 {
+    & > h3, & > h4, & > h5, & > h6 {
       // from typography
       @extend %h4;
       margin-bottom: 0.75rem;
@@ -89,7 +89,8 @@
       max-width: min-content;
     }
   }
-  figure {
+  figure,
+  .filter-ally-wrapper {
     .img-responsive,
     .circular-img, .img-circular,
     .screenshot {
@@ -173,6 +174,7 @@
     .float-box-body {
       // images to display second in mobile view
       order: 1;
+      flex: 1;
       @media only screen and (min-width: $neo-breakpoint) {
         order: 2;
       }

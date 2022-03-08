@@ -616,6 +616,7 @@ html {
 #page-mod-book-print .card-deck .card img {
   width: 100%;
   height: auto;
+  margin-bottom: 1.25rem;
 }
 
 #page-mod-book-print .float-box {
@@ -642,6 +643,10 @@ html {
 #page-mod-book-print .float-box.img-right.img-small > img, #page-mod-book-print .float-box.img-right.small-img > .filter-ally-wrapper,
 #page-mod-book-print .float-box.img-right.small-img > img {
   margin: 0 0 0 1rem;
+}
+
+#page-mod-book-print .float-box.img-right > div:not(.img-container) {
+  order: 1;
 }
 
 #page-mod-book-print .float-box > .filter-ally-wrapper,
@@ -684,6 +689,10 @@ html {
 
 #page-mod-book-print .float-box img {
   max-width: 310px !important;
+}
+
+#page-mod-book-print .float-box > div:not(.img-container) {
+  order: 2;
 }
 
 #page-mod-book-print .float-box h3, #page-mod-book-print .float-box h4, #page-mod-book-print .float-box h5, #page-mod-book-print .float-box h6 {
@@ -1079,7 +1088,8 @@ html {
   left: 36px;
 }
 
-#page-mod-book-print .screenshot {
+#page-mod-book-print .screenshot,
+#page-mod-book-print .img-bordered {
   border: 1px solid #5A6469;
 }
 
@@ -7301,6 +7311,10 @@ html {
   background-color: #5A6469 !important;
   padding: 0.5rem;
   width: fit-content;
+}
+
+#page-mod-book-print .timeline-2021-container .timeline-card .card-body {
+  flex: 1;
 }
 
 #page-mod-book-print .timeline-2021-container .timeline-card .card-body .card-title {

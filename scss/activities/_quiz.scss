@@ -102,7 +102,7 @@
     a.qnbutton {
       height: 1.25rem;
       width: 1.25rem;
-      font-size: 1rem !important;
+      font-size: 0.75rem !important;
       padding: 0 !important;
       margin: 0 0.625rem 0.625rem 0;
       background-color: transparent;
@@ -115,6 +115,8 @@
       .thispageholder {
         border: 1px solid $rules-and-outlines;
         border-radius: 4px !important;
+        top: -1px;
+        bottom: 6px;
       }
       &.thispage .thispageholder {
         border: 2px solid $headings;

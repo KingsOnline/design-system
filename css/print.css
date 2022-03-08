@@ -834,7 +834,10 @@
   .timeline-container .timeline-row.highlighted .timeline-content .timeline-card {
     background-color: #ffe1d2 !important;
   }
-  .timeline-2021-container .timeline-card .date-label {
+  .timeline-2021-container .timeline-card .card-body {
+    flex: 1;
+  }
+  .timeline-2021-container .timeline-card .card-body .date-label {
     background-color: #5A6469 !important;
   }
   /* view answer */

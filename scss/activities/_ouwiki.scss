@@ -1,0 +1,190 @@
+/* OU Wiki
+   ======================== */
+
+#page-mod-ouwiki-view, #page-mod-ouwiki-edit, #page-mod-ouwiki-history, #page-mod-ouwiki-wikiindex, #page-mod-ouwiki-wikihistory, #page-mod-ouwiki-participation {
+  #region-main {
+    #ouwiki_indexlinks {
+      ul li a {
+        padding: $component-padding-xs;
+        border-width: 1px;
+        border-radius: 4px;
+        border-color: $rules-and-outlines;
+        background: $white;
+        color: $midnight-blue;
+        line-height: 1;
+        font-size: 100%;
+        display: inline-block;
+        &:hover {
+          background: $block-background;
+        }
+      }
+    }
+    ul.nav.nav-tabs {
+      margin-left: 0;
+      li {
+        &:not(:last-child) {
+          margin-bottom: 0 !important;
+        }
+        a {
+          @extend %h5;
+          padding: 8px 18px;
+          margin-right: 10px !important;
+          margin-bottom: 0;
+          color: $midnight-blue;
+          &:hover {
+            background-color: $block-background;
+          }
+        }
+        &.active {
+          a {
+            color: $white;
+            &:hover {
+              background-color: $midnight-blue;
+            }
+          }
+        } 
+      }
+    }
+    .ouwiki-content {
+      .ouw_topheading {
+        background: tint($sea-blue, 90%);
+        margin-top: 0;
+        padding: $component-padding;
+        border: 1px solid $rules-and-outlines;
+        border-bottom: 0;
+        h2.ouw_topheading {
+          padding: 0;
+          border: 0;
+        }
+        .ouw_byheading {
+          margin-left: 0;
+        }
+        .ouw_recentchanges .ouw_recentnot {
+          font-weight: bold;
+          color: $body-text;
+        }
+      }
+      .ouw_belowmainhead {
+        border: 1px solid $rules-and-outlines;
+        border-top: 0;
+        padding: $component-padding $component-padding 0;
+        .ouwiki_content h3 {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+#page-mod-ouwiki-wikiindex #region-main {
+  #ouwiki_indexlinks #ouwiki_nav_index {
+    font-weight: bold;
+    span {
+      padding: $component-padding-xs;
+      border-radius: 4px;
+      border-color: $midnight-blue;
+      border-width: 2px;
+      background: $white;
+      color: $midnight-blue;
+      line-height: 1;
+      font-size: 100%;
+      display: inline-block;
+      &:hover {
+        background: $block-background;
+      }
+    }
+  }
+  #ouwiki_belowtabs {
+    div.ouw_title {
+      background: tint($sea-blue, 90%);
+      border: 1px solid $rules-and-outlines;
+      border-bottom: 0;
+      padding: $component-padding-sm;
+      color: $body-text;
+      font-weight: bold;
+    }
+    div.ouw_indexinfo {
+      border: 1px solid $rules-and-outlines;
+      border-top: 0;
+      padding: $component-padding-sm;
+      span {
+        color: $body-text;
+      }
+      .ouw_lastchange .ouw_recentnot {
+        font-weight: bold;
+      }
+    }
+  }
+}
+#page-mod-ouwiki-wikihistory #ouwiki_indexlinks {
+  #ouwiki_nav_history {
+    font-weight: bold;
+    span {
+      padding: $component-padding-xs;
+      border-radius: 4px;
+      border-color: $midnight-blue;
+      border-width: 2px;
+      background: $white;
+      color: $midnight-blue;
+      line-height: 1;
+      font-size: 100%;
+      display: inline-block;
+      &:hover {
+        background: $block-background;
+      }
+    }
+  }
+}
+#page-mod-ouwiki-participation #ouwiki_indexlinks {
+  #ouwiki_nav_participation {
+    font-weight: bold;
+    span {
+      padding: $component-padding-xs;
+      border-radius: 4px;
+      border-color: $midnight-blue;
+      border-width: 2px;
+      background: $white;
+      color: $midnight-blue;
+      line-height: 1;
+      font-size: 100%;
+      display: inline-block;
+      &:hover {
+        background: $block-background;
+      }
+    }
+  }
+}
+#page-mod-ouwiki-edit {
+  input#preview {
+    @extend %btn-secondary;
+    margin-right: 0 !important;
+  }
+  input#cancel {
+    @extend %btn-secondary;
+  }
+}
+#page-mod-ouwiki-diff {
+  .ouw_left, .ouw_right {
+    .ouw_versionbox {
+      background: tint($sea-blue, 90%);
+      border: 1px solid $rules-and-outlines;
+      border-bottom: 0;
+      padding: 1rem;
+      color: $body-text;      
+    }
+    .ouw_diff.ouwiki_content {
+      background: $white;
+      border: 1px solid $rules-and-outlines;
+      border-top: 0;
+      padding: $component-padding-sm;
+      .ouw_added, .ouw_deleted {
+        background: tint($yellow, 80%);
+        color: $body-text;
+        text-decoration: none;
+      }
+      h3 {
+        border-bottom: none;
+      }
+    }
+  }
+}
+  

@@ -22,7 +22,8 @@ $table-bg-colors: (
 // mixin to add borders around and bg to individual row/col
 @mixin table-single-row-col-border {
   @for $i from 1 through 25 {
-    &.row-#{$i}-border {
+    &.row-#{$i}-border,
+    &%row-#{$i}-border {
       tr:nth-child(#{$i}) td {
         border-top: 1px solid $table-border !important;
         border-bottom: 1px solid $table-border !important;
@@ -41,12 +42,12 @@ $table-bg-colors: (
       }
     }
     &.row-#{$i}-border-background {
-      @extend .row-#{$i}-border;
+      @extend %row-#{$i}-border;
       tr:nth-child(#{$i}) td {
         background-color: map-get($table-bg-colors, 1);
       }
     }
-    //map to table-bg-colors
+    // map to table-bg-colors
     @each $bg-num, $hex in $table-bg-colors {
       &.row-#{$i}-background-#{$bg-num} {
         tr:nth-child(#{$i}) td {
@@ -54,13 +55,14 @@ $table-bg-colors: (
         }
       }
       &.row-#{$i}-border-background-#{$bg-num} {
-        @extend .row-#{$i}-border;
+        @extend %row-#{$i}-border;
         tr:nth-child(#{$i}) td {
           background-color: $hex;
         }
       }
     }
-    &.col-#{$i}-border {
+    &.col-#{$i}-border,
+    &%col-#{$i}-border {
       tr {
         td:nth-child(#{$i}) {
           border-left: 1px solid $table-border !important;
@@ -87,7 +89,7 @@ $table-bg-colors: (
       }
     }
     &.col-#{$i}-border-background {
-      @extend .col-#{$i}-border;
+      @extend %col-#{$i}-border;
       tr {
         td:nth-child(#{$i}) {
           background-color: map-get($table-bg-colors, 1);
@@ -104,7 +106,7 @@ $table-bg-colors: (
         }
       }
       &.col-#{$i}-border-background-#{$bg-num} {
-        @extend .col-#{$i}-border;
+        @extend %col-#{$i}-border;
         tr {
           td:nth-child(#{$i}) {
             background-color: $hex;
@@ -139,18 +141,21 @@ $table-bg-colors: (
     display: inline;
   }
 }
-table, .table {
+table,
+.table, %table {
   margin-bottom: $component-margin-bottom;
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
-  &.table-bordered, .bordered {
+  &.table-bordered, &%table-bordered, &.bordered {
     border: none;
     border-radius: 0;
     th, td {
       border: 1px solid $table-border !important;
     }
   }
+}
+table, .table {
   &.table-fixed {
     table-layout:fixed;
   }
@@ -331,5 +336,17 @@ table, .table {
   code {
     // so that the code is still visible when cells are highlighted
     background: #F7F7F9! important;
+  }
+}
+
+// table border-collapse is set to collapse
+// therefore borders can be cut off when combined with Bootstrap grid
+.row {
+  [class^="col"] {
+    table.no-borders {
+      // add margin-left instead of setting border-collapse to separate
+      // in case border highlight is applied to adjacent cols/rows
+      margin-left: 1px;
+    }
   }
 }
