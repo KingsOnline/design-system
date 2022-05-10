@@ -78,7 +78,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: $component-margin-bottom;
-  figure,
+  & > figure,
   // to maintain old .img-container class
   .img-container {
     order: 1;
@@ -89,7 +89,7 @@
       max-width: min-content;
     }
   }
-  figure,
+  & > figure,
   .filter-ally-wrapper {
     .img-responsive,
     .circular-img, .img-circular,
@@ -97,7 +97,7 @@
       max-width: unset;
     }
   }
-  figure figcaption,
+  & > figure figcaption,
   .img-container {
     & > .view-description-container {
       margin-top: $component-margin;
@@ -121,7 +121,7 @@
         order: 1 !important;
       }
     }
-    figure {
+    & > figure {
       order: 2;
       margin: 0 0 0 $component-margin-sm;
       @media only screen and (min-width: $neo-breakpoint) {
@@ -142,7 +142,7 @@
   &:not(.img-small):not(.image-small):not(.small-image) {
     @media only screen and (max-width: $neo-breakpoint) {
       flex-wrap: wrap;
-      figure,
+      & > figure,
       // to maintain old .img-container class
       .img-container,
       & > .filter-ally-wrapper {
@@ -158,7 +158,7 @@
         margin: $component-margin-sm 0 0 0;
         width: 100%;
       }
-      figure figcaption,
+      & > figure figcaption,
       // to maintain old .img-container class
       .img-container {
         & > .view-description-container {

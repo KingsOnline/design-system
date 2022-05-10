@@ -100,7 +100,7 @@
       padding: $component-margin-sm 0 0 0;
     }
     a.qnbutton {
-      height: 1.25rem;
+      height: 1rem;
       width: 1.25rem;
       font-size: 0.75rem !important;
       padding: 0 !important;
@@ -115,8 +115,6 @@
       .thispageholder {
         border: 1px solid $rules-and-outlines;
         border-radius: 4px !important;
-        top: -1px;
-        bottom: 6px;
       }
       &.thispage .thispageholder {
         border: 2px solid $headings;
@@ -304,9 +302,24 @@
             display: none;
           }
           .r0, .r1 {
-            padding-top: 0;
-            padding-bottom: 0;
-            margin-bottom: $component-margin-bottom-xs !important;
+            flex-wrap: wrap;
+            padding: $component-padding-xs;
+            margin: 0;
+            &:not(:last-child) {
+              margin-bottom: $component-margin-bottom-xs;
+            }
+            & > input {
+              margin: 6px $component-margin;
+            }
+            .w-100 {
+              width: auto !important;
+              &.d-flex {
+                margin: 0 !important;
+                :last-child {
+                  margin: 0 !important;
+                }
+              }
+            }
             label {
               font-size: 1rem;
               line-height: 1.5;
@@ -316,6 +329,27 @@
             }
             img.icon {
               display: none;
+            }
+            .specificfeedback {
+              position: relative;
+              width: 100%;
+              padding: $component-padding-xs $component-padding-xs $component-padding-xs 4rem;
+              margin: $component-margin-xs 0 0 0;
+              display: inline-block;
+              &::before {
+                @include fa-icon($fa-comments-alt);
+                position: absolute;
+                top: 10px;
+                // to align with correct/incorrect icon of general feedback
+                left: 22px;
+                color: $yellow;
+              }
+              * {
+                display: block;
+              }
+              & > :last-child {
+                margin-bottom: 0 !important;
+              }
             }
           }
           > div.correct {
@@ -372,12 +406,23 @@
         @extend %info-box-inner;
         margin-bottom: 0;
         color: $body-text;
-        .specificfeedback, .specificfeedback p {
-          @extend %info-box-title;
+        // 'Your answer is correct/incorrect'
+        .specificfeedback {
           margin-bottom: $component-margin-bottom-sm;
         }
         .rightanswer {
           margin-bottom: 0;
+          p:last-child {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+      .extra-feedback {
+        // to align with general feedback
+        margin-left: 50px;
+        // 'Start again' button
+        input {
+          margin: 0 !important;
         }
       }
     }

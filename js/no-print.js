@@ -1,22 +1,21 @@
 /* blocks */
 // hide administration block from students or teachers without editing rights
-$("#block-region-side-pre .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings'))), #block-region-side-post .block:has(h5.card-title:contains('Administration')):not(:has(.content #settingsnav ul li ul li a:contains('Edit settings')))").addClass("hide");
+$('#block-region-side-pre .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings"))), #block-region-side-post .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings")))').addClass('hide');
 // move 'add a block' block to the left
-$("#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains('Add a block')))))").children(".block").prependTo("#block-region-side-pre");
+$('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('.block').prependTo('#block-region-side-pre');
 // if there are no visible blocks in aside hide it and make main region full width
-$("#block-region-side-pre:not(:has(.block:not(.hide)))").addClass("hide").siblings("#region-main").removeClass("span8 pull-right");
-$("#block-region-side-post:not(:has(.block:not(.hide)))").addClass("hide").parents("body").addClass("empty-region-side-post used-region-side-pre");
+$('#block-region-side-pre:not(:has(.block:not(.hide)))').addClass('hide').siblings('#region-main').removeClass('span8 pull-right');
+$('#block-region-side-post:not(:has(.block:not(.hide)))').addClass('hide').parents('body').addClass('empty-region-side-post used-region-side-pre');
 // if sharing cart is enabled, add class to body
-$(".block-region:has(.block_sharing_cart)").parents("body").addClass("sharing-cart-enabled");
+$('.block-region:has(.block_sharing_cart)').parents('body').addClass('sharing-cart-enabled');
 // add networking-block- class
-$(".block ul[id*=networking-list]").each(function() {
-  $(this).parents(".block").addClass($(this).attr("id").replace("-list-", "-block-"));
+$('.block ul[id*=networking-list]').each(function() {
+  $(this).parents('.block').addClass($(this).attr('id').replace('-list-', '-block-'));
 });
 
 // if the foundation css is loaded, remove it
 var foundationCSS = $('link[href="https://www.kcl.ac.uk/study/learningteaching/ctel/Documents/hosting/css/templates/foundation-template.css"]');
 if (foundationCSS.length) {
-  //foundationCSS.prop('disabled', true);
   foundationCSS.remove();
 }
 
@@ -24,14 +23,14 @@ if (foundationCSS.length) {
 // remove this for no-print.js
 // pull print button from admin block and position at top of book
 printButton = $('.block_settings .tree_item.hasicon.tree_item.leaf:contains("Print book") a').clone().find('img').remove().end();
-$('<div id="print-btn-container">').insertAfter('#page-mod-book-view #maincontent');
-printButton.addClass('btn btn-secondary print-book-btn').text("Print").appendTo('#print-btn-container');
+$(`<div id='print-btn-container'>`).insertAfter('#page-mod-book-view #maincontent');
+printButton.addClass('btn btn-secondary print-book-btn').text('Print').appendTo('#print-btn-container');
 */
 
 // toggle side bar menus
-const blockHide = "#block-region-side-pre .block .title h2, #block-region-side-post .block .title h2";
-$(document).on("click", blockHide, function(event) {
-  $(this).parents(".block").toggleClass('hidden');
+const blockHide = '#block-region-side-pre .block .title h2, #block-region-side-post .block .title h2';
+$(document).on('click', blockHide, function(event) {
+  $(this).parents('.block').toggleClass('hidden');
 });
 
 /* external links in paragraphs */
@@ -46,33 +45,32 @@ if ((externalLink).length) {
 function addNewWindowIcon() {
   $(externalLink).each(function(i) {
     // only add icon if in region main and icon not already present
-    //if ($(this).closest("#region-main, .editor_atto_content_wrap").length && $(this).not(".open-icon")) {
-    if ($(this).parents("#region-main").length && $(this).children("i").filter(".open-icon").length == 0) {
-      $(this).append('<i class="open-icon fas fa-external-link-alt fa-xs" aria-hidden="true"></i>');
+    if ($(this).parents('#region-main').length && $(this).children('i').filter('.open-icon').length == 0) {
+      $(this).append(`<i class='open-icon fas fa-external-link-alt fa-xs' aria-hidden='true'></i>`);
     }
   });
 }
 function addNewWindowMessage() {
   $(externalLink).each(function(i) {
     // add span if not already present
-    if ($(this).find(".sr-link-message").length == 0) {
-      $(this).append('<span class="sr-only sr-link-message">(opens in a new tab)</span>');
-      $(this).attr('rel','noopener');
+    if ($(this).find('.sr-link-message').length == 0) {
+      $(this).append(`<span class='sr-only sr-link-message'>(opens in a new tab)</span>`);
+      $(this).attr('rel', 'noopener');
     }
   });
 }
 
 /* blockquote */
 // figure and figcaption tags are stripped by OU Blog activity
-if ($(".path-mod-oublog #oublog_info_block .quote-body").length) {
-  $(".path-mod-oublog #oublog_info_block .quote-body").each(function() {
+if ($('.path-mod-oublog #oublog_info_block .quote-body').length) {
+  $('.path-mod-oublog #oublog_info_block .quote-body').each(function() {
     // get attribution text, wrap in figcaption tags and wrap both quote and
     // attribution in figure tags
     var blockquoteAttribution = $(this)[0].nextSibling;
     var blockquoteAttributionText = blockquoteAttribution.nodeValue;
     blockquoteAttribution.remove();
-    $(this).wrap(`<figure class="blockquote"></figure>`);
-    $(this).after(`<figcaption class="quote-attribution">${blockquoteAttributionText}</figcaption>`);
+    $(this).wrap(`<figure class='blockquote'></figure>`);
+    $(this).after(`<figcaption class='quote-attribution'>${blockquoteAttributionText}</figcaption>`);
   });
 };
 
@@ -80,13 +78,13 @@ if ($(".path-mod-oublog #oublog_info_block .quote-body").length) {
 // call function on window load (instead of doc ready)
 $(window).on('load', function() {
   // if card deck is present
-  if ($(".card-deck .card-body:not(:only-child)").length > 0) {
+  if ($('.card-deck .card-body:not(:only-child)').length > 0) {
     cardDeckEqualise();
   }
 });
 // and again on window resize
 $(window).resize(function() {
-  if ($(".card-deck .card-body:not(:only-child)").length > 0) {
+  if ($('.card-deck .card-body:not(:only-child)').length > 0) {
     cardDeckEqualise();
   }
 });
@@ -94,45 +92,45 @@ function cardDeckEqualise() {
   // if window is larger than neo-breakpoint
   if ($(window).width() > 767) {
     // reset the heights first
-    $(".card-deck .card-body:not(:only-child)").height('auto');
+    $('.card-deck .card-body:not(:only-child)').height('auto');
     // then get heights of all cards within a single deck
-    $(".card-deck:has(.card-body:not(:only-child))").each(function(i) {
-      var cardHeight = $(this).find(".card-body:not(:only-child)")
+    $('.card-deck:has(.card-body:not(:only-child))').each(function(i) {
+      var cardHeight = $(this).find('.card-body:not(:only-child)')
       var heights = cardHeight.map(function() {
         return $(this).height();
       }).get();
       // find the largest
       maxHeight = Math.max.apply(null, heights);
       // apply to all cards within that deck
-      $(this).find(".card-body:not(:only-child)").height(maxHeight);
+      $(this).find('.card-body:not(:only-child)').height(maxHeight);
     });
   } else {
     // reset height
-    $(".card-body:not(:only-child)").height('auto');
+    $('.card-body:not(:only-child)').height('auto');
   }
 }
 
 /* carousel */
-$(document).on("click", ".carousel-control-prev, .carousel-control-next, .carousel-indicators li", function(event) {
+$(document).on('click', '.carousel-control-prev, .carousel-control-next, .carousel-indicators li', function(event) {
   // prevent carousel from rising to top of page
   event.preventDefault();
-  var carouselContainer = $(this).parents(".carousel");
+  var carouselContainer = $(this).parents('.carousel');
   // count no of slides
-  var maxSlides = carouselContainer.find(".carousel-item").length;
-  $(this).is(".carousel-indicators li")
-    ? newSlide = $(this).data("slide-to") + 1
-    : (currentSlide = (carouselContainer.find(".carousel-item.active" ).index()) + 1,
-      newSlide = $(this).hasClass("carousel-control-next")
+  var maxSlides = carouselContainer.find('.carousel-item').length;
+  $(this).is('.carousel-indicators li')
+    ? newSlide = $(this).data('slide-to') + 1
+    : (currentSlide = (carouselContainer.find('.carousel-item.active' ).index()) + 1,
+      newSlide = $(this).hasClass('carousel-control-next')
       ? currentSlide + 1
       : currentSlide - 1);
-  carouselContainer.removeClass("start finish").find(".carousel-item.active, .carousel-indicators li").removeClass("active");
-  carouselContainer.find(".carousel-item:nth-child(" + newSlide + "), .carousel-indicators li:nth-child(" + newSlide + ")").addClass("active");
+  carouselContainer.removeClass('start finish').find('.carousel-item.active, .carousel-indicators li').removeClass('active');
+  carouselContainer.find('.carousel-item:nth-child(" + newSlide + "), .carousel-indicators li:nth-child(" + newSlide + ")').addClass('active');
   // hide prev control on first slide
-  if (newSlide === 1) carouselContainer.addClass("start");
+  if (newSlide === 1) carouselContainer.addClass('start');
   // hide next control on last slide
-  if (newSlide === maxSlides) carouselContainer.addClass("finish");
+  if (newSlide === maxSlides) carouselContainer.addClass('finish');
   // override moodleism causing the second carousel indicator to not be active on the first cycle
-  carouselContainer.find(".carousel-indicators li:nth-child(2)").css("background-color", newSlide === 2 ? "white" : "rgba(255, 255, 255, 0.5)");
+  carouselContainer.find('.carousel-indicators li:nth-child(2)').css('background-color', newSlide === 2 ? 'white' : 'rgba(255, 255, 255, 0.5)');
 });
 
 /* new carousel */
@@ -147,32 +145,32 @@ $(window).resize(function() {
 function resetCarWidth() {
   // resize to make integer width so scroll will work
   // remove the in-line attribute if it has been set in the editor
-  $(".new-carousel").removeAttr("style");
-  var loadWidth = Math.floor($(".new-carousel").width());
-  $(".new-carousel").each(function() {
+  $('.new-carousel').removeAttr('style');
+  var loadWidth = Math.floor($('.new-carousel').width());
+  $('.new-carousel').each(function() {
     $(this).width(loadWidth);
   });
 };
 
 // change slide when previous/next buttons or indicators are clicked
-$(".new-carousel").on("click", ".nc-previous, .nc-next, .indic-dots li", function(event) {
+$('.new-carousel').on('click', '.nc-previous, .nc-next, .indic-dots li', function(event) {
   // get component width
-  var ncGallery = $(this).parents(".new-carousel").find(".nc-gallery");
+  var ncGallery = $(this).parents('.new-carousel').find('.nc-gallery');
   var slideWidth = Math.floor($(ncGallery).width());
   // scroll value is -/+ depending on button being previous/next
   // or slide width * index if indicator
-  scrollDistance = $(this).hasClass("nc-previous")
+  scrollDistance = $(this).hasClass('nc-previous')
     ? '-=' + slideWidth
-    : $(this).hasClass("nc-next")
+    : $(this).hasClass('nc-next')
       ? '+=' + slideWidth
       : slideWidth * $(this).index();
-  $(ncGallery).animate({opacity:"0"}, 300).animate({scrollLeft: scrollDistance}, 2).animate({opacity:"1"}, 300);
+  $(ncGallery).animate({opacity:'0'}, 300).animate({scrollLeft: scrollDistance}, 2).animate({opacity:'1'}, 300);
 });
 
 // upon slide change - triggered by clicking on previous/next buttons
 // or indicators, update indicators and disable buttons if appropriate
-$(".new-carousel .nc-gallery").scroll(function() {
-  var newCarousel = $(this).parents(".new-carousel");
+$('.new-carousel .nc-gallery').scroll(function() {
+  var newCarousel = $(this).parents('.new-carousel');
   // get component width
   var slideWidth = Math.floor($(this).width());
   // get how far we scrolled left
@@ -182,60 +180,60 @@ $(".new-carousel .nc-gallery").scroll(function() {
   // (+1 to count first slide)
   var currSlideNum = (leftNumber / slideWidth) + 1;
   // total no of slides
-  var totalSlideNum = $(newCarousel).find(".nc-gallery li").length;
+  var totalSlideNum = $(newCarousel).find('.nc-gallery li').length;
   // find the indicator dot with the same index and make that dot active, removing active from others
-  $(newCarousel).find(".indic-dots .active").removeClass("active");
-  $(newCarousel).find(".indic-dots li:nth-child(" + currSlideNum + ")").addClass("active");
+  $(newCarousel).find('.indic-dots .active').removeClass('active');
+  $(newCarousel).find('.indic-dots li:nth-child(' + currSlideNum + ')').addClass('active');
   // for buttons
-  var ncNextButton = $(newCarousel).find(".nc-next");
-  var ncPreviousButton = $(newCarousel).find(".nc-previous");
+  var ncNextButton = $(newCarousel).find('.nc-next');
+  var ncPreviousButton = $(newCarousel).find('.nc-previous');
   // if slide number is last (equal to number of slides), make next button inactive
   currSlideNum === totalSlideNum
-    ? $(ncNextButton).attr('disabled','disabled')
+    ? $(ncNextButton).attr('disabled', 'disabled')
     : $(ncNextButton).removeAttr('disabled');
   // if slide number is 1, make previous button inactive
   currSlideNum === 1
-    ? $(ncPreviousButton).attr('disabled','disabled')
+    ? $(ncPreviousButton).attr('disabled', 'disabled')
     : $(ncPreviousButton).removeAttr('disabled');
 });
 
 /* collapse */
 // hide and show collapse card
-$(document).on("click", ".collapse-card .collapse-header", function(event) {
+$(document).on('click', '.collapse-card .collapse-header', function(event) {
   event.preventDefault();
-  $(this).parents(".collapse-card").toggleClass("collapsed");
+  $(this).parents('.collapse-card').toggleClass('collapsed');
   // toggle aria that tells if expanded
-  $(this).find("button").attr('aria-expanded', function (i, attr) {
+  $(this).find('button').attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
   });
 });
 
 /* footnotes */
 // create footer for reference list
-$(".footnotes-article").append('<div class="footnotes-footer" role="doc-footnote"><ol></ol></div>');
+$('.footnotes-article').append(`<div class='footnotes-footer' role='doc-footnote'><ol></ol></div>`);
 // for each citation
-$(".footnotes-article .footnotes-body span.quote").each(function(i) {
-  const footnotesArticle = $(this).parents(".footnotes-article");
+$('.footnotes-article .footnotes-body span.quote').each(function(i) {
+  const footnotesArticle = $(this).parents('.footnotes-article');
   i++;
   // add link to ref from quote
-  $(this).attr("class", "quote-text").wrap(`
-    <a id="quote${i}" class="quote" role="doc-noteref" title="Jump to reference" href="#ref${i}"></a>
+  $(this).attr('class', 'quote-text').wrap(`
+    <a id='quote${i}' class='quote' role='doc-noteref' title='Jump to reference' href='#ref${i}'></a>
   `);
   // move each ref into ref list
-  $(this).find(".ref").appendTo((footnotesArticle).find(".footnotes-footer ol")).wrap(`<li id="ref${i}"></li>`);
-  $(this).parents("a").on("click", function() {
-    const footnotesArticle = $(this).parents(".footnotes-article");
-    $(".footnotes-footer li").removeClass("selected");
-    footnotesArticle.find(`.footnotes-footer li#ref${i}`).addClass("selected");
-    $(".footnotes-footer li a.back-to-quote").remove();
+  $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}'></li>`);
+  $(this).parents('a').on('click', function() {
+    const footnotesArticle = $(this).parents('.footnotes-article');
+    $('.footnotes-footer li').removeClass('selected');
+    footnotesArticle.find(`.footnotes-footer li#ref${i}`).addClass('selected');
+    $('.footnotes-footer li a.back-to-quote').remove();
     // create back to quote link and icon for selected ref
-    footnotesArticle.find(".footnotes-footer li.selected .ref").append(`
-      <a class="back-to-quote" title="Back to quote" href="#quote${i}">
-        <i class="fas fa-chevron-circle-up"></i>
+    footnotesArticle.find('.footnotes-footer li.selected .ref').append(`
+      <a class='back-to-quote' title='Back to quote' href='#quote${i}'>
+        <i class='fas fa-chevron-circle-up'></i>
       </a>
     `);
-    $("a.back-to-quote").on("click", function() {
-      $(this).parents("li").removeClass("selected");
+    $('a.back-to-quote').on('click', function() {
+      $(this).parents('li').removeClass('selected');
       $(this).remove();
     });
   });
@@ -243,10 +241,10 @@ $(".footnotes-article .footnotes-body span.quote").each(function(i) {
 
 /* transcript */
 // toggle transcript button text and transcript card
-$(document).on("click", ".transcript-button-group .view-close-transcript", function(event) {
+$(document).on('click', '.transcript-button-group .view-close-transcript', function(event) {
   event.preventDefault();
   $(this).text($(this).text() == 'View transcript' ? 'Hide transcript' : 'View transcript');
-  $(this).parents(".transcript-container").toggleClass("collapsed");
+  $(this).parents('.transcript-container').toggleClass('collapsed');
   // toggle aria that tells if expanded
   $(this).attr('aria-expanded', function (i, attr) {
     return attr == 'true' ? 'false' : 'true'
@@ -256,13 +254,13 @@ $(document).on("click", ".transcript-button-group .view-close-transcript", funct
 /* view/hide */
 // toggle view generic, view answer, model answer, and feedback button text and card
 var viewHideOptions = [
-  "View", "Hide",
-  "View answer", "Hide answer",
-  "View description", "Hide description",
-  "View feedback", "Hide feedback",
-  "View model answer", "Hide model answer"
+  'View', 'Hide',
+  'View answer', 'Hide answer',
+  'View description', 'Hide description',
+  'View feedback', 'Hide feedback',
+  'View model answer', 'Hide model answer'
 ];
-$(document).on("click", "[class*='view-hide-']", function(event) {
+$(document).on('click', '[class*="view-hide-"]', function(event) {
   event.preventDefault();
   // toggle aria that tells if expanded
   $(this).attr('aria-expanded', function (i, attr) {
@@ -270,23 +268,23 @@ $(document).on("click", "[class*='view-hide-']", function(event) {
   });
   $(this).text(function(i, currentText) {
     if (viewHideOptions.includes($(this).text())) {
-      $(this).parents("div[class^='view-'][class*='-container']").toggleClass("collapsed");
+      $(this).parents('div[class^="view-"][class*="-container"]').toggleClass('collapsed');
       if($(this).is(':contains("View")')) {
-        return currentText.replace("View", "Hide");
+        return currentText.replace('View', 'Hide');
       } else {
-        return currentText.replace("Hide", "View");
+        return currentText.replace('Hide', 'View');
       }
     }
   });
   // resize card deck cards if present
-  if ($(".card-deck .card-body:not(:only-child)").length > 0) {
+  if ($('.card-deck .card-body:not(:only-child)').length > 0) {
     cardDeckEqualise();
   }
 });
 // restore view/hide button when stripped out by OU Blog and Questionnaire
 // Moodle activities
-var oublogViewHide = $(".path-mod-oublog [class*='view-'][class*='-container']");
-var questionnaireViewHide = $(".path-mod-questionnaire [class*='view-'][class*='-container']");
+var oublogViewHide = $('.path-mod-oublog [class*="view-"][class*="-container"]');
+var questionnaireViewHide = $('.path-mod-questionnaire [class*="view-"][class*="-container"]');
 if (oublogViewHide.length || questionnaireViewHide.length) {
   // identify button text as text node so the function only runs when the
   // button element is stripped
@@ -297,11 +295,11 @@ if (oublogViewHide.length || questionnaireViewHide.length) {
     // trim text to remove whitespace
     var activityViewHideText = $(this).text().toString().trim();
     // get view/hide type
-    var viewHideType = activityViewHideText.slice(5).replace(" ", "-");
+    var viewHideType = activityViewHideText.slice(5).replace(' ', '-');
     if (activityViewHideText.length) {
       // restore button and update with trimmed text
-      $(this).wrap(`<button class="btn btn-primary view-hide-${viewHideType}" aria-expanded="false"></button>`)
-        .parents("[class*='view-'][class*='-container']").find("button").text(activityViewHideText);
+      $(this).wrap(`<button class='btn btn-primary view-hide-${viewHideType}' aria-expanded='false'></button>`)
+        .parents('[class*="view-"][class*="-container"]').find('button').text(activityViewHideText);
     };
   });
 };
@@ -309,163 +307,179 @@ if (oublogViewHide.length || questionnaireViewHide.length) {
 /* book activity */
 // numbered TOC only
 var chapterNo = 0;
-$("#page-mod-book-view:not(.editing) .block_book_toc .book_toc_numbered").children("li > strong, li > a").each(function() {
-  if ($(this).hasClass("dimmed_text")) {
-    $(this).text("x." + $(this).text().split('.')[1]);
+$('#page-mod-book-view:not(.editing) .block_book_toc .book_toc_numbered').children('li > strong, li > a').each(function() {
+  if ($(this).hasClass('dimmed_text')) {
+    $(this).text('x.' + $(this).text().split('.')[1]);
   } else {
     chapterNo++;
-    $(this).text(chapterNo + "." + $(this).text().split('.')[1]);
+    $(this).text(chapterNo + '.' + $(this).text().split('.')[1]);
   }
 });
 
 // pagination
-if ($("#page-mod-book-view").length) {
+if ($('#page-mod-book-view').length) {
   // remove text from previous and next buttons
-  $(".navbottom.clearfix > a").empty();
+  $('.navbottom.clearfix > a').empty();
 }
 // if book contains subchapters
-if ($(".block_book_toc .book_toc > ul > li").find("ul").length > 0) {
+if ($('.block_book_toc .book_toc > ul > li').find('ul').length > 0) {
   // give page class
-  $("body").addClass("has-sub-chaps");
+  $('body').addClass('has-sub-chaps');
   // add previous/next chapter button text
-  $(".navbottom.clearfix > a.booknext").text("Next");
-  $(".navbottom.clearfix > a.bookprev").text("Previous");
+  $('.navbottom.clearfix > a.booknext').text('Next');
+  $('.navbottom.clearfix > a.bookprev').text('Previous');
 // else if single chapter book
-} else if ($(".block_book_toc .book_toc > ul > li:only-child > strong").length > 0 || $(".block_book_toc .book_toc > ul > li:only-child > div > strong").length > 0) {
+} else if ($('.block_book_toc .book_toc > ul > li:only-child > strong').length > 0 || $('.block_book_toc .book_toc > ul > li:only-child > div > strong').length > 0) {
   // add class to body
-  $("body").addClass("single-chapter-book");
-  if ($(".block_book_toc .book_toc > ul > li:only-child > strong").length > 0) {
+  $('body').addClass('single-chapter-book');
+  if ($('.block_book_toc .book_toc > ul > li:only-child > strong').length > 0) {
     // hide toc
-    $(".block_book_toc").hide();
+    $('.block_book_toc').hide();
   }
 // otherwise, create the numbered pagination
 } else {
   // copy chapterlist to book nav and remove .action-list
-  booknav = $(".block_fake .content > div > ul").clone().find(".action-list").remove().end();
-  $(".navbottom.clearfix.navtext a.bookprev").length
-    ? booknav.insertAfter(".navbottom.clearfix a.bookprev")
-    : booknav.insertBefore(".navbottom.clearfix a.booknext");
-  //$(".book_toc_indented ul").clone().find(".action-list").remove().end().insertAfter(".navbottom.clearfix.navtext a.bookprev");
-  $(".navbottom.clearfix ul li").removeClass("clearfix").addClass("chapter");
+  booknav = $('.block_fake .content > div > ul').clone().find('.action-list').remove().end();
+  $('.navbottom.clearfix.navtext a.bookprev').length
+    ? booknav.insertAfter('.navbottom.clearfix a.bookprev')
+    : booknav.insertBefore('.navbottom.clearfix a.booknext');
+  //$('.book_toc_indented ul').clone().find('.action-list').remove().end().insertAfter('.navbottom.clearfix.navtext a.bookprev');
+  $('.navbottom.clearfix ul li').removeClass('clearfix').addClass('chapter');
   // add numbering except for inactive chapters when editing mode is on
   let i = 0;
-  $(".navbottom.clearfix ul li a, .navbottom.clearfix ul li strong").each(function() {
+  $('.navbottom.clearfix ul li a, .navbottom.clearfix ul li strong').each(function() {
     // replace numbering with 'x' for inactive chapters
-    if ($(this).find(".dimmed_text").length > 0) {
-      $(this).find(".dimmed_text").text("x");
-    } else if ($(this).hasClass("dimmed_text")) {
-      $(this).text("x");
+    if ($(this).find('.dimmed_text').length > 0) {
+      $(this).find('.dimmed_text').text('x');
+    } else if ($(this).hasClass('dimmed_text')) {
+      $(this).text('x');
     } else {
       i++;
       $(this).text(i);
     }
   });
   // add current class to current page
-  $(".navbottom.clearfix ul li strong").parents("li").addClass("current");
-  // add prev and next class to li before and after current for mobile
-  $(".chapter.current").prev("li").addClass("mob-prev");
-  $(".chapter.mob-prev").prevAll(":lt(2)").addClass("prev");
-  $(".chapter.current").next("li").addClass("mob-next");
-  $(".chapter.mob-next").nextAll(":lt(2)").addClass("next");
+  $('.navbottom.clearfix ul li strong').parents('li').addClass('current');
+  // 2.4 long-book nav
+  if ($('.book_toc ul').length !== 0) {
+    // add large-book-pagination class if 11 or more chapters
+    if ($('.book_toc ul').get(0).childElementCount > 10) {
+      $('.navbottom ul').addClass('large-book-pagination');
+    // add mob-large-book-pagination class if 6 or more chapters
+    } else if ($('.book_toc ul').get(0).childElementCount > 5) {
+      $('.navbottom ul').addClass('mob-large-book-pagination');
+    };
+  };
+  // add prev-i/next-i classes to first 4 chapters before and after current
+  $('.current').prevAll().each(function(i) {
+    if (i < 4) {
+      $(this).addClass('prev-' + (i+1));
+    }
+  });
+  $('.current').nextAll().each(function(i) {
+    if (i < 4) {
+      $(this).addClass('next-' + (i+1));
+    }
+  });
 }
 // remove stupid arrows from prev and next activity links
-$(".activity-navigation a#prev-activity-link").html(function(i, text) {
+$('.activity-navigation a#prev-activity-link').html(function(i, text) {
   return text.slice(2);
 });
-$(".activity-navigation a#next-activity-link").html(function(i, text) {
+$('.activity-navigation a#next-activity-link').html(function(i, text) {
   return text.slice(0, -2);
 });
 // add class to subchapter option when editing book
-$("#page-mod-book-edit #id_subchapter").parents(".fitem").addClass("subchapter");
+$('#page-mod-book-edit #id_subchapter').parents('.fitem').addClass('subchapter');
 
 /* blog activity */
 // moves the info block into the main body text
-$("#oublog_info_block").detach().prependTo($("#region-main"));
-$("#oublog_info_block").addClass("main-description");
+$('#oublog_info_block').detach().prependTo($('#region-main'));
+$('#oublog_info_block').addClass('main-description');
 // changes the heading level on the info to h2
-$("#oublog_info_block h5").replaceWith(function () {
-  return "<h2>" + $(this).html() + "</h2>";
+$('#oublog_info_block h5').replaceWith(function () {
+  return '<h2>' + $(this).html() + '</h2>';
 });
 
 /* activity labels */
 // move .accesshide from within .instancename and append to .activityinstance
 // affected the prefix title modification in original location
-$("li.activity .instancename .accesshide").each(function() {
-    $(this).parents(".activityinstance").prepend(this);
+$('li.activity .instancename .accesshide').each(function() {
+    $(this).parents('.activityinstance').prepend(this);
 });
 
 // week overview page activity label code
 // restricted activities display as '.dimmed' for students
-$("li.activity .activityinstance").find("a:not(.quickeditlink), .dimmed")
+$('li.activity .activityinstance').find('a:not(.quickeditlink), .dimmed')
   .append(
-    `<div class="activity-label-container">
-      <div class="activity-label"><span class="label-text"></span></div>
-      <div class="group-icon"><i></i></div>
-      <div class="media-icon"><i></i></div>
+    `<div class='activity-label-container'>
+      <div class='activity-label'><span class='label-text'></span></div>
+      <div class='group-icon'><i></i></div>
+      <div class='media-icon'><i></i></div>
     </div>`);
 
-$("li.activity").each(function() {
+$('li.activity').each(function() {
   // set defaults
   // activity type no icon
   if ($(this).is('.attendance, .attendanceregister, .choice, .chat, .checklist, .feedback, .hvp, .kalvidassign, .oublog, .questionnaire, .quiz, .scheduler, .survey')) {
-    $(this).addClass("type-activity");
+    $(this).addClass('type-activity');
   // no activity label with media icon
-  } else if ($(this).is(".kalvidres")) {
-    $(this).addClass("type-study i-media");
+  } else if ($(this).is('.kalvidres')) {
+    $(this).addClass('type-study i-media');
   // activity type with group icon
-  } else if ($(this).is(".data, .forum, .choicegroup, .ouwiki, .connecthosted, .wiki")) {
-    $(this).addClass("type-activity i-group");
+  } else if ($(this).is('.data, .forum, .choicegroup, .ouwiki, .connecthosted, .wiki')) {
+    $(this).addClass('type-activity i-group');
   // assessed type no icon
-  } else if ($(this).is(".assign, .turnitintooltwo, .workshop")) {
-    $(this).addClass("type-assessed");
-  } else if ($(this).is(".lti")) {
-    $("img").each(function(i, elem){
+  } else if ($(this).is('.assign, .turnitintooltwo, .workshop')) {
+    $(this).addClass('type-assessed');
+  } else if ($(this).is('.lti')) {
+    $('img').each(function(i, elem){
       // image is only way to differentiate echo360 from other lti activities
-      $(this).parents(".lti").addClass($(this).attr("src") == "https://www.kcl.ac.uk/newimages/it/echo-icon-play.png" ? "echo360 type-study i-media" : "type-study");
+      $(this).parents('.lti').addClass($(this).attr('src') == 'https://www.kcl.ac.uk/newimages/it/echo-icon-play.png' ? 'echo360 type-study i-media' : 'type-study');
     });
   } else {
     // if not a label, then study type
-    if (!$(this).hasClass("label")) $(this).addClass("type-study");
+    if (!$(this).hasClass('label')) $(this).addClass('type-study');
   }
   // remove label
-  $(this).find(".instancename:contains('activity-label-stu-')").parents("li.activity").removeClass("type-activity type-assessed").addClass("type-study");
+  $(this).find('.instancename:contains("activity-label-stu-")').parents('li.activity').removeClass('type-activity type-assessed').addClass('type-study');
   // override activity type
-  $(this).find(".instancename:contains('activity-label-act-')").parents("li.activity").removeClass("type-study type-assessed").addClass("type-activity");
+  $(this).find('.instancename:contains("activity-label-act-")').parents('li.activity').removeClass('type-study type-assessed').addClass('type-activity');
   // add assessed label
-  $(this).find(".instancename:contains('activity-label-ass-')").parents("li.activity").removeClass("type-study type-activity").addClass("type-assessed");
+  $(this).find('.instancename:contains("activity-label-ass-")').parents('li.activity').removeClass('type-study type-activity').addClass('type-assessed');
   // add icon class to activity
-  $(this).find(".instancename:contains('-gro-')").parents("li.activity").addClass("i-group");
-  $(this).find(".instancename:contains('-med ')").parents("li.activity").addClass("i-media");
-  $(this).find(".instancename:contains('-ngr-')").parents("li.activity").removeClass("i-group");
-  $(this).find(".instancename:contains('-nme ')").parents("li.activity").removeClass("i-media");
+  $(this).find('.instancename:contains("-gro-")').parents('li.activity').addClass('i-group');
+  $(this).find('.instancename:contains("-med ")').parents('li.activity').addClass('i-media');
+  $(this).find('.instancename:contains("-ngr-")').parents('li.activity').removeClass('i-group');
+  $(this).find('.instancename:contains("-nme ")').parents('li.activity').removeClass('i-media');
   // add activity label text and icons
   // add 'assessed' text to assessed type label
-  $(this).is(".type-assessed")
-    ? $(this).find(".activity-label-container .activity-label .label-text").text("assessed")
+  $(this).is('.type-assessed')
+    ? $(this).find('.activity-label-container .activity-label .label-text').text('assessed')
     // add 'activity' text to activity type label
-    : $(this).is(".type-activity")
-      ? $(this).find(".activity-label-container .activity-label .label-text").text("activity")
+    : $(this).is('.type-activity')
+      ? $(this).find('.activity-label-container .activity-label .label-text').text('activity')
       // remove activity type label
-      : $(this).find(".activity-label-container .activity-label").remove();
+      : $(this).find('.activity-label-container .activity-label').remove();
   // add icons to activity type label
-  $(this).is(".i-group.i-media")
-    ? ($(this).find(".activity-label-container .group-icon i").addClass("fas fa-user-friends"),
-      $(this).find(".activity-label-container .media-icon i").addClass("fas fa-play-circle"))
-    : $(this).is(".i-group")
-      ? ($(this).find(".activity-label-container .group-icon i").addClass("fas fa-user-friends"),
-        $(this).find(".activity-label-container .media-icon").remove())
-      : $(this).is(".i-media")
-        ? ($(this).find(".activity-label-container .media-icon i").addClass("fas fa-play-circle"),
-          $(this).find(".activity-label-container .group-icon").remove())
-        : $(this).find(".activity-label-container .group-icon, .activity-label-container .media-icon").remove();
+  $(this).is('.i-group.i-media')
+    ? ($(this).find('.activity-label-container .group-icon i').addClass('fas fa-user-friends'),
+      $(this).find('.activity-label-container .media-icon i').addClass('fas fa-play-circle'))
+    : $(this).is('.i-group')
+      ? ($(this).find('.activity-label-container .group-icon i').addClass('fas fa-user-friends'),
+        $(this).find('.activity-label-container .media-icon').remove())
+      : $(this).is('.i-media')
+        ? ($(this).find('.activity-label-container .media-icon i').addClass('fas fa-play-circle'),
+          $(this).find('.activity-label-container .group-icon').remove())
+        : $(this).find('.activity-label-container .group-icon, .activity-label-container .media-icon').remove();
   // remove .activity-label-container if empty
-  $(this).find(".activity-label-container:not(:has(*))").remove();
+  $(this).find('.activity-label-container:not(:has(*))').remove();
   // strip keywords from activity title
-  $(this).find(".instancename:contains('activity-label')").html(function(i, currentText) {
+  $(this).find('.instancename:contains("activity-label")').html(function(i, currentText) {
     return currentText.substring(27);
   });
   // add indent class and remove keyword
-  $(this).find("span:contains('-indent')").hide().parents("li.activity").addClass("indent");
+  $(this).find('span:contains("-indent")').hide().parents('li.activity').addClass('indent');
 });
 
 /*
@@ -509,37 +523,37 @@ $(`#region-main h2:first-of-type:contains('activity-label'),
 // remove prefix and italic tags from title
 $(`.course-content ul.section li.activity .actions button img.icon,
   .course-content ul.section li.activity .actions .autocompletion img.icon,
-  .activity-navigation .col-md-4 a`).attr("title", function(i, currentText) {
+  .activity-navigation .col-md-4 a`).attr('title', function(i, currentText) {
   return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
 });
 // question bank select optgroup label
 $(`.path-question-type select optgroup,
-   .path-question select optgroup`).attr("label", function(i, currentText) {
+   .path-question select optgroup`).attr('label', function(i, currentText) {
   return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
 });
 // question editing page current category
 if ($('#fgroup_id_currentgrp fieldset').length) {
-  var currentCategory = $("#fgroup_id_currentgrp fieldset").contents().filter(function(){
+  var currentCategory = $('#fgroup_id_currentgrp fieldset').contents().filter(function(){
     return this.nodeType == 3;
   })[0];
   currentCategory.nodeValue = currentCategory.nodeValue.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 }
 // turnitin title in details table
 if ($('.path-mod-turnitintooltwo .mod_turnitintooltwo_part_details td').length) {
-  var turnitinTitle = $(".path-mod-turnitintooltwo .mod_turnitintooltwo_part_details td").contents().filter(function(){
+  var turnitinTitle = $('.path-mod-turnitintooltwo .mod_turnitintooltwo_part_details td').contents().filter(function(){
     return this.nodeType == 3;
   })[0];
   turnitinTitle.nodeValue = turnitinTitle.nodeValue.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
 }
 // activity restrict access dropdown
 setTimeout(function (){
-  $(".availability-group .custom-select option:contains('activity-label')").text(function(i, currentText) {
+  $('.availability-group .custom-select option:contains("activity-label")').text(function(i, currentText) {
     return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
   });
 }, 2000);
 
 if (window.matchMedia('print').matches) {
-  $("#page-content h1:first-of-type:contains('activity-label'), #page-mod-book-print #page-content .book_info td:contains('activity-label')").html(function(i, currentText) {
+  $('#page-content h1:first-of-type:contains("activity-label"), #page-mod-book-print #page-content .book_info td:contains("activity-label")').html(function(i, currentText) {
     return currentText.replace(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} /g, '');
   })
 }
@@ -551,35 +565,35 @@ if (documentTitle.includes('activity-label')) {
 }
 
 // create activity title span to control spacing between activity number and title text
-$("li.activity span.instancename").each(function() {
+$('li.activity span.instancename').each(function() {
   if ($(this).text().match(/^[1-9]{1}\.[0-9]+\s{1}/g)) $(this).html(function(i, currentText) {
     $(this).addClass('is-numbered');
-    $(this).parents("li.activity").addClass('is-numbered');
-    return currentText.replace(/ |&nbsp;/, "</span><span class='activity-title'>");
+    $(this).parents('li.activity').addClass('is-numbered');
+    return currentText.replace(/ |&nbsp;/, '</span><span class="activity-title">');
   });
 });
 
 // hide activity labels within a specific course section
-$(".summary span.section-hide-activity-labels").parents("li.section.main").addClass("section-hide-activity-labels");
+$('.summary span.section-hide-activity-labels').parents('li.section.main').addClass('section-hide-activity-labels');
 
 /* completion progress */
 // completion progress class added to section with tracked activities
-$(".section:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)").addClass("completion-progress-section");
-$(".activity:has(.actions .autocompletion, .actions .togglecompletion)").addClass("completion-progress-activity");
+$('.section:has(.activity .actions .autocompletion, .activity .actions .togglecompletion)').addClass('completion-progress-section');
+$('.activity:has(.actions .autocompletion, .actions .togglecompletion)').addClass('completion-progress-activity');
 // clone completion progress tooltip to each section with completion progress activities
-$(".course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section").prepend($("#completionprogressid").clone());
+$('.course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section').prepend($('#completionprogressid').clone());
 
 /* OU Wiki */
 // adding sr-only class to the 'added' and 'deleted' img tags for the OU Wiki history page
-$("#page-mod-ouwiki-diff .ouw_diff.ouwiki_content img").each(function() {
-  var altTextValue = $(this).attr("alt");
+$('#page-mod-ouwiki-diff .ouw_diff.ouwiki_content img').each(function() {
+  var altTextValue = $(this).attr('alt');
   var addedDeletedAltTextValues = [
-    "[Deleted text follows]",
-    "[End of deleted text]",
-    "[Added text follows]",
-    "[End of added text]"
+    '[Deleted text follows]',
+    '[End of deleted text]',
+    '[Added text follows]',
+    '[End of added text]'
   ];
   if (addedDeletedAltTextValues.includes(altTextValue)) {
-    $(this).addClass("sr-only");
+    $(this).addClass('sr-only');
   }
 });

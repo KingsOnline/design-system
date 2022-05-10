@@ -120,6 +120,15 @@
                 text-decoration: underline;
               }
             }
+            // focus outline is misaligned when activity label present
+            // so overriding with border instead
+            &:focus {
+              outline: none !important;
+              border: 2px solid $sea-blue;
+              margin-left: -2px;
+              margin-right: -2px;
+              padding: 2px 0;
+            }
           }
           // restricted activities for students are inactive
           // and display as '.dimmed'

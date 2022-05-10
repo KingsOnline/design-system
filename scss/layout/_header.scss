@@ -40,6 +40,11 @@
     // user profile picture
     .usermenu + a {
       @include focus-outline;
+      // move margin from img to container
+      margin-left: $component-margin-sm;
+      img {
+        margin-left: 0;
+      }
     }
   }
 }
@@ -56,6 +61,11 @@
       // override standard button padding
       button {
         padding: 6px 18px !important;
+        // restore default focus style
+        &:focus {
+          outline: thin dotted #333;
+          outline-offset: -2px;
+        }
       }
       &:hover input#coursesearchbox {
         font-size: inherit;

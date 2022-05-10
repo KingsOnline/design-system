@@ -341,7 +341,7 @@
 
 @mixin focus-outline {
   &:focus {
-    outline: 1px dashed $sea-blue;
+    outline: 2px solid $sea-blue;
     outline-offset: 2px;
   }
 }

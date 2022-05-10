@@ -36,7 +36,7 @@ button, .btn,
   padding: $component-padding-xs 0.625rem !important;
   border: 2px solid $midnight-blue;
   &:hover {
-    border-color: tint($midnight-blue, 30%);
+    border-color: tint($midnight-blue, 30%) !important;
     background-color: tint($midnight-blue, 30%) !important;
     color: $white !important;
   }
@@ -178,4 +178,9 @@ button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
 // 3.9 button groups are all in separate spans
 #fgroup_id_buttonar .fitem:not(:last-of-type) {
   margin-right: 0.75rem;
+}
+
+// override input element with type="button" styling for hover state
+input[type="button"].btn-primary:hover, input[type="button"].btn-secondary:hover {
+  background-color: tint($midnight-blue, 30%) !important;
 }

@@ -76,19 +76,19 @@
 
 #region-main p a,
 #region-main li p a,
-#region-main figcaption a, #page-mod-choice-view #region-main .reportlink a, .path-mod-glossary #region-main .glossarycontrol .helplink a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a {
+#region-main figcaption a, #page-mod-choice-view #region-main .reportlink a, .path-mod-glossary #region-main .glossarycontrol .helplink a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a, #page-mod-choicegroup-view #region-main div.reportlink a {
   text-decoration: underline;
   color: #002395;
   overflow-wrap: break-word;
 }
 
 #region-main p a:hover,
-#region-main figcaption a:hover, #page-mod-choice-view #region-main .reportlink a:hover, .path-mod-glossary #region-main .glossarycontrol .helplink a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a:hover {
+#region-main figcaption a:hover, #page-mod-choice-view #region-main .reportlink a:hover, .path-mod-glossary #region-main .glossarycontrol .helplink a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a:hover, #page-mod-choicegroup-view #region-main div.reportlink a:hover {
   color: #005AD2;
 }
 
 #region-main p a:visited,
-#region-main figcaption a:visited, #page-mod-choice-view #region-main .reportlink a:visited, .path-mod-glossary #region-main .glossarycontrol .helplink a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a:visited {
+#region-main figcaption a:visited, #page-mod-choice-view #region-main .reportlink a:visited, .path-mod-glossary #region-main .glossarycontrol .helplink a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.author a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entryheader span.time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .user a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection td.icons ul.comment-list .comment-message .text_to_html a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .user a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .time a:visited, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost.entrylist .entrylowersection ul.comment-list .comment-message .text_to_html a:visited, #page-mod-choicegroup-view #region-main div.reportlink a:visited {
   color: #0A2D50;
 }
 
@@ -117,7 +117,7 @@
   padding: 1.25rem 1.5rem;
 }
 
-.img-scroll, .image-scroll, .latex, .table-scroll {
+.img-scroll, .image-scroll, .latex, .table-scroll, #page-mod-choicegroup-view #region-main form.tableform div.tablecontainer, #page-mod-choicegroup-report form.tableform div.tablecontainer {
   margin-bottom: 1.5rem;
   overflow-x: auto;
 }
@@ -155,7 +155,7 @@
   margin-bottom: 0;
 }
 
-.alert > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .alert > :first-child .specificfeedback, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback div.quote-box > :first-child .specificfeedback, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .definition-box > :first-child .specificfeedback, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback body .editing-help-box > :first-child .specificfeedback, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .feedback-box > :first-child .specificfeedback, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback #region-main .learning-outcome-box > :first-child .specificfeedback, .media-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .media-box > :first-child .specificfeedback, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .journal-box > :first-child .specificfeedback, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .reading-box > :first-child .specificfeedback, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .shared-box > :first-child .specificfeedback, .files-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .files-box > :first-child .specificfeedback, .que .content .outcome > :first-child .feedback .specificfeedback, .alert > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .alert > :first-child p, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback div.quote-box > :first-child p, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .definition-box > :first-child p, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback body .editing-help-box > :first-child p, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .feedback-box > :first-child p, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback #region-main .learning-outcome-box > :first-child p, .media-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .media-box > :first-child p, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .journal-box > :first-child p, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .reading-box > :first-child p, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .shared-box > :first-child p, .files-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .files-box > :first-child p, .que .content .outcome > :first-child .feedback .specificfeedback p,
+
 .alert > :first-child h3,
 div.quote-box > :first-child h3,
 .definition-box > :first-child h3,
@@ -412,7 +412,7 @@ h1, h2, h3, h4, h5, h6,
 #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text .h1,
 #page-course-view-grid #region-main .course-content ul[class*="topics"] > li.section.main#section-0 .content h3.sectionname,
 #page-course-view-topcoll #region-main .course-content ul[class*="topics"] > li.section.main#section-0 .content h3.sectionname,
-#page-course-view-topcoll .course-content ul.ctopics > .section#section-0 .section-title, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text h2, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text .h2, #page-mod-book-view #page-content #region-main > div:first-of-type > h2:first-of-type, .path-mod-questionnaire .surveyTitle, #page-course-view-topcoll .single-section .section-navigation.navigationtitle .sectionname, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text h3, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text .h3, #page-mod-book-view #page-content #region-main .book_content > h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section, .alert > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .alert > :first-child .specificfeedback, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback div.quote-box > :first-child .specificfeedback, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .definition-box > :first-child .specificfeedback, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback body .editing-help-box > :first-child .specificfeedback, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .feedback-box > :first-child .specificfeedback, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback #region-main .learning-outcome-box > :first-child .specificfeedback, .media-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .media-box > :first-child .specificfeedback, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .journal-box > :first-child .specificfeedback, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .reading-box > :first-child .specificfeedback, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .shared-box > :first-child .specificfeedback, .files-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .files-box > :first-child .specificfeedback, .que .content .outcome > :first-child .feedback .specificfeedback, .alert > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .alert > :first-child p, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback div.quote-box > :first-child p, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .definition-box > :first-child p, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback body .editing-help-box > :first-child p, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .feedback-box > :first-child p, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback #region-main .learning-outcome-box > :first-child p, .media-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .media-box > :first-child p, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .journal-box > :first-child p, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .reading-box > :first-child p, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .shared-box > :first-child p, .files-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .files-box > :first-child p, .que .content .outcome > :first-child .feedback .specificfeedback p,
+#page-course-view-topcoll .course-content ul.ctopics > .section#section-0 .section-title, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text h2, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text .h2, #page-mod-book-view #page-content #region-main > div:first-of-type > h2:first-of-type, .path-mod-questionnaire .surveyTitle, #page-course-view-topcoll .single-section .section-navigation.navigationtitle .sectionname, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text h3, #page-mod-oublog-view #region-main #oublog_info_block.main-description > .card-body .card-text .h3, #page-mod-book-view #page-content #region-main .book_content > h3, .path-mod-feedback #region-main .feedback_form .fitem .fitemtitle .feedback-section,
 .alert > :first-child h3,
 div.quote-box > :first-child h3,
 .definition-box > :first-child h3,
@@ -468,7 +468,7 @@ h3, .h3, #page-mod-oublog-view #region-main #oublog_info_block.main-description 
   line-height: 1.25;
 }
 
-h4, .h4, .alert > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .alert > :first-child .specificfeedback, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback div.quote-box > :first-child .specificfeedback, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .definition-box > :first-child .specificfeedback, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback body .editing-help-box > :first-child .specificfeedback, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .feedback-box > :first-child .specificfeedback, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback #region-main .learning-outcome-box > :first-child .specificfeedback, .media-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .media-box > :first-child .specificfeedback, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .journal-box > :first-child .specificfeedback, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .reading-box > :first-child .specificfeedback, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .shared-box > :first-child .specificfeedback, .files-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .files-box > :first-child .specificfeedback, .que .content .outcome > :first-child .feedback .specificfeedback, .alert > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .alert > :first-child p, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback div.quote-box > :first-child p, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .definition-box > :first-child p, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback body .editing-help-box > :first-child p, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .feedback-box > :first-child p, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback #region-main .learning-outcome-box > :first-child p, .media-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .media-box > :first-child p, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .journal-box > :first-child p, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .reading-box > :first-child p, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .shared-box > :first-child p, .files-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .files-box > :first-child p, .que .content .outcome > :first-child .feedback .specificfeedback p,
+h4, .h4,
 .alert > :first-child h3,
 div.quote-box > :first-child h3,
 .definition-box > :first-child h3,
@@ -557,7 +557,7 @@ select, option {
     font-size: 1.5rem;
     line-height: 1.25;
   }
-  h4, .h4, .alert > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .alert > :first-child .specificfeedback, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback div.quote-box > :first-child .specificfeedback, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .definition-box > :first-child .specificfeedback, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback body .editing-help-box > :first-child .specificfeedback, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .feedback-box > :first-child .specificfeedback, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback #region-main .learning-outcome-box > :first-child .specificfeedback, .media-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .media-box > :first-child .specificfeedback, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .journal-box > :first-child .specificfeedback, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .reading-box > :first-child .specificfeedback, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .shared-box > :first-child .specificfeedback, .files-box > :first-child .que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .files-box > :first-child .specificfeedback, .que .content .outcome > :first-child .feedback .specificfeedback, .alert > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .alert > :first-child p, div.quote-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback div.quote-box > :first-child p, .definition-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .definition-box > :first-child p, body .editing-help-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback body .editing-help-box > :first-child p, .feedback-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .feedback-box > :first-child p, #region-main .learning-outcome-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback #region-main .learning-outcome-box > :first-child p, .media-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .media-box > :first-child p, .journal-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .journal-box > :first-child p, .reading-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .reading-box > :first-child p, .shared-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .shared-box > :first-child p, .files-box > :first-child .que .content .outcome .feedback .specificfeedback p, .que .content .outcome .feedback .specificfeedback .files-box > :first-child p, .que .content .outcome > :first-child .feedback .specificfeedback p,
+  h4, .h4,
   .alert > :first-child h3,
   div.quote-box > :first-child h3,
   .definition-box > :first-child h3,
@@ -674,7 +674,7 @@ li > p {
 }
 
 #region-main a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -778,7 +778,7 @@ code {
 }
 
 #page-header .login-header .popover-region .popover-region-toggle:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -788,7 +788,7 @@ code {
 }
 
 #page-header .login-header .usermenu #action-menu-toggle-0:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -802,9 +802,17 @@ code {
   }
 }
 
+#page-header .login-header .usermenu + a {
+  margin-left: 1rem;
+}
+
 #page-header .login-header .usermenu + a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
+}
+
+#page-header .login-header .usermenu + a img {
+  margin-left: 0;
 }
 
 .navbar {
@@ -818,6 +826,11 @@ code {
 
 .navbar .lambda-custom-menu form#search button {
   padding: 6px 18px !important;
+}
+
+.navbar .lambda-custom-menu form#search button:focus {
+  outline: thin dotted #333;
+  outline-offset: -2px;
 }
 
 .navbar .lambda-custom-menu form#search:hover input#coursesearchbox {
@@ -834,7 +847,7 @@ code {
 }
 
 #page #page-header-nav .breadcrumb-nav ul.breadcrumb li a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -1041,7 +1054,7 @@ code {
 
 .course-content .single-section .section-navigation.mdl-bottom .mdl-left a:focus,
 .course-content .single-section .section-navigation.mdl-bottom .mdl-right a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -1310,7 +1323,7 @@ aside section.block .card-body .card-text .book_toc ul {
 
 #block-region-side-pre .block .content ul a:focus,
 #block-region-side-post .block .content ul a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -1418,18 +1431,34 @@ aside section.block .card-body .card-text .book_toc ul {
   background-color: #EDF1F2;
 }
 
-.block.block_course_modulenavigation ul.activities li > a {
+.block.block_course_modulenavigation .section-group {
+  margin-bottom: 0;
+}
+
+.block.block_course_modulenavigation .section-group .section-default .module-navigation-section-heading {
+  padding: 0;
+}
+
+.block.block_course_modulenavigation .section-group .section-default .module-navigation-section-heading .allpagination a {
+  padding: 10px 15px;
+}
+
+.block.block_course_modulenavigation .section-group .section-default .section-collapse ul.activities li > a {
   display: flex;
 }
 
-.block.block_course_modulenavigation ul.activities li > a .completionbox {
+.block.block_course_modulenavigation .section-group .section-default .section-collapse ul.activities li > a .completionbox {
   display: flex;
   align-items: center;
 }
 
-.block.block_course_modulenavigation ul.activities li > a .completionbox .completioncheck {
+.block.block_course_modulenavigation .section-group .section-default .section-collapse ul.activities li > a .completionbox .completioncheck {
   position: static;
   margin: 0;
+}
+
+.block.block_course_modulenavigation .section-group .section-default .section-collapse ul.activities li > a:focus {
+  outline-offset: -2px !important;
 }
 
 .block.block_sharing_cart ul.list li.activity .editing_update .fa-pencil::before {
@@ -1520,7 +1549,7 @@ a.activity-link .activity-label-container .media-icon,
 }
 
 #page-course-view-grid ul[class*="topics"] ul.section li.activity.type-assessed .activityinstance a.aalink .activity-label-container .activity-label, #page-course-view-grid ul[class*="topics"] ul.section li.activity.type-assessed .activityinstance .dimmed .activity-label-container .activity-label, #page-course-view-topcoll ul[class*="topics"] ul.section li.activity.type-assessed .activityinstance a.aalink .activity-label-container .activity-label, #page-course-view-topcoll ul[class*="topics"] ul.section li.activity.type-assessed .activityinstance .dimmed .activity-label-container .activity-label {
-  background-color: #009EA0 !important;
+  background-color: #007e80 !important;
   color: #FFFFFF !important;
   width: 5.5rem !important;
 }
@@ -1542,7 +1571,7 @@ a.activity-link .activity-title {
 }
 
 a.activity-link .activity-label-container .activity-label.assessed {
-  background-color: #60bbba !important;
+  background-color: #007e80 !important;
   color: #FFFFFF;
   width: 5.5rem !important;
 }
@@ -1561,12 +1590,11 @@ a.activity-link .activity-label-container .activity-label.assessed {
 
 .alert.alert-instructional {
   background-color: #fdf1cf;
+  padding: 1.5rem;
 }
 
-.alert.alert-instructional::before {
-  content: "\f086";
-  color: #8262ae;
-  padding: 0 3px;
+.alert.alert-instructional > :first-child {
+  padding: 0;
 }
 
 .alert.alert-caution {
@@ -1775,6 +1803,7 @@ button,
 input[type="submit"],
 input.btn-secondary[type="submit"],
 #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child,
+.availability-dialogue li .col-6 button,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button,
 .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button,
 .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button,
@@ -1789,6 +1818,7 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input[valu
 .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums,
 #page-mod-forum-post #fgroup_id_buttonar .fgroup input,
 .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a,
+#page-mod-choicegroup-view #region-main form.tableform a,
 #page-mod-kalvidassign-view #region-main form input#id_add_video,
 .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a,
@@ -1816,6 +1846,8 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input[valu
 input[type="submit"]:first-child,
 #id_advancedadddiscussion,
 .path-mod-glossary #region-main .glossarycontrol .printicon,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay,
 #page-mod-ouwiki-edit input#preview,
 #page-mod-ouwiki-edit input#cancel,
 .path-mod-questionnaire .floatprinticon,
@@ -1844,6 +1876,7 @@ button:focus,
 .course-discuss-reply-button:focus,
 input:focus[type="submit"],
 #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:focus[type="submit"]:first-child,
+.availability-dialogue li .col-6 button:focus,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button:focus,
 .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button:focus,
 .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button:focus,
@@ -1858,6 +1891,7 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input:focu
 .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums:focus,
 #page-mod-forum-post #fgroup_id_buttonar .fgroup input:focus,
 .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a:focus,
+#page-mod-choicegroup-view #region-main form.tableform a:focus,
 #page-mod-kalvidassign-view #region-main form input#id_add_video:focus,
 .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:focus,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a:focus,
@@ -1885,6 +1919,8 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input:focu
 input:focus[type="submit"]:first-child,
 #id_advancedadddiscussion:focus,
 .path-mod-glossary #region-main .glossarycontrol .printicon:focus,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay:focus,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay:focus,
 #page-mod-ouwiki-edit input#preview:focus,
 #page-mod-ouwiki-edit input#cancel:focus,
 .path-mod-questionnaire .floatprinticon:focus,
@@ -1894,7 +1930,7 @@ input:focus[type="submit"]:first-child,
 .filemanager .fp-viewbar a.btn.btn-secondary:focus,
 #page-mod-kalvidassign-view #region-main form input:focus,
 #page #page-header-nav .breadcrumb-button .moodle-actionmenu a.dropdown-toggle:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -1906,6 +1942,7 @@ button:focus,
 .course-discuss-reply-button:focus,
 input:focus[type="submit"],
 #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:focus[type="submit"]:first-child,
+.availability-dialogue li .col-6 button:focus,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button:focus,
 .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button:focus,
 .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button:focus,
@@ -1920,6 +1957,7 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input:focu
 .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums:focus,
 #page-mod-forum-post #fgroup_id_buttonar .fgroup input:focus,
 .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a:focus,
+#page-mod-choicegroup-view #region-main form.tableform a:focus,
 #page-mod-kalvidassign-view #region-main form input#id_add_video:focus,
 .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:focus,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a:focus,
@@ -1947,6 +1985,8 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input:focu
 input:focus[type="submit"]:first-child,
 #id_advancedadddiscussion:focus,
 .path-mod-glossary #region-main .glossarycontrol .printicon:focus,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay:focus,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay:focus,
 #page-mod-ouwiki-edit input#preview:focus,
 #page-mod-ouwiki-edit input#cancel:focus,
 .path-mod-questionnaire .floatprinticon:focus,
@@ -1966,6 +2006,7 @@ button, .btn,
 input[type="submit"],
 input.btn-secondary[type="submit"],
 #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child,
+.availability-dialogue li .col-6 button,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button,
 .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button,
 .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button,
@@ -1980,6 +2021,7 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input[valu
 .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums,
 #page-mod-forum-post #fgroup_id_buttonar .fgroup input,
 .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a,
+#page-mod-choicegroup-view #region-main form.tableform a,
 #page-mod-kalvidassign-view #region-main form input#id_add_video,
 .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a,
@@ -2007,6 +2049,8 @@ body[id*="page-mod-data-"] #region-main .datapreferences form#options input[valu
 input[type="submit"]:first-child,
 #id_advancedadddiscussion,
 .path-mod-glossary #region-main .glossarycontrol .printicon,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay,
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay,
 #page-mod-ouwiki-edit input#preview,
 #page-mod-ouwiki-edit input#cancel,
 .path-mod-questionnaire .floatprinticon,
@@ -2019,7 +2063,7 @@ input[type="submit"]:first-child,
 }
 
 .btn-primary, .btn-default,
-.course-discuss-reply-button, input[type="submit"], input.btn-secondary[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-grading .resettable.mdl-right a, .path-mod-assign #page-grade-report-grader-index .resettable.mdl-right a, body[id*="page-mod-data-"] #region-main .datapreferences form#options input[value="Save settings"], #page-mod-data-field- form#sortdefault input[value="Save"], .forumaddnew div input[type="submit"]:first-child, .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a, #page-mod-kalvidassign-view #region-main form input#id_add_video, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a,
+.course-discuss-reply-button, input[type="submit"], input.btn-secondary[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input[type="submit"]:first-child, .availability-dialogue li .col-6 button, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .singlebutton button, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .singlebutton button, .path-mod-assign#page-mod-assign-grading .resettable.mdl-right a, .path-mod-assign #page-grade-report-grader-index .resettable.mdl-right a, body[id*="page-mod-data-"] #region-main .datapreferences form#options input[value="Save settings"], #page-mod-data-field- form#sortdefault input[value="Save"], .forumaddnew div input[type="submit"]:first-child, .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums, #page-mod-forum-post #fgroup_id_buttonar .fgroup input, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a, #page-mod-choicegroup-view #region-main form.tableform a, #page-mod-kalvidassign-view #region-main form input#id_add_video, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a,
 .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a,
 .path-mod-questionnaire .mod_questionnaire_viewpage .message > a, .path-mod-questionnaire#page-mod-questionnaire-complete .singlebutton button, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a, #mod_quiz_navblock .content .othernav a.endtestlink, .que .content .formulation input.btn[type="submit"], #page-mod-quiz-attempt .mod_quiz-next-nav, #page-mod-quiz-review .mod_quiz-next-nav, #page-mod-turnitintooltwo-view #region-main .dataTables_wrapper .mod_turnitintooltwo_listbar-container .mod_turnitintooltwo_listbar .mod_turnitintooltwo_zip_downloads button.btn.dropdown-toggle, #page-mod-connecthosted-view .chosted-button-row input, #page #page-header-nav .breadcrumb-button .moodle-actionmenu a.dropdown-toggle {
@@ -2028,7 +2072,7 @@ input[type="submit"]:first-child,
 }
 
 .btn-primary:hover, .btn-default:hover,
-.course-discuss-reply-button:hover, input:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:hover[type="submit"]:first-child, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-grading .resettable.mdl-right a:hover, .path-mod-assign #page-grade-report-grader-index .resettable.mdl-right a:hover, body[id*="page-mod-data-"] #region-main .datapreferences form#options input:hover[value="Save settings"], #page-mod-data-field- form#sortdefault input:hover[value="Save"], .forumaddnew div input:hover[type="submit"]:first-child, .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums:hover, #page-mod-forum-post #fgroup_id_buttonar .fgroup input:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a:hover, #page-mod-kalvidassign-view #region-main form input#id_add_video:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:hover,
+.course-discuss-reply-button:hover, input:hover[type="submit"], #notice.modal .modal-content .modal-footer .buttons .singlebutton > form > div > input:hover[type="submit"]:first-child, .availability-dialogue li .col-6 button:hover, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .singlebutton button:hover, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .singlebutton button:hover, .path-mod-assign#page-mod-assign-grading .resettable.mdl-right a:hover, .path-mod-assign #page-grade-report-grader-index .resettable.mdl-right a:hover, body[id*="page-mod-data-"] #region-main .datapreferences form#options input:hover[value="Save settings"], #page-mod-data-field- form#sortdefault input:hover[value="Save"], .forumaddnew div input:hover[type="submit"]:first-child, .path-mod-forum #page-header-nav #page-navbar nav.breadcrumb-button .forumsearch form button#searchforums:hover, #page-mod-forum-post #fgroup_id_buttonar .fgroup input:hover, .path-mod-glossary #region-main div.glossarydisplay table.glossarypost .entrylowersection .comment-area .fd a:hover, #page-mod-choicegroup-view #region-main form.tableform a:hover, #page-mod-kalvidassign-view #region-main form input#id_add_video:hover, .path-mod-questionnaire .mod_questionnaire_viewpage .complete > a:hover,
 .path-mod-questionnaire .mod_questionnaire_viewpage .allresponses > a:hover,
 .path-mod-questionnaire .mod_questionnaire_viewpage .yourresponse > a:hover,
 .path-mod-questionnaire .mod_questionnaire_viewpage .message > a:hover, .path-mod-questionnaire#page-mod-questionnaire-complete .singlebutton button:hover, .path-mod-questionnaire#page-mod-questionnaire-complete .message > a:hover, #mod_quiz_navblock .content .othernav a.endtestlink:hover, .que .content .formulation input.btn:hover[type="submit"], #page-mod-quiz-attempt .mod_quiz-next-nav:hover, #page-mod-quiz-review .mod_quiz-next-nav:hover, #page-mod-turnitintooltwo-view #region-main .dataTables_wrapper .mod_turnitintooltwo_listbar-container .mod_turnitintooltwo_listbar .mod_turnitintooltwo_zip_downloads button.btn.dropdown-toggle:hover, #page-mod-connecthosted-view .chosted-button-row input:hover, #page #page-header-nav .breadcrumb-button .moodle-actionmenu a.dropdown-toggle:hover {
@@ -2037,7 +2081,7 @@ input[type="submit"]:first-child,
 }
 
 .btn-secondary, .btn#id_cancel, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button, #page-mod-choice-view #region-main form input + a.ml-1, #page-mod-data-edit .boxaligncenter .mdl-align input[name="saveandadd"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
-input[type="submit"]:first-child, #id_advancedadddiscussion, .path-mod-glossary #region-main .glossarycontrol .printicon, #page-mod-ouwiki-edit input#preview, #page-mod-ouwiki-edit input#cancel, .path-mod-questionnaire .floatprinticon, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav,
+input[type="submit"]:first-child, #id_advancedadddiscussion, .path-mod-glossary #region-main .glossarycontrol .printicon, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay, #page-mod-ouwiki-edit input#preview, #page-mod-ouwiki-edit input#cancel, .path-mod-questionnaire .floatprinticon, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav,
 #page-mod-quiz-review .submitbtns .mod_quiz-prev-nav, .filemanager .fp-toolbar a.btn.btn-secondary,
 .filemanager .fp-viewbar a.btn.btn-secondary {
   background-color: #FFFFFF !important;
@@ -2047,10 +2091,10 @@ input[type="submit"]:first-child, #id_advancedadddiscussion, .path-mod-glossary 
 }
 
 .btn-secondary:hover, .btn#id_cancel:hover, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button:hover, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button:hover, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button:hover, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionaction div.singlebutton:not(:first-child) button:hover, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionaction div.singlebutton:not(:first-child) button:hover, #page-mod-choice-view #region-main form input + a.ml-1:hover, #page-mod-data-edit .boxaligncenter .mdl-align input:hover[name="saveandadd"], #page-mod-forum-post #notice.modal .modal-footer .buttons .singlebutton:nth-child(2) > form > div >
-input:hover[type="submit"]:first-child, #id_advancedadddiscussion:hover, .path-mod-glossary #region-main .glossarycontrol .printicon:hover, #page-mod-ouwiki-edit input#preview:hover, #page-mod-ouwiki-edit input#cancel:hover, .path-mod-questionnaire .floatprinticon:hover, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav:hover,
+input:hover[type="submit"]:first-child, #id_advancedadddiscussion:hover, .path-mod-glossary #region-main .glossarycontrol .printicon:hover, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay:hover, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay:hover, #page-mod-ouwiki-edit input#preview:hover, #page-mod-ouwiki-edit input#cancel:hover, .path-mod-questionnaire .floatprinticon:hover, #page-mod-quiz-attempt .submitbtns .mod_quiz-prev-nav:hover,
 #page-mod-quiz-review .submitbtns .mod_quiz-prev-nav:hover, .filemanager .fp-toolbar a.btn.btn-secondary:hover,
 .filemanager .fp-viewbar a.btn.btn-secondary:hover {
-  border-color: #546c85;
+  border-color: #546c85 !important;
   background-color: #546c85 !important;
   color: #FFFFFF !important;
 }
@@ -2162,6 +2206,10 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   margin-right: 0.75rem;
 }
 
+input[type="button"].btn-primary:hover, input[type="button"].btn-secondary:hover {
+  background-color: #546c85 !important;
+}
+
 /* Card
    ======================== */
 .card {
@@ -2258,7 +2306,7 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   margin-bottom: 1.5rem;
 }
 
-.float-box figure,
+.float-box > figure,
 .float-box .img-container {
   order: 1;
   width: min-content;
@@ -2266,15 +2314,15 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
 }
 
 @-moz-document url-prefix() {
-  .float-box figure,
+  .float-box > figure,
   .float-box .img-container {
     max-width: min-content;
   }
 }
 
-.float-box figure .img-responsive,
-.float-box figure .circular-img, .float-box figure .img-circular,
-.float-box figure .screenshot,
+.float-box > figure .img-responsive,
+.float-box > figure .circular-img, .float-box > figure .img-circular,
+.float-box > figure .screenshot,
 .float-box .filter-ally-wrapper .img-responsive,
 .float-box .filter-ally-wrapper .circular-img,
 .float-box .filter-ally-wrapper .img-circular,
@@ -2282,12 +2330,12 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   max-width: unset;
 }
 
-.float-box figure figcaption > .view-description-container,
+.float-box > figure figcaption > .view-description-container,
 .float-box .img-container > .view-description-container {
   margin-top: 1.5rem;
 }
 
-.float-box figure figcaption > :last-child,
+.float-box > figure figcaption > :last-child,
 .float-box .img-container > :last-child {
   margin-bottom: 0;
 }
@@ -2313,13 +2361,13 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   }
 }
 
-.float-box.img-right figure {
+.float-box.img-right > figure {
   order: 2;
   margin: 0 0 0 1rem;
 }
 
 @media only screen and (min-width: 768px) {
-  .float-box.img-right figure {
+  .float-box.img-right > figure {
     order: 2 !important;
   }
 }
@@ -2339,14 +2387,14 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
   .float-box:not(.img-small):not(.image-small):not(.small-image) {
     flex-wrap: wrap;
   }
-  .float-box:not(.img-small):not(.image-small):not(.small-image) figure,
+  .float-box:not(.img-small):not(.image-small):not(.small-image) > figure,
   .float-box:not(.img-small):not(.image-small):not(.small-image) .img-container,
   .float-box:not(.img-small):not(.image-small):not(.small-image) > .filter-ally-wrapper {
     order: 2;
     margin: 1rem 0 0 0;
     width: 100%;
   }
-  .float-box:not(.img-small):not(.image-small):not(.small-image) figure img,
+  .float-box:not(.img-small):not(.image-small):not(.small-image) > figure img,
   .float-box:not(.img-small):not(.image-small):not(.small-image) .img-container img,
   .float-box:not(.img-small):not(.image-small):not(.small-image) > .filter-ally-wrapper img {
     width: 100%;
@@ -2356,11 +2404,11 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
     margin: 1rem 0 0 0;
     width: 100%;
   }
-  .float-box:not(.img-small):not(.image-small):not(.small-image) figure figcaption > .view-description-container,
+  .float-box:not(.img-small):not(.image-small):not(.small-image) > figure figcaption > .view-description-container,
   .float-box:not(.img-small):not(.image-small):not(.small-image) .img-container > .view-description-container {
     margin: 0.5rem 0 0 0;
   }
-  .float-box:not(.img-small):not(.image-small):not(.small-image) figure figcaption > .view-description-container .card-body,
+  .float-box:not(.img-small):not(.image-small):not(.small-image) > figure figcaption > .view-description-container .card-body,
   .float-box:not(.img-small):not(.image-small):not(.small-image) .img-container > .view-description-container .card-body {
     margin-top: 1rem;
     padding: 0 0 0 1rem;
@@ -2824,7 +2872,7 @@ button a.btn-secondary:visited, .btn a.btn-secondary:visited, a.btn.btn-secondar
 }
 
 .collapse-container .collapse-card .collapse-header button:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -3218,13 +3266,19 @@ section#region-main aside.footnotes ol li {
   vertical-align: top;
   position: relative;
   top: -4px;
-  padding: 4px;
+  padding: 0 4px;
   border-radius: 4px;
 }
 
 .footnotes-article .footnotes-body .quote:hover, .footnotes-article .footnotes-body .quote:target, .footnotes-article .footnotes-body .quote:focus {
   text-decoration: underline !important;
   outline: none;
+}
+
+@-moz-document url-prefix() {
+  .footnotes-article .footnotes-body .quote:focus {
+    outline-offset: 0 !important;
+  }
 }
 
 .footnotes-article .footnotes-footer {
@@ -3554,7 +3608,7 @@ body .editing-help-box::before {
   height: auto;
   width: auto;
   position: absolute;
-  top: -6px;
+  top: -2px;
   right: 0;
 }
 
@@ -3563,7 +3617,8 @@ body .editing-help-box::before {
 }
 
 .moodle-dialogue .moodle-dialogue-wrap .moodle-dialogue-hd span .closebutton:focus, .modal .modal-dialog .modal-content .modal-header .close:focus {
-  outline: none;
+  background: none !important;
+  transition: none;
 }
 
 .moodle-dialogue .moodle-dialogue-wrap {
@@ -3664,8 +3719,8 @@ body .editing-help-box::before {
 }
 
 .modal .modal-dialog .modal-content .modal-header .close {
-  width: 32px;
-  height: 32px;
+  width: 33px;
+  height: 28px;
   top: 8px;
   right: 8px;
   line-height: 1 !important;
@@ -3808,6 +3863,24 @@ body .editing-help-box::before {
 
 .openimagebrowser {
   height: auto !important;
+}
+
+.availability-dialogue li {
+  display: flex;
+  padding: 0.25rem;
+}
+
+.availability-dialogue li .col-6 {
+  display: flex;
+  align-items: center;
+}
+
+.availability-dialogue li .col-6 button {
+  margin: 0 !important;
+}
+
+.availability-dialogue li .col-6 label {
+  margin: 0;
 }
 
 /* Process
@@ -4010,14 +4083,14 @@ body .editing-help-box::before {
 }
 
 table,
-.table {
+.table, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results {
   margin-bottom: 1.5rem;
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
 }
 
-table.table-bordered, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table, .path-mod-questionnaire .qn-container .qn-content .qn-answer table, table.bordered,
+table.table-bordered, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results, .path-mod-questionnaire .qn-container .qn-content .qn-answer table, table.bordered,
 .table.table-bordered,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable .table.generaltable,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable .table.generaltable,
@@ -4035,13 +4108,15 @@ table.table-bordered, .path-mod-assign#page-mod-assign-view #region-main .submis
 .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback .table.generaltable,
 .path-mod-assign#page-mod-assign-submit #region-main .feedback .table.generaltable,
 #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.table,
+#page-mod-choicegroup-view #region-main form.tableform table.table.choicegroups,
+#page-mod-choicegroup-report form.tableform div.tablecontainer table.table.results,
 .path-mod-questionnaire .qn-container .qn-content .qn-answer table.table,
-.table.bordered {
+.table.bordered, #page-mod-choicegroup-view #region-main form.tableform table.table-bordered.choicegroups, #page-mod-choicegroup-report form.tableform div.tablecontainer table.table-bordered.results, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable.results, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .feedback form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .feedback table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-view #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable.results, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .feedback table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable.results, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .feedback form.tableform table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .feedback table.generaltable.choicegroups, .path-mod-assign#page-mod-assign-submit #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable.results, #page-mod-choice-view #page-mod-choicegroup-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups, #page-mod-choicegroup-view #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups, #page-mod-choice-view #page-mod-choicegroup-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups, #page-mod-choicegroup-view #page-mod-choice-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data #page-mod-choicegroup-report form.tableform div.tablecontainer table.results, #page-mod-choicegroup-report form.tableform div.tablecontainer #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.results, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-view #region-main form.tableform table.choicegroups, #page-mod-choicegroup-view #region-main form.tableform .path-mod-questionnaire .qn-container .qn-content .qn-answer table.choicegroups, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-report form.tableform div.tablecontainer table.results, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-questionnaire .qn-container .qn-content .qn-answer table.results, #page-mod-choicegroup-view #region-main form.tableform table.bordered.choicegroups, #page-mod-choicegroup-report form.tableform div.tablecontainer table.bordered.results {
   border: none;
   border-radius: 0;
 }
 
-table.table-bordered th, table.table-bordered td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable th, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table th, .path-mod-questionnaire .qn-container .qn-content .qn-answer table th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable td, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table td, .path-mod-questionnaire .qn-container .qn-content .qn-answer table td, table.bordered th, table.bordered td,
+table.table-bordered th, table.table-bordered td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable th, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable th, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable th, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable th, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table th, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results th, .path-mod-questionnaire .qn-container .qn-content .qn-answer table th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable td, .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable td, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable td, .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable td, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table td, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups td, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results td, .path-mod-questionnaire .qn-container .qn-content .qn-answer table td, table.bordered th, table.bordered td,
 .table.table-bordered th,
 .table.table-bordered td,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable .table.generaltable th,
@@ -4060,6 +4135,8 @@ table.table-bordered th, table.table-bordered td, .path-mod-assign#page-mod-assi
 .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback .table.generaltable th,
 .path-mod-assign#page-mod-assign-submit #region-main .feedback .table.generaltable th,
 #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.table th,
+#page-mod-choicegroup-view #region-main form.tableform table.table.choicegroups th,
+#page-mod-choicegroup-report form.tableform div.tablecontainer table.table.results th,
 .path-mod-questionnaire .qn-container .qn-content .qn-answer table.table th,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable .table.generaltable td,
 .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable .table.generaltable td,
@@ -4077,9 +4154,11 @@ table.table-bordered th, table.table-bordered td, .path-mod-assign#page-mod-assi
 .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback .table.generaltable td,
 .path-mod-assign#page-mod-assign-submit #region-main .feedback .table.generaltable td,
 #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.table td,
+#page-mod-choicegroup-view #region-main form.tableform table.table.choicegroups td,
+#page-mod-choicegroup-report form.tableform div.tablecontainer table.table.results td,
 .path-mod-questionnaire .qn-container .qn-content .qn-answer table.table td,
 .table.bordered th,
-.table.bordered td {
+.table.bordered td, #page-mod-choicegroup-view #region-main form.tableform table.table-bordered.choicegroups th, #page-mod-choicegroup-report form.tableform div.tablecontainer table.table-bordered.results th, #page-mod-choicegroup-view #region-main form.tableform table.table-bordered.choicegroups td, #page-mod-choicegroup-report form.tableform div.tablecontainer table.table-bordered.results td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable.results th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .feedback form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .feedback table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-view #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable.results th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .feedback table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable.results th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .feedback form.tableform table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups th, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .feedback table.generaltable.choicegroups th, .path-mod-assign#page-mod-assign-submit #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable.results th, #page-mod-choice-view #page-mod-choicegroup-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups th, #page-mod-choicegroup-view #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups th, #page-mod-choice-view #page-mod-choicegroup-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups th, #page-mod-choicegroup-view #page-mod-choice-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups th, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data #page-mod-choicegroup-report form.tableform div.tablecontainer table.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.results th, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results th, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th, #page-mod-choicegroup-view #region-main form.tableform .path-mod-questionnaire .qn-container .qn-content .qn-answer table.choicegroups th, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-report form.tableform div.tablecontainer table.results th, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-questionnaire .qn-container .qn-content .qn-answer table.results th, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .submissionstatustable .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .gradingsummary .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .submissionstatustable .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .gradingsummary .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .submissionstatustable .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .submissionstatustable .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .submissionsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .submissionsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .gradingsummary .gradingsummarytable table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .gradingsummary .gradingsummarytable table.generaltable.results td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main .feedback form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-view #region-main form.tableform .feedback table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-view #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-view #region-main .feedback table.generaltable.results td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-editsubmission #region-main form.tableform .feedback table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-editsubmission #region-main .feedback table.generaltable.results td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main .feedback form.tableform table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main .feedback form.tableform table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #page-mod-choicegroup-view #region-main form.tableform .feedback table.generaltable.choicegroups td, #page-mod-choicegroup-view .path-mod-assign#page-mod-assign-submit #region-main form.tableform .feedback table.generaltable.choicegroups td, .path-mod-assign#page-mod-assign-submit #region-main .feedback #page-mod-choicegroup-report form.tableform div.tablecontainer table.generaltable.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-assign#page-mod-assign-submit #region-main .feedback table.generaltable.results td, #page-mod-choice-view #page-mod-choicegroup-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups td, #page-mod-choicegroup-view #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data form.tableform table.choicegroups td, #page-mod-choice-view #page-mod-choicegroup-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups td, #page-mod-choicegroup-view #page-mod-choice-view #region-main form.tableform .chart-area .chart-table .chart-table-data table.choicegroups td, #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data #page-mod-choicegroup-report form.tableform div.tablecontainer table.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer #page-mod-choice-view #region-main .chart-area .chart-table .chart-table-data table.results td, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups td, #page-mod-choicegroup-report form.tableform div.tablecontainer table.results td, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-view #region-main form.tableform table.choicegroups td, #page-mod-choicegroup-view #region-main form.tableform .path-mod-questionnaire .qn-container .qn-content .qn-answer table.choicegroups td, .path-mod-questionnaire .qn-container .qn-content .qn-answer #page-mod-choicegroup-report form.tableform div.tablecontainer table.results td, #page-mod-choicegroup-report form.tableform div.tablecontainer .path-mod-questionnaire .qn-container .qn-content .qn-answer table.results td, #page-mod-choicegroup-view #region-main form.tableform table.bordered.choicegroups th, #page-mod-choicegroup-report form.tableform div.tablecontainer table.bordered.results th, #page-mod-choicegroup-view #region-main form.tableform table.bordered.choicegroups td, #page-mod-choicegroup-report form.tableform div.tablecontainer table.bordered.results td {
   border: 1px solid #8B9296 !important;
 }
 
@@ -8892,7 +8971,7 @@ table code, .table code {
   position: absolute;
   content: "";
   /* teal darken 15% */
-  border: 0.25rem solid #005254;
+  border-left: 0.5rem solid #005254;
   height: 2.25rem;
   top: -2.25rem;
   left: 4.5rem;
@@ -9300,6 +9379,12 @@ table code, .table code {
   width: 124.156px;
 }
 
+@media only screen and (min-width: 1400px) {
+  .path-mod-assign#page-mod-assign-grading #wrapper #page #page-header-nav, .path-mod-assign#page-mod-assign-grading #wrapper #page #page-content, .path-mod-assign #page-grade-report-grader-index #wrapper #page #page-header-nav, .path-mod-assign #page-grade-report-grader-index #wrapper #page #page-content {
+    max-width: 100%;
+  }
+}
+
 .path-mod-assign#page-mod-assign-grading .resettable.mdl-right, .path-mod-assign #page-grade-report-grader-index .resettable.mdl-right {
   text-align: left;
   margin-top: 3rem;
@@ -9464,7 +9549,7 @@ table code, .table code {
 
 #page-mod-book-view .navtop a:focus,
 #page-mod-book-view .navbottom a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -9474,10 +9559,17 @@ table code, .table code {
   text-align: center;
   line-height: 1;
   border-radius: 50%;
-  width: 2.25rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  #page-mod-book-view .navtop a.bookprev, #page-mod-book-view .navtop a.booknext,
+  #page-mod-book-view .navbottom a.bookprev,
+  #page-mod-book-view .navbottom a.booknext {
+    width: 2.25rem;
+  }
 }
 
 #page-mod-book-view .navtop a.bookprev:hover, #page-mod-book-view .navtop a.booknext:hover,
@@ -9495,6 +9587,17 @@ table code, .table code {
   color: #0A2D50;
   background-color: transparent;
   margin: 0;
+  padding: 0;
+}
+
+#page-mod-book-view .navtop a.bookprev::before,
+#page-mod-book-view .navbottom a.bookprev::before {
+  padding-right: 0.375rem;
+}
+
+#page-mod-book-view .navtop a.booknext::after,
+#page-mod-book-view .navbottom a.booknext::after {
+  padding-left: 0.375rem;
 }
 
 #page-mod-book-view .navtop a.bookprev:hover::before, #page-mod-book-view .navtop a.booknext:hover::after, #page-mod-book-view .navtop a.bookexit:hover::after,
@@ -9509,13 +9612,6 @@ table code, .table code {
   margin: 0;
   display: inline-block;
   line-height: normal;
-}
-
-@media only screen and (max-width: 768px) {
-  #page-mod-book-view .navtop ul li.chapter:not(.current):not(.mob-prev):not(.mob-next),
-  #page-mod-book-view .navbottom ul li.chapter:not(.current):not(.mob-prev):not(.mob-next) {
-    display: none;
-  }
 }
 
 #page-mod-book-view .navtop ul li.chapter,
@@ -9581,7 +9677,7 @@ table code, .table code {
 
 #page-mod-book-view .navtop ul li.chapter a:focus,
 #page-mod-book-view .navbottom ul li.chapter a:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -9604,88 +9700,84 @@ table code, .table code {
   display: none;
 }
 
-#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:first-child, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.mob-prev, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.current, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.mob-next, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:last-child, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:first-child, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.mob-prev, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.current, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.mob-next, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:last-child,
+#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:first-child, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-2:nth-child(2), #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-1, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.current, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-1, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-2:nth-last-child(2), #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:last-child, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:first-child, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-2:nth-child(2), #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-1, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.current, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-1, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-2:nth-last-child(2), #page-mod-book-view .navtop ul.large-book-pagination li.chapter:last-child,
 #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:first-child,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.mob-prev,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-2:nth-child(2),
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-1,
 #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.current,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.mob-next,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-1,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-2:nth-last-child(2),
 #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:last-child,
 #page-mod-book-view .navbottom ul.large-book-pagination li.chapter:first-child,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.mob-prev,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-2:nth-child(2),
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-1,
 #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.current,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.mob-next,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-1,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-2:nth-last-child(2),
 #page-mod-book-view .navbottom ul.large-book-pagination li.chapter:last-child {
   display: inline-flex;
 }
 
-#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
   content: "\2026";
 }
 
-#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before {
-  margin-right: 0.375rem;
+#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
+  margin-right: 0.75rem;
 }
 
-#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child)::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.mob-next:not(:last-child)::after,
-#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child)::after,
-#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.mob-next:not(:last-child)::after {
-  margin-left: 0.375rem;
+#page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+#page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+#page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
+  margin-left: 0.75rem;
 }
 
 @media only screen and (min-width: 768px) {
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next {
+  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-4:nth-child(2), #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-3, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-2, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-2, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-3, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-4:nth-last-child(2), #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-4:nth-child(2), #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-3, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-2, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-2, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-3, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-4:nth-last-child(2),
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-4:nth-child(2),
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-3,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-2,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-2,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-3,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-4:nth-last-child(2),
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-4:nth-child(2),
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-3,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-2,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-2,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-3,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-4:nth-last-child(2) {
     display: inline-flex;
   }
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter:not(:first-child) + .mob-prev::before,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
     content: none;
     margin: 0;
   }
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child):not(:nth-last-child(2))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next + .next:not(:last-child):not(:nth-last-child(2))::after,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child):not(:nth-last-child(2))::after,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next + .next:not(:last-child):not(:nth-last-child(2))::after {
+  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
     content: "\2026";
   }
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before {
+  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
     margin-right: 1rem;
   }
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child)::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next + .next:not(:last-child)::after,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child)::after,
-  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next + .next:not(:last-child)::after {
+  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after, #page-mod-book-view .navtop ul.large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after,
+  #page-mod-book-view .navbottom ul.large-book-pagination li.chapter.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
     margin-left: 1rem;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter {
-    display: inline-flex;
-  }
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navtop ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child)::after,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter:not(.prev):not(:first-child) + .prev::before,
-  #page-mod-book-view .navbottom ul.mob-large-book-pagination li.chapter.next + .next:not(:last-child)::after {
-    content: none;
-    margin: 0;
   }
 }
 
@@ -10885,6 +10977,79 @@ body[id*="page-mod-data-"] #region-main img {
   border: 2px solid #0A2D50 !important;
 }
 
+/* Group Choice
+   ======================== */
+#page-mod-choicegroup-view #region-main {
+  position: relative;
+}
+
+#page-mod-choicegroup-view #region-main div.groupselector {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-choicegroup-view #region-main div#yourselection {
+  margin-bottom: 20px;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform {
+  text-align: left;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform div.tablecontainer {
+  margin-bottom: 0;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups {
+  margin-top: 0;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th.width10, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th:last-child {
+  width: auto;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-descriptiondisplay, #page-mod-choicegroup-view #region-main form.tableform table.choicegroups th a.choicegroup-memberdisplay {
+  display: block;
+  width: fit-content;
+  text-align: left;
+  margin-top: 0.5rem !important;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups tr.option td label {
+  font-weight: bold;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups tr.option td div.choicegroups-descriptions {
+  border: none;
+  margin-top: 1rem;
+  padding-top: 0;
+}
+
+#page-mod-choicegroup-view #region-main form.tableform table.choicegroups tr.option td .center {
+  vertical-align: baseline;
+}
+
+#page-mod-choicegroup-report div.groupselector {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-choicegroup-report form.tableform {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-choicegroup-report form.tableform div.tablecontainer {
+  margin-bottom: 0;
+}
+
+#page-mod-choicegroup-report div.downloadreport ul {
+  display: flex;
+}
+
+#page-mod-choicegroup-report div.downloadreport ul li.reportoption:not(:last-child) {
+  margin-right: 10px;
+}
+
 /* Kaltura media assignment
    ======================== */
 #page-mod-kalvidassign-view #region-main #video_thumbnail {
@@ -11439,7 +11604,7 @@ body[id*="page-mod-data-"] #region-main img {
 }
 
 #mod_quiz_navblock .content .qn_buttons a.qnbutton {
-  height: 1.25rem;
+  height: 1rem;
   width: 1.25rem;
   font-size: 0.75rem !important;
   padding: 0 !important;
@@ -11457,8 +11622,6 @@ body[id*="page-mod-data-"] #region-main img {
 #mod_quiz_navblock .content .qn_buttons a.qnbutton .thispageholder {
   border: 1px solid #8B9296;
   border-radius: 4px !important;
-  top: -1px;
-  bottom: 6px;
 }
 
 #mod_quiz_navblock .content .qn_buttons a.qnbutton.thispage .thispageholder {
@@ -11680,9 +11843,29 @@ body[id*="page-mod-data-"] #region-main img {
 }
 
 .que .content .formulation .ablock .answer .r0, .que .content .formulation .ablock .answer .r1 {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 0.5rem !important;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.que .content .formulation .ablock .answer .r0:not(:last-child), .que .content .formulation .ablock .answer .r1:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.que .content .formulation .ablock .answer .r0 > input, .que .content .formulation .ablock .answer .r1 > input {
+  margin: 6px 1.5rem;
+}
+
+.que .content .formulation .ablock .answer .r0 .w-100, .que .content .formulation .ablock .answer .r1 .w-100 {
+  width: auto !important;
+}
+
+.que .content .formulation .ablock .answer .r0 .w-100.d-flex, .que .content .formulation .ablock .answer .r1 .w-100.d-flex {
+  margin: 0 !important;
+}
+
+.que .content .formulation .ablock .answer .r0 .w-100.d-flex :last-child, .que .content .formulation .ablock .answer .r1 .w-100.d-flex :last-child {
+  margin: 0 !important;
 }
 
 .que .content .formulation .ablock .answer .r0 label, .que .content .formulation .ablock .answer .r1 label {
@@ -11696,6 +11879,32 @@ body[id*="page-mod-data-"] #region-main img {
 
 .que .content .formulation .ablock .answer .r0 img.icon, .que .content .formulation .ablock .answer .r1 img.icon {
   display: none;
+}
+
+.que .content .formulation .ablock .answer .r0 .specificfeedback, .que .content .formulation .ablock .answer .r1 .specificfeedback {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 4rem;
+  margin: 0.5rem 0 0 0;
+  display: inline-block;
+}
+
+.que .content .formulation .ablock .answer .r0 .specificfeedback::before, .que .content .formulation .ablock .answer .r1 .specificfeedback::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f27a";
+  position: absolute;
+  top: 10px;
+  left: 22px;
+  color: #F5B90F;
+}
+
+.que .content .formulation .ablock .answer .r0 .specificfeedback *, .que .content .formulation .ablock .answer .r1 .specificfeedback * {
+  display: block;
+}
+
+.que .content .formulation .ablock .answer .r0 .specificfeedback > :last-child, .que .content .formulation .ablock .answer .r1 .specificfeedback > :last-child {
+  margin-bottom: 0 !important;
 }
 
 .que .content .formulation .ablock .answer > div.correct {
@@ -11755,12 +11964,24 @@ body[id*="page-mod-data-"] #region-main img {
   color: #333333;
 }
 
-.que .content .outcome .feedback .specificfeedback, .que .content .outcome .feedback .specificfeedback p {
+.que .content .outcome .feedback .specificfeedback {
   margin-bottom: 1rem;
 }
 
 .que .content .outcome .feedback .rightanswer {
   margin-bottom: 0;
+}
+
+.que .content .outcome .feedback .rightanswer p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.que .content .outcome .extra-feedback {
+  margin-left: 50px;
+}
+
+.que .content .outcome .extra-feedback input {
+  margin: 0 !important;
 }
 
 .que.correct .formulation input.correct {
@@ -12530,7 +12751,7 @@ body[id*="page-mod-data-"] #region-main img {
 
 #page-course-view-grid .course-content #gridiconcontainer .gridicon_link:focus,
 #page-course-view-grid .course-content #gridiconcontainer ul.gridicons > li > span:first-child:focus {
-  outline: 1px dashed #005AD2;
+  outline: 2px solid #005AD2;
   outline-offset: 2px;
 }
 
@@ -12636,6 +12857,14 @@ body[id*="page-mod-data-"] #region-main img {
 #page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content .content .sectionname a:not(.quickeditlink) {
   color: #FFFFFF !important;
   padding: 1rem 0 !important;
+}
+
+#page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ul, #page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ol {
+  margin-bottom: 1.5rem;
+}
+
+#page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ul ul, #page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ul ol, #page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ol ul, #page-course-view-grid.editing .course-content #gridshadebox #gridshadebox_content ul li.activity.label ol ol {
+  margin-bottom: 0;
 }
 
 #page-course-view-grid.editing .course-content .gtopics .section.main {
@@ -13168,6 +13397,15 @@ table li.activity.page .activityinstance {
 #page-course-view-topcoll ul[class*="topics"] ul.section li.activity .activityinstance a.aalink:hover .instancename:not(.is-numbered),
 #page-course-view-topcoll ul[class*="topics"] ul.section li.activity .activityinstance a.aalink:hover .instancename.is-numbered .activity-title {
   text-decoration: underline;
+}
+
+#page-course-view-grid ul[class*="topics"] ul.section li.activity .activityinstance a.aalink:focus,
+#page-course-view-topcoll ul[class*="topics"] ul.section li.activity .activityinstance a.aalink:focus {
+  outline: none !important;
+  border: 2px solid #005AD2;
+  margin-left: -2px;
+  margin-right: -2px;
+  padding: 2px 0;
 }
 
 #page-course-view-grid ul[class*="topics"] ul.section li.activity .activityinstance a.aalink,

@@ -311,6 +311,12 @@
               }
             }
           }
+          ul li.activity.label ul, ul li.activity.label ol {
+            margin-bottom: $component-margin-bottom;
+            ul, ol {
+              margin-bottom: 0;
+            }
+          }
         }
       }
       .gtopics {

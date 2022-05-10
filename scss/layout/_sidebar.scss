@@ -296,16 +296,35 @@ aside {
 }
 
 // 7. Course module navigation
-// use flex instead of theme's absolute positioning
 .block.block_course_modulenavigation {
-  ul.activities li > a {
-    display: flex;
-    .completionbox {
-      display: flex;
-      align-items: center;
-      .completioncheck {
-        position: static;
-        margin: 0;
+  .section-group {
+    margin-bottom: 0;
+    .section-default {
+      // section heading
+      .module-navigation-section-heading {
+        padding: 0;
+        .allpagination a {
+          // copying default values overwritten with 0 above
+          padding: 10px 15px;
+        }
+      }
+      // section activity list
+      .section-collapse {
+        ul.activities li > a {
+          // use flex instead of theme's absolute positioning
+          display: flex;
+          .completionbox {
+            display: flex;
+            align-items: center;
+            .completioncheck {
+              position: static;
+              margin: 0;
+            }
+          }
+          &:focus {
+            outline-offset: -2px !important;
+          }
+        }
       }
     }
   }

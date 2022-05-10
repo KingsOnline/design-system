@@ -1,6 +1,9 @@
 /* Activity label
    ======================== */
 
+$activity-label-orange: #EB5600;
+$activity-label-teal: shade($teal-blue, 20%);
+
 // default activity label display
 // extended in Home
 %activity-label-container-default {
@@ -53,7 +56,7 @@
 // adjust colours for assessed label
 %type-assessed {
   .activity-label {
-    background-color: $teal-blue !important;
+    background-color: $activity-label-teal !important;
     color: $white !important;
     width: 5.5rem !important;
   }
@@ -83,7 +86,7 @@ a.activity-link {
   .activity-label-container {
     @extend %activity-label-container-default;
     .activity-label.assessed {
-      background-color: #60bbba !important;
+      background-color: $activity-label-teal !important;
       color: $white;
       width: 5.5rem !important;
     }

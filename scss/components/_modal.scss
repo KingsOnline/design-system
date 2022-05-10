@@ -18,14 +18,15 @@
     height: auto;
     width: auto;
     position: absolute;
-    top: -6px;
+    top: -2px;
     right: 0;
   }
   &:hover {
     background-color: transparent !important;
   }
   &:focus {
-    outline: none;
+    background: none !important;
+    transition: none;
   }
 }
 
@@ -130,8 +131,8 @@
         .close {
           @extend %close-button;
           // from within this file
-          width: 32px;
-          height: 32px;
+          width: 33px;
+          height: 28px;
           top: 8px;
           right: 8px;
           line-height: 1 !important;
@@ -265,4 +266,23 @@
 }
 .openimagebrowser {
   height: auto !important;
+}
+
+// activity 'restrict access' modal
+.availability-dialogue {
+  li {
+    display: flex;
+    padding: 0.25rem;
+    .col-6 {
+      display: flex;
+      align-items: center;
+      button {
+        @extend %btn-primary;
+        margin: 0 !important;
+      }
+      label {
+        margin: 0;
+      }
+    }
+  }
 }

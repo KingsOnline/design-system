@@ -16,10 +16,9 @@
   }
   &.alert-instructional {
     background-color: tint($yellow, 80%);
-    &::before {
-      @include fa-content($fa-comments);
-      color: $purple70;
-      padding: 0 3px;
+    padding: $component-padding;
+    & > :first-child {
+      padding: 0;
     }
   }
   &.alert-caution {

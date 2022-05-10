@@ -26,5 +26,22 @@ if (window.matchMedia('print').matches) {
 
 /* toc */
 // identify single chapter books
-$("#page-content").has('[class^="book_toc"] ul li:only-child').addClass("single-chapter-book")
-  .find(".book_info + .w-100").addClass("toc-container");
+$('#page-content').has('[class^="book_toc"] ul li:only-child').addClass('single-chapter-book')
+  .find('.book_info + .w-100').addClass('toc-container');
+
+/* footnotes for print */
+// create footer for reference list
+$('#page-mod-book-print .footnotes-article').each(function() {
+  // if footer does not exist
+  if ($(this).find('.footnotes-footer').length == 0) {
+    // create footer
+    $(this).append(`<div class='footnotes-footer' role='doc-footnote'><ol></ol></div>`);
+    // for each citation
+    $(this).find('.footnotes-body span.quote').each(function(i) {
+      const footnotesArticle = $(this).parents('.footnotes-article');
+      i++;
+      // move each ref into ref list
+      $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}'></li>`);
+    });
+  }
+});

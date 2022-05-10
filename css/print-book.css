@@ -395,8 +395,8 @@ html {
 #page-mod-book-print h4, #page-mod-book-print .h4,
 #page-mod-book-print h5, #page-mod-book-print .h5,
 #page-mod-book-print h6, #page-mod-book-print .h6 {
-  page-break-after: avoid;
-  page-break-inside: avoid;
+  break-inside: avoid;
+  break-after: avoid;
 }
 
 #page-mod-book-print p a,
@@ -430,6 +430,7 @@ html {
 
 #page-mod-book-print .blockquote,
 #page-mod-book-print .quote-box {
+  break-inside: avoid;
   border: 2px solid #464E52;
   margin: 0;
   margin-bottom: 1.5rem;
@@ -548,6 +549,7 @@ html {
 }
 
 #page-mod-book-print .card {
+  break-inside: avoid;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -604,6 +606,7 @@ html {
 }
 
 #page-mod-book-print .card-deck .card {
+  break-inside: avoid;
   display: block;
   flex: 1 0 0%;
   margin: 0 1rem 1.5rem 0 !important;
@@ -620,6 +623,7 @@ html {
 }
 
 #page-mod-book-print .float-box {
+  break-inside: avoid;
   display: flex;
   flex-direction: row;
   margin-bottom: 1.5rem;
@@ -756,6 +760,7 @@ html {
 }
 
 #page-mod-book-print .new-carousel .nc-gallery > li {
+  break-inside: avoid;
   list-style-type: none;
   border: 1px solid #5A6469;
   margin: 0 calc(1.5rem / 2) 1.5rem calc(1.5rem / 2);
@@ -796,6 +801,7 @@ html {
 }
 
 #page-mod-book-print .collapse-container .collapse-card {
+  break-inside: avoid;
   border-bottom: 2px solid #CDD7DC;
   padding: 1.5rem;
   padding-left: 4rem;
@@ -1097,6 +1103,19 @@ html {
   display: none;
 }
 
+#page-mod-book-print .definition-box,
+#page-mod-book-print .alert-caution,
+#page-mod-book-print .alert-instructional,
+#page-mod-book-print .feedback-box,
+#page-mod-book-print .learning-outcome-box,
+#page-mod-book-print .media-box,
+#page-mod-book-print .reading-box,
+#page-mod-book-print .journal-box,
+#page-mod-book-print .shared-box,
+#page-mod-book-print .files-box {
+  break-inside: avoid;
+}
+
 #page-mod-book-print .definition-box > :first-child::before,
 #page-mod-book-print .alert-caution > :first-child::before,
 #page-mod-book-print .alert-instructional > :first-child::before,
@@ -1125,11 +1144,6 @@ html {
 
 #page-mod-book-print .alert-caution > :first-child::before {
   content: "\f071";
-  padding: 0 3px;
-}
-
-#page-mod-book-print .alert-instructional > :first-child::before {
-  content: "\f086";
   padding: 0 3px;
 }
 
@@ -1246,8 +1260,12 @@ html {
   margin-bottom: 0;
 }
 
-#page-mod-book-print .alert-caution,
+#page-mod-book-print .alert-caution {
+  background-color: #DCE3E6;
+}
+
 #page-mod-book-print .alert-instructional {
+  padding: 1.25rem;
   background-color: #DCE3E6;
 }
 
@@ -1292,6 +1310,7 @@ html {
 }
 
 #page-mod-book-print table {
+  break-inside: avoid;
   margin-bottom: 1.5rem;
   border-collapse: collapse;
   border-spacing: 0;
@@ -7176,6 +7195,10 @@ html {
   flex-direction: column;
 }
 
+#page-mod-book-print .timeline-row {
+  break-inside: avoid;
+}
+
 #page-mod-book-print .timeline-row .col.border-right {
   border-right: 2px solid #5A6469;
 }
@@ -7271,6 +7294,7 @@ html {
 }
 
 #page-mod-book-print .timeline-2021-container .timeline-card {
+  break-inside: avoid;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -7401,6 +7425,7 @@ html {
 #page-mod-book-print .view-feedback-container,
 #page-mod-book-print .view-model-answer-container,
 #page-mod-book-print .academic-note-container {
+  break-inside: avoid;
   margin-bottom: 1.5rem;
 }
 

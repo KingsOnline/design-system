@@ -5,6 +5,11 @@
 @mixin fa-content($icon-unicode) {
   content: #{"\"\\"}#{$icon-unicode + "\""};
 }
+@mixin fa-icon($icon-unicode) {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  @include fa-content($icon-unicode);
+}
 
 // solid
 $fa-volume-off: 2026;

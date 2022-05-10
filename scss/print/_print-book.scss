@@ -171,8 +171,8 @@ html {
   h4, .h4,
   h5, .h5,
   h6, .h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
+    break-inside: avoid;
+    break-after: avoid;
   }
   p a,
   li p a {
@@ -204,6 +204,7 @@ html {
   }
   .blockquote,
   .quote-box {
+    break-inside: avoid;
     border: 2px solid $footer-dark;
     margin:0;
     margin-bottom: $component-margin;
@@ -304,6 +305,7 @@ html {
   // Card
   .card {
     @extend %print-component-border;
+    break-inside: avoid;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -352,6 +354,7 @@ html {
     flex-flow: row wrap;
     margin: 0;
     .card {
+      break-inside: avoid;
       display: block;
       flex: 1 0 0%;
       margin: 0 $component-margin-sm $component-margin 0 !important;
@@ -367,6 +370,7 @@ html {
   }
   // Float box (2.5.2+)
   .float-box {
+    break-inside: avoid;
     display: flex;
     flex-direction: row;
     margin-bottom: $component-margin;
@@ -486,6 +490,7 @@ html {
       flex-wrap: wrap;
       margin: 0 calc(-#{$component-margin} / 2) 0 calc(-#{$component-margin} / 2) !important;
       & > li {
+        break-inside: avoid;
         list-style-type: none;
         border: $print-component-border-thin;
         margin: 0 calc(#{$component-margin} / 2) $component-margin calc(#{$component-margin} / 2);
@@ -522,6 +527,7 @@ html {
   .collapse-container {
     margin-bottom: $component-margin;
     .collapse-card {
+      break-inside: avoid;
       border-bottom: 2px solid $pearl-grey;
       padding: $component-padding;
       padding-left: 4rem;
@@ -780,6 +786,7 @@ html {
   .journal-box,
   .shared-box,
   .files-box {
+    break-inside: avoid;
     & > :first-child::before {
       @extend %print-icon-before;
       font-size: 1.2rem;
@@ -798,10 +805,6 @@ html {
   }
   .alert-caution > :first-child::before {
     @include fa-content($fa-exclamation-triangle);
-    padding: 0 3px;
-  }
-  .alert-instructional > :first-child::before {
-    @include fa-content($fa-comments);
     padding: 0 3px;
   }
   .feedback-box > :first-child::before {
@@ -857,8 +860,11 @@ html {
       margin-bottom: 0;
     }
   }
-  .alert-caution,
+  .alert-caution {
+    background-color: $block-header;
+  }
   .alert-instructional {
+    padding: $print-component-padding;
     background-color: $block-header;
   }
   .key-concept-box {
@@ -1028,6 +1034,7 @@ html {
   );
 
   table {
+    break-inside: avoid;
     margin-bottom: $component-margin;
     border-collapse: collapse;
     border-spacing: 0;
@@ -1211,6 +1218,7 @@ html {
     }
   }
   .timeline-row {
+    break-inside: avoid;
     .col.border-right {
       border-right: $print-component-border;
     }
@@ -1295,6 +1303,7 @@ html {
     margin-top: 0;
     margin-bottom: $component-margin;
     .timeline-card {
+      break-inside: avoid;
       display: flex;
       justify-content: space-between;
       position: relative;
@@ -1427,6 +1436,7 @@ html {
   .view-feedback-container,
   .view-model-answer-container,
   .academic-note-container {
+    break-inside: avoid;
     margin-bottom: $component-margin-bottom;
     & > h3, & > h4, & > h5, & > h6, & > p {
       font-size: 1.2rem;

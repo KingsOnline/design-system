@@ -194,11 +194,6 @@
   html {
     font-size: 14px;
   }
-  h1, h2, h3, h4, h5, h6,
-  .h1, .h2, .h3, .h4, .h5, .h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-  }
   /*
   p, li {
     font-family: "Open Sans" !important;
@@ -219,7 +214,6 @@
     margin-left: 1px;
   }
   .quote-box {
-    page-break-inside: avoid;
     border: 2px solid #5A6469;
     margin-bottom: 1.25rem;
     position: relative;
@@ -303,7 +297,6 @@
   }
   /* card and float box */
   .card {
-    page-break-inside: avoid;
     display: flex;
     flex-direction: row;
     border: 2px solid #5A6469;
@@ -337,7 +330,6 @@
     margin: 0 0 1.25rem 0;
   }
   .card-deck {
-    page-break-inside: avoid;
     display: block;
     margin: 0;
   }
@@ -354,7 +346,6 @@
     height: auto;
   }
   .float-box {
-    page-break-inside: avoid;
     display: flex;
     margin-bottom: 1.25rem;
   }
@@ -370,7 +361,6 @@
     display: none;
   }
   .carousel .carousel-item {
-    page-break-inside: avoid;
     display: block;
     margin-bottom: 1.25rem;
     padding-top: 0 !important;
@@ -407,7 +397,6 @@
   }
   /* collapse */
   .collapse-container {
-    page-break-inside: avoid;
     margin-bottom: 1.25rem;
   }
   .collapse-container .collapse-card {
@@ -493,7 +482,6 @@
   }
   /* transcript */
   .transcript-container {
-    page-break-inside: avoid;
     display: inline-block;
     width: calc(100% - 74px);
     margin-bottom: 1.25rem;
@@ -506,7 +494,6 @@
     display: block;
   }
   .transcript-container .transcript-card .card-body {
-    page-break-inside: avoid;
     border-left: 2px solid #5A6469;
     padding-left: 1.25rem;
     padding-top: 3rem;
@@ -547,7 +534,6 @@
   .journal-box,
   .shared-box,
   .files-box {
-    page-break-inside: avoid;
     border: 2px solid #8B9296 !important;
     padding: 1.25rem !important;
     padding-left: 4rem !important;
@@ -631,11 +617,8 @@
     color: #333333;
   }
   .alert-instructional {
+    padding: 1.25rem;
     background-color: #DCE3E6 !important;
-  }
-  .alert-instructional > :first-child::before {
-    content: "\f086";
-    padding: 0 2px;
   }
   .editing-help-box {
     display: none;
@@ -689,7 +672,6 @@
   }
   /* table */
   .table-bordered {
-    page-break-inside: avoid;
     border: 2px solid #5A6469 !important;
     border-radius: 0;
     border-collapse: collapse;
@@ -741,7 +723,6 @@
   }
   /* timeline */
   .timeline-container {
-    page-break-inside: avoid;
     margin: calc(25px - 2.5rem) 0 0 0;
     padding: 0;
     overflow: hidden;
@@ -781,7 +762,6 @@
     width: 0.625rem;
   }
   .timeline-container .timeline-row .timeline-content {
-    page-break-inside: avoid;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -841,13 +821,6 @@
     background-color: #5A6469 !important;
   }
   /* view answer */
-  .view-answer-container,
-  .view-description-container,
-  .view-feedback-container,
-  .view-generic-container,
-  .view-model-answer-container {
-    page-break-inside: avoid;
-  }
   .view-answer-container > h3, .view-answer-container h4, .view-answer-container h5, .view-answer-container h6, .view-answer-container p,
   .view-description-container > h3,
   .view-description-container h4,

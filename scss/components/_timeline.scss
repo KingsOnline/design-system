@@ -135,7 +135,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
         position: absolute;
         content: "";
         /* teal darken 15% */
-        border: 0.25rem solid darken($teal-blue, 15%);
+        border-left: 0.5rem solid darken($teal-blue, 15%);
         height: 2.25rem;
         top: -$component-margin-lg;
         left: $component-margin-xl;

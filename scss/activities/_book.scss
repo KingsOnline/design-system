@@ -101,10 +101,12 @@
         text-align: center;
         line-height: 1;
         border-radius: 50%;
-        width: 2.25rem;
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        @media only screen and (min-width: $neo-breakpoint) {
+          width: 2.25rem;
+        }
         &:hover {
           text-decoration: none;
         }
@@ -117,6 +119,13 @@
         color: $midnight-blue;
         background-color: transparent;
         margin: 0;
+        padding: 0;
+      }
+      &.bookprev::before {
+        padding-right: 0.375rem;
+      }
+      &.booknext::after {
+        padding-left: 0.375rem;
       }
       &.bookprev:hover::before,
       &.booknext:hover::after,
@@ -128,12 +137,6 @@
       margin: 0;
       display: inline-block;
       line-height: normal;
-      // added for quick fix to remove long-book pag changes for 2.4
-      @media only screen and (max-width: $neo-breakpoint) {
-        li.chapter:not(.current):not(.mob-prev):not(.mob-next) {
-          display: none;
-        }
-      }
       li.chapter {
         list-style: none;
         display: inline-flex;
@@ -196,54 +199,47 @@
         li.chapter {
           display: none;
           &:first-child,
-          &.mob-prev,
+          &.prev-2:nth-child(2),
+          &.prev-1,
           &.current,
-          &.mob-next,
+          &.next-1,
+          &.next-2:nth-last-child(2),
           &:last-child {
             display: inline-flex;
           }
-          &:not(:first-child) + .mob-prev::before,
-          &.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+          &.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+          &.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
             @include fa-content($fa-volume-off);
           }
-          &:not(:first-child) + .mob-prev::before {
-            margin-right: 0.375rem;
+          &.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
+            margin-right: 0.75rem;
           }
-          &.mob-next:not(:last-child)::after {
-            margin-left: 0.375rem;
+          &.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
+            margin-left: 0.75rem;
           }
           @media only screen and (min-width: $neo-breakpoint) {
-            &.prev,
-            &.next {
+            &.prev-4:nth-child(2),
+            &.prev-3,
+            &.prev-2,
+            &.next-2,
+            &.next-3,
+            &.next-4:nth-last-child(2) {
               display: inline-flex;
             }
-            &:not(:first-child) + .mob-prev::before,
-            &.mob-next:not(:last-child):not(:nth-last-child(2))::after {
+            &.prev-1:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+            &.next-1:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
               content: none;
               margin: 0;
             }
-            &:not(.prev):not(:first-child) + .prev::before,
-            &.next + .next:not(:last-child):not(:nth-last-child(2))::after {
+            &.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before,
+            &.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
               @include fa-content($fa-volume-off);
             }
-            &:not(.prev):not(:first-child) + .prev::before {
+            &.prev-3:not(:first-child):not(:nth-child(2)):not(:nth-child(3))::before {
               margin-right: $component-margin-sm;
             }
-            &.next + .next:not(:last-child)::after {
+            &.next-3:not(:last-child):not(:nth-last-child(2)):not(:nth-last-child(3))::after {
               margin-left: $component-margin-sm;
-            }
-          }
-        }
-      }
-      // books with 6 - 10 chapters
-      &.mob-large-book-pagination {
-        li.chapter {
-          @media only screen and (min-width: $neo-breakpoint) {
-            display: inline-flex;
-            &:not(.prev):not(:first-child) + .prev::before,
-            &.next + .next:not(:last-child)::after {
-              content: none;
-              margin: 0;
             }
           }
         }

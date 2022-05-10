@@ -121,7 +121,7 @@ $list-style-types: [
         vertical-align: top;
         position: relative;
         top: -4px;
-        padding: 4px;
+        padding: 0 4px;
         border-radius: 4px
       }
       &:hover,
@@ -129,6 +129,11 @@ $list-style-types: [
       &:focus {
         text-decoration: underline !important;
         outline: none;
+      }
+      &:focus {
+        @-moz-document url-prefix() {
+          outline-offset: 0 !important;
+        }
       }
     }
   }
