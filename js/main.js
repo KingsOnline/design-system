@@ -2,7 +2,7 @@
 // hide administration block from students or teachers without editing rights
 $('#block-region-side-pre .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings"))), #block-region-side-post .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings")))').addClass('hide');
 // move 'add a block' block to the left
-$('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('.block').prependTo('#block-region-side-pre');
+$('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('a.sr-only:contains("Skip Add a block"), .block').prependTo('#block-region-side-pre');
 // if there are no visible blocks in aside hide it and make main region full width
 $('#block-region-side-pre:not(:has(.block:not(.hide)))').addClass('hide').siblings('#region-main').removeClass('span8 pull-right');
 $('#block-region-side-post:not(:has(.block:not(.hide)))').addClass('hide').parents('body').addClass('empty-region-side-post used-region-side-pre');
@@ -122,13 +122,16 @@ $(document).on('click', '.carousel-control-prev, .carousel-control-next, .carous
       ? currentSlide + 1
       : currentSlide - 1);
   carouselContainer.removeClass('start finish').find('.carousel-item.active, .carousel-indicators li').removeClass('active');
-  carouselContainer.find('.carousel-item:nth-child(" + newSlide + "), .carousel-indicators li:nth-child(" + newSlide + ")').addClass('active');
+  carouselContainer.find(`.carousel-item:nth-child(${newSlide}), .carousel-indicators li:nth-child(${newSlide})`).addClass('active');
   // hide prev control on first slide
-  if (newSlide === 1) carouselContainer.addClass('start');
-  // hide next control on last slide
-  if (newSlide === maxSlides) carouselContainer.addClass('finish');
+  newSlide === 1
+    ? carouselContainer.addClass('start')
+    // hide next control on last slide
+    : newSlide === maxSlides
+      ? carouselContainer.addClass('finish') : '';
   // override moodleism causing the second carousel indicator to not be active on the first cycle
-  carouselContainer.find('.carousel-indicators li:nth-child(2)').css('background-color', newSlide === 2 ? 'white' : 'rgba(255, 255, 255, 0.5)');
+  carouselContainer.find('.carousel-indicators li:nth-child(2)')
+    .css('background-color', newSlide === 2 ? 'white' : 'rgba(255, 255, 255, 0.5)');
 });
 
 /* new carousel */

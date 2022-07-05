@@ -77,6 +77,12 @@
   .carousel-control-prev,
   .carousel-control-next {
     opacity: 1;
+    &:focus {
+      outline: none !important;
+      .carousel-control {
+        @include outline;
+      }
+    }
   }
   // hide carousel controls on first and last slide
   &.start .carousel-control-prev,

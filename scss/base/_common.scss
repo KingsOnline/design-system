@@ -339,9 +339,12 @@
 
 // 6. Focus
 
+@mixin outline {
+  outline: 2px solid $sea-blue;
+  outline-offset: 2px;
+}
 @mixin focus-outline {
   &:focus {
-    outline: 2px solid $sea-blue;
-    outline-offset: 2px;
+    @include outline;
   }
 }

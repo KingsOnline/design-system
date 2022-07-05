@@ -117,13 +117,11 @@
       margin-bottom: $component-margin-bottom;
       cursor: text;
     }
+    // required icon
     &:first-of-type:after {
-      @include fa-content($fa-exclamation-circle);
-      font-family: "Font Awesome 5 Free";
-      font-weight: bold;
+      content: url("https://keats.kcl.ac.uk/theme/image.php/lambda/core/1654582688/req");
       position: absolute;
       top: 0;
-      color: #CA3120;
       left: 0;
     }
     .qn-legend {

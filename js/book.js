@@ -26,7 +26,7 @@ if (window.matchMedia('print').matches) {
 
 /* toc */
 // identify single chapter books
-$('#page-content').has('[class^="book_toc"] ul li:only-child').addClass('single-chapter-book')
+$('#page-content').has('[class^="book_toc"] > ul > li:only-child').addClass('single-chapter-book')
   .find('.book_info + .w-100').addClass('toc-container');
 
 /* footnotes for print */

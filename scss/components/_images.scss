@@ -52,6 +52,10 @@ figure {
 // centered images
 .center-img, .img-center {
   text-align: center;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 // full width images

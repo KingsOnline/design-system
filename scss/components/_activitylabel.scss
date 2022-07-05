@@ -1,7 +1,7 @@
 /* Activity label
    ======================== */
 
-$activity-label-orange: #EB5600;
+$activity-label-orange: shade($orange, 20%);
 $activity-label-teal: shade($teal-blue, 20%);
 
 // default activity label display
@@ -16,7 +16,9 @@ $activity-label-teal: shade($teal-blue, 20%);
     }
   }
   .activity-label {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     font-family: "KingsBureauGrot";
     font-size: 1rem;
     line-height: 1.5;
@@ -26,9 +28,9 @@ $activity-label-teal: shade($teal-blue, 20%);
     color: $activity-label-orange;
     width: 5rem;
     height: 1.5rem;
-    border-radius: 15px;
     margin-left: $component-margin-sm;
-    background-color: $block-background;
+    border-radius: 15px;
+    border: 1px solid $activity-label-orange;
   }
   .group-icon,
   .media-icon {
@@ -57,8 +59,28 @@ $activity-label-teal: shade($teal-blue, 20%);
 %type-assessed {
   .activity-label {
     background-color: $activity-label-teal !important;
+    border: none;
     color: $white !important;
     width: 5.5rem !important;
+  }
+}
+
+// unavailable activity
+%activity-label-unavailable {
+  .activity-label-container {
+    .activity-label {
+      border: 1px solid $slate-grey;
+    }
+    .activity-label,
+    .group-icon,
+    .media-icon {
+      color: $slate-grey;
+    }
+  }
+}
+%type-assessed-unavailable {
+  .activity-label {
+    background-color: $slate-grey !important;
   }
 }
 

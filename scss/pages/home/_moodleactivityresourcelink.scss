@@ -78,9 +78,7 @@
             // and "Available but not shown on course page" activities activity label
             a.stealth {
               .activity-label-container {
-                .activity-label {
-                  background-color: $slate-grey !important;
-                }
+                @extend %type-assessed-unavailable;
               }
             }
           }
@@ -221,13 +219,7 @@
             // activity label and icons
             .stealth {
               opacity: 0.9;
-              .activity-label-container {
-                .activity-label,
-                .group-icon,
-                .media-icon {
-                  color: $slate-grey;
-                }
-              }
+              @extend %activity-label-unavailable;
             }
           }
           .actions {

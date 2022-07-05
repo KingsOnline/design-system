@@ -154,6 +154,9 @@
   .mdl-left,
   .mdl-right {
     @extend %navtextcontainer;
+    // override theme positioning for collapsed topics
+    position: static;
+    transform: none;
     a {
       @extend %navtext;
       @include focus-outline;

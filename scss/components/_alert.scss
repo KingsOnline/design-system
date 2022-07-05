@@ -41,6 +41,9 @@
   &.alert-block {
     padding: 1.25rem;
     padding-left: 4.25rem;
+    &.alert-info, &.alert-warning {
+      padding-left: 1.25rem;
+    }
     button.close {
       position: absolute;
       height: 1.25rem;

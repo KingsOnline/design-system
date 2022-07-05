@@ -3,6 +3,8 @@
 
 .latex {
   @extend %horizontal-scroll;
-  margin: $component-margin 0;
   overflow-y: hidden;
+  &:not(:first-child) {
+    margin-top: $component-margin;
+  }
 }

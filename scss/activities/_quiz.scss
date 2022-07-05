@@ -312,6 +312,7 @@
               margin: 6px $component-margin;
             }
             .w-100 {
+              flex: 1;
               width: auto !important;
               &.d-flex {
                 margin: 0 !important;
@@ -344,7 +345,7 @@
                 left: 22px;
                 color: $yellow;
               }
-              * {
+              & > * {
                 display: block;
               }
               & > :last-child {

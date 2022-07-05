@@ -82,7 +82,7 @@ body[id*="page-mod-data-"] {
         }
       }
     }
-    //for advanced search
+    // for advanced search
     #data_adv_form {
       table.boxaligncenter {
         // don't actually want it centred
@@ -103,7 +103,7 @@ body[id*="page-mod-data-"] {
       }
     }
     img {
-      max-width:100%;
+      max-width: 100%;
     }
   }
 }
@@ -118,8 +118,9 @@ body[id*="page-mod-data-"] {
     & > h3 {
       display: none;
     }
-    .mod-data-input {
-      margin-bottom: $component-margin-bottom; 
+    // add bottom margin to input fields except for checkboxes
+    .mod-data-input:not(input[type="checkbox"]):not(input[type="radio"]) {
+      margin-bottom: $component-margin-bottom;
       .editor_atto_wrap {
         margin-bottom: $component-margin-bottom-xs;
       }

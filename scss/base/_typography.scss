@@ -143,13 +143,6 @@ select, option {
     display: none;
   }
 }
-// override theme list font style
-li {
-  line-height: inherit;
-  & > p {
-    margin-bottom: 0;
-  }
-}
 // override module week page link
 .instancename {
   color: $midnight-blue;
@@ -189,74 +182,8 @@ li {
     }
     @include focus-outline;
   }
-  ol, ul {
-    margin: 0 0 $component-margin-bottom $component-margin-lg;
-    & > li {
-      &:not(:last-child) {
-        margin-bottom: $component-margin-bottom;
-      }
-    }
-    ol, ul {
-      margin-top: $component-margin-sm;
-      margin-bottom: 0;
-      & > li:not(:last-child) {
-        margin-bottom: $component-margin-bottom-sm;
-      }
-    }
-  }
-  /*
-  ol {
-    counter-reset: nested-list-item;
-    margin: 0 0 $component-margin-bottom calc(#{$component-margin} / 2);
-    // remove marker to replace with counter
-    list-style-type: none;
-    & > li {
-      counter-increment: nested-list-item;
-      display: table;
-      &::before {
-        content: counter(nested-list-item) ".";
-        display: table-cell;
-        padding-right: $component-margin-xs;
-      }
-      & > ol {
-        & > li {
-          &::before {
-            content: counters(nested-list-item, ".");
-          }
-        }
-      }
-    }
-  }
-  ul:not(.gtopics) {
-    margin: 0 0 $component-margin-bottom $component-margin-lg;
-    ol {
-      & > li {
-        &::before {
-          content: counters(nested-list-item, ".");
-        }
-      }
-    }
-  }
-  */
   mark.text-highlight {
     @extend %text-highlight;
-  }
-  .summary {
-    ol, ul {
-      // Moodle adds a span around li on section pages
-      & > span > li,
-      & > li  {
-        &:not(:last-child) {
-          margin-bottom: $component-margin-bottom-sm;
-        }
-        ol, ul {
-          & > span > li,
-          & > li {
-            margin-bottom: 0 !important;
-          }
-        }
-      }
-    }
   }
   hr {
     margin: $component-margin 0;

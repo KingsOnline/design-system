@@ -4,11 +4,29 @@
 .academic-note-container {
   @extend %note-container;
   // from common
-  // we added the following to make it work with 2 authors in
-  // one consultancy course: https://keats.kcl.ac.uk/mod/book/view.php?id=4621952&chapterid=426074
-  .card-author.multi-author {
-    .card-title {
-      margin-right: $component-margin !important;
+  .card-body {
+    display: flex;
+    flex-wrap: wrap;
+    .card-author {
+      h3, h4, h5, h6 {
+        margin-bottom: 0 !important;
+      }
+      // we added the following to make it work with 2 authors in
+      // one consultancy course: https://keats.kcl.ac.uk/mod/book/view.php?id=4621952&chapterid=426074
+      &.multi-author {
+        .card-title {
+          margin-right: $component-margin !important;
+        }
+      }
+      // for when images of the academic are unavailable
+      &.no-image {
+        order: 2;
+        margin-top: $component-margin;
+        margin-bottom: 0 !important;
+      }
+    }
+    .card-text {
+      flex-basis: 100%;
     }
   }
 }

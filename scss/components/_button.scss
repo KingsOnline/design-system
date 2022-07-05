@@ -131,7 +131,7 @@ input[type="submit"] {
 
 // override white visited button text
 button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
-  &:visited {
+  &:visited:not(:hover) {
     color: $midnight-blue !important;
   }
 }

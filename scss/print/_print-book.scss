@@ -37,6 +37,7 @@ html {
 */
   #page-content {
     max-width: 85%;
+    min-width: 900px !important;
     margin: 0 auto;
     // single chapter book hide toc and first chapter title for print preview
     &.single-chapter-book {
@@ -197,6 +198,198 @@ html {
       padding-right: 0.75rem;
     }
   }
+
+  // supported list styles
+  $list-style-types: (
+    "1": "decimal",
+    "a": "lower-alpha",
+    "i": "lower-roman",
+    "ua": "upper-alpha",
+    "ui": "upper-roman"
+  );
+
+  @mixin marker-content($marker-prefix, $marker, $marker-suffix, $after: null) {
+    & > li {
+      // construct marker
+      &::before {
+        content: $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+      }
+      // custom marker values
+      &[data-value]::before {
+        counter-increment: none;
+        content: $marker-prefix attr(data-value) $marker-suffix;
+      }
+      &.no-marker-style[data-value]::before {
+        counter-increment: none;
+        content: attr(data-value);
+      }
+      // wraps an entire individual list item in square brackets
+      &.li-square-bracket-wrap {
+        text-indent: -22px;
+        &::before {
+          content: "[" $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+        }
+        &[data-value]::before {
+          counter-increment: none;
+          content: "[" $marker-prefix attr(data-value) $marker-suffix;
+        }
+        &::after {
+          content: "]";
+        }
+      }
+    }
+    @for $i from 1 through 100 {
+      &[start="#{$i}"] {
+        counter-reset: custom-ol #{$i - 1};
+      }
+      & > li[value="#{$i}"]::before {
+        counter-reset: custom-ol #{$i - 1};
+        content: $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+      }
+      & > li[value="#{$i}"] + li {
+        counter-reset: custom-ol #{$i};
+      }
+    }
+  }
+
+  @mixin custom-ol {
+    counter-reset: custom-ol;
+    @each $l, $lst in $list-style-types {
+      &[type="#{$l}"] {
+        $marker-type: $lst;
+        // default style
+        @include marker-content("", $marker-type, ". ");
+        &.single-parenthesis {
+          @include marker-content("", $marker-type, ") ");
+        }
+        &.double-parentheses {
+          @include marker-content("(", $marker-type, ") ");
+        }
+        &.square-brackets {
+          @include marker-content("[", $marker-type, "] ");
+        }
+        &.item-prefix {
+          @include marker-content("Item ", $marker-type, ": ");
+          padding-left: 1.5rem;
+          & > li {
+            text-indent: 0;
+            &::before {
+              font-weight: bold;
+              margin-right: 0.5rem;
+            }
+          }
+          ol:not(.custom-ol) {
+            padding-left: $component-padding;
+          }
+        }
+        & > li {
+          &::before {
+            counter-increment: custom-ol;
+          }
+        }
+      }
+    }
+  }
+
+  // override theme list font style
+  li {
+    line-height: inherit;
+    & > p {
+      margin-bottom: 0;
+    }
+  }
+
+  ol, ul {
+    margin: 0 0 $component-margin-bottom $component-margin-lg;
+    & > li {
+      &:not(:last-child) {
+        margin-bottom: $component-margin-bottom;
+      }
+    }
+    ol, ul {
+      margin-top: $component-margin-sm;
+      & > li:not(:last-child) {
+        margin-bottom: $component-margin-bottom-sm;
+      }
+    }
+  }
+  ol.custom-ol {
+    @include custom-ol;
+    margin: 0 0 $component-margin-bottom 0;
+    padding-left: 4rem;
+    &.ol-markers-bold {
+      & > li {
+        &::before,
+        &::after {
+          font-weight: bold;
+        }
+      }
+    }
+    &.ol-markers-normal {
+      & > li {
+        &::before,
+        &::after {
+          font-weight: normal !important;
+        }
+      }
+    }
+    & > li {
+      list-style-type: none;
+      text-indent: -1.25rem;
+      &::before {
+        display: inline-flex;
+        justify-content: flex-end;
+        text-align: right;
+        margin-right: 0.5rem;
+        min-width: 0.75rem;
+      }
+      // removes marker
+      &[data-value^="none"] {
+        text-indent: 0;
+        &::before {
+          counter-increment: custom-ol;
+          content: none !important;
+        }
+      }
+      // removes marker and skips to the next number (or equivalent)
+      &[data-value="none-skip"] {
+        text-indent: 0;
+        &::before {
+          counter-reset: custom-ol;
+          content: none !important;
+        }
+        & + li {
+          counter-increment: custom-ol;
+        }
+      }
+      &.li-bold {
+        font-weight: bold;
+        &::before {
+          font-weight: bold !important;
+        }
+      }
+      &.li-italic {
+        font-style: italic;
+      }
+      &.li-marker-bold::before {
+        font-weight: bold !important;
+      }
+      &.li-marker-italic::before {
+        font-style: italic;
+      }
+    }
+    ol.custom-ol {
+      margin: 1rem 0;
+    }
+    // nested non-custom ols
+    ol:not(.custom-ol) {
+      padding-left: 1.25rem;
+      & > li {
+        text-indent: 0 !important;
+      }
+    }
+  }
+
   mark.text-highlight {
     @extend %print-text-highlight;
     background-color: transparent;
@@ -371,7 +564,7 @@ html {
   // Float box (2.5.2+)
   .float-box {
     break-inside: avoid;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     margin-bottom: $component-margin;
     &.img-right {
@@ -486,7 +679,7 @@ html {
     .nc-gallery {
       list-style-type: none;
       counter-reset: newcarousel;
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
       margin: 0 calc(-#{$component-margin} / 2) 0 calc(-#{$component-margin} / 2) !important;
       & > li {
@@ -496,7 +689,7 @@ html {
         margin: 0 calc(#{$component-margin} / 2) $component-margin calc(#{$component-margin} / 2);
         padding: $component-padding 0;
         display: inline-block;
-        width: calc(50% - #{$component-margin} - 2px);
+        width: calc(50% - #{$component-margin} - 4px);
         counter-increment: newcarousel;
         &::before {
           content: counter(newcarousel);
@@ -725,7 +918,8 @@ html {
   .full-width-img, .img-full-width,
   .center-img, .img-center,
   .circular-img, .img-circular,
-  .img-scroll, .image-scroll {
+  .img-scroll, .image-scroll,
+  .screenshot, .img-bordered {
     margin-bottom: $component-margin;
     figcaption, .caption {
       max-width: none;
@@ -1187,22 +1381,22 @@ html {
   }
   .table-scroll {
     position: relative;
-    margin-top: 84px;
     &::before {
-      @extend %print-icon-before;
-      @include fa-content($fa-arrows-alt-h);
-      color: $body-text;
-      position: absolute;
-      top: -66px;
-      left: 0;
-      font-size: 28px;
+      content: "This is a wide table and some information may be excluded in print.\00000a Please return to the webpage to check for more details.";
+      display: flex;
+      font-weight: normal;
+      margin-left: 40px;
+      margin-bottom: 1.25rem;
+      white-space: pre-wrap;
     }
     &::after {
-      content: "This is a wide table and some information may be excluded in print.\00000a Please return to the webpage to check for more details.";
+      @extend %print-icon-before;
+      @include fa-content($fa-arrows-alt-h);
       position: absolute;
-      top: -66px;
-      left: 36px;
-      white-space: pre-wrap;
+      top: 0;
+      left: 0;
+      font-size: 28px;
+      color: $body-text;
     }
   }
 
@@ -1434,8 +1628,7 @@ html {
   .view-answer-container,
   .view-description-container,
   .view-feedback-container,
-  .view-model-answer-container,
-  .academic-note-container {
+  .view-model-answer-container {
     break-inside: avoid;
     margin-bottom: $component-margin-bottom;
     & > h3, & > h4, & > h5, & > h6, & > p {
@@ -1453,15 +1646,14 @@ html {
     [class*="-card"] > .card-body {
       display: flex;
       border: none;
-      .card-author {
+      .card-author:not(.no-image) {
         text-align: center;
         border-right: $print-component-border;
         padding-right: $component-padding;
         & > img,
         & > .filter-ally-wrapper > img {
           border-radius: 50%;
-          width: 150px;
-          max-width: 150px !important;
+          width: 75px;
           height: auto;
           margin: 0 0 0.625rem 0;
         }
@@ -1485,19 +1677,70 @@ html {
   .view-generic-container,
   .view-answer-container,
   .view-feedback-container,
-  .view-model-answer-container,
-  .academic-note-container {
+  .view-model-answer-container {
     [class*="-card"] > .card-body {
       & > .card-text {
         margin-left: $component-margin;
+        width: 100%;
       }
-      & .card-text:only-child,
+      & > .card-text:only-child,
       & > p {
         margin-left: calc(150px + #{$component-margin});
         max-width: calc(100% - 150px - #{$component-margin});
       }
     }
   }
+  .academic-note-container {
+    break-inside: avoid;
+    margin-bottom: $component-margin-bottom;
+    .card-body {
+      display: flex;
+      flex-wrap: wrap;
+      .card-author:not(.no-image) {
+        text-align: center;
+        & > img,
+        & > .filter-ally-wrapper > img {
+          border-radius: 50%;
+          width: 75px;
+          max-width: 75px !important;
+          height: auto;
+          margin: 0 0 0.625rem 0;
+        }
+        .card-title {
+          max-width: 150px;
+        }
+      }
+      .card-author.no-image {
+        order: 2;
+        flex: 0 1 100%;
+        margin-left: calc(150px + #{$component-margin});
+        padding: $component-padding 0 0 $component-padding;
+        border-left: $print-component-border;
+        .card-title {
+          margin-bottom: 0;
+        }
+        & + .card-text {
+          margin-left: calc(150px + #{$component-margin});
+          max-width: calc(100% - 150px - #{$component-margin});
+        }
+      }
+      .card-text {
+        flex: 1;
+        margin-left: $component-margin;
+        padding-left: $component-padding;
+        border-left: $print-component-border;
+        & > :last-child {
+          margin-bottom: 0;
+        }
+      }
+      .card-text:only-child,
+      & > p {
+        margin-left: calc(150px + #{$component-margin});
+        max-width: calc(100% - 150px - #{$component-margin});
+      }
+    }
+  }
+
   .float-box {
     .view-generic-container,
     .view-answer-container,
@@ -1514,9 +1757,17 @@ html {
         padding-left: 0;
       }
       [class*="-card"] > .card-body {
-        display: block;
+        flex-wrap: wrap;
         .card-author {
-          width: 150px;
+          display: flex;
+          align-items: center;
+          img {
+            max-width: 75px !important;
+            margin: 0 calc(#{$component-margin} / 2) $component-margin 0;
+          }
+          .card-title {
+            max-width: none;
+          }
         }
         & > h3, & > h4, & > h5, & > h6,
         & > h3, & > h4, & > h5, & > h6,
