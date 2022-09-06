@@ -1,7 +1,7 @@
 /* Embed
    ======================== */
 
-.embed-responsive {
+div[class*="embed-responsive"] {
   margin-bottom: $component-margin-bottom;
   position: relative;
   display: block;
@@ -12,13 +12,51 @@
     content: "";
   }
   iframe {
+    border: none;
+  }
+  iframe,
+  // Kaltura v3 player
+  .playerv3 {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
+  }
+  .playerv3 {
+    .playkit-player {
+      position: unset;
+      button {
+        margin: 0 !important;
+        padding: 0 !important;
+        &:hover,
+        &:focus {
+          background: none !important;
+        }
+      }
+      // big play button
+      .playkit-pre-playback-play-button {
+        border-radius: 54px !important;
+        padding: 20px !important;
+        &:hover {
+          background-color: rgba(0,0,0,0.5) !important;
+        }
+      }
+      .playkit-bottom-bar {
+        background: linear-gradient(180deg, rgba(0,0,0,0), $black);
+      }
+      .playkit-side-panel {
+        display: none;
+      }
+    }
+  }
+  &[class*="kv3"] {
+    overflow: visible;
+    padding-top: calc(200%/3);
+    @media only screen and (min-width: $neo-breakpoint) {
+      padding-top: calc(900%/16);
+    }
   }
 }
 .embed-responsive-608by402 {

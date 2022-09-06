@@ -1,20 +1,15 @@
 @charset "UTF-8";
 @font-face {
   font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-ThreeSeven.woff") format("woff"), url("../../assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
   font-style: normal;
 }
 

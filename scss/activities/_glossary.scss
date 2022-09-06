@@ -86,8 +86,10 @@
             margin-right: 10px !important;
             margin-bottom: 0;
             color: $midnight-blue;
+            text-decoration: none;
             &:hover {
               background-color: $block-background;
+              color: $midnight-blue;
             }
           }
           &.active {

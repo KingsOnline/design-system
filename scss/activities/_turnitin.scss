@@ -57,6 +57,11 @@
             font-weight: bold;
             .no-overflow {
               font-weight: normal;
+              // button style overridden by Turnitin CSS
+              button {
+                font-family: "KingsBureauGrot";
+                height: auto;
+              }
             }
           }
         }

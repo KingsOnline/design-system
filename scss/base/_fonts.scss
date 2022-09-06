@@ -4,7 +4,8 @@
 // primary font used for headings
 @font-face {
   font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-ThreeSeven.woff") format("woff"), /* Modern Browsers */
+       url("../../assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: bold;
   font-style: normal;
 }
@@ -13,12 +14,6 @@
 // Open Sans support font used for body text within sidebar blocks
 @font-face {
   font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-// King's Caslon Display regular support font used for quotations
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
   font-style: normal;
 }

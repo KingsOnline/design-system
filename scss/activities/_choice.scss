@@ -34,6 +34,29 @@
     }
     form {
       margin-bottom: $component-margin-bottom;
+      ul {
+        li {
+          display: flex;
+          margin: 0 !important;
+          input {
+            align-self: flex-start;
+            // to position input inline with the first line of label text
+            margin: 4px 0 0 0 !important;
+          }
+          label {
+            margin: 0 0 0 $component-margin-sm;
+            padding: 0;
+            font-size: 1rem;
+            :last-child {
+              margin-bottom: 0;
+            }
+          }
+          // second to last child as last input is clearfloat (blank)
+          &:not(:nth-last-child(2)) {
+            margin-bottom: $component-margin-bottom-sm !important;
+          }
+        }
+      }
       // remove my choice button
       input + a.ml-1 {
         @extend %btn-secondary;
@@ -63,5 +86,11 @@
         }
       }
     }
+  }
+}
+// removing border from legend when it is inside a fieldset
+#page-mod-data-edit {
+  #region-main form div.entry fieldset legend {
+    border-bottom: none;
   }
 }

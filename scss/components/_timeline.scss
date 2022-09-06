@@ -67,7 +67,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
         background-color: $teal-blue;
         padding: 4px 8px;
         border-radius: 6px 6px 0 0;
-        color: white;
+        color: $white;
         font-family: "KingsBureauGrot";
         line-height: 1.4;
       }
@@ -159,7 +159,7 @@ $timeline-join: 3px solid $rules-and-outlines !important;
       font-family: OpenSans, sans-serif;
       font-size: 1rem;
       font-weight: bold !important;
-      color: white;
+      color: $white;
       /* teal darken 15% */
       background-color: darken($teal-blue, 15%);
       padding: $component-padding-xs;

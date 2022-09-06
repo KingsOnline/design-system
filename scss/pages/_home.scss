@@ -22,10 +22,6 @@
   #region-main {
     .course-content {
       padding: 0;
-      // hide topcoll completion progress info
-      & > #completionprogressid {
-        display: none;
-      }
       & > .single-section {
         margin: 0;
       }
@@ -83,53 +79,6 @@
                   background-color: $sea-blue;
                   color: $white;
                 }
-              }
-            }
-            // hide completion progress info as it is
-            // cloned into each section individually
-            & > #completionprogressid {
-              display: none !important;
-            }
-          }
-          &.completion-progress-section {
-            // 'Your progress' tooltip displayed at the top of each
-            // completion progress section
-            .completionprogress {
-              margin: 0 0 $component-margin-bottom 0 !important;
-              display: flex !important;
-              justify-content: flex-start;
-              align-items: center;
-              float: none !important;
-              text-align: left !important;
-              line-height: 1.5;
-              height: auto !important;
-              z-index: auto;
-              a {
-                margin: 0 !important;
-                padding: 0 !important;
-                img {
-                  display: none;
-                }
-                &:hover {
-                  text-decoration: none;
-                 }
-                // question mark tooltip
-                &:after {
-                  @include fa-content($fa-question-circle);
-                  font-family: "Font Awesome 5 Free";
-                  font-size: 1.25rem;
-                  color: $midnight-blue;
-                  margin-left: $component-margin-xs;
-                }
-              }
-              // checkbox icon
-              &:before {
-                content: "";
-                background: url(https://keats.kcl.ac.uk/theme/image.php/lambda/core/1583825691/i/completion-manual-y) no-repeat;
-                background-size: 20px 20px;
-                width: 20px;
-                height: 20px;
-                margin-right: $component-margin-xs;
               }
             }
           }
@@ -311,12 +260,6 @@
               }
             }
           }
-          ul li.activity.label ul, ul li.activity.label ol {
-            margin-bottom: $component-margin-bottom;
-            ul, ol {
-              margin-bottom: 0;
-            }
-          }
         }
       }
       .gtopics {
@@ -430,7 +373,8 @@
           padding: 0 !important;
           .sectionhead {
             margin-bottom: 0 !important;
-            .toggle_open, .toggle_closed {
+            .toggle_open,
+            .toggle_closed {
               background-image: none !important;
               background-color: $block-background !important;
               padding: $component-margin-sm !important;
@@ -473,7 +417,7 @@
             .toggle_open {
               background-color: $midnight-blue !important;
               // section title
-              h3 {
+              .sectionname {
                 color: $white !important;
                 &::before {
                   @include fa-content($fa-angle-down);
@@ -534,14 +478,6 @@
                   }
                 }
               }
-              &.completion-progress-activity {
-                .ct-activity-meta-container {
-                  margin-left: 28px;
-                  @media only screen and (min-width: $neo-breakpoint) {
-                    margin-left: $component-margin-lg;
-                  }
-                }
-              }
               &:last-child {
                 margin-bottom: 0 !important;
               }
@@ -575,32 +511,33 @@
           h4 {
             padding: 0 !important;
             margin-bottom: $component-margin-bottom-xs !important;
-            // open all and close all
-            #toggles-all-opened, #toggles-all-closed,
-            #toggles-all-opened:hover, #toggles-all-closed:hover {
-              background: none;
-              padding: 0 0 0 $component-padding-sm !important;
-              margin-right: $component-margin-lg !important;
-              position: relative;
-              font-size: 1rem;
-              line-height: 1;
-            }
-            #toggles-all-opened::before,
-            #toggles-all-opened:hover::before,
-            #toggles-all-closed::before,
-            #toggles-all-closed:hover::before{
-              @extend %icon-before;
-              @include fa-content($fa-angle-right);
-              position: absolute;
-              left: 0;
-              margin-right: 0;
-              top: 1px;
-              font-size: 1.125rem;
-            }
-            #toggles-all-opened:hover::before, #toggles-all-closed::before {
-              @include fa-content($fa-angle-down);
-              left: -2px;
-            }
+          }
+          // open all and close all
+          [id^="toggles-all-"] {
+            background: none;
+            padding: 0 0 0 $component-padding-sm !important;
+            margin-right: $component-margin-lg !important;
+            position: relative;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+            line-height: 1;
+          }
+          #toggles-all-opened::before,
+          #toggles-all-opened:hover::before,
+          #toggles-all-closed::before,
+          #toggles-all-closed:hover::before {
+            @extend %icon-before;
+            @include fa-content($fa-angle-right);
+            position: absolute;
+            left: 0;
+            margin-right: 0;
+            top: 1px;
+            font-size: 1.125rem;
+          }
+          #toggles-all-opened:hover::before,
+          #toggles-all-closed::before {
+            @include fa-content($fa-angle-down);
+            left: -2px;
           }
         }
       }

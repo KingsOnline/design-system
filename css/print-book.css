@@ -24,62 +24,21 @@
 
 @font-face {
   font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-ThreeSeven.woff") format("woff"), url("../../assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
+  src: url("../../assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
   font-style: normal;
 }
 
 html, body {
   font-size: 14px;
   color: #333333;
-}
-
-#page-mod-book-print {
-  /*
-  ol {
-    counter-reset: nested-list-item;
-    margin: 0 0 $component-margin-bottom calc(1.5rem / 2);
-    // remove marker to replace with counter
-    list-style-type: none;
-    & > li {
-      display: table;
-      &::before {
-        content: counter(nested-list-item) ".";
-        display: table-cell;
-        padding-right: $component-margin-xs;
-      }
-      & > ol {
-        & > li {
-          &::before {
-            content: counters(nested-list-item, ".");
-          }
-        }
-      }
-    }
-  }
-  ul {
-    margin: 0 0 $component-margin-bottom $component-margin-lg;
-    ol {
-      & > li {
-        &::before {
-          content: counters(nested-list-item, ".");
-        }
-      }
-    }
-  }
-*/
 }
 
 #page-mod-book-print h1, #page-mod-book-print h2, #page-mod-book-print h3, #page-mod-book-print h4, #page-mod-book-print h5, #page-mod-book-print h6,
@@ -197,6 +156,7 @@ html, body {
 }
 
 #page-mod-book-print pre {
+  max-width: 100%;
   margin-bottom: 1.5rem;
   background-color: transparent;
   border: 1px solid #DCE3E6;
@@ -210,6 +170,7 @@ html, body {
 }
 
 #page-mod-book-print code {
+  white-space: pre-wrap;
   border: 1px solid #DCE3E6;
   background-color: #fbfcfc;
   color: #E2231A;
@@ -227,7 +188,7 @@ html, body {
 }
 
 #page-mod-book-print #page-content .book .text-right a.hidden-print::before, #page-mod-book-print p a::after,
-#page-mod-book-print li p a::after, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h3::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h4::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h5::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h6::before, #page-mod-book-print .image-scroll::before,
+#page-mod-book-print li p a::after, #page-mod-book-print li a:not(.text-decoration-none)::after, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h3::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h4::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h5::before, #page-mod-book-print .collapse-container .collapse-card .collapse-header button h6::before, #page-mod-book-print .image-scroll::before,
 #page-mod-book-print .img-scroll::before, #page-mod-book-print .definition-box > :first-child::before,
 #page-mod-book-print .alert-caution > :first-child::before,
 #page-mod-book-print .alert-instructional > :first-child::before,
@@ -390,6 +351,10 @@ html {
   display: none;
 }
 
+#page-mod-book-print #page-content .book section:not(:last-of-type) {
+  margin-bottom: 4rem;
+}
+
 #page-mod-book-print h1, #page-mod-book-print .h1,
 #page-mod-book-print h2, #page-mod-book-print .h2,
 #page-mod-book-print h3, #page-mod-book-print .h3,
@@ -422,6 +387,28 @@ html {
 #page-mod-book-print a.link-to-video {
   margin-right: 0;
   padding-right: 0.75rem;
+}
+
+#page-mod-book-print li a:not(.text-decoration-none) {
+  text-decoration: underline;
+  position: relative;
+  margin-right: 0.75rem;
+}
+
+#page-mod-book-print li a:not(.text-decoration-none)::after {
+  content: "\f0c1";
+  position: absolute;
+  font-size: 8px;
+  margin-left: 1px;
+  line-height: 12px;
+}
+
+#page-mod-book-print ol.custom-ol li p {
+  display: inline;
+}
+
+#page-mod-book-print ol.custom-ol li a::after {
+  margin-left: 20px;
 }
 
 #page-mod-book-print li {
@@ -33899,13 +33886,11 @@ html {
 
 #page-mod-book-print ol.custom-ol ol.custom-ol {
   margin: 1rem 0;
+  padding-left: 2.25rem;
 }
 
-#page-mod-book-print ol.custom-ol ol:not(.custom-ol) {
-  padding-left: 1.25rem;
-}
-
-#page-mod-book-print ol.custom-ol ol:not(.custom-ol) > li {
+#page-mod-book-print ol.custom-ol ol:not(.custom-ol) > li,
+#page-mod-book-print ol.custom-ol ul > li {
   text-indent: 0 !important;
 }
 
@@ -34047,6 +34032,7 @@ html {
 #page-mod-book-print .card .card-body {
   background-color: transparent;
   padding: 0;
+  order: 2;
   flex: 1;
 }
 
@@ -34059,7 +34045,8 @@ html {
   margin-bottom: 0;
 }
 
-#page-mod-book-print .card img {
+#page-mod-book-print .card img,
+#page-mod-book-print .card figure {
   margin: 0 1.5rem 0 0;
   width: 330px;
 }
@@ -34070,10 +34057,20 @@ html {
   margin: 0 0 1.5rem 0;
 }
 
+#page-mod-book-print .card img.img-right {
+  order: 2;
+  margin: 0 0 0 1.5rem;
+}
+
+#page-mod-book-print .card img.img-right + .card-body {
+  order: 1;
+}
+
 #page-mod-book-print .card > img {
   align-self: flex-start;
 }
 
+#page-mod-book-print .card.img-right > figure,
 #page-mod-book-print .card.img-right > .filter-ally-wrapper,
 #page-mod-book-print .card.img-right > img {
   order: 2;
@@ -34085,6 +34082,10 @@ html {
   height: auto;
 }
 
+#page-mod-book-print .card.img-right .card-body {
+  order: 1;
+}
+
 #page-mod-book-print .card-deck {
   display: flex;
   flex-flow: row wrap;
@@ -34092,8 +34093,8 @@ html {
 }
 
 #page-mod-book-print .card-deck .card {
-  break-inside: avoid;
-  display: block;
+  break-inside: avoid-column;
+  flex-direction: column;
   flex: 1 0 0%;
   margin: 0 1rem 1.5rem 0 !important;
 }
@@ -34102,10 +34103,33 @@ html {
   margin: 0 0 1.5rem 1rem !important;
 }
 
-#page-mod-book-print .card-deck .card img {
+#page-mod-book-print .card-deck .card > figure {
+  order: 1;
+}
+
+#page-mod-book-print .card-deck .card > figure img {
+  width: 100%;
+  height: auto;
+}
+
+#page-mod-book-print .card-deck .card > figure,
+#page-mod-book-print .card-deck .card > img {
   width: 100%;
   height: auto;
   margin-bottom: 1.25rem;
+}
+
+#page-mod-book-print .card-deck .card > .card-body {
+  order: 2;
+}
+
+#page-mod-book-print .card-deck.img-bottom .card > .card-body {
+  order: 1;
+}
+
+#page-mod-book-print .card-deck.img-bottom .card > figure {
+  order: 2;
+  margin: 1.25rem 0 0 0;
 }
 
 #page-mod-book-print .float-box {
@@ -34371,7 +34395,7 @@ html {
   margin-top: 122px;
 }
 
-#page-mod-book-print .embed-responsive {
+#page-mod-book-print div[class*="embed-responsive"] {
   display: none;
 }
 
@@ -40817,7 +40841,7 @@ html {
 
 #page-mod-book-print .timeline-2021-container .timeline-card .date-label {
   line-height: 1;
-  font-family: OpenSans, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: bold !important;
   color: #FFFFFF !important;
@@ -40917,33 +40941,55 @@ html {
   margin-bottom: 1.5rem;
 }
 
-#page-mod-book-print .view-generic-container > h3, #page-mod-book-print .view-generic-container > h4, #page-mod-book-print .view-generic-container > h5, #page-mod-book-print .view-generic-container > h6, #page-mod-book-print .view-generic-container > p,
+#page-mod-book-print .view-generic-container > h3, #page-mod-book-print .view-generic-container > h4, #page-mod-book-print .view-generic-container > h5, #page-mod-book-print .view-generic-container > h6,
+#page-mod-book-print .view-generic-container > p,
+#page-mod-book-print .view-generic-container > ul, #page-mod-book-print .view-generic-container > ol,
 #page-mod-book-print .view-answer-container > h3,
 #page-mod-book-print .view-answer-container > h4,
 #page-mod-book-print .view-answer-container > h5,
 #page-mod-book-print .view-answer-container > h6,
 #page-mod-book-print .view-answer-container > p,
+#page-mod-book-print .view-answer-container > ul,
+#page-mod-book-print .view-answer-container > ol,
 #page-mod-book-print .view-description-container > h3,
 #page-mod-book-print .view-description-container > h4,
 #page-mod-book-print .view-description-container > h5,
 #page-mod-book-print .view-description-container > h6,
 #page-mod-book-print .view-description-container > p,
+#page-mod-book-print .view-description-container > ul,
+#page-mod-book-print .view-description-container > ol,
 #page-mod-book-print .view-feedback-container > h3,
 #page-mod-book-print .view-feedback-container > h4,
 #page-mod-book-print .view-feedback-container > h5,
 #page-mod-book-print .view-feedback-container > h6,
 #page-mod-book-print .view-feedback-container > p,
+#page-mod-book-print .view-feedback-container > ul,
+#page-mod-book-print .view-feedback-container > ol,
 #page-mod-book-print .view-model-answer-container > h3,
 #page-mod-book-print .view-model-answer-container > h4,
 #page-mod-book-print .view-model-answer-container > h5,
 #page-mod-book-print .view-model-answer-container > h6,
-#page-mod-book-print .view-model-answer-container > p {
+#page-mod-book-print .view-model-answer-container > p,
+#page-mod-book-print .view-model-answer-container > ul,
+#page-mod-book-print .view-model-answer-container > ol {
   font-size: 1.2rem;
   margin-left: calc(150px + 1.5rem);
   border-left: 2px solid #5A6469;
   padding-left: 1.5rem;
   margin-bottom: 0;
   padding-bottom: 1.5rem;
+}
+
+#page-mod-book-print .view-generic-container > ul, #page-mod-book-print .view-generic-container > ol,
+#page-mod-book-print .view-answer-container > ul,
+#page-mod-book-print .view-answer-container > ol,
+#page-mod-book-print .view-description-container > ul,
+#page-mod-book-print .view-description-container > ol,
+#page-mod-book-print .view-feedback-container > ul,
+#page-mod-book-print .view-feedback-container > ol,
+#page-mod-book-print .view-model-answer-container > ul,
+#page-mod-book-print .view-model-answer-container > ol {
+  padding-left: 3.75rem;
 }
 
 #page-mod-book-print .view-generic-container [class*="view-hide-"],
@@ -40969,7 +41015,6 @@ html {
 #page-mod-book-print .view-feedback-container [class*="-card"] > .card-body .card-author:not(.no-image),
 #page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body .card-author:not(.no-image) {
   text-align: center;
-  border-right: 2px solid #5A6469;
   padding-right: 1.5rem;
 }
 
@@ -40985,6 +41030,7 @@ html {
 #page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body .card-author:not(.no-image) > .filter-ally-wrapper > img {
   border-radius: 50%;
   width: 75px;
+  max-width: 150px !important;
   height: auto;
   margin: 0 0 0.625rem 0;
 }
@@ -40994,6 +41040,7 @@ html {
 #page-mod-book-print .view-description-container [class*="-card"] > .card-body .card-author:not(.no-image) .card-title,
 #page-mod-book-print .view-feedback-container [class*="-card"] > .card-body .card-author:not(.no-image) .card-title,
 #page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body .card-author:not(.no-image) .card-title {
+  width: 150px;
   max-width: 150px;
 }
 
@@ -41023,7 +41070,8 @@ html {
 #page-mod-book-print .view-answer-container [class*="-card"] > .card-body > .card-text,
 #page-mod-book-print .view-feedback-container [class*="-card"] > .card-body > .card-text,
 #page-mod-book-print .view-model-answer-container [class*="-card"] > .card-body > .card-text {
-  margin-left: 1.5rem;
+  border-left: 2px solid #5A6469;
+  padding-left: 1.5rem;
   width: 100%;
 }
 
@@ -41044,17 +41092,17 @@ html {
   margin-bottom: 1.5rem;
 }
 
-#page-mod-book-print .academic-note-container .card-body {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body {
   display: flex;
   flex-wrap: wrap;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author:not(.no-image) {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author:not(.no-image) {
   text-align: center;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author:not(.no-image) > img,
-#page-mod-book-print .academic-note-container .card-body .card-author:not(.no-image) > .filter-ally-wrapper > img {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author:not(.no-image) > img,
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author:not(.no-image) > .filter-ally-wrapper > img {
   border-radius: 50%;
   width: 75px;
   max-width: 75px !important;
@@ -41062,11 +41110,11 @@ html {
   margin: 0 0 0.625rem 0;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author:not(.no-image) .card-title {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author:not(.no-image) .card-title {
   max-width: 150px;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author.no-image {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author.no-image {
   order: 2;
   flex: 0 1 100%;
   margin-left: calc(150px + 1.5rem);
@@ -41074,28 +41122,28 @@ html {
   border-left: 2px solid #5A6469;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author.no-image .card-title {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author.no-image .card-title {
   margin-bottom: 0;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-author.no-image + .card-text {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body .card-author.no-image + .card-text {
   margin-left: calc(150px + 1.5rem);
   max-width: calc(100% - 150px - 1.5rem);
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-text {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-text {
   flex: 1;
   margin-left: 1.5rem;
   padding-left: 1.5rem;
   border-left: 2px solid #5A6469;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-text > :last-child {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-text > :last-child {
   margin-bottom: 0;
 }
 
-#page-mod-book-print .academic-note-container .card-body .card-text:only-child,
-#page-mod-book-print .academic-note-container .card-body > p {
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > .card-text:only-child,
+#page-mod-book-print .academic-note-container .academic-note-card > .card-body > p {
   margin-left: calc(150px + 1.5rem);
   max-width: calc(100% - 150px - 1.5rem);
 }

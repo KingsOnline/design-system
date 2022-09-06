@@ -17,7 +17,10 @@ $print-component-border: 2px solid $slate-grey;
 $print-component-border-thin: 1px solid $slate-grey;
 $print-component-margin: 1.25rem;
 $print-component-margin-sm: calc(#{$print-component-margin} / 2);
-$print-component-padding: 1.25rem;
+$print-component-margin-lg: calc(#{$print-component-margin} / 2 * 3);
+$print-component-padding-sm: $print-component-margin-sm;
+$print-component-padding: $print-component-margin;
+$print-component-padding-lg: $print-component-margin-lg;
 %print-text-highlight {
   border: 1px solid $slate-grey;
   padding: 0 2px;
@@ -162,6 +165,9 @@ html {
           }
         }
       }
+      section:not(:last-of-type) {
+        margin-bottom: 4rem;
+      }
     }
   }
 
@@ -196,6 +202,29 @@ html {
       margin-right: 0;
       // to allow for link icon
       padding-right: 0.75rem;
+    }
+  }
+  li a:not(.text-decoration-none) {
+    text-decoration: underline;
+    position: relative;
+    margin-right: 0.75rem;
+    &::after {
+      @extend %print-icon-before;
+      @include fa-content($fa-link);
+      position: absolute;
+      font-size: 8px;
+      margin-left: 1px;
+      line-height: 12px;
+    }
+  }
+  ol.custom-ol {
+    li {
+      p {
+        display: inline;
+      }
+      a::after {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -380,10 +409,12 @@ html {
     }
     ol.custom-ol {
       margin: 1rem 0;
+      // screen padding value
+      padding-left: $component-padding-lg;
     }
-    // nested non-custom ols
-    ol:not(.custom-ol) {
-      padding-left: 1.25rem;
+    // nested non-custom ols and uls
+    ol:not(.custom-ol),
+    ul {
       & > li {
         text-indent: 0 !important;
       }
@@ -508,6 +539,7 @@ html {
     .card-body {
       background-color: transparent;
       padding: 0;
+      order: 2;
       flex: 1;
       .card-title,
       h3, h4, h5, h6 {
@@ -517,19 +549,30 @@ html {
         margin-bottom: 0;
       }
     }
-    img {
+    img,
+    figure {
       margin: 0 $component-margin 0 0;
       width: 330px;
+    }
+    img {
       &.img-top {
         width: 100%;
         height: 100%;
         margin: 0 0 $component-margin 0;
+      }
+      &.img-right {
+        order: 2;
+        margin: 0 0 0 $component-margin;
+        & + .card-body {
+          order: 1;
+        }
       }
     }
     & > img {
       align-self: flex-start;
     }
     &.img-right {
+      & > figure,
       & > .filter-ally-wrapper,
       & > img {
         order: 2;
@@ -539,6 +582,9 @@ html {
         margin: 0;
         height: auto;
       }
+      .card-body {
+        order: 1;
+      }
     }
   }
   // Card deck
@@ -547,17 +593,39 @@ html {
     flex-flow: row wrap;
     margin: 0;
     .card {
-      break-inside: avoid;
-      display: block;
+      break-inside: avoid-column;
+      flex-direction: column;
       flex: 1 0 0%;
       margin: 0 $component-margin-sm $component-margin 0 !important;
       &:last-child {
         margin: 0 0 $component-margin $component-margin-sm !important;
       }
-      img {
+      & > figure {
+        order: 1;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      & > figure,
+      & > img {
         width: 100%;
         height: auto;
         margin-bottom: $print-component-margin;
+      }
+      & > .card-body {
+        order: 2;
+      }
+    }
+    &.img-bottom {
+      .card {
+        & > .card-body {
+          order: 1;
+        }
+        & > figure {
+          order: 2;
+          margin: $print-component-margin 0 0 0;
+        }
       }
     }
   }
@@ -797,7 +865,7 @@ html {
       }
     }
   }
-  .embed-responsive {
+  div[class*="embed-responsive"] {
     display: none;
   }
 
@@ -1527,7 +1595,7 @@ html {
       }
       .date-label {
         line-height: 1;
-        font-family: OpenSans, sans-serif;
+        font-family: "Open Sans", sans-serif;
         font-size: 1rem;
         font-weight: bold !important;
         color: $white !important;
@@ -1631,13 +1699,18 @@ html {
   .view-model-answer-container {
     break-inside: avoid;
     margin-bottom: $component-margin-bottom;
-    & > h3, & > h4, & > h5, & > h6, & > p {
+    & > h3, & > h4, & > h5, & > h6,
+    & > p,
+    & > ul, & > ol {
       font-size: 1.2rem;
       margin-left: calc(150px + #{$component-margin});
       border-left: $print-component-border;
       padding-left: $component-padding;
       margin-bottom:  0;
       padding-bottom: $component-margin;
+    }
+    & > ul, & > ol {
+      padding-left: $component-padding-lg + $component-padding;
     }
     // hide button
     [class*="view-hide-"] {
@@ -1648,16 +1721,17 @@ html {
       border: none;
       .card-author:not(.no-image) {
         text-align: center;
-        border-right: $print-component-border;
         padding-right: $component-padding;
         & > img,
         & > .filter-ally-wrapper > img {
           border-radius: 50%;
           width: 75px;
+          max-width: 150px !important;
           height: auto;
           margin: 0 0 0.625rem 0;
         }
         .card-title {
+          width: 150px;
           max-width: 150px;
         }
       }
@@ -1680,7 +1754,8 @@ html {
   .view-model-answer-container {
     [class*="-card"] > .card-body {
       & > .card-text {
-        margin-left: $component-margin;
+        border-left: $print-component-border;
+        padding-left: $component-margin;
         width: 100%;
       }
       & > .card-text:only-child,
@@ -1693,50 +1768,52 @@ html {
   .academic-note-container {
     break-inside: avoid;
     margin-bottom: $component-margin-bottom;
-    .card-body {
-      display: flex;
-      flex-wrap: wrap;
-      .card-author:not(.no-image) {
-        text-align: center;
-        & > img,
-        & > .filter-ally-wrapper > img {
-          border-radius: 50%;
-          width: 75px;
-          max-width: 75px !important;
-          height: auto;
-          margin: 0 0 0.625rem 0;
+    .academic-note-card {
+      & > .card-body {
+        display: flex;
+        flex-wrap: wrap;
+        .card-author:not(.no-image) {
+          text-align: center;
+          & > img,
+          & > .filter-ally-wrapper > img {
+            border-radius: 50%;
+            width: 75px;
+            max-width: 75px !important;
+            height: auto;
+            margin: 0 0 0.625rem 0;
+          }
+          .card-title {
+            max-width: 150px;
+          }
         }
-        .card-title {
-          max-width: 150px;
+        .card-author.no-image {
+          order: 2;
+          flex: 0 1 100%;
+          margin-left: calc(150px + #{$component-margin});
+          padding: $component-padding 0 0 $component-padding;
+          border-left: $print-component-border;
+          .card-title {
+            margin-bottom: 0;
+          }
+          & + .card-text {
+            margin-left: calc(150px + #{$component-margin});
+            max-width: calc(100% - 150px - #{$component-margin});
+          }
         }
-      }
-      .card-author.no-image {
-        order: 2;
-        flex: 0 1 100%;
-        margin-left: calc(150px + #{$component-margin});
-        padding: $component-padding 0 0 $component-padding;
-        border-left: $print-component-border;
-        .card-title {
-          margin-bottom: 0;
+        & > .card-text {
+          flex: 1;
+          margin-left: $component-margin;
+          padding-left: $component-padding;
+          border-left: $print-component-border;
+          & > :last-child {
+            margin-bottom: 0;
+          }
         }
-        & + .card-text {
+        & > .card-text:only-child,
+        & > p {
           margin-left: calc(150px + #{$component-margin});
           max-width: calc(100% - 150px - #{$component-margin});
         }
-      }
-      .card-text {
-        flex: 1;
-        margin-left: $component-margin;
-        padding-left: $component-padding;
-        border-left: $print-component-border;
-        & > :last-child {
-          margin-bottom: 0;
-        }
-      }
-      .card-text:only-child,
-      & > p {
-        margin-left: calc(150px + #{$component-margin});
-        max-width: calc(100% - 150px - #{$component-margin});
       }
     }
   }

@@ -1,38 +1,72 @@
 /* Card
    ======================== */
 
+$card-padding: 1.25rem;
+
 .card {
-  display: block;
-  @media only screen and (min-width: $neo-breakpoint) {
-    display: flex;
-  }
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   border: none;
   margin-bottom: $component-margin-bottom;
+  padding: $card-padding;
+  background-color: $block-background;
+  @media only screen and (min-width: $neo-breakpoint) {
+    flex-direction: row;
+  }
+  & > figure {
+    margin-bottom: 0;
+  }
+  & > figure > img,
+  & > figure > .filter-ally-wrapper > img,
   & > img,
-  .filter-ally-wrapper > img {
+  & > .filter-ally-wrapper > img {
     width: 100%;
     flex-shrink: 0;
-    border-radius: 0; 
     @media only screen and (min-width: $neo-breakpoint) {
       width: 310px;
     }
-    &.img-right, .card-img-right {
-      order: 2;
+  }
+  & > figure,
+  & > .filter-ally-wrapper,
+  & > img {
+    margin: 0 0 $card-padding 0;
+    @media only screen and (min-width: $neo-breakpoint) {
+      margin: 0 $card-padding 0 0;
     }
   }
   & > img {
     height: 100%;
+    // legacy code to support old version of component where img-right
+    // class was added to the img instead of the .card div
+    &.img-right, .card-img-right {
+      order: 2;
+      margin: $card-padding 0 0 0;
+      @media only screen and (min-width: $neo-breakpoint) {
+        margin: 0 0 0 $card-padding;
+      }
+      & + .card-body {
+        order: 1;
+      }
+    }
   }
   &.img-right {
-    & > img,
-    & > .filter-ally-wrapper {
+    & > figure,
+    & > .filter-ally-wrapper,
+    & > img {
       order: 2;
+      margin: $card-padding 0 0 0;
+      @media only screen and (min-width: $neo-breakpoint) {
+        margin: 0 0 0 $card-padding;
+      }
+    }
+    .card-body {
+      order: 1;
     }
   }
   .card-body {
-    background-color: $block-background;
     width: 100%;
+    padding: 0;
+    order: 2;
     .card-title,
     & > h3, & > h4, & > h5, & > h6 {
       // from typography
@@ -54,7 +88,8 @@
   margin-left: 0;
   margin-right: 0;
   .card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-bottom: $component-margin-bottom;
     &:first-child {
       margin-left: 0;
@@ -62,13 +97,40 @@
     &:last-child {
       margin-right: 0;
     }
-    & > img,
-    & .filter-ally-wrapper > img {
+    & > figure {
+      height: fit-content;
+    }
+    & > figure,
+    & > .filter-ally-wrapper,
+    & > img {
+      order: 1;
+      width: 100%;
+      margin: 0 0 $card-padding 0;
+    }
+    & > figure > img,
+    & .filter-ally-wrapper > img,
+    & > img {
       width: 100%;
       height: auto;
     }
-    .card-body:only-child {
-      height: 100%;
+    .card-body {
+      order: 2;
+      width: 100%;
+      &:only-child {
+        height: 100%;
+      }
+    }
+  }
+  &.img-bottom {
+    .card {
+      justify-content: space-between;
+      figure {
+        order: 2;
+        margin: $card-padding 0 0 0;
+      }
+      .card-body {
+        order: 1;
+      }
     }
   }
 }
@@ -84,10 +146,12 @@
     order: 1;
     width: min-content;
     margin: 0 $component-margin-sm 0 0;
+    /*
     // firefox only
     @-moz-document url-prefix() {
       max-width: min-content;
     }
+    */
   }
   & > figure,
   .filter-ally-wrapper {

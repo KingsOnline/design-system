@@ -45,7 +45,7 @@ aside {
         background-color: $block-header !important;
         padding: $component-padding-xs 0.75rem !important;
         margin: 0 !important;
-        color: $midnight-blue;
+        color: $midnight-blue !important;
         font-size: 1.125rem;
         line-height: 1.4 !important;
       }
@@ -145,9 +145,14 @@ aside {
        ul {
          &.fa-ul {
            margin: 0 0 0 $component-margin-lg;
-           .fa-li {
+           .fa-li,
+           .fa-solid {
+             position: absolute;
              top: 0;
              left: -$component-margin-lg;
+             text-align: center;
+             width: 1.5rem;
+             line-height: inherit;
            }
          }
          li {
@@ -283,7 +288,7 @@ aside {
     &.networking-block-kbs {
       .card-title {
         background-color: darken($teal-blue, 10%) !important;
-        color: $white;
+        color: $white !important;
       }
       // increase contrast against icons by changing background colour around
       // them

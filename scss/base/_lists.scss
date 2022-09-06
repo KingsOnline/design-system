@@ -104,6 +104,7 @@ li {
 #region-main {
   ol, ul {
     margin: 0 0 $component-margin-bottom $component-margin-lg;
+    font-size: 1rem;
     & > li {
       &:not(:last-child) {
         margin-bottom: $component-margin-bottom;
@@ -186,10 +187,11 @@ li {
     }
     ol.custom-ol {
       margin: 1rem 0;    
+      padding-left: $component-padding-lg;
     }
-    // nested non-custom ols
-    ol:not(.custom-ol) {
-      padding-left: 1.25rem;
+    // nested non-custom ols and uls
+    ol:not(.custom-ol),
+    ul {
       & > li {
         text-indent: 0 !important;
       }
@@ -212,4 +214,9 @@ li {
       }
     }
   }
+}
+
+// Give links in lists the same styling as if they were in paragraphs within lists
+[id^="page-mod-"] #region-main div[role=main] div:not(.navbottom) li a:link {
+  text-decoration: underline;
 }

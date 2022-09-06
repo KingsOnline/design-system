@@ -10,6 +10,7 @@
       border-top: 2px solid $pearl-grey;
     }
     .collapse-header {
+      .collapse-button,
       button {
         @include focus-outline;
         margin: 0 !important;
@@ -25,7 +26,7 @@
           margin-bottom: 0;
           margin-left: 1.75rem;
           line-height: 1;
-          color: $midnight-blue;
+          color: $midnight-blue !important;
           width: calc(100% - 1.75rem);
           &::before {
             @extend %icon-before;

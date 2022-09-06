@@ -7,20 +7,6 @@
   #region-main {
     .course-content {
       li.activity {
-        div.activityinstance div.dimmed.dimmed_text {
-          span.instancename {
-            color: $slate-grey;
-          }
-          div.activity-label-container {
-            div.activity-label, div.group-icon, div.media-icon {
-              color: $slate-grey;
-            }
-          }
-        }
-        &.type-assessed div.activityinstance div.dimmed.dimmed_text div.activity-label-container div.activity-label {
-          color: $white;
-          background-color: $slate-grey;
-        }
       }
     }
   }

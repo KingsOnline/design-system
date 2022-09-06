@@ -13,35 +13,16 @@
 // 5. Captions
 // 6. Highlighting
 // 7. Hyperlinks
-// 8. Preformatted text and code
-// 9. Other
+// 8. Lists
+// 9. Preformatted text and code
+// 10. Other
 //    - .break-all
 //    - hr
 
 
 // 1. Fonts
 
-// primary font used for headings
-@font-face {
-  font-family: "KingsBureauGrot";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-// secondary fonts
-// Open Sans support font used for body text within sidebar blocks
-@font-face {
-  font-family: "KingsBureauGrotFiveOne";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
-// King's Caslon Display regular support font used for quotations
-@font-face {
-  font-family: "KingsCaslonDisplay";
-  src: url("https://git.iddkingsonline.com/assets/fonts/KingsCaslonDisplay.ttf") format("truetype");
-  font-style: normal;
-}
+@import "../fonts";
 
 $font-kbg: (
   family: "KingsBureauGrot",
@@ -195,7 +176,7 @@ html, body {
     }
   }
     
-  // 7. Lists
+  // 8. Lists
 
   ol, ul {
     & > li {
@@ -212,43 +193,11 @@ html, body {
       }
     }
   }
-/*
-  ol {
-    counter-reset: nested-list-item;
-    margin: 0 0 $component-margin-bottom calc(#{$component-margin} / 2);
-    // remove marker to replace with counter
-    list-style-type: none;
-    & > li {
-      display: table;
-      &::before {
-        content: counter(nested-list-item) ".";
-        display: table-cell;
-        padding-right: $component-margin-xs;
-      }
-      & > ol {
-        & > li {
-          &::before {
-            content: counters(nested-list-item, ".");
-          }
-        }
-      }
-    }
-  }
-  ul {
-    margin: 0 0 $component-margin-bottom $component-margin-lg;
-    ol {
-      & > li {
-        &::before {
-          content: counters(nested-list-item, ".");
-        }
-      }
-    }
-  }
-*/
 
-  // 8. Preformatted text and code
+  // 9. Preformatted text and code
 
   pre {
+    max-width: 100%;
     margin-bottom: $component-margin-bottom;
     background-color: transparent;
     border: 1px solid $block-header;
@@ -260,13 +209,14 @@ html, body {
     }
   }
   code {
+    white-space: pre-wrap;
     border: 1px solid $block-header;
     background-color: tint($block-background, 80%);
     color: $kings-red;
     border-radius: 4px;
   }
 
-  // 9. Other
+  // 10. Other
 
   // custom class for urls to wrap
   .break-all {

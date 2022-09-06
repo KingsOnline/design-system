@@ -342,6 +342,7 @@
 @mixin outline {
   outline: 2px solid $sea-blue;
   outline-offset: 2px;
+  outline-style: auto;
 }
 @mixin focus-outline {
   &:focus {

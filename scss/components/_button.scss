@@ -184,3 +184,18 @@ button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
 input[type="button"].btn-primary:hover, input[type="button"].btn-secondary:hover {
   background-color: tint($midnight-blue, 30%) !important;
 }
+
+// completion progress button
+// displayed at the top of  each manual completion progress activity
+// and beside activity title on section page
+[data-region=activity-information] {
+  margin-bottom: $component-margin-bottom;
+  [data-region=completion-info] {
+    height: auto;
+    button {
+      font-size: 1rem !important;
+      padding: 2px 4px !important;
+      margin: 0 !important;
+    }
+  }
+}

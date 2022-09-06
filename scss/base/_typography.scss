@@ -195,6 +195,29 @@ select, option {
     word-break: break-all;
   }
 }
+// Give links in lists the same styling as if they were in paragraphs within lists
+[id^="page-mod-"] #region-main div[role=main] div:not(.navbottom) {
+  li a:link {
+    @extend %ds-link;
+    i.open-icon {
+      display: inline-block;
+      margin: 0.375rem 0 0.375rem 0.375rem;
+      vertical-align: baseline;
+      transform: translateY(-10%);
+    }
+  }
+  ol.custom-ol {
+    li {
+      p {
+        display: inline;
+      }
+      a:link i.open-icon {
+        margin-left: 1.575rem;
+        margin-right: -0.375rem;
+      }
+    }
+  }
+}
 pre {
   margin-bottom: $component-margin-bottom;
   background-color: transparent;

@@ -272,12 +272,17 @@
         margin: 0;
         background-color: transparent;
         color: $body-text;
+        @include focus-outline;
         &.correct {
           border-color: $pea-green;
         }
         &.incorrect {
           border-color: $kings-red;
         }
+      }
+      .qtext input[type="text"] {
+        @include focus-outline;
+        box-shadow: none;
       }
       .ablock {
         margin: 0 0 $component-margin-bottom 0;
@@ -310,6 +315,7 @@
             }
             & > input {
               margin: 6px $component-margin;
+              @include focus-outline;
             }
             .w-100 {
               flex: 1;
@@ -345,7 +351,7 @@
                 left: 22px;
                 color: $yellow;
               }
-              & > * {
+              & > p, & > figure, & > img, & > div {
                 display: block;
               }
               & > :last-child {
@@ -456,6 +462,15 @@
         color: $kings-red;
         padding: 0 4px;
       }
+    }
+  }
+  &.multichoice,
+  &.multichoiceset {
+    .d-flex {
+      // allow multiple line answers to display inline with radio button
+      // or checkbox for MCQ and All or nothing question types
+      // flex-wrap is required on the .answer for specific feedback
+      flex: 1;
     }
   }
 }

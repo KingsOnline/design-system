@@ -10,6 +10,12 @@
     }
   }
   #region-main {
+    div[role="main"] {
+      // hide activity preview button
+      h2 > a {
+        display: none;
+      }
+    }
     .feedback_form {
       .fitem {
         margin: 0;
@@ -69,5 +75,13 @@
         }
       }
     }
+  }
+}
+
+// to give some bottom margin space between analysis and completion message
+#page-mod-feedback-view {
+  #region-main div:nth-last-child(3) {
+    // unfortunately I can't target the last feedback_info so I had to target its position within its parent
+    margin-bottom: $component-margin-bottom;
   }
 }

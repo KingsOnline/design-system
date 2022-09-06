@@ -8,15 +8,15 @@
 // 3: #F5B6B3, // red 33%
 // 4: #FFA375, // orange 58%
 $table-bg-colors: (
-  1: #FCEAB7 !important, // yellow 30%
-  2: #A2E6F4 !important, // sky-blue 37%
-  3: #F5B6B3 !important, // red 33%
-  4: #FFA375 !important, // orange 58%
+  1: tint($yellow, 70%) !important,
+  2: tint($sky-blue, 60%) !important,
+  3: tint($kings-red, 80%) !important,
+  4: tint($orange, 50%) !important,
   // 4 additional colours for GFB (v2.5+)
-  5: #FDF6DE !important, // pale yellow 2
-  6: #DBD4E8 !important, // lilac
-  7: #02DFE3 !important, // teal blue
-  8: #BFDB1F !important // lime green
+  5: tint($yellow, 90%) !important,
+  6: tint($lilac, 80%) !important,
+  7: tint($teal-blue, 70%) !important,
+  8: tint($lime-green, 60%) !important
  );
 
 // mixin to add borders around and bg to individual row/col
@@ -150,6 +150,11 @@ table,
   &.table-bordered, &%table-bordered, &.bordered {
     border: none;
     border-radius: 0;
+    thead {
+      td {
+        background-color: $block-background;
+      }
+    }
     th, td {
       border: 1px solid $table-border !important;
     }

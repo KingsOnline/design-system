@@ -19,6 +19,7 @@
   // discussion dropdown menus
   &#page-mod-forum-discuss {
     .d-flex.flex-wrap.mb-1 {
+      width: 100%;
       align-items: center;
       margin-bottom: $component-margin-bottom !important;
       .ml-2 {
@@ -181,6 +182,10 @@
   }
   .discussion-nav {
     font-family: "KingsBureauGrot";
+    // seems to add vertical scrollbar
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -352,7 +357,8 @@
 .path-mod-forum {
   #region-main {
     & > div:first-of-type {
-      & > div:not(#intro) {
+      // do not apply to forum intro or completion progress 'mark as done' button
+      & > div:not(#intro):not([data-region=activity-information]) {
         overflow-x: scroll;
         // add a new discussion button container
         .p-b-1:first-child {

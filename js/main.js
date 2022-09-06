@@ -1,6 +1,10 @@
 /* blocks */
 // hide administration block from students or teachers without editing rights
 $('#block-region-side-pre .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings"))), #block-region-side-post .block:has(h5.card-title:contains("Administration")):not(:has(.content #settingsnav ul li ul li a:contains("Edit settings")))').addClass('hide');
+// move book TOC block to the left
+// keep this even if CTEL update the config as it keeps resetting with
+// Moodle upgrades -_-
+$("#block-region-side-post .block:has(h5.card-title:contains('Table of contents'))").prependTo("#block-region-side-pre");
 // move 'add a block' block to the left
 $('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('a.sr-only:contains("Skip Add a block"), .block').prependTo('#block-region-side-pre');
 // if there are no visible blocks in aside hide it and make main region full width
@@ -90,21 +94,21 @@ function cardDeckEqualise() {
   // if window is larger than neo-breakpoint
   if ($(window).width() > 767) {
     // reset the heights first
-    $('.card-deck .card-body:not(:only-child)').height('auto');
+    $('.card-deck .card').height('auto');
     // then get heights of all cards within a single deck
     $('.card-deck:has(.card-body:not(:only-child))').each(function(i) {
-      var cardHeight = $(this).find('.card-body:not(:only-child)')
+      var cardHeight = $(this).find('.card')
       var heights = cardHeight.map(function() {
         return $(this).height();
       }).get();
       // find the largest
       maxHeight = Math.max.apply(null, heights);
       // apply to all cards within that deck
-      $(this).find('.card-body:not(:only-child)').height(maxHeight);
+      $(this).find('.card').height(maxHeight);
     });
   } else {
     // reset height
-    $('.card-body:not(:only-child)').height('auto');
+    $('.card').height('auto');
   }
 }
 
@@ -525,7 +529,7 @@ $(`#region-main h2:first-of-type:contains('activity-label'),
 $(`.course-content ul.section li.activity .actions button img.icon,
   .course-content ul.section li.activity .actions .autocompletion img.icon,
   .activity-navigation .col-md-4 a`).attr('title', function(i, currentText) {
-  return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
+  if (currentText) return currentText.replaceAll(/activity-label-[a-z]{3}-[a-z]{3}-[a-z]{3} |<i>|<\/i>/g, '');
 });
 // question bank select optgroup label
 $(`.path-question-type select optgroup,
