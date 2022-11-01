@@ -104,7 +104,7 @@
   #page-header-nav #page-navbar {
     padding-top: 10px;
     nav.breadcrumb-button {
-      align-items: flex-start;
+      // align-items: flex-start; /* hidden instad of deleted just in case we need to come back to it */
       .forumsearch {
         .input-group {
           flex-direction: row;
@@ -138,11 +138,45 @@
         }
       }
       .action-menu.moodle-actionmenu {
-        margin-left: $component-margin-sm;
+        // margin-left: $component-margin-sm; /* hidden rather than deleted to show what used to be here */
         @media only screen and (max-width: $neo-breakpoint) {
           position: absolute;
           top: -40px;
           right: 12px;
+        }
+      }
+      // The below code is in response to a bug report about the forum search looking bad
+      // (I think it may be because the 'forumsearch' class at ln 108 no longer exists)
+      a.btn.btn-link {
+        margin-right: $component-margin-xs !important;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
+        img.icon {
+          vertical-align: initial;
+          padding-right: 0;
+        }
+      }
+      .simplesearchform form.simplesearchform .input-group {
+        input.form-control[id^="searchinput"] {
+          border-radius: 4px 0 0 4px;
+        }
+        .input-group-append {
+          button.btn-submit.search-icon {
+            padding: 5px 8px 2px !important;
+            margin: 0 $component-margin-xs 0 0 !important;
+            border-radius: 0 4px 4px 0 !important;
+          }
+          img.icon {
+            vertical-align: initial;
+          }
+        }
+      }
+      #action-menu-1.action-menu.moodle-actionmenu.d-inline {
+        margin-left: $component-margin-xs;
+        margin-bottom: 0;
+        .action-menu-trigger .dropdown a {
+          padding: 3px 8px !important;
+          height: fit-content;
         }
       }
     }
@@ -360,6 +394,8 @@
       // do not apply to forum intro or completion progress 'mark as done' button
       & > div:not(#intro):not([data-region=activity-information]) {
         overflow-x: scroll;
+        // to give space for the focus ring around the 'add new topic' button to display on the lefthand side
+        padding-left: $component-margin-xs;
         // add a new discussion button container
         .p-b-1:first-child {
           position: absolute;

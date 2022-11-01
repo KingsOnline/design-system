@@ -65,15 +65,39 @@
   #notice .buttons .singlebutton {
     margin-right: $component-margin-xs;
   }
-  /*
+
   // tabs
   .nav-tabs {
-    margin: 0 0 $component-margin-bottom 0 !important;
+    /* margin: 0 0 $component-margin-bottom 0 !important;
     li {
       margin: 0 !important;
+    } */
+    li {
+      margin-bottom: 0 !important;
+      &:not(:last-child) {
+        margin-right: $component-margin-xs;
+      }
+      &:not(.active) {
+        a {
+          text-decoration: none !important;
+          color: $midnight-blue !important;
+        }
+      }
     }
   }
-  */
+  // page link navigation on the non-repondents page
+  li.page-item {
+    a.page-link {
+      text-decoration: none !important;
+      color: $midnight-blue !important;
+    }
+    &.active {
+      a.page-link {
+        color: $white !important;
+      }
+    }
+  }
+
   // page title
   .surveyTitle {
     @extend %h2;
@@ -96,6 +120,23 @@
     &::before {
       @include icon-before;
       @include fa-content($fa-print);
+    }
+  }
+  // 'Print blank' button for Preview page
+  div.mod_questionnaire_previewpage {
+    > h2 {
+      max-width: calc(100% - 130px - 1rem);
+    }
+    form {
+      position: relative;
+    }
+    .floatprinticon {
+      top: -76px;
+    }
+    @media only screen and (min-width: $neo-breakpoint) {
+      .floatprinticon {
+        top: -54px;
+      }
     }
   }
   // individual question container
@@ -149,7 +190,6 @@
         p,
         label {
           margin: 0 0 $component-margin-bottom 0;
-          font-weight: bold;
           cursor: text;
           &:last-child {
             margin-bottom: 0;
@@ -201,6 +241,19 @@
     // associated question
     & + .alert {
       margin: $component-margin-sm 0 $component-margin-bottom-xl 0;
+    }
+  }
+  &#page-mod-questionnaire-complete,  &#page-mod-questionnaire-preview {
+    // removing padding from container div with 'notice' class
+    div.notice {
+      padding: 0 !important;
+    }
+    // giving a top-margin to the submit and reset buttons to account for the last qn-answer not having a margin-bottom
+    input[type=submit] {
+      margin-top: $component-margin-xl !important;
+    }
+    a.btn.mr-1 {
+        margin-top: $component-margin-xl !important;
     }
   }
 }

@@ -157,11 +157,9 @@ div[class*="embed-responsive"] {
       &:focus {
         // outline: $pearl-grey auto 1px !important;
       }
-    }
-    & > ::before {
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      margin-right: 0.375rem
+      &::before {
+        @extend %icon-before;
+      }
     }
     .view-close-transcript::before {
       @include fa-content($fa-eye-slash);

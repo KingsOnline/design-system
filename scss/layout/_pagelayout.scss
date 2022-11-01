@@ -44,8 +44,16 @@
             &:not(:last-child) {
               margin-bottom: $component-margin-bottom;
             }
-            & > .row:last-child > [class*="col-sm"] > :last-child {
-              margin-bottom: 0 !important;
+            & > .row {
+              [class^="col"] {
+                // all grid images to be contained within col
+                img {
+                  max-width: 100%;
+                }
+              }
+              &:last-child > [class*="col-sm"] > :last-child {
+                margin-bottom: 0 !important;
+              }
             }
             @media only screen and (min-width: $neo-breakpoint) {
               & > .row:last-child > [class^="col"] > :last-child {

@@ -14,16 +14,17 @@
   #region-main {
     // info/description section
     #oublog_info_block.main-description {
+      margin: 0 !important;
+      box-shadow: none !important;
       // apply styles to OU Blog main content area card only
       & > .card-body {
-        padding: $component-padding !important;
-        .card-text {
+        padding: 0 !important;
+        // remove theme background colour
+        .card-title {
+          background: none;
+        }
+        & > .card-text {
           @include oublogHeadings;
-          margin: 0;
-          padding: 0;
-          img {
-            width: 100%;
-          }
         }
       }
     }

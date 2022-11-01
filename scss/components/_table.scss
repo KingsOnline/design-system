@@ -144,19 +144,37 @@ $table-bg-colors: (
 table,
 .table, %table {
   margin-bottom: $component-margin-bottom;
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
   border-radius: 0;
+  // bordered styles updated to resolve FF bug
+  // of borders not displaying when borders are set to collapse
   &.table-bordered, &%table-bordered, &.bordered {
     border: none;
     border-radius: 0;
     thead {
+      tr:first-child {
+        th, td {
+          border-top: 1px solid $table-border !important;
+        }
+      }
       td {
         background-color: $block-background;
       }
     }
+    tbody:first-child {
+      tr:first-child {
+        th, td {
+          border-top: 1px solid $table-border !important;
+        }
+      }
+    }
     th, td {
       border: 1px solid $table-border !important;
+      border-width: 0 1px 1px 0 !important;
+      &:first-child {
+        border-left: 1px solid $table-border !important;
+      }
     }
   }
 }
@@ -172,12 +190,31 @@ table, .table {
       }
     }
     thead {
-      border: 1px solid $table-border !important;
+      tr:first-child {
+        th {
+          border-top: 1px solid $table-border !important;
+        }
+      }
     }
     tbody {
-      border: 1px solid $table-border;
-      td {
-        border: none !important;
+      tr:first-child {
+        th, td {
+          border-top: 1px solid $table-border !important;
+        }
+      }
+      tr:last-child {
+        th, td {
+          border-bottom: 1px solid $table-border !important;
+        }
+      }
+    }
+    th, td {
+      border: none !important;
+      &:first-child {
+        border-left: 1px solid $table-border !important;
+      }
+      &:last-child {
+        border-right: 1px solid $table-border !important;
       }
     }
   }
@@ -204,6 +241,7 @@ table, .table {
   th, td {
     padding: 0.75rem 1.25rem;
     border-radius: 0 !important;
+    position: relative;
     &.border-left-none {
       border-left: 0 !important;
     }
@@ -341,6 +379,42 @@ table, .table {
   code {
     // so that the code is still visible when cells are highlighted
     background: #F7F7F9! important;
+  }
+}
+
+// set of similar tables
+// split for better accessibility
+.table-group {
+  margin-bottom: $component-margin-bottom;
+  .table:last-child {
+    margin-bottom: 0;
+  }
+  &.table-group-fixed {
+    .table {
+      table-layout: fixed;
+    }
+  }
+  &.table-group-no-spacing {
+    .table {
+      margin-bottom: 0;
+      &:not(:last-child) tbody tr:last-child td {
+        border-bottom: none !important;
+      }
+    }
+  }
+  @media only screen and (min-width: $neo-breakpoint) {
+    &.table-group-desktop-headings-centered {
+      th {
+        text-align: center;
+      }
+    }
+  }
+}
+// remove left and bottom margins from list items
+// when space is limited
+#region-main .table-group-list-no-margins .table {
+  ol, ul {
+    margin: 0 0 0 $component-margin-sm;
   }
 }
 

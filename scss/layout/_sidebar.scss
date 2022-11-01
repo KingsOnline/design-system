@@ -12,8 +12,9 @@
 //   - A) Generic
 //   - B) Module team academic
 //   - C) Networking
-// 7. Course module navigation
-// 8. Sharing cart
+// 7. Completion progress
+// 8. Course module navigation
+// 9. Sharing cart
 
 // 1. Editing
 // allow enough space for move
@@ -35,6 +36,7 @@ aside {
   section.block {
     padding: 0;
     margin-bottom: $component-margin-bottom !important;
+    font-family: "KingsBureauGrotFiveOne" !important;
     &.hide {
       display: none;
     }
@@ -87,108 +89,113 @@ aside {
   }
 }
 
-#block-region-side-pre,
-#block-region-side-post {
-  .block {
-    &:not(.block_fake) .title h2::after {
-      @include fa-content($fa-minus);
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-      position: absolute;
-      right: 0;
-      cursor: pointer;
-      pointer-events: all;
-    }
-    &.hidden:not(.block_fake) .title h2::after {
-      @include fa-content($fa-plus);
-    }
-    .header {
-      background-color: $block-header;
-      padding: $component-padding-xs 0.75rem;
-      height: auto;
-      margin: 0;
-      box-shadow: none;
-      .block-control-actions {
-        float: none;
-        padding: 0;
+aside {
+  &#block-region-side-pre,
+  &#block-region-side-post {
+    margin-top: 0;
+    .block {
+      margin: 0 0 $component-margin-bottom 0 !important;
+      box-shadow: none !important;
+      &:not(.block_fake) .title h2::after {
+        @include fa-content($fa-minus);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        pointer-events: all;
       }
-      &.block_course_discuss_header_section {
-        border: 1px solid $table-border;
-        border-bottom: 0;
-        .headline {
-          @extend %sidebar-header;
-        }
+      &.hidden:not(.block_fake) .title h2::after {
+        @include fa-content($fa-plus);
       }
-      .title {
-        position: relative;
-        padding: 0;
-        background: transparent;
+      .header {
+        background-color: $block-header;
+        padding: $component-padding-xs 0.75rem;
+        height: auto;
+        margin: 0;
         box-shadow: none;
-        h2 {
-          @extend %sidebar-header;
-          pointer-events: none;
-          max-width: calc(100% - 1.5rem);
+        .block-control-actions {
+          float: none;
+          padding: 0;
         }
-        // hide block action buttons
-        .block_action {
-          display: none;
+        &.block_course_discuss_header_section {
+          border: 1px solid $table-border;
+          border-bottom: 0;
+          .headline {
+            @extend %sidebar-header;
+          }
+        }
+        .title {
+          position: relative;
+          padding: 0;
+          background: transparent;
+          box-shadow: none;
+          h2 {
+            @extend %sidebar-header;
+            pointer-events: none;
+            max-width: calc(100% - 1.5rem);
+          }
+          // hide block action buttons
+          .block_action {
+            display: none;
+          }
         }
       }
-    }
-    .content {
-       background-color: $block-background;
-       padding: $component-margin;
-       margin: 0 !important;
-       .no-overflow > :last-child {
-         margin-bottom: 0;
-       }
-       ul {
-         &.fa-ul {
-           margin: 0 0 0 $component-margin-lg;
-           .fa-li,
-           .fa-solid {
-             position: absolute;
-             top: 0;
-             left: -$component-margin-lg;
-             text-align: center;
-             width: 1.5rem;
-             line-height: inherit;
-           }
-         }
-         li {
-           font-family: "KingsBureauGrotFiveOne";
-           margin: 0;
-           a,
-           p,
-           span {
-             font-family: "KingsBureauGrotFiveOne";
-             color: $midnight-blue;
-             font-size: 1rem;
-             line-height: 1.5;
-             margin: 0;
-           }
-           strong,
-           a:hover,
-           p:hover {
-             color: $link-hover;
-           }
-         }
-         a {
-           @include focus-outline;
-         }
-       }
-    }
-    // 3. Book TOC
-    &.block_book_toc {
       .content {
-        li {
-          &:not(:last-child) {
-            margin-bottom: 0.75rem;
-          }
-          // current page
-          strong {
-            font-family: "KingsBureauGrot";
-            color: $midnight-blue;
+         background-color: $block-background;
+         padding: $component-margin;
+         margin: 0 !important;
+         .no-overflow > :last-child {
+           margin-bottom: 0;
+         }
+         ul {
+           &.fa-ul {
+             margin: 0 0 0 $component-margin-lg;
+             .fa-li,
+             .fa-solid {
+               position: absolute;
+               top: 0;
+               left: -$component-margin-lg;
+               text-align: center;
+               width: 1.5rem;
+               line-height: inherit;
+             }
+           }
+           li {
+             font-family: "KingsBureauGrotFiveOne";
+             margin: 0;
+             a,
+             p,
+             span {
+               font-family: "KingsBureauGrotFiveOne";
+               color: $midnight-blue;
+               font-size: 1rem;
+               line-height: 1.5;
+               margin: 0;
+             }
+             strong,
+             a:hover,
+             p:hover {
+               color: $link-hover;
+             }
+           }
+           a {
+             @include focus-outline;
+           }
+         }
+      }
+      // 3. Book TOC
+      &.block_book_toc {
+        .content {
+          li {
+            &:not(:last-child) {
+              margin-bottom: 0.75rem;
+            }
+            // current page
+            strong {
+              font-family: "KingsBureauGrot";
+              color: $midnight-blue;
+            }
           }
         }
       }
@@ -300,7 +307,84 @@ aside {
   }
 }
 
-// 7. Course module navigation
+// 7. Completion progress
+// Following settings not recommended:
+// 'How to present long bars' - Scroll
+// 'User incons in bar' - Yes
+.block_completion_progress {
+  .barContainer {
+    margin-bottom: $component-margin-bottom-xs;
+    .progressBarCell {
+      &.futureNotCompleted {
+        background-color: $pearl-grey;
+      }
+      &.notCompleted {
+        background-color: $kings-red;
+      }
+      &.submittedNotComplete {
+        background-color: $yellow;
+      }
+      &.completed {
+        background-color: $pea-green;
+      }
+    }
+  }
+  .progressPercentage {
+    margin: 0 0 $component-margin-xs 0;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+  .progressEventInfo {
+    display: block;
+    margin: 0 0 $component-margin-xs 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    a {
+      display: block;
+      margin-bottom: $component-margin-xs;
+      font-size: 1rem;
+      font-weight: normal;
+      img {
+        display: none;
+      }
+    }
+    br {
+      display: none;
+    }
+  }
+  .overviewButton {
+    margin: 0;
+    text-align: left;
+    button {
+      @extend %btn-no-margin;
+      @extend %btn-primary-option;
+      margin: 0 !important;
+    }
+  }
+  // Overview of students page
+  .overviewTable {
+    .col-select {
+      width: 4.5rem !important;
+    }
+    .barContainer {
+      .barRowCells {
+        // hide scroll arrows
+        & > svg {
+          display: none;
+        }
+        white-space: pre-wrap;
+        .progressBarCell {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+// 8. Course module navigation
 .block.block_course_modulenavigation {
   .section-group {
     margin-bottom: 0;
@@ -335,7 +419,7 @@ aside {
   }
 }
 
-// 8. Sharing cart
+// 9. Sharing cart
 .block.block_sharing_cart {
   ul.list li.activity {
     .editing_update {

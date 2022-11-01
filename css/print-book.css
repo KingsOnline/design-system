@@ -34199,6 +34199,7 @@ html {
 
 #page-mod-book-print .float-box.small-image img, #page-mod-book-print .float-box.img-small img, #page-mod-book-print .float-box.small-img img {
   width: 100px;
+  height: auto;
 }
 
 #page-mod-book-print .float-box img {
@@ -40693,6 +40694,30 @@ html {
   left: 0;
   font-size: 28px;
   color: #333333;
+}
+
+#page-mod-book-print .table-group.table-group-fixed .table {
+  table-layout: fixed;
+}
+
+#page-mod-book-print .table-group.table-group-desktop-headings-centered th {
+  text-align: center;
+}
+
+#page-mod-book-print .table-group.table-group-no-spacing {
+  margin-bottom: 1.5rem;
+}
+
+#page-mod-book-print .table-group.table-group-no-spacing .table {
+  margin-bottom: 0;
+}
+
+#page-mod-book-print .table-group.table-group-no-spacing .table:not(:last-child) {
+  border-bottom: none;
+}
+
+#page-mod-book-print .table-group.table-group-no-spacing .table:not(:last-child) tbody tr:last-child td {
+  border-bottom: none !important;
 }
 
 #page-mod-book-print .timeline-container {

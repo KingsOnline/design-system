@@ -207,6 +207,11 @@ $completion-progress-button-width-d: 326px;
               font-size: 1rem !important;
               padding: 2px 4px !important;
               margin: 0 !important;
+              &.btn-outline-success,
+              &:hover {
+                background-color: shade($pea-green, 40%) !important;
+                border: 1px solid shade($pea-green, 40%) !important;
+              }
               &:not(.btn-outline-success):not(:hover) {
                 color: $midnight-blue !important;
                 border: 1px solid $midnight-blue !important;

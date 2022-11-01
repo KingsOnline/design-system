@@ -688,6 +688,7 @@ html {
       }
       img {
         width: 100px;
+        height: auto;
       }
     }
     // override theme max-width 100%;
@@ -1465,6 +1466,33 @@ html {
       left: 0;
       font-size: 28px;
       color: $body-text;
+    }
+  }
+
+  // set of similar tables
+  // split for better accessibility
+  .table-group {
+    &.table-group-fixed {
+      .table {
+        table-layout: fixed;
+      }
+    }
+    &.table-group-desktop-headings-centered {
+      th {
+        text-align: center;
+      }
+    }
+    &.table-group-no-spacing {
+      margin-bottom: $component-margin;
+      .table {
+        margin-bottom: 0;
+        &:not(:last-child) {
+          border-bottom: none;
+          tbody tr:last-child td {
+            border-bottom: none !important;
+          }
+        }
+      }
     }
   }
 

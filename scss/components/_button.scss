@@ -192,10 +192,15 @@ input[type="button"].btn-primary:hover, input[type="button"].btn-secondary:hover
   margin-bottom: $component-margin-bottom;
   [data-region=completion-info] {
     height: auto;
-    button {
+    button.btn {
       font-size: 1rem !important;
       padding: 2px 4px !important;
       margin: 0 !important;
+      &.btn-outline-success,
+      &:hover {
+        background-color: shade($pea-green, 40%) !important;
+        border: 1px solid shade($pea-green, 40%) !important;
+      }
     }
   }
 }

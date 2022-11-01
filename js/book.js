@@ -37,11 +37,27 @@ $('#page-mod-book-print .footnotes-article').each(function() {
     // create footer
     $(this).append(`<div class='footnotes-footer' role='doc-footnote'><ol></ol></div>`);
     // for each citation
-    $(this).find('.footnotes-body span.quote').each(function(i) {
-      const footnotesArticle = $(this).parents('.footnotes-article');
+    $(this).find('.footnotes-body span.quote').not('.footnotes-article .footnotes-article span.quote').each(function(i) {
+      const footnotesArticle = $(this).parents('.footnotes-article').not('.footnotes-article .footnotes-article');
       i++;
       // move each ref into ref list
-      $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}'></li>`);
+      $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol').not('.footnotes-article .footnotes-article .footnotes-footer')).wrap(`<li id='ref${i}'></li>`);
     });
   }
+  // nested footnotes in Transcript or View/hide components only
+  $(this).find('[class*="view-"][class*="-container"] .footnotes-article, .transcript-container .footnotes-article').each(function(i) {
+    // if nested footer does not exist
+    if ($(this).find('.footnotes-footer').length == 0) {
+      // create nested footer
+      $(this).append(`<div class='footnotes-footer' role='doc-footnote'><ol></ol></div>`);
+      i++;
+      // for each nested citation
+      $(this).find('.footnotes-body span.quote').each(function(j) {
+        const nestedFootnotesArticle = $(this).parents('.footnotes-article [class*="view-"][class*="-container"] .footnotes-article, .footnotes-article .transcript-container .footnotes-article');
+        j++;
+        // move each nested ref into nested ref list
+        $(this).find('.ref').appendTo((nestedFootnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}-${j}'></li>`);
+      });
+    }
+  });
 });

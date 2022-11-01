@@ -6,7 +6,7 @@ $('#block-region-side-pre .block:has(h5.card-title:contains("Administration")):n
 // Moodle upgrades -_-
 $("#block-region-side-post .block:has(h5.card-title:contains('Table of contents'))").prependTo("#block-region-side-pre");
 // move 'add a block' block to the left
-$('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('a.sr-only:contains("Skip Add a block"), .block').prependTo('#block-region-side-pre');
+//$('#block-region-side-post:not(:has(.block:not(:has(h5.card-title:contains("Add a block")))))').children('a.sr-only:contains("Skip Add a block"), .block').prependTo('#block-region-side-pre');
 // if there are no visible blocks in aside hide it and make main region full width
 $('#block-region-side-pre:not(:has(.block:not(.hide)))').addClass('hide').siblings('#region-main').removeClass('span8 pull-right');
 $('#block-region-side-post:not(:has(.block:not(.hide)))').addClass('hide').parents('body').addClass('empty-region-side-post used-region-side-pre');
@@ -91,6 +91,8 @@ $(window).resize(function() {
   }
 });
 function cardDeckEqualise() {
+  // reset .card-body height from v2.10-
+  $('.card-deck .card-body').css('height','');
   // if window is larger than neo-breakpoint
   if ($(window).width() > 767) {
     // reset the heights first
@@ -105,6 +107,8 @@ function cardDeckEqualise() {
       maxHeight = Math.max.apply(null, heights);
       // apply to all cards within that deck
       $(this).find('.card').height(maxHeight);
+      // reset .card-body height from v2.10-
+      $(this).find('.card-body').height('auto');
     });
   } else {
     // reset height
@@ -217,17 +221,17 @@ $(document).on('click', '.collapse-card .collapse-header', function(event) {
 // create footer for reference list
 $('.footnotes-article').append(`<div class='footnotes-footer' role='doc-footnote'><ol></ol></div>`);
 // for each citation
-$('.footnotes-article .footnotes-body span.quote').each(function(i) {
-  const footnotesArticle = $(this).parents('.footnotes-article');
+$('.footnotes-article .footnotes-body span.quote').not('.footnotes-article .footnotes-article span.quote').each(function(i) {
+  const footnotesArticle =
+  $(this).parents('.footnotes-article').not('.footnotes-article .footnotes-article');
   i++;
   // add link to ref from quote
   $(this).attr('class', 'quote-text').wrap(`
     <a id='quote${i}' class='quote' role='doc-noteref' title='Jump to reference' href='#ref${i}'></a>
   `);
   // move each ref into ref list
-  $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}'></li>`);
+  $(this).find('.ref').appendTo((footnotesArticle).find('.footnotes-footer ol').not('.footnotes-article .footnotes-article ol')).wrap(`<li id='ref${i}'></li>`);
   $(this).parents('a').on('click', function() {
-    const footnotesArticle = $(this).parents('.footnotes-article');
     $('.footnotes-footer li').removeClass('selected');
     footnotesArticle.find(`.footnotes-footer li#ref${i}`).addClass('selected');
     $('.footnotes-footer li a.back-to-quote').remove();
@@ -240,6 +244,35 @@ $('.footnotes-article .footnotes-body span.quote').each(function(i) {
     $('a.back-to-quote').on('click', function() {
       $(this).parents('li').removeClass('selected');
       $(this).remove();
+    });
+  });
+});
+// nested footnotes in Transcript or View/hide components only
+$('.footnotes-article [class*="view-"][class*="-container"] .footnotes-article, .footnotes-article .transcript-container .footnotes-article').each(function(i) {
+  i++;
+  $(this).find('.footnotes-body span.quote').each(function(j) {
+    const nestedFootnotesArticle = $(this).parents('.footnotes-article [class*="view-"][class*="-container"] .footnotes-article, .footnotes-article .transcript-container .footnotes-article');
+    j++;
+    // add link to ref from quote
+    $(this).attr('class', 'quote-text').wrap(`
+      <a id='quote${i}-${j}' class='quote' role='doc-noteref' title='Jump to reference' href='#ref${i}-${j}'></a>
+    `);
+    // move each ref into ref list
+    $(this).find('.ref').appendTo((nestedFootnotesArticle).find('.footnotes-footer ol')).wrap(`<li id='ref${i}-${j}'></li>`);
+    $(this).parents('a').on('click', function() {
+      $('.footnotes-footer li').removeClass('selected');
+      nestedFootnotesArticle.find(`.footnotes-footer li#ref${i}-${j}`).addClass('selected');
+      $('.footnotes-footer li a.back-to-quote').remove();
+      // create back to quote link and icon for selected ref
+      nestedFootnotesArticle.find('.footnotes-footer li.selected .ref').append(`
+        <a class='back-to-quote' title='Back to quote' href='#quote${i}-${j}'>
+          <i class='fas fa-chevron-circle-up'></i>
+        </a>
+      `);
+      $('a.back-to-quote').on('click', function() {
+        $(this).parents('li').removeClass('selected');
+        $(this).remove();
+      });
     });
   });
 });
@@ -589,6 +622,9 @@ $('.activity:has(.actions .autocompletion, .actions .togglecompletion)').addClas
 $('.course-content .completion-progress-section .content .sectionbody > .section, .course-content .single-section .completion-progress-section .content > .section').prepend($('#completionprogressid').clone());
 
 /* OU Wiki */
+// adding activity title to each page
+$('[id^=page-mod-ouwiki-]').find('#maincontent').after('<h2>' + $(document).attr('title') + '</h2>');
+
 // adding sr-only class to the 'added' and 'deleted' img tags for the OU Wiki history page
 $('#page-mod-ouwiki-diff .ouw_diff.ouwiki_content img').each(function() {
   var altTextValue = $(this).attr('alt');

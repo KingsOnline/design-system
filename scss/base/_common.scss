@@ -250,7 +250,7 @@
     a {
       @extend %h5;
       margin: 0;
-      padding: $component-padding-xs $component-padding-sm;
+      padding: 6px $component-padding-sm;
       color: $midnight-blue;
     }
     &.active {

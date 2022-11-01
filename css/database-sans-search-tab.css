@@ -1,0 +1,7 @@
+body[id*="page-mod-data-"] #region-main ul.nav-tabs:nth-of-type(1) li:not(.active):has(a[title="Search"]) {
+  display: none;
+}
+/* alternative for browser/device combinations that don't support :has() */
+body[id*="page-mod-data-"] #region-main ul.nav-tabs:nth-of-type(1) li:not(.active) a[title="Search"] {
+  display: none;
+}
