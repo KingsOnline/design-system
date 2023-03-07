@@ -1,7 +1,7 @@
 /* Feedback
    ======================== */
 
- .path-mod-feedback {
+.path-mod-feedback {
   // question and submission settings
   #id_feedbackhdr {
     .col-md-3 {
@@ -209,6 +209,13 @@
           border-bottom: 0;
           .col-md-9 {
             margin-top: $component-margin-xs;
+          }
+        }
+        &.multichoice-horizontal {
+          fieldset {
+            label {
+              margin-right: $component-margin;
+            }
           }
         }
       }

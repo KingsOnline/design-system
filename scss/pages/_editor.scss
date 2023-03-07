@@ -32,3 +32,12 @@
     }
   }
 }
+
+// Ensure editor remains the same width when switching to source code view
+// Applied to Atto editor only as the TinyMCE HTML editor
+// generates a fixed-width modal
+#fitem_id_content_editor .editor_atto_wrap {
+  .CodeMirror-wrap pre {
+    overflow-wrap: anywhere !important;
+  }
+}

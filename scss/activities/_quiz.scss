@@ -133,19 +133,19 @@
         // transparent bg colour for correct questions
         background-color: transparent;
         span.thispageholder {
-          border: 1px solid $pea-green;
+          border: 1px solid shade($pea-green, 50%);
         }
       }
       &.incorrect {
         background-color: tint($kings-red, 70%);
         span.thispageholder {
-          border: 1px solid $kings-red;
+          border: 1px solid shade($kings-red, 20%);
         }
       }
       &.partiallycorrect {
         background-color: tint($yellow, 70%);
         span.thispageholder {
-          border: 1px solid $yellow;
+          border: 1px solid shade($yellow, 30%);
         }
       }
       &.answersaved{
@@ -269,7 +269,10 @@
         margin-bottom: $component-margin-bottom;
         p {
           margin-bottom: $component-margin-bottom-sm;
-       }
+        }
+        li {
+          color: $body-text;
+        }
       }
       select {
         border-radius: 4px;
@@ -278,10 +281,10 @@
         color: $body-text;
         @include focus-outline;
         &.correct {
-          border-color: $pea-green;
+          border-color: shade($pea-green, 50%);
         }
         &.incorrect {
-          border-color: $kings-red;
+          border-color: shade($kings-red, 20%);
         }
       }
       .qtext input[type="text"] {
@@ -353,7 +356,7 @@
                 top: 10px;
                 // to align with correct/incorrect icon of general feedback
                 left: 22px;
-                color: $yellow;
+                color: shade($yellow, 30%);
               }
               & > p, & > figure, & > img, & > div {
                 display: block;
@@ -383,18 +386,18 @@
               }
               &.correct {
                 background-color: tint($pea-green, 80%);
-                border-color: $pea-green !important;
+                border-color: shade($pea-green, 50%) !important;
                 &::before {
                   @include fa-content($fa-check-circle);
-                  color: $pea-green;
+                  color: shade($pea-green, 50%);
                 }
               }
               &.incorrect {
                 background-color: tint($kings-red, 80%);
-                border-color: $kings-red !important;
+                border-color: shade($kings-red, 20%) !important;
                 &::before {
                   @include fa-content($fa-times-circle);
-                  color: $kings-red;
+                  color: shade($kings-red, 20%);
                 }
               }
             }
@@ -410,7 +413,7 @@
       background-color: tint($yellow, 80%);
       & > .feedback::before {
         @include fa-content($fa-comments-alt);
-        color: $yellow;
+        color: shade($yellow, 30%);
         padding: 0 4px;
       }
       .feedback {
@@ -419,7 +422,12 @@
         color: $body-text;
         // 'Your answer is correct/incorrect'
         .specificfeedback {
-          margin-bottom: $component-margin-bottom-sm;
+          &:not(:last-child) {
+            margin-bottom: $component-margin-bottom-sm;
+          }
+          & > :last-child {
+            margin-bottom: 0 !important;
+          }
         }
         .rightanswer {
           margin-bottom: 0;
@@ -441,14 +449,14 @@
   &.correct {
     .formulation input.correct {
       background-color: tint($pea-green, 80%);
-      border-color: $pea-green !important;
+      border-color: shade($pea-green, 50%) !important;
       border-radius: 4px;
     }
     .outcome {
       background-color: tint($pea-green, 80%);
       & > .feedback::before {
         @include fa-content($fa-check-circle);
-        color: $pea-green;
+        color: shade($pea-green, 50%);
         padding: 0 4px;
       }
     }
@@ -456,14 +464,14 @@
   &.incorrect {
     .formulation input.incorrect {
       background-color: tint($kings-red, 80%);
-      border-color: $kings-red !important;   
+      border-color: shade($kings-red, 20%) !important;
       border-radius: 4px;
     }
     .outcome {
       background-color: tint($kings-red, 80%);
       & > .feedback::before {
         @include fa-content($fa-times-circle);
-        color: $kings-red;
+        color: shade($kings-red, 20%);
         padding: 0 4px;
       }
     }
@@ -475,6 +483,63 @@
       // or checkbox for MCQ and All or nothing question types
       // flex-wrap is required on the .answer for specific feedback
       flex: 1;
+    }
+  }
+  &.gapfill {
+    input,
+    select {
+      &.correct {
+        color: $body-text;
+        background-color: tint($pea-green, 80%);
+        border-color: shade($pea-green, 50%);
+      }
+      &.incorrect {
+        color: $body-text;
+        background-color: tint($kings-red, 80%);
+        border-color: shade($kings-red, 20%);
+      }
+      & + .icon {
+        display: none;
+        & + span {
+          position: relative;
+          margin-left: $component-margin;
+          &::before {
+            @extend %icon-before;
+            position: absolute;
+            left: -26px;
+            font-size: 1.125rem;
+            font-style: normal;
+          }
+        }
+      }
+    }
+    .icon {
+      &[title="Correct"] {
+        & + span::before {
+          @include fa-content($fa-check-circle);
+          color: shade($pea-green, 50%);
+        }
+      }
+      &[title="Incorrect"] {
+        & + span::before {
+          @include fa-content($fa-times-circle);
+          color: shade($kings-red, 20%);
+          left: -22px;
+        }
+      }
+    }
+    span.aftergapfeedback {
+      color: shade($pea-green, 50%);
+    }
+    span.gapfeedbackcorrect {
+      color: $body-text;
+      background-color: tint($pea-green, 80%);
+      padding: 0 4px;
+    }
+    span.gapfeedbackincorrect {
+      color: $body-text;
+      background-color: tint($kings-red, 80%);
+      padding: 0 4px;
     }
   }
 }
@@ -543,7 +608,7 @@
                 font-size: 1.25rem;
                 // for good
                 @include fa-content($fa-check);
-                color: $pea-green;
+                color: shade($pea-green, 50%);
               }
             }
           }
@@ -554,7 +619,7 @@
               &::before{
                 // for bad
                 @include fa-content($fa-times);
-                color: $kings-red;
+                color: shade($kings-red, 20%);
               }
             }
           }
@@ -586,4 +651,11 @@
   button {
     padding: 0 !important;
   }
+}
+
+// override to give focus styling to the buttons in the pop-up box that confirms or cancels quiz submission
+// remove for Moodle 4
+.path-mod-quiz .moodle-dialogue .moodle-dialogue-bd .confirmation-buttons .btn:focus {
+  outline: 2px solid $sea-blue;
+  outline-offset: 2px;
 }

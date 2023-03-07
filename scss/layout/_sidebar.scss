@@ -204,16 +204,7 @@ aside {
 }
 
 // 4. Calendar
-// calendar block
-.calendarwrapper {
-  margin-bottom: $component-margin !important;
-  margin-top: 0 !important;
-  .minicalendar {
-    th, td {
-      padding: 0 !important;
-    }
-  }
-}
+// see pages/_calendar.scss
 
 // 5. Discussion
 // discussion block

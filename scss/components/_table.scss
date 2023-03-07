@@ -144,37 +144,20 @@ $table-bg-colors: (
 table,
 .table, %table {
   margin-bottom: $component-margin-bottom;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
-  // bordered styles updated to resolve FF bug
-  // of borders not displaying when borders are set to collapse
   &.table-bordered, &%table-bordered, &.bordered {
     border: none;
     border-radius: 0;
     thead {
-      tr:first-child {
-        th, td {
-          border-top: 1px solid $table-border !important;
-        }
-      }
       td {
         background-color: $block-background;
       }
     }
-    tbody:first-child {
-      tr:first-child {
-        th, td {
-          border-top: 1px solid $table-border !important;
-        }
-      }
-    }
     th, td {
       border: 1px solid $table-border !important;
-      border-width: 0 1px 1px 0 !important;
-      &:first-child {
-        border-left: 1px solid $table-border !important;
-      }
+      background-clip: padding-box;
     }
   }
 }
@@ -190,31 +173,12 @@ table, .table {
       }
     }
     thead {
-      tr:first-child {
-        th {
-          border-top: 1px solid $table-border !important;
-        }
-      }
+      border-top: 1px solid $table-border !important;
     }
     tbody {
-      tr:first-child {
-        th, td {
-          border-top: 1px solid $table-border !important;
-        }
-      }
-      tr:last-child {
-        th, td {
-          border-bottom: 1px solid $table-border !important;
-        }
-      }
-    }
-    th, td {
-      border: none !important;
-      &:first-child {
-        border-left: 1px solid $table-border !important;
-      }
-      &:last-child {
-        border-right: 1px solid $table-border !important;
+      border: 1px solid $table-border;
+      td {
+        border: none !important;
       }
     }
   }

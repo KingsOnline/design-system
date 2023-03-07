@@ -38,16 +38,14 @@ figure.blockquote {
     margin: 0 0 $component-margin-bottom 0 !important;
     padding: 0;
     &::before {
-      content: '\201c';
+      @include fa-icon($fa-quote-left);
       padding: 0;
       color: $orange;
-      font-family: "KingsCaslonDisplay";
-      font-size: 4.5rem;
+      font-size: 1.4rem;
       font-style: normal;
-      font-weight: normal;
       position: absolute;
-      left: 18px;
-      top: 4px;
+      left: 28px;
+      top: 14px;
       margin: 0;
     }
     p, li {

@@ -82,6 +82,7 @@
           display: block;
           table {
             @extend %table-bordered;
+            border-top: 1px solid $table-border !important;
           }
         }
       }

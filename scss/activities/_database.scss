@@ -132,6 +132,16 @@ body[id*="page-mod-data-"] {
         @extend %btn-secondary;
       }
     }
+    // the below are to make sure each of the entry inputs are aligned
+    fieldset {
+      padding: 0;
+      input[type="checkbox"].mod-data-input {
+          margin-top: -4px;
+      }
+    }
+    .d-inline-flex {
+      flex-direction: column;
+    }
   }
 }
 // just template creating mode

@@ -435,7 +435,7 @@ $('#page-mod-book-edit #id_subchapter').parents('.fitem').addClass('subchapter')
 $('#oublog_info_block').detach().prependTo($('#region-main'));
 $('#oublog_info_block').addClass('main-description');
 // changes the heading level on the info to h2
-$('#oublog_info_block h5').replaceWith(function () {
+$('#oublog_info_block .card-body > h5:first-of-type').replaceWith(function () {
   return '<h2>' + $(this).html() + '</h2>';
 });
 
@@ -529,6 +529,7 @@ activity instance error alert (student does not have access to activity)
 activity restriction info
 previous/next activity buttons
 webinar title
+completion progress block
 course module navitation block
 logs
 forum new post confirmation
@@ -545,6 +546,7 @@ $(`#region-main h2:first-of-type:contains('activity-label'),
   .activity-navigation .col-md-4 a:contains('activity-label'),
   .chosted-info .chosted-info-value p:contains('activity-label'),
   .alert p:contains('activity-label'),
+  .block_completion_progress .progressEventInfo a:contains('activity-label'),
   .block_course_modulenavigation .activityname:contains('activity-label'),
   #page-report-log-index td a:contains('activity-label'),
   #page-report-outline-index td a:contains('activity-label'),

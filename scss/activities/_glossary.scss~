@@ -65,9 +65,9 @@
           margin: 0;
           input[type="text"] {
             width: 95%;
-          }
+          }          
           .input-group-append {
-            margin-top: $component-margin-xs;
+            margin-top: $component-margin-xs; 
             button.btn-submit.search-icon {
               padding: 2px 8px 6px !important;
               margin-bottom: 0 !important;
@@ -84,7 +84,7 @@
           .input-group {
             input[type="text"] {
               margin-right: $component-margin-sm !important;
-            }
+            } 
             .input-group-append {
               margin-top: 0;
             }

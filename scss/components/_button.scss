@@ -115,6 +115,9 @@ input[type="submit"] {
 .singlebutton > form > div {
   margin: 0;
 }
+.singlebutton + .singlebutton {
+  margin-left: 0.75rem;
+}
 
 // restrict access button
 .pagelayout-admin {

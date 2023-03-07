@@ -12,3 +12,13 @@
 .singleselect {
   font-size: 1rem;
 }
+
+// Add default focus styling to form elements
+select,
+input[type="file"],
+input[type="radio"],
+input[type="checkbox"],
+input[type="text"],
+textarea {
+  @include focus-outline;
+}

@@ -10,6 +10,9 @@
   @extend %note-container;
   & > [class^="view-"][class$="-card"] > .card-body {
     margin-top: $component-margin;
+    .card-text {
+      max-width: 100%;
+    }
   }
 }
 

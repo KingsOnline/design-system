@@ -166,7 +166,7 @@ select, option {
     }
     .sr-link-message {
       display: inline-block;
-    }
+    } 
   }
   a {
     // override theme permanent underline

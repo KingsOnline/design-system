@@ -98,6 +98,11 @@
   figcaption a:visited {
     color: #0A2D50;
   }
+  p a.external-link-no-wrap,
+  li p a.external-link-no-wrap,
+  figcaption a.external-link-no-wrap {
+    white-space: nowrap;
+  }
   p a i.open-icon,
   li p a i.open-icon,
   figcaption a i.open-icon {

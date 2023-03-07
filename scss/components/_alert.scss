@@ -37,6 +37,9 @@
       padding: 0 3px;
     }
   }
+  &.alert-info {
+    color: $midnight-blue;
+  }
   // alert after submitting feedback
   &.alert-block {
     padding: 1.25rem;

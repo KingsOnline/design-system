@@ -1,0 +1,142 @@
+/* Calendar
+   =========================*/
+
+// calendar page
+.path-calendar {
+  .maincalendar {
+    .header {
+      padding: 0 !important;
+      .select {
+        margin: 0 0 $component-margin-bottom-xs 0 !important;
+      }
+      // 'New event' button
+      button[data-action="new-event-button"] {
+        @extend %btn-primary;
+      }
+    }
+    .bottom {
+      // 'Export calendar' button
+      .singlebutton {
+        &:first-child button {
+          @extend %btn-primary;
+          margin: 0 !important;
+          border: none !important;
+        }
+        button {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.calendarwrapper {
+  margin-bottom: $component-margin !important;
+  margin-top: 0 !important;
+  // individual event
+  .event {
+    margin: 0 0 $component-margin 0 !important;
+    .card {
+      padding: 0;
+      flex-direction: column;
+      .card-header {
+        position: relative;
+        padding: $component-padding-sm;
+        background: $block-background;
+        border-bottom: none;
+        .commands {
+          position: absolute;
+          top: $component-padding-sm;
+          right: $component-padding-sm;
+          display: flex;
+          // to push 'x' to the end
+          flex-direction: row-reverse;
+          a {
+            margin: 0;
+            .icon {
+              margin: 0 0 0 12px;
+              padding: 0;
+            }
+          }
+          // event type icon
+          & + .d-inline-block {
+            display: block !important;
+            margin-bottom: $component-margin-bottom-xs;
+          }
+        }
+      }
+      .card-body {
+        padding: $component-padding-sm $component-padding-sm $component-padding-sm $component-padding
+        !important;
+        border: 1px solid $block-background;
+        .row {
+          flex-wrap: nowrap;
+          margin: 0 !important;
+          .col-1,
+          .col-11 {
+            flex: none;
+            max-width: unset;
+            padding: 0;
+          }
+          .col-1 {
+            width: auto;
+            .icon {
+              margin-right: $component-margin-sm;
+              padding-right: 0;
+            }
+          }
+          .col-11 {
+            width: calc(100% - 32px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// calendar block
+.minicalendar {
+  .calendar-controls {
+    caption-side: top !important;
+    margin: 0 0 $component-margin-sm 0;
+    padding: 0;
+    max-width: none;
+    .previous,
+    .current,
+    .next {
+      display: inline;
+      float: none;
+      .arrow {
+         display: none;
+      }  
+    }
+    .previous::before {
+      @include icon-before;
+      @include fa-content($fa-angle-left);
+    }
+    .current,
+    [title="This month"] {
+      font-family: "Open Sans";
+      font-size: 1rem;
+      a {
+        display: inline-block;
+        // so prev/next arrows don't move
+        width: 128px;
+        text-decoration: underline;
+      }
+    }
+    .next::after {
+      @include icon-after;
+      @include fa-content($fa-angle-right);
+    }
+  }
+  th, td {
+    font-size: 14px;
+    padding: 0 !important;
+  }
+}
+.calendar_filters {
+  background: white;
+  margin-top: none !important;
+  padding: $component-padding-sm;
+}
