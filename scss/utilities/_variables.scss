@@ -1,57 +1,10 @@
 // Variables
-// =========
+// ========================================================================== */
 
 // Colours
+// ========================================================================== */
 
-// Primary
-$kings-red: #E2231A;
-$white: #FFFFFF;
-$black:#000000;
-
-// Secondary
-$yellow: #F5B90F;
-$orange: #FF5F05;
-$soft-pink: #FC5E72;
-$hot-pink: #C83296;
-$lilac: #9B82D2;
-$purple: #501491;
-$purple70: #8262ae;
-$sea-blue: #005AD2;
-$sky-blue: #00B9E1;
-$teal-blue: #009EA0;
-$pea-green: #28C382;
-$lime-green: #C6E128;
-$lime-green-2: #999900;
-$reflex-blue: #002395;
-$midnight-blue: #0A2D50;
-
-// Neutrals
-$pebble: #5F5550;
-$stone: #575756;
-$slate-grey: #5A6469;
-$mushroom: #CDC3B9;
-$pearl-grey: #CDD7DC;
-$warm-grey: #BCAFA8;
-$powder-blue: #8D9EBC;
-
-// KC Custom
-$link-hover: #536C84;
-$headings: #171717;
-$body-text: #333333;
-$footer-dark: #464E52;
-$rules-and-outlines: #8B9296;
-$block-header: #DCE3E6;
-$block-background: #EDF1F2;
-$table-border: #8B9296;
-
-// converts hex to rgba with custom opacity
-@mixin colour-opacity($color, $opacity) {
-  color: rgba($color, $opacity) !important;
-}
-@mixin bg-colour-opacity($color, $opacity) {
-  background-color: rgba($color, $opacity) !important;
-}
-
+// Functions
 // mixes color with white to lighten
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
@@ -61,33 +14,114 @@ $table-border: #8B9296;
   @return mix(black, $color, $percentage);
 }
 
+// Primary
+$kings-red: #E2231A;
+$kings-red-600: #B51C15;
+$white: #FFFFFF;
+$black:#000000;
+
+// Secondary
+$midnight-blue: #0A2C50;
+$sea-blue: #005AD2;
+$sea-blue--100: #C7DFFF;
+$reflex-blue: #002395;
+$reflex-blue--100: #B7C8FF;
+
+// System
+$powder-blue: #8295B5;
+$powder-blue--700: #455775;
+$powder-blue--600: #5D759C;
+$powder-blue--200: #CDD5E1;
+$powder-blue--100: #E6EAF0;
+$panel-grey: #EAEFF0;
+$kings-red--600: #B51C15;
+$focus-colour: #08F6CC;
+$panel-grey--1000: #2E2E2E;
+$panel-grey--900: #536A6E;
+$panel-grey--800: #829999;
+$panel-grey--700: #BCCBCD;
+$panel-grey--600: #DDE5E9;
+$panel-grey--400: #F3F5F5;
+
+
+// Semantic
+$soft-pink: #FC5E72;
+$warm-grey: #BCAFA8;
+$yellow: #F5B90F;
+$lime-green: #C6E128;
+$pebble: #5F5550;
+$orange: #FF5F05;
+$hot-pink: #C83296;
+$sky-blue: #00B9E1;
+$mushroom: #CDC3B9;
+$pea-green: #28C382;
+$lime-green-2: #999900;
+$stone: #575756;
+$teal-blue: #009EA0;
+$lilac: #9B82D2;
+$lilac--600: #8056C1;
+$purple: #501491;
+
+// Typography
+$headings: $midnight-blue;
+$body-text: $panel-grey--1000;
+
+// Bootstrap
+$colour--active: $powder-blue--100;
+$colour--default: $white;
+$colour--primary: $sea-blue--100;
+$colour--secondary: $panel-grey--400;
+$colour--success-dark: #006611;
+$colour--success: #7CE9BB;
+$colour--danger: #FFADB8;
+$colour--warning: #FFE7A5;
+$colour--info: $reflex-blue--100;
+$colour--light: $white;
+$colour--dark: $powder-blue--700;
+
+// Table highlights
+$yellow--150: #FCEAB7;
+$sky-blue--200: #99E3F3;
+$kings-red--100: #FAD3D1;
+$orange--50: #FFAF82;
+
 // Layout
+// ========================================================================== */
 
 // Breakpoints
-$xxl-breakpoint: 1400px;
-$xl-breakpoint: 1200px;
-$lg-breakpoint: 979px;
-$neo-breakpoint: 768px;
+$breakpoint--3xl: 1400px;
+$breakpoint--2xl: 1308px;
+$breakpoint--xl: 1200px;
+$breakpoint--lg: 992px;
+$breakpoint--md: 768px;
+$breakpoint--sm: 576px;
 
 // Spacing
-$component-margin-xs: 0.5rem;
-$component-margin-sm: 1rem;
-$component-margin: 1.5rem;
-$component-margin-lg: 2.25rem;
-$component-margin-xl: 4.5rem;
-$component-margin-bottom-xs: $component-margin-xs;
-$component-margin-bottom-sm: $component-margin-sm;
-$component-margin-bottom: $component-margin;
-$component-margin-bottom-lg: $component-margin-lg;
-$component-margin-bottom-xl: $component-margin-xl;
-$component-padding-xs: $component-margin-xs;
-$component-padding-sm: $component-margin-sm;
-$component-padding: $component-margin;
-$component-padding-lg: $component-margin-lg;
-$component-padding-xl: $component-margin-xl;
-$section-margin-bottom-sm: 3rem;
-$section-margin-bottom: 4rem;
+$spacing--3xs: 0.25rem;
+$spacing--2xs: 0.5rem;
+$spacing--xs: 0.75rem;
+$spacing--sm: 1rem;
+$spacing: 1.5rem;
+$spacing--lg: 2.25rem;
+$spacing--xl: 4.5rem;
 
-// Nav button margins
-$lg-nav-margin: 3rem;
-$sm-nav-margin: 3rem;
+$component-margin--3xs: $spacing--3xs;
+$component-margin--2xs: $spacing--2xs;
+$component-margin--xs: $spacing--xs;
+$component-margin--sm: $spacing--sm;
+$component-margin: $spacing;
+$component-margin--lg: $spacing--lg;
+$component-margin--xl: $spacing--xl;
+
+$component-padding--3xs: $spacing--3xs;
+$component-padding--2xs: $spacing--2xs;
+$component-padding--xs: $spacing--xs;
+$component-padding--sm: $spacing--sm;
+$component-padding: $spacing;
+$component-padding--lg: $spacing--lg;
+$component-padding--xl: $spacing--xl;
+
+// Components
+// ========================================================================== */
+
+$component-border: 1px solid $powder-blue--200;

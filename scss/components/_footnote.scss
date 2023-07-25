@@ -1,5 +1,5 @@
 /* Footnotes
-   ======================== */
+   ========================================================================== */
 
 /* v2.6- */
 section#region-main {
@@ -14,12 +14,6 @@ section#region-main {
     margin-bottom: 5px;
     text-decoration: underline;
     cursor: pointer;
-    &:hover {
-      @include bg-colour-opacity($yellow, 0.3);
-    }
-    &:focus {
-      @include bg-colour-opacity($yellow, 0.3);
-    }
     .sr-only.ref-label {
       border: none;
       padding: 0;
@@ -31,11 +25,11 @@ section#region-main {
   }
   // style footnote
   aside.footnotes{
-    border-top: 1px solid $rules-and-outlines;
+    border-top: 1px solid $panel-grey--700;
     padding: $component-padding 0 0 0;
     margin: $component-margin 0 0 0;
     :target {
-      @include bg-colour-opacity($yellow, 0.3);
+      background-color: $panel-grey--600;
     }
     ol {
       margin-bottom: 0;
@@ -60,14 +54,14 @@ section#region-main {
 }
 
 /* v2.7+ */
-// supported list style types
-// disc and none ref links will display as decimal
+// Supported list style types
+// Disc and none ref links will display as decimal
 $list-style-types: [
-  decimal, // a number (default)
-  disc, // a filled circle
+  decimal, // A number (default)
+  disc, // A filled circle
   lower-alpha, lower-latin, // a, b, c, d, etc.
   lower-roman, // i, ii, iii, iv, etc.
-  none, // no marker shown
+  none, // No marker shown
   upper-alpha, upper-latin, // A, B, C, D, etc.
   upper-roman // I, II, III, IV, etc.
 ];
@@ -95,17 +89,14 @@ $list-style-types: [
 
 .footnotes-article {
   @include list-style-types;
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   // reference list
   .footnotes-body {
     counter-reset: quote;
     .quote {
-      color: $body-text !important;
       counter-increment: quote;
-      text-decoration: none !important;
-      // ref styled just incase JS fails to move to footer
+      // Ref styled just incase JS fails to move to footer
       .ref {
-        color: $slate-grey;
         font-style: italic;
         &::before {
           content: " [";
@@ -116,7 +107,6 @@ $list-style-types: [
       }
       &::after {
         content: counter(quote);
-        text-decoration: underline;
         font-size: 0.875rem;
         vertical-align: top;
         position: relative;
@@ -138,21 +128,18 @@ $list-style-types: [
     }
   }
   .footnotes-footer {
-    border-top: 1px solid $rules-and-outlines;
+    border-top: 1px solid $panel-grey--700;
     padding: $component-padding 0 0 0;
     margin: $component-margin 0 0 0;
     ol {
-      margin: 0 0 0 $component-margin-lg !important;
+      margin: 0 0 0 $component-margin--lg !important;
       li {
         display: list-item !important;
-        // to allow for .back-to-quote icon + default margin
-        padding-right: calc(20px + #{$component-padding-sm});
         .ref {
-          font-size: 0.875rem;
-          line-height: 1.5;
+          @extend .small-type;
           a {
             word-break: break-all;
-            // external link icon {
+            // External link icon {
             i.open-icon {
               margin-left: 4px;
             }
@@ -166,30 +153,16 @@ $list-style-types: [
         }
         &.selected {
           position: relative;
-          .ref {
-            font-weight: bold;
-            a.back-to-quote {
-              position: absolute;
-              top: 0;
-              right: 4px;
-              bottom: 0;
-              margin: auto 0;
-              display: flex;
-              align-items: center;
-              color: transparent !important;
-              // chevron circle up icon
-              i.fa-chevron-circle-up {
-                @include icon-before;
-                margin: 2px 0 0 0;
-                font-size: 20px;
-                &::before {
-                  color: $midnight-blue;
-                }
-              }
+          a {
+            @extend %link-colour;
+            .ref {
+              font-weight: bold;
+              color: inherit;
             }
           }
           &::marker {
             font-weight: bold;
+            color: $sea-blue;
           }
         }
       }

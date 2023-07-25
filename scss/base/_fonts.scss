@@ -1,19 +1,23 @@
-// Fonts
-// ==========================
+/* Fonts
+   ========================================================================== */
 
-// primary font used for headings
+/**
+ * King's Caslon 
+ * Primary font used for larger headings
+ */
+ 
 @font-face {
-  font-family: "KingsBureauGrot";
-  src: url("../../assets/fonts/KingsBureauGrot-ThreeSeven.woff") format("woff"), /* Modern Browsers */
-       url("../../assets/fonts/KingsBureauGrot-ThreeSeven.ttf") format("truetype"); /* Safari, Android, iOS */
-  font-weight: bold;
+  font-family: "KingsCaslon";
+  src:
+  url("https://keatsuat4x.kcl.ac.uk/pluginfile.php/1/theme_boost_union/customfonts/0/KingsCaslon-woff.woff")
+  format("woff");
+  font-weight: normal;
   font-style: normal;
 }
 
-// secondary fonts
-// Open Sans support font used for body text within sidebar blocks
-@font-face {
-  font-family: "KingsBureauGrotFiveOne";
-  src: url("../../assets/fonts/KingsBureauGrot-FiveOne.ttf") format("truetype");
-  font-style: normal;
-}
+/**
+ * Open Sans 
+ * Secondary font used for smaller headings and body text
+ * Embedded via addition HTML
+ */
+ 

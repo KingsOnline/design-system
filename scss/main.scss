@@ -1,38 +1,27 @@
-@import "../css/normalize.css";
-
 @import "utilities/variables";
 
-@import "base/fonts";
+@import "base/typography";
 @import "base/icons";
 @import "base/common";
-@import "base/typography";
-@import "base/lists";
 
-// @import "layout/grid";
-@import "layout/footer";
-@import "layout/header";
-@import "layout/navigation";
-@import "layout/pagelayout";
 @import "layout/sidebar";
 
 @import "components/academicnote";
 @import "components/activitylabel";
 @import "components/alert";
-@import "components/bba";
 @import "components/blockquote";
 @import "components/button";
 @import "components/card";
 @import "components/carousel";
-@import "components/newcarousel";
 @import "components/collapse";
 @import "components/embed";
-@import "components/footnotes";
-@import "components/form";
+@import "components/floatbox";
+@import "components/footnote";
 @import "components/hero";
 @import "components/images";
 @import "components/infobox";
 @import "components/latex";
-@import "components/modal";
+@import "components/newcarousel";
 @import "components/process";
 @import "components/screenreaderdescription";
 @import "components/scrollbar";
@@ -40,33 +29,8 @@
 @import "components/timeline";
 @import "components/viewhide";
 
-@import "activities/assignment";
-@import "activities/blog";
-@import "activities/book";
-@import "activities/choice";
-@import "activities/contentbank";
 @import "activities/database";
-@import "activities/feedback";
-@import "activities/file";
-@import "activities/folder";
-@import "activities/forum";
-@import "activities/glossary";
-@import "activities/groupchoice";
-@import "activities/kalvidassign";
-@import "activities/lesson";
-@import "activities/lti";
-@import "activities/ouwiki";
-@import "activities/questionnaire";
-@import "activities/quiz";
-@import "activities/tab";
-@import "activities/turnitin";
-@import "activities/url";
-@import "activities/webinar";
+@import "activities/oublog";
 
-@import "pages/calendar";
-@import "pages/courseview";
-@import "pages/editor";
-@import "pages/filemanager";
 @import "pages/home";
-@import "pages/home/moodleactivityresourcelink";
-@import "pages/logs";
+@import "pages/section";

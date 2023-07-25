@@ -1,0 +1,154 @@
+/* Float box
+   ========================================================================== */
+$floatbox-margin: $component-margin--sm;
+$floatbox-margin--sm: $component-margin--2xs;
+$floatbox-padding: $component-padding--sm;
+
+.float-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $component-margin;
+  & > figure,
+  // To maintain old .img-container class
+  .img-container {
+    order: 1;
+    width: min-content;
+    margin: 0 $floatbox-margin 0 0;
+  }
+  & > figure,
+  .filter-ally-wrapper {
+    .img-responsive,
+    .circular-img, .img-circular,
+    .screenshot {
+      max-width: unset;
+    }
+  }
+  & > figure figcaption,
+  .img-container {
+    & > .view-description-container {
+      margin-top: $component-margin;
+    }
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  & > img,
+  & > .filter-ally-wrapper {
+    margin: 0 $floatbox-margin 0 0;
+  }
+  & > img {
+    height: 100%;
+  }
+  &.img-right {
+    & > div:not(.img-container),
+    .float-box-body {
+      order: 1;
+      @media only screen and (min-width: $breakpoint--md) {
+        order: 1 !important;
+      }
+    }
+    & > figure {
+      order: 2;
+      margin: 0 0 0 $floatbox-margin;
+      @media only screen and (min-width: $breakpoint--md) {
+        order: 2 !important;
+      }
+    }
+    // To maintain old .img-container class
+    .img-container {
+      order: 2;
+      margin: 0 0 0 $floatbox-margin;
+    }
+    & > img,
+    & > .filter-ally-wrapper {
+      order: 2;
+      margin: 0 0 0 $floatbox-margin;
+    }
+  }
+  &:not(.img-small):not(.image-small):not(.small-image) {
+    @media only screen and (max-width: $breakpoint--md) {
+      flex-wrap: wrap;
+      & > figure,
+      // To maintain old .img-container class
+      .img-container,
+      & > .filter-ally-wrapper {
+        order: 2;
+        margin: $floatbox-margin 0 0 0;
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      & > img {
+        order: 2;
+        margin: $floatbox-margin 0 0 0;
+        width: 100%;
+      }
+      & > figure figcaption,
+      // To maintain old .img-container class
+      .img-container {
+        & > .view-description-container {
+          margin: $figcaption-margin 0 0 0;
+          .card-body {
+            margin-top: $floatbox-margin;
+            padding: 0 0 0 $floatbox-padding;
+          }
+        }
+      }
+    }
+    & > div:not(.img-container),
+    .float-box-body {
+      // Images to display second in mobile view
+      order: 1;
+      flex: 1;
+      @media only screen and (min-width: $breakpoint--md) {
+        order: 2;
+      }
+    }
+  }
+  // Small images display at 100px x 100px for all screen sizes
+  &.img-small, &.image-small, &.small-image {
+    & > figure,
+    & > .img-container,
+    & > img,
+    & > .filter-ally-wrapper {
+      margin: 0 $floatbox-margin--sm 0 0;
+      @media only screen and (min-width: $breakpoint--md) {
+        margin: 0 $floatbox-margin 0 0;
+      }
+    }
+    img {
+      width: 6.25rem; // 100px
+      height: 6.25rem; // 100px
+    }
+    &.img-right {
+      & > figure,
+      & > .img-container,
+      & > img,
+      & > .filter-ally-wrapper {
+        margin: 0 0 0 $floatbox-margin--sm;
+        @media only screen and (min-width: $breakpoint--md) {
+          margin: 0 0 0 $floatbox-margin;
+        }
+      }
+      & > div:not(.img-container),
+      .float-box-body {
+        order: 1;
+      }
+    }
+    & > div:not(.img-container),
+    .float-box-body {
+      order: 2;
+      width: 100%;
+      & > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  // Card body
+  & > div {
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

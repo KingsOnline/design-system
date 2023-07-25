@@ -1,67 +1,62 @@
 /* Blockquote
-   =========================*/
+   ========================================================================== */
 
-// Rumdoodle v2.2-
-div.quote-box {
-  @extend %info-box;
-  // from common
-  background-color: $block-background;
-  & > :first-child {
-    &::before {
-      content: '“';
-      padding: 0;
-      color: $orange;
-      font-family: "KingsCaslonDisplay";
-      font-size: 4.5rem;
-      position: absolute;
-      left: 18px;
-      top: 40px;
+$blockquote-image-size: 4rem;
+
+.quote-box {
+  @extend .gilchrist;
+  position: relative;
+  margin: $component-margin--xl 0 $component-margin;
+  padding: $component-padding $component-padding--sm $component-padding--sm;
+  background-color: $panel-grey;
+  @media screen and (min-width: $breakpoint--md) {
+    margin-top: 0;
+    margin-left: calc(#{$blockquote-image-size} / 2);
+    padding: $component-padding calc(#{$component-padding} * 2);
+  }
+  &::before {
+    @include fa-icon($quote-left);
+    position: absolute;
+    top: -3rem;
+    left: $spacing--2xs;
+    height: $blockquote-image-size;
+    width: $blockquote-image-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: $sea-blue--100;
+    background-color: $midnight-blue;
+    border-radius: 50%;
+    @media screen and (min-width: $breakpoint--md) {
+      top: $spacing--sm;
+      left: calc(-#{$blockquote-image-size} / 2);
     }
-    .quote-attribution,
-    h3, h4, h5, h6 {
-      &:last-child {
-        margin-bottom: 0;
-      }
+  }
+  .quote-body,
+  .quote-body > * {
+    @extend .gilchrist;
+    &:not(ol):not(ul) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .quote-attribution {
+    @extend .higgs;
+    margin-top: $component-margin--2xs;
+    h4, h5, h6,
+    & > :last-child {
+      margin-bottom: 0;
     }
   }
 }
-// Rumdoodle v2.3+
-// old 'quote-box' class - to be retired
-figure.quote-box,
-// 'blockquote' class introduced to match guidance in v2.7
-figure.blockquote {
-  background-color: $block-background;
-  position: relative;
-  padding: 1.25rem 1.75rem 1.25rem 4.625rem;
-  blockquote {
-    border: none;
-    margin: 0 0 $component-margin-bottom 0 !important;
-    padding: 0;
-    &::before {
-      @include fa-icon($fa-quote-left);
-      padding: 0;
-      color: $orange;
-      font-size: 1.4rem;
-      font-style: normal;
-      position: absolute;
-      left: 28px;
-      top: 14px;
-      margin: 0;
-    }
-    p, li {
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: 400;
-      padding: 0;
-      &:not(:last-child) {
-        margin-bottom: $component-margin-bottom;
-      }
-    }
-  }
-  figcaption {
-    @extend %h4;
-    &:last-child {
-      margin-bottom: 0;
+
+// Delete the following when styles are updated in theme
+.blockquote {
+  .quote-body {
+    & > ol,
+    & > ul {
+      margin-bottom: $component-margin--sm;
     }
   }
 }

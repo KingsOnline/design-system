@@ -1,116 +1,26 @@
 /* Activity label
-   ======================== */
+   ========================================================================== */
 
-$activity-label-orange: shade($orange, 20%);
-$activity-label-teal: shade($teal-blue, 20%);
-
-// default activity label display
-// extended in Home
-%activity-label-container-default {
+.activity-label-container {
+  margin: $component-margin--sm 0 0;
   display: inline-flex;
-  // safari renders the kings font slightly out of whack with all other
-  // browsers
-  @media not all and (min-resolution:.001dpcm) {
-    .activity-label {
-      line-height: 1.7;
-    }
+  // Activity label container further indented for desktop to be in line
+  // with title
+  @media only screen and (min-width: $breakpoint--md) {
+    margin: $component-margin--2xs 0 0 calc(50px + #{$component-margin--sm});
   }
-  .activity-label {
-    display: inline-flex;
-    justify-content: center;
+  div[class^="activity-label"] {
+    margin-right: $component-margin--sm;
+    color: $panel-grey--1000;
+    display: flex;
     align-items: center;
-    font-family: "KingsBureauGrot";
-    font-size: 1rem;
-    line-height: 1.5;
-    letter-spacing: 0.5px;
-    text-align: center;
-    text-transform: uppercase;
-    color: $activity-label-orange;
-    width: 5rem;
-    height: 1.5rem;
-    margin-left: $component-margin-sm;
-    border-radius: 15px;
-    border: 1px solid $activity-label-orange;
-  }
-  .group-icon,
-  .media-icon {
-    font-size: 1.25rem;
-    .fas {
-      margin-left: $component-margin-xs;
-      @media only screen and (min-width: $neo-breakpoint) {
-        margin-left: $component-margin-sm;
-      }
+    i.fa-solid {
+      margin-right: $component-margin--2xs;
+      font-size: 1rem;
     }
-  }
-  .group-icon {
-    color: $activity-label-orange;
-  }
-  .media-icon {
-    color: $sea-blue;
-  }
-}
-// hide label completely for study type activity
-%type-study {
-  .activity-label {
-    display: none !important;
-  }
-}
-// adjust colours for assessed label
-%type-assessed {
-  .activity-label {
-    background-color: $activity-label-teal !important;
-    border: none;
-    color: $white !important;
-    width: 5.5rem !important;
-  }
-}
-
-// unavailable activity
-%activity-label-unavailable {
-  .activity-label-container {
-    .activity-label {
-      border: 1px solid $slate-grey;
-    }
-    .activity-label,
-    .group-icon,
-    .media-icon {
-      color: $slate-grey;
-    }
-  }
-}
-%type-assessed-unavailable {
-  .activity-label {
-    background-color: $slate-grey !important;
-  }
-}
-
-// hide activity labels on specific section pages
-// extended in Moodle Activity Resource Link
-%hide-activity-labels {
-  li.activity {
-    &.type-assessed .activity-label-container {
-      .group-icon, .media-icon {
-        display: none !important;
-      }
-    }
-    &:not(.type-assessed) .activity-label-container {
-      display: none !important;
-    }
-  }
-}
-
-// activity labels for hyperlinks
-a.activity-link {
-  text-decoration: none !important;
-  .activity-title {
-    text-decoration: underline;
-  }
-  .activity-label-container {
-    @extend %activity-label-container-default;
-    .activity-label.assessed {
-      background-color: $activity-label-teal !important;
-      color: $white;
-      width: 5.5rem !important;
+    .activity-label-text {
+      @extend .bold-small-type;
+      line-height: 1rem;
     }
   }
 }

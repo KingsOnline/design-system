@@ -1,22 +1,35 @@
 /* View/hide
-   ======================== */
+   ========================================================================== */
 
 .view-generic-container,
 .view-answer-container,
 .view-feedback-container,
 .view-model-answer-container,
 .view-description-container {
-  // from Common
   @extend %note-container;
+  & > a,
+  & > button {
+    @include fa-icon-before($eye-slash);
+    margin-bottom: 0 !important;
+  }
   & > [class^="view-"][class$="-card"] > .card-body {
     margin-top: $component-margin;
     .card-text {
-      max-width: 100%;
+      width: 100%;
+    }
+  }
+  &.collapsed {
+    & > a,
+    & > button {
+      @include fa-icon-before($eye);
+    }
+    & > div {
+      display: none;
     }
   }
 }
 
-// display in block in atto editor
+// Display in block in atto editor
 .editor_atto_content {
  .view-generic-container,
  .view-answer-container,
@@ -26,11 +39,9 @@
    & > div {
      display: block !important;
     }
-    // disabled button
+    // Disable button
     button {
-      background-color: $block-background !important;
-      color: $slate-grey !important;
-      pointer-events: none;
+      @extend %btn-disabled-important;
     }
   }
 }

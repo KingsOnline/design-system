@@ -1,17 +1,12 @@
 /* Table
-   =========================*/
+   ========================================================================== */
 
-// define table highlight background colours
-// Previous colors: (v2.4-)
-// 1: #FCEAB7, // yellow 30%
-// 2: #A2E6F4, // sky-blue 37%
-// 3: #F5B6B3, // red 33%
-// 4: #FFA375, // orange 58%
+// Define table highlight background colours
 $table-bg-colors: (
-  1: tint($yellow, 70%) !important,
-  2: tint($sky-blue, 60%) !important,
-  3: tint($kings-red, 80%) !important,
-  4: tint($orange, 50%) !important,
+  1: $yellow--150 !important,
+  2: $sky-blue--200 !important,
+  3: $kings-red--100 !important,
+  4: $orange--50 !important,
   // 4 additional colours for GFB (v2.5+)
   5: tint($yellow, 90%) !important,
   6: tint($lilac, 80%) !important,
@@ -19,19 +14,19 @@ $table-bg-colors: (
   8: tint($lime-green, 60%) !important
  );
 
-// mixin to add borders around and bg to individual row/col
+// Mixin to add borders around and bg to individual row/col
 @mixin table-single-row-col-border {
   @for $i from 1 through 25 {
     &.row-#{$i}-border,
     &%row-#{$i}-border {
       tr:nth-child(#{$i}) td {
-        border-top: 1px solid $table-border !important;
-        border-bottom: 1px solid $table-border !important;
+        border-top: 2px solid $reflex-blue !important;
+        border-bottom: 2px solid $reflex-blue !important;
         &:first-child {
-          border-left: 1px solid $table-border !important;
+          border-left: 2px solid $reflex-blue !important;
         }
         &:last-child {
-          border-right: 1px solid $table-border !important;
+          border-right: 2px solid $reflex-blue !important;
         }
       }
     }
@@ -65,22 +60,22 @@ $table-bg-colors: (
     &%col-#{$i}-border {
       tr {
         td:nth-child(#{$i}) {
-          border-left: 1px solid $table-border !important;
-          border-right: 1px solid $table-border !important;
+          border-left: 2px solid $reflex-blue !important;
+          border-right: 2px solid $reflex-blue !important;
         }
         &:first-child {
          td:nth-child(#{$i}) {
-            border-top: 1px solid $table-border !important;
+            border-top: 2px solid $reflex-blue !important;
           }
         }
         &:last-child {
          td:nth-child(#{$i}) {
-            border-bottom: 1px solid $table-border !important;
+            border-bottom: 2px solid $reflex-blue!important;
           }
         }
       }
     }
-    // if no numerical value after background
+    // If no numerical value after background
     &.col-#{$i}-background {
       tr {
         td:nth-child(#{$i}) {
@@ -96,7 +91,7 @@ $table-bg-colors: (
         }
       }
     }
-    //map to table-bg-colors
+    // Map to table-bg-colors
     @each $bg-num, $hex in $table-bg-colors {
       &.col-#{$i}-background-#{$bg-num} {
         tr {
@@ -116,18 +111,26 @@ $table-bg-colors: (
     }
   }
 }
-// mixin to add borders to mimic divider for row/col
+
+// Mixin to add borders to mimic divider for row/col
 @mixin table-divider {
   @for $i from 1 through 25 {
     &.row-#{$i}-divider {
       tr:nth-child(#{$i}) td {
-        border-bottom: 1px solid $table-border !important;
+        border-bottom: 2px solid $reflex-blue !important;
       }
     }
     &.col-#{$i}-divider {
       tr {
         td:nth-child(#{$i}) {
-          border-right: 1px solid $table-border !important;
+          border-right: 2px solid $reflex-blue !important;
+        }
+      }
+      &.line-associated-content {
+        tr {
+          td:nth-child(#{$i}) {
+            border-right: $component-border !important;
+          }
         }
       }
     }
@@ -136,14 +139,11 @@ $table-bg-colors: (
 
 .table-scroll {
   @extend %horizontal-scroll;
-  table {
-    margin-bottom: 0;
-    display: inline;
-  }
 }
+
 table,
 .table, %table {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   border-collapse: collapse;
   border-spacing: 0;
   border-radius: 0;
@@ -152,31 +152,33 @@ table,
     border-radius: 0;
     thead {
       td {
-        background-color: $block-background;
+        background-color: $panel-grey--600;
       }
     }
     th, td {
-      border: 1px solid $table-border !important;
+      border: $component-border !important;
       background-clip: padding-box;
     }
   }
 }
+
 table, .table {
   &.table-fixed {
     table-layout:fixed;
   }
-  
   &.outer-borders-only {
     &.background {
       td {
-        background-color: $block-background;
+        background-color: $panel-grey--400;
       }
     }
     thead {
-      border-top: 1px solid $table-border !important;
+      border-top: $component-border !important;
+      border-right: $component-border !important;
+      border-left: $component-border !important;
     }
     tbody {
-      border: 1px solid $table-border;
+      border: $component-border;
       td {
         border: none !important;
       }
@@ -185,7 +187,7 @@ table, .table {
   &.no-borders {
     td {
       border: none !important;
-    }  
+    }
   }
   @include table-single-row-col-border;
   @include table-divider;
@@ -196,11 +198,6 @@ table, .table {
   }
   &.default-width {
     width: auto;
-  }
-  caption {
-    @extend %caption;
-    font-weight: normal;
-    caption-side: bottom !important;
   }
   th, td {
     padding: 0.75rem 1.25rem;
@@ -213,19 +210,20 @@ table, .table {
   thead {
     border: none !important;
   }
+  tbody {
+    tr:nth-of-type(odd) {
+    background-color: $white;
+    }
+    tr:nth-of-type(even) {
+    background-color: $panel-grey--400;
+    }
+  }
   th {
-    background-color: $block-background;
-    font-family: "KingsBureauGrot";
-    font-size: 1.125rem;
-    line-height: 1.4;
-    color: $headings;
+    background-color: $panel-grey--600;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-weight: bold;
     border-radius: 0 !important;
     vertical-align: top !important;
-  }
-  td {
-    line-height: 1.375;
-    color: $body-text;
-    background-color: $white;
   }
   tr.border-none td, tr.border-none th {
     border-top: 0 !important;
@@ -240,16 +238,15 @@ table, .table {
   }
   &.table-narrow-cell {
      th, td {
-       padding: 0.75rem $component-padding-xs;
+       padding: 0.75rem $component-padding--2xs;
      }
   }
   &.table-diagonal-split {
-    // hack to display diagonal split in top left cell
+    // Hack to display diagonal split in top left cell
     .split-cell {
-      background: linear-gradient(to top right, $block-background 49.5%,
-      $rules-and-outlines 49.5%, $rules-and-outlines 50.5%,
-      $block-background 50.5%);
-      line-height: 1;
+      background: linear-gradient(to top right, $panel-grey--600 49.5%,
+      $powder-blue--200 49.5%, $powder-blue--200 50.5%,
+      $panel-grey--600 50.5%);
       .top {
         margin-left: 120px;
         text-align: right;
@@ -261,12 +258,11 @@ table, .table {
     }
     th {
       vertical-align: top;
-      line-height: 1;
-    }  
+    }
   }
   &.table-highlight {
-    // prevent cut off borders in some browsers
-    margin: 0 2px $component-margin-bottom 2px;
+    // Prevent cut off borders in some browsers
+    margin: 0 2px $component-margin 2px;
     width: calc(100% - 4px);
     .highlight-cell {
       &.border {
@@ -293,7 +289,7 @@ table, .table {
         }
       }
       code {
-        // maintain contrast so text is legible against highlighted
+        // Maintain contrast so text is legible against highlighted
         // background
         background: $white !important;
       }
@@ -303,8 +299,9 @@ table, .table {
     &.with-line-numbers {
       tr {
         pre {
-          padding-left: $component-padding-sm;
+          padding-left: $component-padding--sm;
           text-indent: -26px;
+          overflow: visible;
         }
       }
     }
@@ -341,15 +338,14 @@ table, .table {
     }
   }
   code {
-    // so that the code is still visible when cells are highlighted
+    // So that the code is still visible when cells are highlighted
     background: #F7F7F9! important;
   }
 }
 
-// set of similar tables
-// split for better accessibility
+// Set of similar tables, split for better accessibility
 .table-group {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   .table:last-child {
     margin-bottom: 0;
   }
@@ -366,7 +362,7 @@ table, .table {
       }
     }
   }
-  @media only screen and (min-width: $neo-breakpoint) {
+  @media only screen and (min-width: $breakpoint--md) {
     &.table-group-desktop-headings-centered {
       th {
         text-align: center;
@@ -374,16 +370,16 @@ table, .table {
     }
   }
 }
-// remove left and bottom margins from list items
-// when space is limited
+
+// Remove left and bottom margins from list items when space is limited
 #region-main .table-group-list-no-margins .table {
   ol, ul {
-    margin: 0 0 0 $component-margin-sm;
+    margin: 0 0 0 $component-margin--sm;
   }
 }
 
-// table border-collapse is set to collapse
-// therefore borders can be cut off when combined with Bootstrap grid
+// Table border-collapse is set to collapse therefore borders can be cut off
+// when combined with Bootstrap grid
 .row {
   [class^="col"] {
     table.no-borders {

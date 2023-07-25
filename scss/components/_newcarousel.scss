@@ -1,20 +1,20 @@
 /* New Carousel
-   ======================== */
+   ========================================================================== */
 
 #region-main {
   .new-carousel {
-    margin-bottom: $component-margin-bottom-xl;
-    @media only screen and (max-width: $neo-breakpoint) {
-      margin-bottom: $component-margin-bottom;
+    margin-bottom: $component-margin--xl;
+    @media only screen and (max-width: $breakpoint--md) {
+      margin-bottom: $component-margin;
     }
     h3, h4, h5, h6 {
-      @extend %h4;
+    //  @extend %h4;
     }
     width: 100%;
     max-width: 100%;
     position: relative;
-    background: $block-background;
-    border: 1px solid $rules-and-outlines;
+    background: $panel-grey;
+    border: 1px solid $panel-grey--800;
     display: table;
     table-layout: fixed;
     .nc-gallery {
@@ -70,9 +70,9 @@
           }
           figcaption.nc-description {
             background: transparent;
-            padding: $component-padding-lg;
-            @media only screen and (max-width: $neo-breakpoint) {
-              padding: $component-padding-sm;
+            padding: $component-padding--lg;
+            @media only screen and (max-width: $breakpoint--md) {
+              padding: $component-padding--sm;
             }
             font-size: 1rem;
             line-height: 1.5;
@@ -81,9 +81,9 @@
       }
     }
     .nc-buttons {
-      padding: 0 $component-padding-lg $component-padding $component-padding-lg;
-      @media only screen and (max-width: $neo-breakpoint) {
-        padding: 0 $component-padding-sm $component-padding-sm $component-padding-sm;
+      padding: 0 $component-padding--lg $component-padding $component-padding--lg;
+      @media only screen and (max-width: $breakpoint--md) {
+        padding: 0 $component-padding--sm $component-padding--sm $component-padding--sm;
       }
       margin: 0 !important;
       z-index: 30;
@@ -95,18 +95,10 @@
         padding: 0;
         margin: 0 !important;
         button.nc-previous {
-          &::before {
-            @extend %icon-before;
-            @include fa-content($fa-angle-left);
-          }
+          @include fa-icon-before($chevron-left);
         }
         button.nc-next {
-          &::after {
-            @extend %icon-before;
-            @include fa-content($fa-angle-right);
-            margin-right: 0;
-            margin-left: 0.375rem;
-          }
+          @include fa-icon-after($chevron-right);
         }
       }
     }
@@ -114,7 +106,7 @@
       text-align: center;
       z-index: 31;
       max-width: 200px;
-      @media only screen and (max-width: $neo-breakpoint) {
+      @media only screen and (max-width: $breakpoint--md) {
         max-width: 100px;
       }
       left: calc(50% - 50px);
@@ -124,7 +116,7 @@
         display: inline-block;
         height: 10px;
         width: 10px;
-        background: $pearl-grey;
+        background: $panel-grey--700;
         border-radius: 50px;
       }
       li.active {
@@ -136,7 +128,7 @@
         & > li {
           figure {
             flex-direction: row;
-            @media only screen and (max-width: $neo-breakpoint) {
+            @media only screen and (max-width: $breakpoint--md) {
               display: block;
             }
             & > .filter-ally-wrapper,
@@ -152,11 +144,11 @@
               justify-self: flex-start;
               width: 310px;
               height: auto;
-              padding: $component-padding-lg;
+              padding: $component-padding--lg;
               padding-right: 0;
               margin-bottom: auto;
-              @media only screen and (max-width: $neo-breakpoint) {
-                padding: $component-padding-sm;
+              @media only screen and (max-width: $breakpoint--md) {
+                padding: $component-padding--sm;
                 padding-bottom: 0;
                 width: 100%;
               }

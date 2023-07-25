@@ -1,0 +1,22 @@
+/* Section page
+   ========================================================================== */
+
+#page-content {
+  .activity {
+    .activity-item {
+      .description {
+        .course-description-item:first-child {
+          // Space above activity description (if it exists) so there is
+          // space between the activity description and activity labels
+          margin-top: $component-margin--2xs;
+          // Align activity description with activity labels and activity
+          // title for desdesktop
+          @media only screen and (min-width: $breakpoint--md) {
+            // Width of activity icon is 50px
+            margin-left: calc(50px + #{$component-margin--sm});
+          }
+        }
+      }
+    }
+  }
+}

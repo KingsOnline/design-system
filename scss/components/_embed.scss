@@ -2,7 +2,7 @@
    ======================== */
 
 div[class*="embed-responsive"] {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   position: relative;
   display: block;
   width: 100%;
@@ -14,51 +14,9 @@ div[class*="embed-responsive"] {
   iframe {
     border: none;
   }
-  iframe,
-  // Kaltura v3 player
-  .playerv3 {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .playerv3 {
-    .playkit-player {
-      position: unset;
-      button {
-        margin: 0 !important;
-        padding: 0 !important;
-        &:hover,
-        &:focus {
-          background: none !important;
-        }
-      }
-      // big play button
-      .playkit-pre-playback-play-button {
-        border-radius: 54px !important;
-        padding: 20px !important;
-        &:hover {
-          background-color: rgba(0,0,0,0.5) !important;
-        }
-      }
-      .playkit-bottom-bar {
-        background: linear-gradient(180deg, rgba(0,0,0,0), $black);
-      }
-      .playkit-side-panel {
-        display: none;
-      }
-    }
-  }
-  &[class*="kv3"] {
-    overflow: visible;
-    padding-top: calc(200%/3);
-    @media only screen and (min-width: $neo-breakpoint) {
-      padding-top: calc(900%/16);
-    }
-  }
 }
+
+// Different sizes available through the KMS
 .embed-responsive-608by402 {
   padding-top: calc(402%/6.08);
 }
@@ -68,75 +26,74 @@ div[class*="embed-responsive"] {
 .embed-responsive-304by231 {
   padding-top: calc(231%/3.04);
 }
-// kaltura playlist
+
+// Kaltura playlist
 .embed-responsive-kaltura-playlist {
   padding-top: 0;
   & > * {
     width: 100% !important;
   }
 }
+
 // 16:9 aspect ratio
 .embed-responsive-youtube {
   padding-top: calc(900%/16);
 }
 
-// audio 
-// for audio embed prior to v1.3
+// Audio
+// For audio embed prior to v1.3
 .embed-responsive-audio {
   padding-top: calc(350%/9.76);
 }
-// for audio v1.3
+// For audio v1.3
 .audio-container {
-  margin: $component-margin 0;
-  padding: 1.25rem;
-  border: 1px solid $rules-and-outlines;
+  // Custom top margin to allow for 'Audio' tab
+  margin: 1.625rem 0 $component-margin;
+  padding: $component-padding--sm;
+  border: 1px solid $powder-blue--200;
   border-radius: 4px;
   position: relative;
   background: $white;
   &:before {
-    content: "audio";
-    text-transform: uppercase;
-    font-family: "KingsBureauGrot";
-    font-size: 1.125rem;
     position: absolute;
     right: 0.5rem;
-    top: -24px;
-    background-color: $midnight-blue;
-    color: white;
-    border-radius: 4px 4px 0 0;
-    line-height: 1;
-    width: 54px;
-    height: 24px;
+    top: -1.625rem;
     display: flex;
     justify-content: center;
-    padding-top: 4px;
+    content: "Audio";
+    font-size: 1.125rem;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: $component-padding--3xs $component-padding--2xs;
+    color: white;
+    background-color: $sea-blue;
+    border-radius: 0.25rem 0.25rem 0 0;
   }
   .audio-top {
     display: flex;
-    margin-bottom: 1.25rem;
+    margin-bottom: $component-margin--sm;
     .audio-image {
       width: 80px;
       height: 80px;
-      margin-right: 1.25rem;
-      border-radius: 6px;
-      border: 1px solid $rules-and-outlines;
+      margin-right: $component-margin--xs;
+      border-radius: 0.5rem;
+      border: 1px solid $powder-blue--200;
     }
     .audio-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .audio-speaker, .audio-title {
-        font-size: 1.125rem;
-        line-height: normal;
-      }
       .audio-speaker {
-        margin-bottom: 0.75rem;
+        @extend %p;
       }
       .audio-title,
       h3, h4, h5, h6 {
-        @extend %h5;
+        @extend %h4;
         margin-top: 0;
         margin-bottom: 0;
+      }
+      .audio-speaker {
+        margin-bottom: $component-margin--2xs;
       }
     }
   }
@@ -147,35 +104,29 @@ div[class*="embed-responsive"] {
   }
 }
 
-// transcript
+// Transcript
 .transcript-container {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   .transcript-button-group {
     .view-close-transcript,
     .download-transcript {
       margin: 0 !important;
-      &:focus {
-        // outline: $pearl-grey auto 1px !important;
-      }
-      &::before {
-        @extend %icon-before;
-      }
     }
-    .view-close-transcript::before {
-      @include fa-content($fa-eye-slash);
+    .view-close-transcript {
+      @include fa-icon-before($eye-slash);
     }
-    .download-transcript::before {
-      @include fa-content($fa-download);
+    .download-transcript {
+      @include fa-icon-before($download);
     }
   }
   .transcript-card .card-body {
-    border-left: 4px solid $pearl-grey;
+    border-left: 4px solid $panel-grey--700;
     padding: 0 0 0 $component-padding;
     margin-top: $component-margin;
   }
   &.collapsed {
     .transcript-button-group .view-close-transcript::before {
-      @include fa-content($fa-eye);
+      @include fa-icon-content-only($eye);
     }
     .transcript-card {
       display: none;
@@ -183,14 +134,12 @@ div[class*="embed-responsive"] {
   }
 }
 
-// display in block in atto editor
+// Display in block in atto editor
 .editor_atto_content {
   .transcript-container {
-    // disabled button
+    // Disable button
     button {
-      background-color: $block-background !important;
-      color: $slate-grey !important;
-      pointer-events: none;
+      @extend %btn-disabled-important;
     }
     &.collapsed {
       .transcript-card {

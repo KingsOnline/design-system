@@ -24,9 +24,8 @@
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-bookmark);
-    padding: 0 5px;
-    color: $purple70;
+    @include fa-icon-content-only($bookmark);
+    color: $purple;
   }
 }
 
@@ -40,11 +39,9 @@ body {
   .editing-help-box {
     @extend %info-box;
     background-color: tint($lime-green, 80%);
-    border-radius: 1.5rem;
     &::before {
       font-size: 1.5rem;
-      @include fa-content($fa-question-circle);
-      padding: 0 2.5px;
+      @include fa-icon-content-only($circle-question);
       color: $teal-blue;
     }
   }
@@ -55,44 +52,45 @@ body {
   @extend %info-box;
   // 3A. Correct answer
   &.correct-answer {
-    background-color: tint($pea-green, 80%);
+    // Custom light green - variable to be created
+    background-color: #DBF5EA;
     &::before {
-      @include fa-content($fa-check-circle);
-      color: $pea-green;
-      padding: 0 4px;
+      @include fa-icon-content-only($circle-check);
+      // Custom dark green - variable to be created
+      color: #195031;
     }
   }
   // 3B. Incorrect answer
   &.incorrect-answer {
-    background-color: tint($kings-red, 80%);
+    // Custom light red - variable to be created
+    background-color: #FBDAD9;
     &::before {
-      @include fa-content($fa-times-circle);
-      color: $kings-red;
-      padding: 0 4px;
+      @include fa-icon-content-only($circle-xmark);
+      // Custom dark red - variable to be created
+      color: #881510;
     }
   }
   // 3C. Model answer
   &.model-answer {
-    background-color: tint($yellow, 80%);
+    // Custom light purple - variable to be created
+    background-color: #E2D8ED;
     &::before {
-      @include fa-content($fa-comments-alt);
-      color: $yellow;
-      padding: 0 4px;
+      @include fa-icon-content-only($message);
+      // Custom dark purple - variable to be created
+      color: #424046;
     }
   }
 }
 
 // 4. Key concept
 .key-concept-box {
-  background-color: $block-background;
-  margin-bottom: $component-margin-bottom;
-  padding: $component-padding;
-  div > :last-child {
-    margin-bottom: 0 !important;
-  }
-  p, li {
-    @include font-scale(key-concept, $font-os);
-    font-weight: bold;
+  color: red !important;
+  @extend %info-box;
+  & > :first-child {
+    padding-left: 0;
+    * {
+      font-weight: bold;
+    }
   }
 }
 
@@ -101,12 +99,11 @@ body {
   .learning-outcome-box {
     @extend %info-box;
     &::before {
-      @include fa-content($fa-trophy);
+      @include fa-icon-content-only($trophy);
       color: $teal-blue;
-      padding: 0 4px;
     }
     & > ol, & > ul {
-      margin: 0 0 $component-margin-bottom 1.25rem;
+      margin: 0 0 $component-margin 1.25rem;
       li:last-child {
         margin-bottom: 0;
       }
@@ -122,8 +119,7 @@ body {
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-play-circle);
-    padding: 0 5px;
+    @include fa-icon-content-only($circle-play);
   }
 }
 
@@ -132,8 +128,7 @@ body {
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-edit);
-    padding: 0 1px 0 2px;
+    @include fa-icon-content-only($pen-to-square);
   }
 }
 
@@ -142,10 +137,9 @@ body {
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-book-reader);
-    padding: 0 2px 0 3px;
+    @include fa-icon-content-only($book-open-reader);
   }
-  // this variation often features url references
+  // This variation often features url references
   // so force word-break
   p {
     word-break: break-word;
@@ -157,7 +151,7 @@ body {
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-users);
+    @include fa-icon-content-only($users);
   }
 }
 
@@ -166,7 +160,6 @@ body {
   @extend %info-box;
   // from common
   &::before {
-    @include fa-content($fa-folder-open);
-    padding: 0 1px 0 2px;
+    @include fa-icon-content-only($folder-open);
   }
 }

@@ -1,10 +1,9 @@
 /* Screenreader-only description
-   ============================= */
+   ========================================================================== */
 
 @mixin label-inner-top-left ($label-text, $bg-color){
   background-color: tint($bg-color, 80%);
   &::before {
-    font-family: "KingsBureauGrot";
     font-size: 1.125rem;
     color: $white;
     padding: 4px;
@@ -22,14 +21,14 @@
   .sr-only,
   .complex-image {
     margin: 0;
-    padding: $component-padding-xs;
+    padding: $component-padding--2xs;
   }
   .sr-only {
-    @include label-inner-top-left ("Description for screen readers", $teal-blue)
+    @include label-inner-top-left ("Description for screen readers", $teal-blue);
     display: inline-block;
     vertical-align: middle;
     position: initial;
-    margin-right: $component-margin-xs;
+    margin-right: $component-margin--2xs;
     width: auto;
     height: auto;
     border: 1px dashed $body-text;
@@ -47,6 +46,6 @@
   // when both are present, add margin inbetween
   .complex-image + .sr-only,
   .sr-only + .complex-image {
-    margin-top: $component-margin-xs;
+    margin-top: $component-margin--2xs;
   }
 }

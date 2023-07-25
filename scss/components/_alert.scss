@@ -9,56 +9,49 @@
   &.alert-success {
     background-color: tint($pea-green, 80%);
     &::before {
-      @include fa-content($fa-thumbs-up);
+      @include fa-icon-content-only($thumbs-up);
       color: $pea-green;
-      padding: 0 4px;
+      top: 0.625rem;
+      left: 1.25rem;
     }
   }
   &.alert-instructional {
     background-color: tint($yellow, 80%);
-    padding: $component-padding;
     & > :first-child {
       padding: 0;
+    }
+    a {
+      font-weight: 400;
     }
   }
   &.alert-caution {
     background-color: tint($yellow, 80%);
     &::before {
-      @include fa-content($fa-exclamation-triangle);
+      @include fa-icon-content-only($triangle-exclamation);
       color: $kings-red;
-      padding: 0 3px;
+    }
+    a {
+      font-weight: 400;
     }
   }
   &.alert-danger {
     background-color: tint($kings-red, 80%);
-    &::before {
-      @include fa-content($fa-exclamation-triangle);
-      color:$kings-red;
-      padding: 0 3px;
-    }
   }
   &.alert-info {
     color: $midnight-blue;
   }
   // alert after submitting feedback
   &.alert-block {
-    padding: 1.25rem;
-    padding-left: 4.25rem;
-    &.alert-info, &.alert-warning {
-      padding-left: 1.25rem;
+    &:not(.alert-caution):not(.alert-danger):not(.alert-info):not(.alert-warning) {
+      padding-left: 3.25rem;
     }
     button.close {
       position: absolute;
-      height: 1.25rem;
-      padding: 0 !important;
-      margin: 0 !important;
-      font-size: 1px !important;
+      padding: 0;
+      font-size: 1.5rem;
+      top: 0.75rem;
       right: 1.25rem;
-      top: 1.25rem;
-      width: 1.25rem;
       &::before {
-        @extend %icon-before;
-        @include fa-content($fa-times);
         margin-right: 0;
         font-size: 20px;
       }
@@ -66,5 +59,9 @@
         background-color: transparent;
       }
     }
+  }
+  &::before {
+    top: 0.625rem;
+    left: 1.25rem;
   }
 }

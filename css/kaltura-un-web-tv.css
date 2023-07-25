@@ -1,0 +1,17 @@
+/* Kaltura media player within video component
+   called in within the iframe variables
+   see guidance: https://iddkingsonline.com/design-system/guidance/kaltura.html */
+
+/* Brightcove caption positioning */
+.track > .caption {
+  top: unset !important;
+  bottom: 9vh !important;
+}
+
+/* UN Web TV Kaltura media specific player within video component
+   called in within the iframe variables for UN Web TV Kaltura media */
+
+/* Hide unresponsive button */
+.dropup.audioSelector {
+  display: none;
+}

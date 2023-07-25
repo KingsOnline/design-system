@@ -1,5 +1,5 @@
 /* Images
-   =========================*/
+   ========================================================================== */
 
 // Table of contents
 // =================
@@ -20,19 +20,18 @@
 img.icon {
   box-sizing: content-box;
 }
-// remove padding from theme so icons can use defined dimensions
+// Remove padding from theme so icons can use defined dimensions
 img.iconsmall {
   padding: 0;
 }
 
 // 2. Figure / image container options
 
-// replaced div as standard image container
-// in v2.6
+// Replaced div as standard image container in v2.6
 figure {
-  margin: 0 0 $component-margin-bottom 0;
+  margin-bottom: $component-margin;
   figcaption {
-    @extend %caption;
+  //  @extend %caption;
   }
   // image, table etc.
   & > :not(figcaption),
@@ -43,7 +42,7 @@ figure {
 
 .center-img, .img-center,
 .full-width-img, .img-full-width {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   figcaption, .caption {
     max-width: none;
   }
@@ -53,14 +52,14 @@ figure {
 .center-img, .img-center {
   text-align: center;
   img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
   }
 }
 
 // full width images
 .full-width-img, .img-full-width {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   img {
     width: 100%;
     height: auto;
@@ -81,14 +80,15 @@ figure {
 }
 
 // 3. Image options
-// can be nested inside figure / container
 
-// responsive images styles copied from theme
+// Can be nested inside figure / container
+
+// Responsive images styles copied from theme
 // useful for custom width (not full-width) images
 .img-responsive,
 .circular-img, .img-circular, %img-circular,
 .screenshot {
-  margin-bottom: $component-margin-bottom;
+  margin: 0 0 $component-margin 0;
   max-width: 100%;
   height: auto;
 }
@@ -100,21 +100,21 @@ figure {
   }
 }
 
-// circular images
+// Circular images
 .circular-img, .img-circular, %img-circular {
   border-radius: 50%;
 }
 
-// screenshots
+// Screenshots
 .screenshot,
-// internal workaround for images with white backgrounds
+// Internal workaround for images with white backgrounds
 .img-bordered {
-  border: 1px solid $rules-and-outlines;
+  border: 1px solid $panel-grey--800;
 }
 
 // 4. Overrides
 
-// override theme image margin
+// Override theme image margin
 .atto_image_button_text-bottom {
   margin: 0;
   max-width: 100% !important;

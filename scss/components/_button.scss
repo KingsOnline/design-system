@@ -1,209 +1,72 @@
 /* Button
-   ======================== */
+   ========================================================================== */
 
-// standard button
-button, .btn,
-%btn-no-margin {
-  @include focus-outline;
-  &:focus {
-    transition: none;
-  }
-  display: inline-block;
-  vertical-align: middle;
-  font-family: "KingsBureauGrot";
-  @include font-scale(btn);
-  padding: 0.625rem 0.75rem !important;
-  border-radius: 4px !important;
-  box-shadow: none;
-  text-decoration: none !important;
-}
-button, .btn,
-%btn {
-  @extend %btn-no-margin;
-  margin: 0 0.75rem $component-margin-bottom-xs 0 !important;
-}
-%btn-primary-option {
-  background-color: $midnight-blue !important;
-  color: $white !important;
+// Use of !important property to override Boost background-color on
+// Bootstrap button classes
+@mixin btn-primary($important: "") {
+  background-color: $sea-blue #{$important};
+  color: $white;
   &:hover {
-    background-color: tint($midnight-blue, 30%) !important;
-    text-decoration: none !important;
+    background-color: $reflex-blue #{$important};
   }
-}
-%btn-secondary-option {
-  background-color: $white !important;
-  color: $midnight-blue !important;
-  padding: $component-padding-xs 0.625rem !important;
-  border: 2px solid $midnight-blue;
-  &:hover {
-    border-color: tint($midnight-blue, 30%) !important;
-    background-color: tint($midnight-blue, 30%) !important;
-    color: $white !important;
+  &:active {
+    border: 2px solid $reflex-blue;
   }
-}
-.btn-lg {
-  @include font-scale(btn-lg);
-  padding: 0.5625rem $component-padding;
-  min-width: 9.6875rem;
-  box-shadow: 0 5px 0 0 shade($midnight-blue, 50%);
-  &:hover {
-    background-color: tint($midnight-blue, 30%);
-    box-shadow: 0 5px 0 0 tint($midnight-blue, 20%);
-  }
-}
-button, .btn {
-  &[disabled] {
-    background-color: $pearl-grey !important;
-    color: $slate-grey !important;
-    opacity: 1;
-    &:hover {
-      background-color: $pearl-grey !important;
-    }
-  }
-  &:last-child {
-    margin: 0 0 $component-margin-bottom-xs 0 !important;
-  }
-  i {
-    font-size: 1.25rem;
-    &:first-child {
-      margin-right: 0.375rem;
-    }
-  }
-  @media only screen and (max-width: $neo-breakpoint) {
-    padding: 0.6875rem $component-padding-sm;
-  }
-  a:hover {
-    text-decoration: none;
-    color: inherit;
-  }
-  &.btn-link:hover,
-  &.btn-link:focus {
-    text-decoration: none;
-  }
-}
-%btn-primary {
-  @extend %btn, %btn-primary-option;
-}
-.btn-primary {
-  @extend %btn-primary;
-}
-%btn-primary-no-margin {
-  @extend %btn-no-margin, %btn-primary-option;
-}
-%btn-secondary {
-  @extend %btn, %btn-secondary-option;
-}
-.btn-secondary {
-  @extend %btn-secondary;
-}
-
-.btn-default,
-.course-discuss-reply-button {
-  @extend %btn-primary;
-}
-input[type="submit"] {
-  @extend %btn, %btn-primary;
-  &.btn-secondary {
-    @extend %btn-primary;
-  }
-}
-
-.btn#id_cancel {
- @extend %btn-secondary;
-}
-
-.singlebutton > form > div {
-  margin: 0;
-}
-.singlebutton + .singlebutton {
-  margin-left: 0.75rem;
-}
-
-// restrict access button
-.pagelayout-admin {
-  .moodle-dialogue .moodle-dialogue-bd .col-6 {
-    max-width: none;
-    button#availability_addrestriction_date,
-    button#availability_addrestriction_grade,
-    button#availability_addrestriction_profile,
-    button#availability_addrestriction_list_ {
-      width: auto !important;
+  @if ($important) {
+    &:focus {
+      background-color: $sea-blue !important;
     }
   }
 }
-
-// override white visited button text
-button a.btn-secondary, .btn a.btn-secondary, a.btn.btn-secondary {
-  &:visited:not(:hover) {
-    color: $midnight-blue !important;
+@mixin btn-secondary($important: "") {
+  background-color: $white #{$important};
+  color: $sea-blue;
+  &:not(:focus) {
+    border: 2px solid $sea-blue;
   }
-}
-
-// back-to-top button
-.back-to-top {
-  z-index: 100;
-  bottom: 28px;
-  right: 48px;
-  .fa-3x {
-    font-size: 42px;
+  &:hover,
+  &:active {
+    border-color: $reflex-blue;
+    color: $reflex-blue;
   }
-  &::before {
-    // enable button to contrast from kcl footer
+  &:hover {
+    background-color: $sea-blue--100 #{$important};
+  }
+  &:active {
+    // Override Boost background-color
     background-color: $white;
-    border-radius: 50%;
   }
-}
-
-// download button container
-// download link in base/_typography
-.download-container {
-  .btn-download::before {
-    @extend %icon-before;
-    margin-right: 0.375rem;
-    @include fa-content($fa-download);
-  }
-  .download-info {
-    font-size: 0.833rem;
-    color: $slate-grey;
-  }
-}
-
-// go to forum button
-.btn-forum {
-  margin-bottom: $component-margin-bottom-lg! important;
-  &::before {
-    @extend %icon-before;
-    margin-right: $component-margin-xs;
-    @include fa-content($fa-user-friends);
-  }
-}
-
-// 3.9 button groups are all in separate spans
-#fgroup_id_buttonar .fitem:not(:last-of-type) {
-  margin-right: 0.75rem;
-}
-
-// override input element with type="button" styling for hover state
-input[type="button"].btn-primary:hover, input[type="button"].btn-secondary:hover {
-  background-color: tint($midnight-blue, 30%) !important;
-}
-
-// completion progress button
-// displayed at the top of  each manual completion progress activity
-// and beside activity title on section page
-[data-region=activity-information] {
-  margin-bottom: $component-margin-bottom;
-  [data-region=completion-info] {
-    height: auto;
-    button.btn {
-      font-size: 1rem !important;
-      padding: 2px 4px !important;
-      margin: 0 !important;
-      &.btn-outline-success,
-      &:hover {
-        background-color: shade($pea-green, 40%) !important;
-        border: 1px solid shade($pea-green, 40%) !important;
-      }
+  @if ($important) {
+    &:focus {
+      background-color: $white !important;
     }
   }
+}
+
+%btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // Minimum size of 44px x 44px to comply with WCAG 2.1 AAA standards
+  height: 44px;
+  width: 44px;
+  margin: 0;
+  border-radius: 50% !important;
+  font-size: 18px;
+  .icon,
+  i::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+%btn-disabled-important {
+  background: $panel-grey--600 !important;
+  border: 1px solid $powder-blue !important;
+  color: $panel-grey--900 !important;
+  opacity: 1;
+  font-style: normal;
+  cursor: auto;
+  pointer-events: none;
 }

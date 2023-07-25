@@ -1,148 +1,189 @@
-// Common
-// ==========================
+/* Common
+   ========================================================================== */
 
-// Table of contents
-// =================
-// 1. Font Awesome psuedoelement
-//   - %icon-before / Button, etc.
-//   - %icon-after / Turnitin
-// 2. Image psuedoelements
-//    - %top-bar / Hero
-//    - %border-left-related-info / Moodle Activity Resource Link
-// 3. Links
-//    - %ds-link / Choice, Typography
-//    - %bold-link / File, LTI, URL
-//    - %text-highlight / Typography
-// 4. Component templates and subcomponents
-//    - %caption-overlay / Carousel, Hero
-//    - %horizontal-scroll / Image, LaTeX, Table
-//    - %info-box / Alert, Infobox
-//    - %note-contaienr / Academic note, Viewhide
-// 5. Navigation within non-book activities
-//    - tab navigation / Database, Turnitin
-//    - pagination / Database, Turnitin
-// 6. Focus
+// A. Font Awesome psuedoelement
+
+// 1. Link style
+// 2. Active style
+//    - %active-colour
+//    - %active-bg
+// 3. Focus style
 //    - %focus-outline
+//    - %focus-underline
 
-// 1. Font Awesome psuedoelement
-// extended in Button, etc
+// Component templates and subcomponents
+// I. Figcaption // Card, Float box
+// II. Horizontal scroll // Image, LaTeX, Table
+// III. Infobox // Alert, Infobox
+// IV. Note container // Academic note
 
-@mixin icon-before($direction...) {
-  font-family: "Font Awesome 5 Free";
+// A. Font Awesome psuedoelement
+// ========================================================================== */
+
+@mixin fa-icon-content-only($icon-name) {
+  // Formats the unicode character correctly following SCSS compilation
+  content: #{"\"\\"}#{$icon-name + "\""};
+}
+
+@mixin fa-icon($icon-name) {
+  @include fa-icon-content-only($icon-name);
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  margin-right: 0.375rem;
-}
-%icon-before {
-  @include icon-before;
-}
-@mixin fa-icon-before($fa-icon-unicode) {
-  @include icon-before;
-  content: #{"\"\\"}#{$icon-unicode + "\""};
-}
-@mixin icon-after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-left: 0.375rem;
-}
-%icon-after {
-  @include icon-after;
 }
 
-// 2. Image psuedoelements
-
-// extended in Hero
-%top-bar {
-  position: relative;
+@mixin fa-icon-before($icon-name) {
   &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    @include bg-colour-opacity($black, 0.25);
-    z-index: 0;
+    @include fa-icon($icon-name);
+    margin-right: 0.5rem;
   }
 }
 
-%border-left-related-info {
-  border-left: 3px solid $pearl-grey;
-  padding-left: 0.625rem !important;
-  margin-top: $component-margin-sm;
-  p:last-child {
-    margin-bottom: 0;
+@mixin fa-icon-after($icon-name) {
+  &::after {
+    @include fa-icon($icon-name);
+    margin-left: 0.5rem;
   }
 }
 
-// 3. Links
+/* 1. Link style
+   ========================================================================== */
 
-// extended in Choice, Typography
-@mixin ds-link {
-  text-decoration: underline;
-  color: $reflex-blue;
-  overflow-wrap: break-word;
+// Extended in Typography
+%link-colour {
+  color: $sea-blue;
+  &:hover,
+  &:active {
+    color: $reflex-blue;
+  }
+  &.disabled {
+    color: $lilac--600;
+    font-style: normal;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// Extended in Sidebar
+%signposted-link {
+  @include fa-icon-after($arrow-right);
   &:hover {
-    color: $sea-blue;
-  }
-  &:visited {
-    color: $midnight-blue;
-  }
-  &.external-link-no-wrap {
-    white-space: nowrap;
-  }
-}
-%ds-link {
-  @include ds-link;
-}
-
-// extended in File, LTI, URL
-%bold-link {
-  margin-bottom: $component-margin-bottom-lg;
-  a:link {
-    font-weight: bold;
-    text-decoration: underline !important;
+    text-decoration: none;
   }
 }
 
-// extended in Typography
-@mixin text-highlight {
-  background-color: tint($yellow, 80%);
-  padding: 2px 4px;
-}
-%text-highlight {
-  @include text-highlight;
-}
-
-// 4. Component templates and subcomponents
-
-// extended in Carousel, Hero
-%caption-overlay {
-  position: absolute;
-  @include bg-colour-opacity($midnight-blue, 0.85);
-  bottom: 0;
-  left: auto;
-  right: auto;
-  width: 100%;
-  padding: 1.25rem $component-padding;
+// Extended in Sidebar
+%signposted-link-left {
+  @include fa-icon-before($arrow-left);
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-// extended in Image, LaTeX, Table
+/* 2. Active style
+   ========================================================================== */
+
+$active-colour: $reflex-blue;
+
+%active-bg {
+  background-color: $reflex-blue;
+}
+
+%link-active-bg {
+  background-color: $reflex-blue;
+  cursor: text;
+  &:hover {
+    color: $white;
+  }
+}
+
+/* 3. Focus style
+   ========================================================================== */
+
+// Extended in Button etc.
+%focus-outline {
+  &:focus {
+    background-color: transparent;
+    border: 2px solid $black;
+    box-shadow: none;
+    outline: 3px solid $focus-colour;
+    outline-offset: 0;
+  }
+}
+
+%focus-outline-negative-margin {
+  @extend %focus-outline;
+  &:focus {
+    margin-left: -3px;
+    margin-right: -3px;
+  }
+}
+
+%focus-outline-important {
+  @extend %focus-outline;
+  &:focus {
+    background: transparent !important;
+    border: 2px solid $black !important;
+    outline: 3px solid $focus-colour !important;
+  }
+}
+
+%focus-outline-negative-margin-important {
+  @extend %focus-outline-negative-margin;
+  &:focus {
+    background: transparent !important;
+    border: 2px solid $black !important;
+    outline: 3px solid $focus-colour !important;
+  }
+}
+
+// Extended in Typography etc.
+%focus-underline {
+  &:focus {
+    color: $black;
+    background-color: $focus-colour;
+    border: none;
+    // Mimics bottom border
+    box-shadow: 0 3px 0 0 $black;
+    outline: none;
+  }
+}
+
+/* I. Figcaption
+   ========================================================================== */
+
+figure {
+  figcaption {
+    @extend .small-type;
+    margin-top: $component-margin--2xs;
+  }
+}
+
+/* II. Horizontal scroll
+   ========================================================================== */
+
+// Extended in Image, LaTeX, Table
 %horizontal-scroll {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   overflow-x: auto;
+  & > * {
+    // Margin between component and scrollbar
+    margin-bottom: $component-margin--2xs !important;
+  }
 }
 
-// extended in Alert, Infobox
+/* III. Infobox
+   ========================================================================== */
+
 %info-box {
-  margin-bottom: $component-margin-bottom;
-  border-radius: 0;
+  margin-bottom: $component-margin;
+  border-radius: 0.5rem;
   border: none;
   padding: 0.75rem 1.25rem;
   position: relative;
-  background-color: $block-background;
+  background-color: $panel-grey;
   & > :first-child,
   %info-box-inner {
-    padding: $component-padding-xs 0.25rem $component-padding-xs 3.125rem;
+    padding-left: 2rem;
     & > :last-child {
       margin-bottom: 0;
     }
@@ -150,9 +191,9 @@
   & > :first-child {
     %info-box-title,
     h3, h4, h5, h6 {
-      @extend %h4;
+    //  @extend %h4;
       margin-top: 0;
-      margin-bottom: $component-margin-bottom-sm;
+      margin-bottom: $component-margin--2xs;
     }
   }
   p {
@@ -171,42 +212,35 @@
   }
   &::before,
   %info-box-inner::before {
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 1.25rem;
     position: absolute;
-    top: 1.25rem;
-    left: 1.5rem;
     color: $midnight-blue;
   }
 }
 
-// extended in Academic Note, View/hide
+/* IV. Note container
+   ========================================================================== */
+
+// Extended in Academic Note, View/hide
 %note-container {
-  margin-bottom: $component-margin-bottom;
+  margin-bottom: $component-margin;
   & > h3, & > h4, & > h5, & > h6 {
     @extend %h4;
-  }
-  & > a,
-  & > button {
-    margin-bottom: 0 !important;
-    &::before {
-      @extend %icon-before;
-      @include fa-content($fa-eye-slash);
-    }
   }
   & > div {
     & > .card-body {
       display: flex;
       flex-wrap: wrap;
-      border-left: 4px solid $pearl-grey;
+      border-left: 4px solid $panel-grey--700;
       padding: 0 0 0 $component-margin;
       max-width: 100%;
       .card-author {
         display: flex;
         align-items: center;
-        margin-bottom: $component-margin-bottom;
-        // we added the following to make it work with 2 authors in
+        margin-bottom: $component-margin;
+        // Following added to make it work with 2 authors in
         // one consultancy course: https://keats.kcl.ac.uk/mod/book/view.php?id=4621952&chapterid=426074
         &.multi-author {
           .card-title {
@@ -218,7 +252,7 @@
           border-radius: 50%;
           height: auto;
           width: 75px;
-          margin-right: $component-margin-sm;
+          margin-right: $component-margin--sm;
         }
         .card-title,
         h3, h4, h5, h6 {
@@ -244,126 +278,5 @@
     .card-author {
       margin-right: $component-margin;
     }
-  }
-  &.collapsed {
-    & > a::before, & > button::before {
-      @include fa-content($fa-eye);
-    }
-    & > div {
-      display: none;
-    }
-  }
-}
-
-// 5. Navigation within activities
-
-// Tab format 
-// extended in Database, Turnitin
-%first-tab-nav {
-  margin: 0 !important;
-  li {
-    margin-bottom: 0 !important;
-    border-radius: 0.25rem 0.25rem 0 0;
-    height: 2.25rem;
-    a {
-      @extend %h5;
-      margin: 0;
-      padding: 6px $component-padding-sm;
-      color: $midnight-blue;
-    }
-    &.active {
-      background: $midnight-blue;
-      a {
-        color: $white;
-      }
-    }
-    &:not(.active){
-      background: transparent;
-      a {
-        background: transparent;
-      }
-      &:hover {
-        background: $block-background;
-      }
-    }
-  }
-}
-%second-tab-nav {
-  background: $block-background !important;
-  margin: 0;
-  margin-bottom: $component-margin !important;
-  border-radius: 0;
-  border: none;
-  padding: $component-padding-xs $component-padding-xs 0 $component-padding-xs;
-  li {
-    background: transparent;
-    height: 2.25rem;
-    margin: 0 $component-margin-xs $component-margin-xs 0;
-    a {
-      font-family: "KingsBureauGrot";
-      color: $midnight-blue;
-      font-size: 0.9rem;
-      background: transparent;
-    }
-    &.ui-state-active, 
-    &.active {
-      background: $white;
-      border-bottom: 2px solid $midnight-blue !important;
-      border-radius: 0;
-    }
-    &:hover {
-      border-bottom: 2px solid $midnight-blue !important;
-    }
-  }
-}
-
-// Pagination
-// extended in Database, Turnitin
-%activity-pagination-container{
-  margin: 0 !important;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-%activity-pagination-button {
-  border: none;
-  background: transparent;
-  font-size: 1rem;
-  font-family: "Open Sans";
-}
-%a-p-b-active {
-  border-radius: 6px;
-  width: 30px;
-  height: 30px;
-  padding: 4px 12px;
-  background: $block-background;
-  background-color: $block-background;
-  font-weight: bold;
-  border: none;
-  color: #555;
-}
-%a-p-b-previous,
-%a-p-b-next {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  @include fa-content($fa-angle-double-left);
-  color: $rules-and-outlines;
-  width: 14px;
-  height: auto;
-}
-%a-p-b-next {
-  @include fa-content($fa-angle-double-right);
-}
-
-// 6. Focus
-
-@mixin outline {
-  outline: 2px solid $sea-blue;
-  outline-offset: 2px;
-  outline-style: auto;
-}
-@mixin focus-outline {
-  &:focus {
-    @include outline;
   }
 }

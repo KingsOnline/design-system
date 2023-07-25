@@ -1,72 +1,108 @@
-// Font Awesome icons
-// ===========================
+// Icons
+// ========================================================================== */
 
-// formats the unicode character correctly following sass compilation
-@mixin fa-content($icon-unicode) {
-  content: #{"\"\\"}#{$icon-unicode + "\""};
-}
-@mixin fa-icon($icon-unicode) {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  @include fa-content($icon-unicode);
-}
+// Brand UI Kit icons
+// ========================================================================== */
 
-// solid
-$fa-volume-off: 2026;
-$fa-check: f00c;
-$fa-times: f00d;
-$fa-clock: f017;
-$fa-download: f019;
-$fa-bookmark: f02e;
-$fa-print: f02f;
-$fa-video: f03d;
-$fa-image: f03e;
-$fa-edit: f044; // journal in infobox
-$fa-times-circle: f057;
-$fa-check-circle: f058;
-$fa-question-circle: f059;
-$fa-arrow-up: f062;
-$fa-arrow-down: f063;
-$fa-plus: f067;
-$fa-minus: f068;
-$fa-exclamation-circle: f06a;
-$fa-eye: f06e;
-$fa-eye-slash: f070;
-$fa-exclamation-triangle: f071;
-$fa-folder: f07b; // folder resource
-$fa-folder-open: f07c; // social annotation files in infobox
-$fa-comments: f086;
-$fa-trophy: f091;
-$fa-arrows-alt: f0b2; // move section / activity
-$fa-users: f0c0; // shared resources in infobox
-$fa-link: f0c1;
-$fa-sort: f0dc;
-$fa-envelope: f0e0;
-$fa-bell: f0f3;
-$fa-angle-double-left: f100;
-$fa-angle-double-right: f101;
-$fa-angle-left: f104;
-$fa-angle-right: f105;
-$fa-angle-up: f106;
-$fa-angle-down: f107;
-$fa-file: f15b; // turnitin export to original format
-$fa-info: f129;
-$fa-play-circle: f144;
-$fa-thumbs-up: f164;
-$fa-cubes: f1b3;
-$fa-file-pdf: f1c1; // turnitin export pdf
-$fa-file-excel: f1c3; // turnitin export xls
-$fa-comments-alt: f27a; // square comment bubble
-$fa-trash-alt: f2ed;
-$fa-pencil: f303;
-$fa-expand-arrows-alt: f31e; // view only section X in CT format
-$fa-clipboard: f328;
-$fa-arrows-alt-h: f337; // to indicate wide table
-$fa-external-link-alt: f35d; // external link
-$fa-cloud-upload-alt: f382;
-$fa-microphone-alt: f3c9;
-$fa-window-close: f410;
-$fa-user-friends: f500;
-$fa-book-reader: f5da;
-$fa-earth-americas: f57d; // icon for Cultural Competency course in Module Resouces block
-$fa-quote-left: f10d; // left double quotation mark for blockquote
+// Arrows
+//==================================== */
+
+$chevron-left: f053;
+$chevron-right: f054;
+$arrow-left: f060;
+$arrow-right: f061;
+$arrow-up: f062;
+$arrow-down: f063;
+$chevron-up: f077;
+$chevron-down: f078;
+$circle-chevron-up: f139;
+$up-right-and-down-left-from-center: f424;
+
+// Components
+//==================================== */
+
+$bookmark: f02e;
+$pen-to-square: f044;
+$circle-xmark: f057;
+$circle-check: f058;
+$circle-question: f059;
+$eye: f06e;
+$eye-slash: f070;
+$triangle-exclamation: f071;
+$folder-open: f07c;
+$trophy: f091;
+$users: f0c0;
+$folder-open: f07c;
+$quote-left: f10d;
+$circle-play: f144;
+$thumbs-up: f164;
+$users: f0c0;
+$message: f27a;
+$book-open-reader: f5da;
+
+// Learning
+//==================================== */
+
+$check: f00c;
+$xmark: f00d;
+$circle-question: f059; // Regular
+$circle-exclamation: f06a; // Regular
+
+// Menu
+//==================================== */
+
+$magnifying-glass: f002;
+$user: f007;
+$bars: f0c9;
+$calendar: f133; // Regular
+$location-dot: f3c5;
+
+// Activity types
+//==================================== */
+
+$pen-to-square: f044; // Coursework
+$award: f559; // Custom cert
+$people-roof: e537; // Face-to-Face
+$volume-high: f028; // Kaltura Media Assignment
+$comment-dots: f4ad; // Open Forum
+$blog: f781; // OU Blog
+$book-bookmark: e0bb; // OU Wiki
+$file-pdf: f1c1; // PDF Annotator
+$calendar: f133; // Scheduler
+$file-pen: f31c; // Turnitin
+
+// Resource types
+//==================================== */
+
+$photo-film: f87c; // Kaltura Video Resource
+$file-contract: f56c; // Poster
+$table-columns: f0db; // Tab display
+
+// Media
+//==================================== */
+
+$plus: 2b;
+$download: f019;
+$play: f04b; // Regular
+$pause: f04c; // Regular
+$share: f064;
+$minus: f068;
+
+// Contact
+//==================================== */
+
+$at: 40;
+$phone: f095;
+$envelope: f0e0;
+$mobile-screen-button: f3cd;
+
+// Social
+//==================================== */
+
+$tiktok: e07b;
+$linkedin: f08c;
+$facebook: f09a;
+$twitter: f099;
+$youtube: f167;
+$instagram: f16d;
+$snapchat: f2ab;

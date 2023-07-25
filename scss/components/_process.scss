@@ -1,82 +1,96 @@
 /* Process
-   =========================*/
+   ========================================================================== */
+
+$process-margin: $component-margin--sm;
+$process-padding: $component-padding--sm;
 
 .process-container {
-  margin-bottom: $component-margin-bottom;
+  max-width: unset;
+  margin-bottom: $component-margin;
+  padding: 0;
   .process-card {
     margin-bottom: 0;
-    background-color: $block-background;
-    padding: $component-padding;
     &.highlighted {
       border: 3px solid $orange;
+      // 5px border radius applied as card has 8px border radius, - 3px border
+      // width
+      img {
+        border-radius: 5px 5px 0 0;
+        @media only screen and (min-width: $breakpoint--md) {
+          border-radius: 5px 0 0 5px;
+        }
+      }
     }
     &:last-child {
-      margin-bottom: $component-margin-bottom;
-    }
-    @media only screen and (max-width: $neo-breakpoint) {
-      padding: $component-padding-sm;
+      margin-bottom: $component-margin;
     }
     .card-body {
-      padding: 0;
-    }
-    & > img,
-    & > .filter-ally-wrapper > img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      @media only screen and (max-width: $neo-breakpoint) {
-        width: 100%;
-        height: auto;
-      }
+      padding: $process-padding;
     }
     & > img,
     & > .filter-ally-wrapper {
       display: block;
-      margin-right: $component-margin;
-      @media only screen and (max-width: $neo-breakpoint) {
+      width: 130px;
+      height: 130px;
+      @media only screen and (max-width: $breakpoint--md) {
         margin-right: 0;
-        margin-bottom: $component-margin-bottom-sm;
+        margin-bottom: $component-margin--sm;
       }
+    }
+    & > img,
+    & > .filter-ally-wrapper > img {
+      object-fit: cover;
+    }
+    & > .filter-ally-wrapper > img {
+      height: 100%;
+      width: 100%;
     }
   }
   .connector-container {
-    margin: $component-margin-xs 0;
+    margin: $component-margin--2xs 0;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .icon {
-      height: 40px;
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 2rem;
+      @media only screen and (min-width: $breakpoint--md) {
+        height: 2.5rem;
+      }
       &.arrow-down::before,
       &.arrow-up::after {
-        @extend %icon-before;
-        margin: $component-margin-xs;
-        @include fa-content($fa-arrow-down);
+        margin: $component-margin--2xs;
+        font-size: 2rem;
         color: $midnight-blue;
-        font-size: 40px;
-        @media only screen and (max-width: $neo-breakpoint) {
-          font-size: 32px;
+        @media only screen and (min-width: $breakpoint--md) {
+          font-size: 2.5rem;
         }
       }
+      &.arrow-down::before {
+        @include fa-icon($arrow-down);
+      }
       &.arrow-up::after {
-        @include fa-content($fa-arrow-up);
+        @include fa-icon($arrow-up);
       }
       &.relate {
         border-right: 5px solid $midnight-blue;
-        margin-bottom: $component-margin-xs;
-        width: calc(50% - 2px);
+        margin-bottom: $component-margin--2xs;
       }
     }
     .process-label {
-      // note that this can be made screenreader-only; the scss for that is in screenreaderdescription
+      // Note that this can be made screenreader-only; the scss for that is in screenreaderdescription
       align-self: center;
       font-weight: bold;
       line-height: 1;
       &:first-child {
-        margin-bottom: $component-margin-xs;
+        margin-bottom: $component-margin--2xs;
       }
       &:last-child {
-        margin-top: $component-margin-xs;
+        margin-top: $component-margin--2xs;
       }
     }
   }

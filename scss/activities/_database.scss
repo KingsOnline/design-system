@@ -1,190 +1,48 @@
 /* Database
-   ======================== */
+   ========================================================================== */
 
-// apply on all different types of pages within the database
-body[id*="page-mod-data-"] {
-  #region-main {
-    ul {
-      &.nav-tabs:nth-of-type(1) {
-        @extend %first-tab-nav;
-        li {
-          margin-right: 10px;
-          a {
-            padding-bottom: 0.3rem;
-          }
-        }
-      }
-      &.nav-tabs:nth-of-type(2) {
-        @extend %second-tab-nav;
-        margin-left: 0;
-      }
-    }
-    nav.pagination {
-      margin-bottom: $component-margin-bottom;
-      display: flex;
-      -webkit-box-pack: right !important;
-      -ms-flex-pack: right !important;
-      justify-content: flex-end !important;
-      ul.pagination {
-        @extend %activity-pagination-container;
-        li.page-item {
-          @extend %activity-pagination-button;
-          a.page-link {
-            @extend %activity-pagination-button;
-            &[aria-label="Next"] {
-              &::after {
-                @extend %a-p-b-next;
-              }
-              span[aria-hidden="true"] {
-                display :none;
-              }
-            }
-            &[aria-label="Previous"] {
-              &::before{
-                @extend %a-p-b-previous;
-              }
-              span[aria-hidden="true"] {
-                display:none;
-              }
-            }
-          }
-          &.active a.page-link {
-            @extend %a-p-b-active;
-          }
-        }
-      }
-    }
-    // for search/filter
-    .datapreferences {
-      form#options {
-        label {
-          margin-right: $component-margin-xs;
-          margin-bottom: $component-margin-bottom;
-        }
-        #pref_perpage,
-        #reg_search,
-        #pref_sortby,
-        #pref_order,
-        label[for="advancedcheckbox"] {
-          margin-right: $component-margin;
-        }
-        @media only screen and (max-width: $neo-breakpoint) {
-          #reg_search {
-            display: block;
-            margin-bottom: $component-margin-bottom;
-            label {
-              margin-bottom: 0;
-            }
-          }
-        }
-        input[value="Save settings"] {
-          @extend %btn-primary;
-        }
-      }
-    }
-    // for advanced search
-    #data_adv_form {
-      table.boxaligncenter {
-        // don't actually want it centred
-        margin-left: 0;
-        td {
-          padding: 0 $component-margin-xs 0 0;
-          text-align: left;
-        }
-      }
-    }
-    // for entry templates
-    .entry {
-      border: 1px solid $table-border;
-      margin-bottom: $component-margin-bottom;
-      padding: $component-padding;
-      a {
-        word-break: break-all;
-      }
-    }
-    img {
-      max-width: 100%;
-    }
-  }
-}
-// just entry adding/editing view
-#page-mod-data-edit {
-  .boxaligncenter{
-    // don't want it to be centre
-    margin-left: 0;
-    &.boxwidthwide {
-      width: 100%
-    }
-    & > h3 {
-      display: none;
-    }
-    // add bottom margin to input fields except for checkboxes
-    .mod-data-input:not(input[type="checkbox"]):not(input[type="radio"]) {
-      margin-bottom: $component-margin-bottom;
-      .editor_atto_wrap {
-        margin-bottom: $component-margin-bottom-xs;
-      }
-    }
-    .mdl-align {
-      // don't want it to be centre
-      text-align: left;
-      input[name="saveandadd"] {
-        @extend %btn-secondary;
-      }
-    }
-    // the below are to make sure each of the entry inputs are aligned
-    fieldset {
-      padding: 0;
-      input[type="checkbox"].mod-data-input {
-          margin-top: -4px;
-      }
-    }
-    .d-inline-flex {
-      flex-direction: column;
-    }
-  }
-}
-// just template creating mode
-#page-mod-data-templates {
-  .template_heading {
-    text-align: left;
-  }
-  .boxwidthwide {
-    width: 100%;
-    & > table {
-      width: 100%;
-      & > tbody {
-        & > tr {
-          & > td:first-child {
-            width: 250px;
-            label[for="availabletags"] {
-              display: inline;
-            }
-            a.btn.btn-link.p-0 {
-              padding: $component-margin-xs!important;
-              margin: 0!important;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+$add-entry-btn-width: 7.375rem;
+$scrollbar-width: 0.75rem;
 
-// just field editing mode
-#page-mod-data-field- {
-  .form-inline {
-    label {
-      font-family: "Open Sans";
+#page-mod-data-view {
+  // Add basic styles to sticky footer
+  .stickyfooter {
+    bottom: 0;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    height: auto;
+    padding: $component-padding--sm !important;
+    @media only screen and (min-width: $breakpoint--sm) {
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
     }
-  }
-  form#sortdefault {
-    input[value="Save"] {
-      display: block!important;
-      @extend %btn-primary;
-    }
-    select {
-      margin:0 $component-margin-sm $component-margin-bottom-sm 0;
+    .navitem {
+      &:first-child {
+        @media only screen and (min-width: $breakpoint--sm) {
+          width: calc(100% - #{$add-entry-btn-width} - #{$scrollbar-width});
+          max-width: calc(1146px - #{$add-entry-btn-width} +
+          calc(#{$scrollbar-width} / 2));
+        }
+        .btn {
+          margin-bottom: $component-margin--sm;
+          @media only screen and (min-width: $breakpoint--sm) {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+      // Spacer
+      &.mr-auto.ml-auto {
+        margin: 0 !important;
+      }
+      &:last-child {
+        @media only screen and (min-width: $breakpoint--sm) {
+          margin-right: $scrollbar-width;
+        }
+        .btn {
+          margin-bottom: 0 !important;
+        }
+      }
     }
   }
 }

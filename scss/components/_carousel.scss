@@ -1,15 +1,15 @@
 /* Carousel
-   ======================== */
+   ========================================================================== */
 
 .carousel {
-  margin-bottom: $component-margin-bottom;
-  padding-bottom: 32px;
+  margin-bottom: $component-margin;
+  padding-bottom: 2rem;
   &::before {
     content: "";
     position: absolute;
-    height: 4px;
+    height: 0.25rem;
     width: 100%;
-    @include bg-colour-opacity($midnight-blue, 0.25);
+    background-color: rgba($midnight-blue, 0.25) !important;
     z-index: 50;
   }
   .carousel-item {
@@ -26,10 +26,17 @@
     }
   }
   .carousel-caption {
-    @extend %caption-overlay;
-    // from common
+    position: absolute;
+    background-color: rgba($midnight-blue, 0.85);
+    bottom: 0;
+    left: auto;
+    right: auto;
+    width: 100%;
     text-align: left;
     padding: 2.4% 11%;
+    & > * {
+      color: $white;
+    }
     p {
       line-height: 1.5;
       margin-bottom: 0;
@@ -43,7 +50,7 @@
         color: $yellow !important;
       }
     }
-    @media only screen and (max-width: $neo-breakpoint) {
+    @media only screen and (max-width: $breakpoint--md) {
       position: static;
     }
   }
@@ -67,20 +74,25 @@
     width: 100%;
     background-color: $midnight-blue;
     li {
-      width: 12px;
-      height: 12px;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin: 0.75rem;
       border-radius: 50%;
       border: none;
-      margin: 10px 11px;
     }
   }
   .carousel-control-prev,
   .carousel-control-next {
     opacity: 1;
+    .carousel-control {
+      color: $white;
+    }
     &:focus {
-      outline: none !important;
+      background: none !important;
+      box-shadow: none !important;
       .carousel-control {
-        @include outline;
+        border: 2px solid $black;
+        outline: 3px solid $focus-colour;
       }
     }
   }
@@ -90,9 +102,9 @@
     display: none;
   }
   .carousel-control {
-    @include bg-colour-opacity($midnight-blue, 0.5);
-    padding: 0 15px !important;
-    border-radius: 4px;
+    background-color: rgba($midnight-blue, 0.5) !important;
+    padding: 0 1rem !important;
+    border-radius: 0.25rem;
     position: static;
     border: none;
     width: auto !important;
@@ -102,10 +114,10 @@
       background-color: $midnight-blue;
     }
     i {
-      font-size: 60px;
+      font-size: 4rem;
     }
   }
-}  
+}
 
 // display in block in atto editor
 .editor_atto_content {
