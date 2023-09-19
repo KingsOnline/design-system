@@ -1,0 +1,16 @@
+/* Download
+   ======================== */
+
+#page-content {
+  .download-container {
+    // This spacing is for when the download button gets used in a 'text and media area' resource on the section page
+    margin-bottom: $component-margin--sm;
+    .btn-download {
+      margin-bottom: $component-margin--2xs;
+    }
+  }
+}
+
+a.link-download {
+  background-color: #FCF8E3;
+}

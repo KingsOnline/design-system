@@ -151,4 +151,13 @@ $floatbox-padding: $component-padding--sm;
       margin-bottom: 0;
     }
   }
+  // to override img-small styles applied to BBA ally-actions button
+  .filter-ally-wrapper {
+    .ally-actions {
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
 }

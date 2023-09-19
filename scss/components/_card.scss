@@ -141,11 +141,16 @@ $figcaption-margin: $component-margin--2xs;
     }
     & > figure {
       height: fit-content;
-      img:not(:only-child) {
+      & > .filter-ally-wrapper:not(:only-child) > img,
+      & > img:not(:only-child) {
         width: calc(100% - (#{$card-image-margin} * 2));
       }
+      figcaption {
+        margin-bottom: 0;
+        margin-right: $card-margin;
+      }
     }
-    // Default layout of iamge above body text
+    // Default layout of image above body text
     & > figure,
     & > .filter-ally-wrapper,
     & > img {
@@ -153,13 +158,12 @@ $figcaption-margin: $component-margin--2xs;
       width: 100%;
     }
     & > figure > img,
-    & .filter-ally-wrapper > img,
-    & > img {
+    & figure .filter-ally-wrapper > img,
+    & > img,
+    & > .filter-ally-wrapper > img {
       width: 100%;
       height: auto;
-      @media only screen and (min-width: $breakpoint--md) {
-        border-radius: 0.5rem 0.5rem 0 0;
-      }
+      border-radius: 0.5rem 0.5rem 0 0;
     }
     .card-body {
       order: 2;
@@ -175,12 +179,15 @@ $figcaption-margin: $component-margin--2xs;
       justify-content: space-between;
       figure {
         order: 2;
-        img {
+        img, .filter-ally-wrapper:only-child img {
           border-radius: 0 0 0.5rem 0.5rem;
-          &:not(:only-child) {
-            margin: 0 $card-image-margin;
-            border-radius: 0;
-          }
+          margin-top: 0;
+        }
+        & > .filter-ally-wrapper:not(:only-child) > img {
+          margin: 0 $card-image-margin;
+        }
+        & > .filter-ally-wrapper:not(:only-child) > img, img:not(:only-child) {
+          border-radius: 0;
         }
         figcaption {
           margin-bottom: $card-margin;

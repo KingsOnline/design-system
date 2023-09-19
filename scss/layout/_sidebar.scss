@@ -2,6 +2,14 @@
    ========================================================================== */
 
 .drawer {
+  section.block {
+    // Override Card heading styles and revert block titles to default h5
+    // styles of Open Sans font and Body Text colour
+    .card-title {
+      @extend %h5;
+      color: $body-text;
+    }
+  }
   // Text blocks
   .block_html {
     .content {

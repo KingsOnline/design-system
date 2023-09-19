@@ -1,6 +1,6 @@
 /* Typography
    ========================================================================== */
- 
+
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
   @each $fs-breakpoint, $fs-font-size in $fs-map {
     @if $fs-breakpoint == null {
@@ -36,7 +36,7 @@ $breakpoints: (
  * 5. Udokporo  - sub-headings within content blocks, secondary to Morley
  * 6. Woolf     - third sub-heading style for minor, tertiary information
  */
- 
+
 $h1-font-sizes: (
   null : 32px,
   md: 42px,
@@ -76,7 +76,7 @@ $h5-font-sizes: (
 
 /* 1. Clarke
    ========================================================================== */
-   
+
 .clarke,
 %h1 {
   @include font-size($h1-font-sizes);
@@ -84,7 +84,7 @@ $h5-font-sizes: (
 
 /* 2. de Botton
    ========================================================================== */
-   
+
 .de-botton, %h2 {
   @include font-size($h2-font-sizes);
 }
@@ -139,7 +139,7 @@ $h5-font-sizes: (
  * 5. Bungar   - Small bold type where the UI requires, for functional or
  *               supplementary information
  */
- 
+
 /* 1. Hill
    ========================================================================== */
 
@@ -207,8 +207,9 @@ p,
    ========================================================================== */
 
 /**
- * 1. Anand     - used for quotes or stand-first excerpts
- * 2. Gilchrist - used for longer quotes or long-read excerpts
+ * Anand and Gilchrist are not used in KEATS
+ * 1. larger font in powder-blue--600 used for quotes or stand-first excerpts
+ * 2. smaller font in midnight-blue used for longer quotes or long-read excerpts
  */
 
 $quotation-font-sizes: (
@@ -218,19 +219,17 @@ $quotation-font-sizes: (
 );
 
 %blockquote-font {
-  font-family: "KingsCaslon", Georgia, serif;
+  font-family: "Open Sans", Arial, sans-serif;
   line-height: 1.5;
 }
 
-.anand,
 .large-blockquote, {
   @include font-size($quotation-font-sizes);
   @extend %blockquote-font;
   color: $powder-blue--600;
 }
 
-.gilchrist,
-blockquote, q {
+blockquote, %blockquote, q {
   @extend %blockquote-font;
   font-size: 16px;
   color: $midnight-blue;
@@ -250,11 +249,9 @@ a[target="_blank"] {
   }
 }
 
-// Lists
-ol,
-ul {
-  margin-bottom: $component-margin--sm;
-  padding-left: $component-padding--lg;
+// Apply larger margin bottom to section tag
+section {
+  margin-bottom: $component-margin--lg;
 }
 
 // Larger chunks of pre-formatted text

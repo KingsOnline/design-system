@@ -4,7 +4,7 @@
 $blockquote-image-size: 4rem;
 
 .quote-box {
-  @extend .gilchrist;
+  @extend %blockquote;
   position: relative;
   margin: $component-margin--xl 0 $component-margin;
   padding: $component-padding $component-padding--sm $component-padding--sm;
@@ -33,13 +33,12 @@ $blockquote-image-size: 4rem;
       left: calc(-#{$blockquote-image-size} / 2);
     }
   }
+  .quote-body {
+    padding: 0;
+  }
   .quote-body,
   .quote-body > * {
-    @extend .gilchrist;
-    &:not(ol):not(ul) {
-      margin: 0;
-      padding: 0;
-    }
+    @extend %blockquote;
   }
   .quote-attribution {
     @extend .higgs;
@@ -47,16 +46,6 @@ $blockquote-image-size: 4rem;
     h4, h5, h6,
     & > :last-child {
       margin-bottom: 0;
-    }
-  }
-}
-
-// Delete the following when styles are updated in theme
-.blockquote {
-  .quote-body {
-    & > ol,
-    & > ul {
-      margin-bottom: $component-margin--sm;
     }
   }
 }

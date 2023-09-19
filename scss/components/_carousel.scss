@@ -1,120 +1,122 @@
 /* Carousel
    ========================================================================== */
 
-.carousel {
-  margin-bottom: $component-margin;
-  padding-bottom: 2rem;
-  &::before {
-    content: "";
-    position: absolute;
-    height: 0.25rem;
-    width: 100%;
-    background-color: rgba($midnight-blue, 0.25) !important;
-    z-index: 50;
-  }
-  .carousel-item {
-    // remove transition animation from bootstrap js
-    transition: none;
-    img {
-      width: 100% !important;
-      height: auto;
+#region-main {
+  .carousel {
+    margin-bottom: $component-margin;
+    padding-bottom: 2rem;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 0.25rem;
+      width: 100%;
+      background-color: rgba($midnight-blue, 0.25) !important;
+      z-index: 50;
     }
-    .filter-ally-wrapper .ally-score-indicator-embedded {
-      top: unset !important;
-      bottom: 0.5rem;
-      z-index: 11 !important;
-    }
-  }
-  .carousel-caption {
-    position: absolute;
-    background-color: rgba($midnight-blue, 0.85);
-    bottom: 0;
-    left: auto;
-    right: auto;
-    width: 100%;
-    text-align: left;
-    padding: 2.4% 11%;
-    & > * {
-      color: $white;
-    }
-    p {
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-    a {
-      color: $white !important;
-      &:hover {
-        color: $lime-green !important;
-      }
-      &:visited {
-        color: $yellow !important;
-      }
-    }
-    @media only screen and (max-width: $breakpoint--md) {
-      position: static;
-    }
-  }
-  &.text-only {
     .carousel-item {
-      background-color: tint($midnight-blue, 15%);
-      padding-top: 33.3333%;
+      // remove transition animation from bootstrap js
+      transition: none;
+      img {
+        width: 100% !important;
+        height: auto;
+      }
+      .filter-ally-wrapper .ally-score-indicator-embedded {
+        top: unset !important;
+        bottom: 0.5rem;
+        z-index: 11 !important;
+      }
     }
     .carousel-caption {
       position: absolute;
-      background-color: transparent !important;
-      top: 25%;
-      z-index: 1;
-      padding: 2.4% 12%;
-    }
-  }
-  .carousel-indicators {
-    top: auto;
-    bottom: 0;
-    margin: 0 !important;
-    width: 100%;
-    background-color: $midnight-blue;
-    li {
-      width: 0.75rem;
-      height: 0.75rem;
-      margin: 0.75rem;
-      border-radius: 50%;
-      border: none;
-    }
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    opacity: 1;
-    .carousel-control {
-      color: $white;
-    }
-    &:focus {
-      background: none !important;
-      box-shadow: none !important;
-      .carousel-control {
-        border: 2px solid $black;
-        outline: 3px solid $focus-colour;
+      background-color: rgba($midnight-blue, 0.85);
+      bottom: 0;
+      left: auto;
+      right: auto;
+      width: 100%;
+      text-align: left;
+      padding: 2.4% 11%;
+      & > * {
+        color: $white;
+      }
+      p {
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+      a {
+        color: $white !important;
+        &:hover {
+          color: $lime-green !important;
+        }
+        &:visited {
+          color: $yellow !important;
+        }
+      }
+      @media only screen and (max-width: $breakpoint--md) {
+        position: static;
       }
     }
-  }
-  // hide carousel controls on first and last slide
-  &.start .carousel-control-prev,
-  &.finish .carousel-control-next {
-    display: none;
-  }
-  .carousel-control {
-    background-color: rgba($midnight-blue, 0.5) !important;
-    padding: 0 1rem !important;
-    border-radius: 0.25rem;
-    position: static;
-    border: none;
-    width: auto !important;
-    height: auto !important;
-    opacity: 1;
-    &:hover {
-      background-color: $midnight-blue;
+    &.text-only {
+      .carousel-item {
+        background-color: tint($midnight-blue, 15%);
+        padding-top: 33.3333%;
+      }
+      .carousel-caption {
+        position: absolute;
+        background-color: transparent !important;
+        top: 25%;
+        z-index: 1;
+        padding: 2.4% 12%;
+      }
     }
-    i {
-      font-size: 4rem;
+    .carousel-indicators {
+      top: auto;
+      bottom: 0;
+      margin: 0 !important;
+      width: 100%;
+      background-color: $midnight-blue;
+      li {
+        width: 0.75rem;
+        height: 0.75rem;
+        margin: 0.75rem;
+        border-radius: 50%;
+        border: none;
+      }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      opacity: 1;
+      .carousel-control {
+        color: $white;
+      }
+      &:focus {
+        background: none !important;
+        box-shadow: none !important;
+        .carousel-control {
+          border: 2px solid $black;
+          outline: 3px solid $focus-colour;
+        }
+      }
+    }
+    // hide carousel controls on first and last slide
+    &.start .carousel-control-prev,
+    &.finish .carousel-control-next {
+      display: none;
+    }
+    .carousel-control {
+      background-color: rgba($midnight-blue, 0.5) !important;
+      padding: 0 1rem !important;
+      border-radius: 0.25rem;
+      position: static;
+      border: none;
+      width: auto !important;
+      height: auto !important;
+      opacity: 1;
+      &:hover {
+        background-color: $midnight-blue;
+      }
+      i {
+        font-size: 4rem;
+      }
     }
   }
 }

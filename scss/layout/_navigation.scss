@@ -1,0 +1,27 @@
+/* Navigation
+   ========================================================================== */
+
+/* DELETE THIS ONCE CTEL HAVE CODE ADDED TO KINGS THEME */
+// Styling to give active link in any A-Z filtering list white text on blue BG instead of blue text on blue BG
+#region-main {
+  .pagination {
+    .page-item.active {
+      .page-link {
+        color: $white;
+      }
+    }
+  }
+}
+
+// This can also be deleted once it is part of the Kings Theme
+#usernavigation {
+  .usermenu-container {
+    .usermenu {
+      span.login.pl-2 {
+        a {
+          margin-left: $component-margin--2xs;
+        }
+      }
+    }
+  }
+}

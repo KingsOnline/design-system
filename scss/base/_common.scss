@@ -190,10 +190,14 @@ figure {
   }
   & > :first-child {
     %info-box-title,
-    h3, h4, h5, h6 {
-    //  @extend %h4;
+    h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+      @extend %h4;
       margin-top: 0;
       margin-bottom: $component-margin--2xs;
+    }
+    h3, h4, h5, h6 {
+      @extend %h5;
+      color: $body-text;
     }
   }
   p {

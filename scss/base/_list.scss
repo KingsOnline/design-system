@@ -1,0 +1,214 @@
+/* Lists
+   ========================================================================== */
+
+// Supported custom list styles
+$list-style-types: (
+  "1": "decimal",
+  "a": "lower-alpha",
+  "i": "lower-roman",
+  "ua": "upper-alpha",
+  "ui": "upper-roman"
+);
+
+@mixin marker-content($marker-prefix, $marker, $marker-suffix, $after: null) {
+  & > li {
+    // construct marker
+    &::before {
+      content: $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+    }
+    // custom marker values
+    &[data-value]::before {
+      counter-increment: none;
+      content: $marker-prefix attr(data-value) $marker-suffix;
+    }
+    &.no-marker-style[data-value]::before {
+      counter-increment: none;
+      content: attr(data-value);
+    }
+    // wraps an entire individual list item in square brackets
+    &.li-square-bracket-wrap {
+      text-indent: -22px;
+      &::before {
+        content: "[" $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+      }
+      &[data-value]::before {
+        counter-increment: none;
+        content: "[" $marker-prefix attr(data-value) $marker-suffix;
+      }
+      &::after {
+        content: "]";
+      }
+    }
+  }
+  @for $i from 1 through 100 {
+    &[start="#{$i}"] {
+      counter-reset: custom-ol #{$i - 1};
+    }
+    & > li[value="#{$i}"]::before {
+      counter-reset: custom-ol #{$i - 1};
+      content: $marker-prefix counter(custom-ol, #{$marker}) $marker-suffix;
+    }
+    & > li[value="#{$i}"] + li {
+      counter-reset: custom-ol #{$i};
+    }
+  }
+}
+
+@mixin custom-ol {
+  counter-reset: custom-ol;
+  @each $l, $lst in $list-style-types {
+    &[type="#{$l}"] {
+      $marker-type: $lst;
+      // default style
+      @include marker-content("", $marker-type, ". ");
+      &.single-parenthesis {
+        @include marker-content("", $marker-type, ") ");
+      }
+      &.double-parentheses {
+        @include marker-content("(", $marker-type, ") ");
+      }
+      &.square-brackets {
+        @include marker-content("[", $marker-type, "] ");
+      }
+      &.item-prefix {
+        @include marker-content("Item ", $marker-type, ": ");
+        padding-left: 1.5rem;
+        & > li {
+          text-indent: 0;
+          &::before {
+            font-weight: bold;
+            margin-right: 0.5rem;
+          }
+        }
+        ol:not(.custom-ol) {
+          padding-left: $component-padding;
+        }
+      }
+      & > li {
+        &::before {
+          counter-increment: custom-ol;
+        }
+      }
+    }
+  }
+}
+
+#region-main {
+  ol, ul {
+    margin: 0 0 $component-margin $component-margin--lg;
+    font-size: 1rem;
+    & > li {
+      &:not(:last-child) {
+        margin-bottom: $component-margin--2xs;
+      }
+    }
+    ol, ul {
+      margin-top: $component-margin--sm;
+      & > li:not(:last-child) {
+        margin-bottom: $component-margin--sm;
+      }
+    }
+  }
+  ol.custom-ol {
+    @include custom-ol;
+    margin: 0 0 $component-margin 0;
+    padding-left: 4rem;
+    &.ol-markers-bold {
+      & > li {
+        &::before,
+        &::after {
+          font-weight: bold;
+        }
+      }
+    }
+    &.ol-markers-normal {
+      & > li {
+        &::before,
+        &::after {
+          font-weight: normal !important;
+        }
+      }
+    }
+    & > li {
+      list-style-type: none;
+      text-indent: -1.25rem;
+      &::before {
+        display: inline-flex;
+        justify-content: flex-end;
+        text-align: right;
+        margin-right: 0.5rem;
+        min-width: 0.75rem;
+      }
+      // Removes marker
+      &[data-value^="none"] {
+        text-indent: 0;
+        &::before {
+          counter-increment: custom-ol;
+          content: none !important;
+        }
+      }
+      // Removes marker and skips to the next number (or equivalent)
+      &[data-value="none-skip"] {
+        text-indent: 0;
+        &::before {
+          counter-reset: custom-ol;
+          content: none !important;
+        }
+        & + li {
+          counter-increment: custom-ol;
+        }
+      }
+      &.li-bold {
+        font-weight: bold;
+        &::before {
+          font-weight: bold !important;
+        }
+      }
+      &.li-italic {
+        font-style: italic;
+      }
+      &.li-marker-bold {
+        &::before,
+        &::after {
+          font-weight: bold !important;
+        }
+      }
+      &.li-marker-italic::before {
+        font-style: italic;
+      }
+    }
+    ol.custom-ol {
+      margin: 1rem 0;
+      padding-left: $component-padding--lg;
+    }
+    // Nested non-custom ols and uls
+    ol:not(.custom-ol),
+    ul {
+      & > li {
+        text-indent: 0 !important;
+      }
+    }
+  }
+  .summary {
+    ol, ul {
+      // Moodle adds a span around li on section pages
+      & > span > li,
+      & > li  {
+        &:not(:last-child) {
+          margin-bottom: $component-margin--sm;
+        }
+        ol, ul {
+          & > span > li,
+          & > li {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Give links in lists the same styling as if they were in paragraphs within lists
+[id^="page-mod-"] #region-main div[role=main] div:not(.navbottom) li a:link {
+  text-decoration: underline;
+}

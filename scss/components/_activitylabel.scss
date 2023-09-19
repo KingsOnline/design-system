@@ -24,3 +24,10 @@
     }
   }
 }
+
+// If "activity-label-stu-ngr-nme" prefix is used then hide activity-label-container
+.activity-item[data-activityname^='activity-label-stu-ngr-nme'] {
+  .activity-label-container {
+    display: none;
+  }
+}
